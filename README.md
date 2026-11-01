@@ -70,16 +70,6 @@ Mở http://localhost:8080. Thứ tự: SQL healthy → migration → demo seed 
 
 Nginx phục vụ React và proxy `/api`, frontend/backend/SQL đều được container hóa. Các image/build recipes cần Docker truy cập registry. Kết quả kiểm chứng thực tế được ghi ở docs/Implementation-Status.md; không suy Compose hợp lệ đồng nghĩa mọi image đã build thành công.
 
-## Google Cloud Vertex AI bằng API key
-
-Trong `.env` local, đặt `VERTEX_MODEL=gemini-3.8-flash`, `VERTEX_LOCATION=global` và tự điền `VERTEX_API_KEY`. Key được dùng riêng ở backend qua header `x-goog-api-key`, gọi Vertex AI Express tại `https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-3.8-flash:generateContent`. Chế độ API key không cần `VERTEX_PROJECT_ID` hoặc `GOOGLE_APPLICATION_CREDENTIALS`; không còn cần cờ `VERTEX_USE_EXPRESS_URL`.
-
-Compose truyền key vào riêng container API lúc chạy, không đóng gói `.env` vào image. Sau khi đổi key, tạo lại API bằng `docker compose -f compose.yaml -f compose.app.yaml up -d --no-deps api`. Sau khi đổi mã nguồn, build lại bằng `docker compose -f compose.yaml -f compose.app.yaml up -d --build --no-deps api`.
-
-Key phải được Google Cloud cho phép dùng với `aiplatform.googleapis.com`, bao gồm chính sách gắn service account nếu có. Không gửi key vào chat, frontend hoặc Git. Lỗi quyền/hạn mức/model được báo bằng thông báo đã loại thông tin nhạy cảm; ứng dụng không thay lỗi bằng công thức demo. Bản local vẫn cần hoàn thiện xác thực và quota riêng cho route AI trước khi mở public.
-
-Nguồn cấu hình: [Vertex AI Express API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/express-mode/api-reference), [Gemini 3.8 Flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/guides/gemini-3-8-flash), [migration](https://ai.google.dev/gemini-api/docs/latest-model).
-
 ## Những phần tiếp theo
 
 Email verification/reset, MFA/admin audit, editor publish và version recipe bất biến; TTS cloud/worker; inventory/FEFO/nhắc bảo quản; nutrient import/diary/Eat Fit; giá/ngân sách; upload/R2 ảnh có quyền; monitoring/backup/restore và production TLS/secrets. Chưa mở các tính năng này bằng dữ liệu giả.
