@@ -1,0 +1,97 @@
+import { useEffect, useState } from 'react';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { m } from 'motion/react';
+import { useQuery } from '@tanstack/react-query';
+import { CheckCircle2, Search, X } from 'lucide-react';
+import type { User } from '@cookora/contracts';
+import { request } from './api';
+import { noticeContext, authContext, Loading, Empty } from './shared';
+import { Header, Footer, ScrollTop } from './layout';
+import { Home } from './pages/Home';
+import { Discover } from './pages/Discover';
+import { Detail, Cooking } from './pages/Recipe';
+import { Matcher } from './pages/Matcher';
+import { Planner } from './pages/Planner';
+import { Shopping } from './pages/Shopping';
+import { Favorites } from './pages/Favorites';
+import { AuthPage } from './pages/Auth';
+import { Editor } from './pages/Editor';
+import { Roadmap } from './pages/Roadmap';
+
+export function App() {
+  const location = useLocation();
+  const [notice, setNotice] = useState('');
+  const auth = useQuery({ queryKey: ['auth'], queryFn: () => request<User>('/auth/me'), retry: false });
+  useEffect(() => {
+    if (!notice) return;
+    const timer = setTimeout(() => setNotice(''), 4500);
+    return () => clearTimeout(timer);
+  }, [notice]);
+  useEffect(() => {
+    const titles: Record<string, string> = {
+      '/': 'Có gì, nấu nấy',
+      '/cong-thuc': 'Khám phá công thức',
+      '/co-gi-nau-nay': 'Có gì nấu nấy',
+      '/thuc-don': 'Thực đơn tuần',
+      '/yeu-thich': 'Món đã lưu',
+      '/dang-nhap': 'Bếp của tôi',
+      '/bien-tap': 'Không gian biên tập',
+    };
+    document.title = `${titles[location.pathname] || 'Bếp nhà'} · Cookora`;
+  }, [location.pathname]);
+  return (
+    <noticeContext.Provider value={setNotice}>
+      <authContext.Provider value={auth.data?.data || null}>
+        <ScrollTop />
+        <a href="#page-content" className="skip-link">
+          Đến nội dung chính
+        </a>
+        <Header />
+        <m.div
+          id="page-content"
+          tabIndex={-1}
+          key={location.pathname}
+          initial={{ opacity: 0.8 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.16 }}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cong-thuc" element={<Discover />} />
+            <Route path="/cong-thuc/:slug" element={<Detail />} />
+            <Route path="/cong-thuc/:slug/nau" element={<Cooking />} />
+            <Route path="/co-gi-nau-nay" element={<Matcher />} />
+            <Route path="/thuc-don" element={auth.isPending ? <Loading /> : <Planner />} />
+            <Route path="/di-cho/:planId" element={auth.isPending ? <Loading /> : <Shopping />} />
+            <Route path="/yeu-thich" element={auth.isPending ? <Loading /> : <Favorites />} />
+            <Route path="/dang-nhap" element={auth.isPending ? <Loading /> : <AuthPage />} />
+            <Route path="/bien-tap" element={auth.isPending ? <Loading /> : <Editor />} />
+            <Route path="/lo-trinh" element={<Roadmap />} />
+            <Route
+              path="*"
+              element={
+                <main className="container">
+                  <Empty icon={<Search size={32} />} title="Không tìm thấy trang">
+                    <Link className="btn" to="/">
+                      Về trang chủ
+                    </Link>
+                  </Empty>
+                </main>
+              }
+            />
+          </Routes>
+        </m.div>
+        <Footer />
+        {notice && (
+          <div className="toast" role="status">
+            <CheckCircle2 size={18} />
+            {notice}
+            <button aria-label="Đóng thông báo" onClick={() => setNotice('')}>
+              <X size={15} />
+            </button>
+          </div>
+        )}
+      </authContext.Provider>
+    </noticeContext.Provider>
+  );
+}

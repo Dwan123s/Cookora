@@ -1,0 +1,38 @@
+# Cookora homepage concept v1
+
+Design direction: editorial Vietnamese home cooking; preserve ivory, terracotta and forest green brand colors. Desktop homepage concept before implementation.
+
+Generation mode: built-in image_gen. This is a proposed UI mockup, not a screenshot of the current application. Recipe images are illustrative; draft content must not be presented as tested or published.
+
+## Generation prompt
+
+Use case: ui-mockup.
+Asset type: a single high-fidelity desktop homepage UI design image for the existing Vietnamese home-cooking web app Cookora. Design this as a senior product designer: polished, realistic and implementable, beautiful editorial food photography, superb hierarchy, readable Vietnamese text and purposeful functionality.
+Output: one tall desktop webpage screenshot, approximately 1600px wide by 2200px tall, front-on, crisp and flat, full homepage top to footer. The entire image IS the webpage, no device, no browser chrome, no presentation background, no annotations, no watermark, no adjacent mobile screen.
+
+PROJECT CONTEXT: Cookora helps Vietnamese home cooks discover recipes, match available ingredients, get AI recipe ideas, save favorites, plan weekly meals and create shopping lists. Keep the brand wordmark spelled exactly "cookora." and the existing brand character "BẾP NHÀ, VỊ THƯƠNG". Content scope is 150 Vietnamese dishes and 150 international topics, but these are planned topics, NOT 300 published recipes, so do not advertise a published count. Current recipe examples are editorial drafts. Do not invent testimonials, ratings, user counts, verified badges, nutritional claims or prices.
+
+ART DIRECTION: airy contemporary culinary magazine meets a useful modern cooking app. Warm ivory #FFF9F2 canvas, deep cocoa #302A24 text, rich terracotta #B6472B for primary actions, muted forest green #496B4A for ingredient-related accents, subtle pale beige dividers. Preserve these project brand colors while refining the design. Large expressive editorial serif headings, exceptionally clean Vietnamese sans-serif for navigation and UI. Generous whitespace, precise consistent alignment, restrained 16-24px rounding, beautiful image crops, almost no drop shadows. Use disciplined 12-column desktop layout with wide side gutters and 8px spacing rhythm. Broad expressive header typography and varied section scale; avoid a generic dashboard of identical rounded cards. All visible writing is Vietnamese with correct diacritics, use only the exact short copy supplied below.
+
+LAYOUT FROM TOP TO BOTTOM:
+1. Slim elegant ivory header. Left: small simple cooking-pot line symbol and the dark terracotta wordmark "cookora.", with tiny uppercase subtitle "BẾP NHÀ, VỊ THƯƠNG". Center nav: "Khám phá", "Có gì nấu nấy", "Thực đơn tuần", "Yêu thích". Right: a restrained terracotta rounded button "Bếp của tôi" with a small arrow. Hairline bottom border. Clear readability, ample spacing.
+
+2. Memorable asymmetrical hero, around 480-520px high. Left 48%: small terracotta eyebrow "MỖI NGÀY MỘT BỮA CƠM NHÀ". Large elegant serif headline in three balanced lines: "Một chút cảm hứng." then "Một bữa" and an italic terracotta "ngon lành." The exact phrase is "Một chút cảm hứng. Một bữa ngon lành." Under it, quiet short body copy: "Tìm món hợp ý, tận dụng nguyên liệu và mang niềm vui trở lại căn bếp." A prominent white wide search field with magnifier icon and placeholder "Hôm nay bạn muốn nấu món gì?", ending in a solid terracotta search button with arrow. Below, small suggestions "Thử tìm:" and subtle clickable chips "Đậu hũ", "Trứng", "Món Hàn". A lightweight secondary link "Có gì nấu nấy" with a tiny ingredient icon.
+Right 52%: large premium editorial food photograph in a simple gently rounded rectangle, beautifully art directed overhead Vietnamese family meal: a bowl of glossy tomato-braised tofu, small bowl of white steamed rice, vibrant green vegetables, a small clear vegetable soup and wooden chopsticks on warm natural linen and pale stone. Genuine appetizing photographic detail, natural daylight, sophisticated warm composition, no people. One small understated label at photo edge: "Bữa cơm nhà". Tiny "Ảnh minh họa" caption. Let photography anchor the hero, no floating stickers, rings, flags or decorative scribbles.
+
+3. Compact cuisine discovery strip with a refined section title "Hôm nay, ghé bếp nước nào?" and right link "Khám phá tất cả →". Seven evenly spaced light tiles/pills, each with a tiny tasteful circular food thumbnail instead of emoji flags. Exact labels: "Việt Nam", "Hàn Quốc", "Nhật Bản", "Trung Quốc", "Thái Lan", "Ý", "Âu / Mỹ". Vietnamese tile has subtle terracotta tint and active border. Other tiles neutral ivory. Elegant restraint and readable labels.
+
+4. Editorial recipe section with heading "Gợi ý cho căn bếp của bạn" and a small right-side "Xem công thức →" link. A quiet small subcaption "Công thức mẫu · Chưa nấu thử". Three large photographic recipe cards in a single row, with image-dominant 4:3 photographs, clean text below, small outline heart save button in upper-right of each image, tiny cuisine overline, refined readable title and simple footer "2 phần" plus a small understated "Bản thảo" tag. Use exact three titles and cuisine labels:
+- "Đậu hũ sốt cà chua" / "VIỆT NAM": warm red tomato tofu with scallions in ceramic bowl.
+- "Cơm kimchi" / "HÀN QUỐC": vivid kimchi fried rice, do not add a fried egg to this version.
+- "Oyakodon" / "NHẬT BẢN": Japanese chicken and fully cooked egg rice bowl with scallions.
+Food images must be varied, photorealistic and consistent with titles. No ratings, fake review stars, made-up timers or invented calories.
+
+5. Distinctive wide deep forest-green ingredient-assistant panel with rounded corners and elegant two-column layout. Left: small white eyebrow "CÓ GÌ NẤU NẤY", large white serif headline "Tủ lạnh còn gì,\nbếp mình nấu nấy." and concise text "Thêm nguyên liệu sẵn có. Tìm ý tưởng cho bữa ăn hôm nay." A pale ivory CTA button "Tìm món từ nguyên liệu →".
+Right: white compact ingredient selector UI embedded neatly, heading "Bạn đang có gì?", ingredient chips "Trứng", "Cà chua", "Rau củ", each with tiny naturally photographed ingredient cutout, a subtle "+ Thêm nguyên liệu" text action, small pill "2 người". This must look like a credible interactive tool preview, with real spacing and line icons, not a random decorative illustration. Do not mention model names, API keys or technical infrastructure.
+
+6. Small elegant three-step section heading "Từ ý tưởng đến bữa cơm nhà". Three horizontally aligned steps with tiny outline icons and understated large step numbers 01, 02, 03. Titles "Chọn món hợp ý", "Lên thực đơn tuần", "Đi chợ nhẹ tênh". Minimal short body text or no body copy, plenty of whitespace, no large enclosing cards.
+
+7. Minimal warm footer with a hairline top divider: wordmark "cookora.", short phrase "Bếp nhà, vị thương.", navigation "Khám phá", "Có gì nấu nấy", "Thực đơn tuần". Tiny muted note "Bản thiết kế đề xuất · Ảnh minh họa".
+
+QUALITY CONSTRAINTS: this should look like a sophisticated real homepage designed in Figma, not a poster, not concept art. Perfect section hierarchy, crisp legible typography, realistic accessible contrast, large tap targets, consistent alignment, clean whitespace, engaging but restrained brand expression. Render Vietnamese diacritics accurately. Keep every section inside the canvas, including full footer. Prioritize beautiful hierarchy and appetizing food photography. Do not include browser chrome, wireframe labels, measurement lines, stock-image watermarks, giant drop shadows, 3D glass, neon gradients, unrelated products, fake analytics, or Google Cloud screenshots.

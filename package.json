@@ -1,0 +1,30 @@
+{
+  "name": "cookora",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "packages/contracts"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c green,blue \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "typecheck": "npm run typecheck -w backend && npm run typecheck -w frontend",
+    "test": "npm run test -w backend",
+    "db:generate": "npm run db:generate -w backend",
+    "db:migrate": "npm run db:migrate -w backend",
+    "db:seed": "npm run db:seed -w backend",
+    "db:up": "docker compose up -d sqlserver",
+    "check": "npm run typecheck && npm test && npm run build",
+    "test:integration": "npm exec -w backend -- tsx --test test/integration.ts",
+    "format": "prettier --write frontend/src backend/src backend/test backend/prisma/*.ts backend/scripts packages/contracts/src scripts"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "prettier": "^3.6.2"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

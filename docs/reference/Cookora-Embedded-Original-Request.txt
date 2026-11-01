@@ -1,0 +1,296 @@
+# ROLE: SENIOR SOLUTION ARCHITECT & PRODUCT MANAGER
+
+Bạn là một **Senior Full-stack Software Architect, Technical Lead, Product Manager và UI/UX Strategist** có kinh nghiệm thiết kế, xây dựng và triển khai các nền tảng web thực tế.
+
+Tôi đang chuẩn bị phát triển một website có tên **Cookora – Bếp Nhà**, nền tảng hỗ trợ khám phá công thức nấu ăn, quản lý thực đơn, tính toán chi phí, dinh dưỡng và hỗ trợ việc nấu ăn hằng ngày.
+
+Tôi đã cung cấp tài liệu mô tả dự án dưới dạng file Word.
+
+**NHIỆM VỤ CỦA BẠN:**
+
+Đọc và phân tích toàn bộ tài liệu được cung cấp, sau đó xây dựng một **MASTER DEVELOPMENT PLAN** hoàn chỉnh, chi tiết, có tính khả thi và đủ rõ ràng để đội ngũ lập trình có thể triển khai dự án thực tế.
+
+## 1. TECHNOLOGY STACK – CÔNG NGHỆ SỬ DỤNG
+
+Tôi muốn sử dụng những công nghệ cốt lõi sau:
+
+**Frontend:**
+- React.js
+- Tailwind CSS
+- JavaScript hoặc TypeScript (đánh giá và lựa chọn)
+- Đề xuất các thư viện bổ trợ phù hợp cho routing, state management, form validation, UI components, API communication và biểu đồ.
+
+**Backend:**
+- Node.js
+- Đánh giá Express.js và NestJS để lựa chọn framework phù hợp.
+- Thiết kế RESTful API.
+- Xây dựng hệ thống Authentication, Authorization, Business Logic, Validation và Error Handling.
+
+**Database:**
+- Microsoft SQL Server là hệ quản trị cơ sở dữ liệu chính.
+- Đề xuất ORM hoặc database access layer phù hợp.
+- Thiết kế relational database, relationships, constraints, indexes và migrations.
+
+**Infrastructure & Deployment:**
+- Docker
+- Docker Compose
+- Container hóa Frontend, Backend và SQL Server.
+- Quản lý môi trường Development, Testing và Production.
+- Đề xuất CI/CD, reverse proxy, HTTPS, logging, backup và monitoring.
+
+**AI & Third-party Services:**
+- Đánh giá những tính năng thực sự cần AI.
+- Đề xuất AI API hoặc mô hình phù hợp.
+- Text-to-Speech cho tính năng hướng dẫn nấu ăn bằng giọng nói.
+- Nguồn dữ liệu công thức, dinh dưỡng và giá nguyên liệu.
+- Giải pháp lưu trữ hình ảnh món ăn.
+
+**Yêu cầu:** Giữ nguyên React, Node.js, Tailwind CSS, SQL Server và Docker làm công nghệ chính. Không tự ý thay thế chúng bằng framework hoặc database khác. Những công nghệ bổ sung phải có lý do rõ ràng, độ ưu tiên, chi phí dự kiến và mục đích sử dụng.
+
+## 2. PRODUCT ANALYSIS – PHÂN TÍCH Ý TƯỞNG
+
+Dựa trên tài liệu Cookora được đính kèm:
+
+1. Phân tích tổng quan ý tưởng và định vị sản phẩm.
+2. Xác định bài toán thực tế mà website giải quyết.
+3. Phân tích các nhóm người dùng mục tiêu.
+4. Xác định Unique Selling Points (USP).
+5. Phân tích giá trị khác biệt của Cookora so với các website công thức nấu ăn thông thường.
+6. Đánh giá khả năng triển khai và mức độ phức tạp của từng chức năng.
+7. Đề xuất cách cải thiện trải nghiệm người dùng.
+8. Đề xuất thêm những tính năng có giá trị thực tế nhưng không làm dự án quá phức tạp.
+
+Phân biệt rõ chức năng có sẵn trong tài liệu và tính năng mới do bạn đề xuất.
+
+## 3. FEATURE BREAKDOWN – PHÂN RÃ CHỨC NĂNG
+
+Phân tích chi tiết tất cả các chức năng có trong tài liệu, bao gồm:
+
+1. Recipe Discovery – Khám phá, tìm kiếm và lọc công thức nấu ăn.
+2. Cooking Guide – Hướng dẫn nấu ăn theo từng bước, tích hợp giọng nói AI.
+3. Có gì nấu nấy – Gợi ý món ăn từ nguyên liệu đang có, tính mức độ phù hợp và nguyên liệu còn thiếu.
+4. Serving Calculator – Điều chỉnh khẩu phần và định lượng nguyên liệu.
+5. Weekly Meal Planner – Lập thực đơn hằng tuần và tự động tổng hợp danh sách mua sắm.
+6. Favorite Recipes – Lưu trữ công thức yêu thích.
+7. Eat Fit – Xây dựng thực đơn theo mục tiêu dinh dưỡng.
+8. Meal Cost Calculator – Ước tính chi phí món ăn và kiểm soát ngân sách ăn uống.
+9. Food Storage Guide – Hướng dẫn bảo quản thực phẩm, quản lý thức ăn thừa và nhắc nhở.
+10. Calorie & Nutrition Finder – Tra cứu dinh dưỡng, ghi nhận món đã ăn và theo dõi lượng calories.
+
+Đối với mỗi chức năng, hãy mô tả:
+- Mục đích và giá trị đối với người dùng.
+- User flow chi tiết.
+- Các màn hình cần phát triển.
+- Logic xử lý ở Frontend và Backend.
+- API endpoints cần thiết.
+- Database tables liên quan.
+- Công nghệ hoặc thuật toán cần sử dụng.
+- Mức độ phức tạp.
+- Các trường hợp ngoại lệ và cách xử lý.
+- Độ ưu tiên: MVP / Phase 2 / Advanced.
+
+Đặc biệt phân tích logic của tính năng **Có gì nấu nấy**, gộp nguyên liệu vào danh sách mua sắm, tính giá theo khối lượng, quy đổi đơn vị, tính khẩu phần và tính dinh dưỡng.
+
+## 4. SYSTEM ARCHITECTURE – KIẾN TRÚC HỆ THỐNG
+
+Thiết kế kiến trúc tổng thể cho Cookora, bao gồm:
+
+- Frontend architecture.
+- Backend architecture.
+- Database architecture.
+- AI integration architecture.
+- File/image storage.
+- Authentication & Authorization.
+- Docker infrastructure.
+- Third-party API integration.
+
+Đề xuất kiến trúc **Modular Monolith** hoặc kiến trúc phù hợp với quy mô dự án, giải thích tại sao nên chọn.
+
+Cung cấp sơ đồ kiến trúc bằng Mermaid, thể hiện toàn bộ luồng:
+
+User → React Frontend → Node.js Backend → SQL Server → AI / External Services.
+
+Phân tích khả năng mở rộng khi số lượng người dùng và dữ liệu tăng lên.
+
+Không đề xuất microservices nếu chưa có lý do thực tế.
+
+## 5. DATABASE DESIGN – THIẾT KẾ SQL SERVER
+
+Thiết kế mô hình cơ sở dữ liệu quan hệ phù hợp cho toàn bộ Cookora.
+
+Bao gồm:
+- Danh sách bảng.
+- Fields và kiểu dữ liệu SQL Server.
+- Primary Keys và Foreign Keys.
+- Quan hệ 1–1, 1–N, N–N.
+- Unique constraints và indexes.
+- Quy tắc chuẩn hóa dữ liệu.
+- Những dữ liệu cần lưu lịch sử.
+- Entity Relationship Diagram (ERD) bằng Mermaid.
+
+Đặc biệt lưu ý cấu trúc dữ liệu nguyên liệu, công thức, đơn vị đo, khẩu phần, giá thực phẩm, thực đơn, dinh dưỡng và danh sách mua sắm.
+
+Tránh trùng lặp dữ liệu và thiết kế sao cho dễ mở rộng sau này.
+
+## 6. UI/UX & WEBSITE STRUCTURE
+
+Xây dựng kế hoạch thiết kế UI/UX theo phong cách:
+
+- Modern, Clean, Professional.
+- Food-focused, tạo cảm giác ấm áp, gần gũi.
+- Responsive trên Desktop, Tablet và Mobile.
+- Dễ sử dụng cho sinh viên, người sống một mình và người mới học nấu ăn.
+- Giao diện có bản sắc thương hiệu riêng, không sao chép các website khác.
+
+Đề xuất:
+1. Sitemap đầy đủ.
+2. Danh sách trang Public và Private.
+3. Navigation và layout tổng thể.
+4. Cấu trúc Homepage.
+5. Trang Recipe Discovery.
+6. Recipe Detail và Cooking Mode.
+7. Trang Có gì nấu nấy.
+8. Weekly Meal Planner.
+9. Eat Fit Dashboard.
+10. Meal Cost Dashboard.
+11. Food Storage.
+12. User Profile.
+13. Admin Dashboard.
+
+Với từng trang, xác định các UI components, chức năng tương tác và dữ liệu hiển thị.
+
+Đề xuất Design System bao gồm màu sắc, typography, spacing, cards, buttons, forms, navigation, animations và responsive breakpoints.
+
+## 7. API DESIGN
+
+Thiết kế danh sách REST API cần thiết.
+
+Mỗi API phải có:
+- HTTP method.
+- Endpoint.
+- Mục đích.
+- Authentication requirements.
+- Request parameters/body.
+- Response structure.
+- Validation rules.
+- Error handling.
+
+Phân chia theo module: Authentication, Users, Recipes, Ingredients, Meal Plans, Nutrition, Budget, Storage, AI và Admin.
+
+Đề xuất tiêu chuẩn API response, pagination, filtering, sorting và versioning.
+
+## 8. AI INTEGRATION STRATEGY
+
+Phân tích những chức năng có thể tích hợp AI để nâng cao trải nghiệm, bao gồm:
+
+- Smart Recipe Recommendations.
+- Ingredient-based Recipe Suggestions.
+- AI Cooking Voice Assistant.
+- Personalized Meal Planning.
+- Smart Budget Meal Suggestions.
+- Food Leftover Recommendations.
+
+Phân biệt rõ:
+- Chức năng chỉ cần thuật toán thông thường.
+- Chức năng cần rule-based engine.
+- Chức năng nên dùng AI/LLM.
+- Chức năng cần API dữ liệu từ bên ngoài.
+
+Đưa ra giải pháp tiết kiệm chi phí, khả thi cho một nhóm phát triển nhỏ.
+
+Không sử dụng AI ở những tính năng có thể tính toán chính xác bằng công thức hoặc SQL.
+
+Đối với dữ liệu dinh dưỡng, an toàn thực phẩm và bảo quản, ưu tiên nguồn dữ liệu đáng tin cậy, thể hiện giới hạn của các kết quả ước tính và tránh để AI tự tạo thông tin thiếu kiểm chứng.
+
+## 9. PROJECT STRUCTURE & DOCKER
+
+Đề xuất cấu trúc thư mục thực tế cho dự án:
+
+- frontend/
+- backend/
+- database/
+- docker/
+- docs/
+- Các thư mục cần thiết khác.
+
+Giải thích trách nhiệm của từng module.
+
+Thiết kế phương án sử dụng Docker và Docker Compose để chạy toàn bộ hệ thống trên máy local.
+
+Xem xét database persistence, environment variables, SQL Server initialization, health checks, networking và secrets.
+
+Đề xuất cách triển khai production an toàn, lưu ý các yêu cầu về tài nguyên và bản quyền SQL Server.
+
+## 10. DEVELOPMENT ROADMAP
+
+Xây dựng lộ trình phát triển theo giai đoạn:
+
+**Phase 1 – Foundation:** Khởi tạo project, kiến trúc, database, Docker, authentication và design system.
+
+**Phase 2 – Core MVP:** Phát triển các chức năng cốt lõi, giúp người dùng khám phá công thức và lên kế hoạch nấu ăn.
+
+**Phase 3 – Smart Features:** Phát triển những tính năng thông minh, AI integration, dinh dưỡng và ngân sách.
+
+**Phase 4 – Optimization & Deployment:** Testing, security, performance optimization, deployment và monitoring.
+
+Hãy tự đánh giá, sắp xếp lại chức năng giữa các giai đoạn nếu có phương án hợp lý hơn.
+
+Mỗi giai đoạn cần có:
+- Mục tiêu.
+- Danh sách công việc.
+- Dependencies.
+- Deliverables.
+- Thời gian ước tính với các giả định rõ ràng.
+- Mức độ ưu tiên.
+- Acceptance criteria.
+
+Xây dựng thêm Sprint Backlog cho các sprint đầu tiên, chỉ rõ việc nào thuộc Frontend, Backend, Database và DevOps.
+
+## 11. TECHNICAL RISKS & FEASIBILITY
+
+Phân tích các rủi ro:
+- Dữ liệu công thức không đồng nhất.
+- Thiếu nguồn dữ liệu dinh dưỡng đáng tin cậy.
+- Giá nguyên liệu biến động.
+- Sai lệch đơn vị đo và định lượng.
+- AI hallucination.
+- Bảo mật thông tin người dùng.
+- Hiệu năng SQL Server.
+- Chi phí AI API và hosting.
+- Độ chính xác của gợi ý thực đơn.
+- Các rủi ro khác phát sinh từ tài liệu.
+
+Đề xuất cách giảm thiểu từng rủi ro.
+
+## 12. FINAL DELIVERABLES
+
+Trả lời bằng tiếng Việt, sử dụng thuật ngữ công nghệ bằng tiếng Anh khi phù hợp.
+
+Tôi cần một tài liệu **Cookora Master Project Plan** đầy đủ với:
+
+1. Product Vision & Requirements Analysis.
+2. Technology Stack Recommendation.
+3. Feature Breakdown & Prioritization.
+4. System Architecture Diagram.
+5. Database Design & ERD.
+6. Sitemap & UI/UX Plan.
+7. REST API Specification.
+8. AI Integration Plan.
+9. Project Structure & Docker Strategy.
+10. Development Roadmap & Sprint Backlog.
+11. Technical Risks, Cost & Feasibility.
+12. Recommended Implementation Order.
+
+**QUY TẮC BẮT BUỘC:**
+- Phải đọc kỹ tài liệu đính kèm trước khi lập kế hoạch.
+- Không bỏ sót các chức năng chính có trong tài liệu.
+- Không tự suy đoán các yêu cầu chưa được mô tả là yêu cầu đã được xác nhận.
+- Phân biệt rõ yêu cầu gốc, giả định kỹ thuật và ý tưởng mở rộng.
+- Đưa ra lựa chọn công nghệ cụ thể thay vì chỉ liệt kê các phương án.
+- Giải thích lý do lựa chọn và trade-offs.
+- Ưu tiên tính khả thi, dễ bảo trì, dễ mở rộng và tiết kiệm chi phí.
+- Sử dụng bảng so sánh, sơ đồ Mermaid và cấu trúc heading rõ ràng.
+- Không bắt đầu viết source code; tập trung hoàn toàn vào việc phân tích và lập kế hoạch.
+- Nếu tài liệu chưa đủ thông tin, hãy nêu giả định hợp lý và liệt kê các câu hỏi cần xác nhận ở cuối.
+
+Bắt đầu bằng cách tóm tắt toàn bộ tài liệu Cookora, sau đó trình bày kế hoạch theo thứ tự từ Product Planning đến Technical Implementation và Deployment. |

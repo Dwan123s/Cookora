@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "widths": [
+    320,
+    375,
+    768,
+    1024
+  ],
+  "fonts": [
+    {
+      "name": "Plus Jakarta Sans",
+      "loaded": true
+    },
+    {
+      "name": "Manrope",
+      "loaded": true
+    },
+    {
+      "name": "Space Grotesk",
+      "loaded": true
+    }
+  ],
+  "checks": [
+    "ingredient filtering",
+    "servings",
+    "meal-plan addition",
+    "second layout",
+    "reduced motion",
+    "no runtime errors",
+    "no horizontal overflow"
+  ]
+}

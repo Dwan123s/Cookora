@@ -1,0 +1,139 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "sqlserver"
+}
+model User {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  email String @unique @db.NVarChar(254)
+  displayName String @db.NVarChar(100)
+  passwordHash String @db.VarChar(255)
+  role String @default("USER") @db.VarChar(12)
+  createdAt DateTime @default(now())
+  sessions Session[]
+  favorites Favorite[]
+  plans MealPlan[]
+}
+model Session {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  tokenHash String @unique @db.VarChar(64)
+  userId String @db.UniqueIdentifier
+  user User @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  @@index([userId])
+  @@index([expiresAt])
+}
+model Ingredient {
+  id String @id @db.VarChar(80)
+  name String @db.NVarChar(160)
+  aliasesText String @db.NVarChar(1000)
+  unit String @db.VarChar(16)
+  category String @db.NVarChar(60)
+  lines RecipeLine[]
+}
+model Recipe {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  slug String @unique @db.VarChar(180)
+  revision Int @default(1)
+  title String @db.NVarChar(180)
+  summary String @db.NVarChar(1000)
+  cuisine String @db.VarChar(12)
+  category String @db.NVarChar(60)
+  image String @db.NVarChar(1000)
+  imageCredit String @db.NVarChar(200)
+  baseServings Int
+  prepMinutes Int?
+  cookMinutes Int?
+  waitMinutes Int?
+  totalMinutes Int?
+  timingStatus String @default("ESTIMATED") @db.VarChar(16)
+  preconditions String @db.NVarChar(500)
+  difficulty String @db.NVarChar(60)
+  contentStatus String @default("DRAFT") @db.VarChar(16)
+  sourceUrl String @db.NVarChar(2048)
+  sourceName String @db.NVarChar(200)
+  createdAt DateTime @default(now())
+  lines RecipeLine[]
+  steps RecipeStep[]
+  favorites Favorite[]
+  entries MealEntry[]
+  @@index([cuisine, contentStatus])
+}
+model RecipeLine {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  recipeId String @db.UniqueIdentifier
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  ingredientId String @db.VarChar(80)
+  ingredient Ingredient @relation(fields: [ingredientId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  quantity Decimal? @db.Decimal(18,6)
+  unit String @db.VarChar(16)
+  optional Boolean @default(false)
+  role String @db.VarChar(16)
+  note String? @db.NVarChar(300)
+  sortOrder Int
+  @@unique([recipeId, sortOrder])
+  @@index([ingredientId, recipeId])
+}
+model RecipeStep {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  recipeId String @db.UniqueIdentifier
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  order Int
+  title String @db.NVarChar(120)
+  instruction String @db.NVarChar(Max)
+  @@unique([recipeId, order])
+}
+model Favorite {
+  userId String @db.UniqueIdentifier
+  recipeId String @db.UniqueIdentifier
+  user User @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdAt DateTime @default(now())
+  @@id([userId, recipeId])
+}
+model MealPlan {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  userId String @db.UniqueIdentifier
+  user User @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  weekStart String @db.Char(10)
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  entries MealEntry[]
+  shopping ShoppingList?
+  @@unique([userId, weekStart])
+}
+model MealEntry {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  planId String @db.UniqueIdentifier
+  plan MealPlan @relation(fields: [planId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  recipeId String @db.UniqueIdentifier
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  date String @db.Char(10)
+  mealType String @db.VarChar(16)
+  servings Int
+  clientKey String @unique @db.VarChar(100)
+  @@index([planId, date])
+}
+model ShoppingList {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  planId String @unique @db.UniqueIdentifier
+  plan MealPlan @relation(fields: [planId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  planVersion Int
+  version Int @default(1)
+  items ShoppingItem[]
+}
+model ShoppingItem {
+  id String @id @default(uuid()) @db.UniqueIdentifier
+  listId String @db.UniqueIdentifier
+  list ShoppingList @relation(fields: [listId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  ingredientId String @db.VarChar(80)
+  name String @db.NVarChar(160)
+  category String @db.NVarChar(60)
+  unit String @db.VarChar(16)
+  quantity Decimal? @db.Decimal(18,6)
+  purchased Boolean @default(false)
+  sourcesText String @db.NVarChar(Max)
+  @@unique([listId, ingredientId, unit])
+}

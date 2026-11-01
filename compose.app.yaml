@@ -1,0 +1,73 @@
+# Local all-container stack. Combine with compose.yaml; never use Developer edition in production.
+x-database: &database
+  DB_HOST: sqlserver
+  DB_PORT: "1433"
+  DB_NAME: ${DB_NAME:-Cookora}
+  DB_USER: ${DB_USER:-cookora_app}
+  DB_PASSWORD: ${DB_PASSWORD:?Generate .env first}
+  DB_ENCRYPT: "true"
+  DB_TRUST_CERT: "true"
+services:
+  migrate:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: api
+    environment:
+      <<: *database
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Generate .env first}
+    command: ["npm", "run", "db:migrate"]
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    restart: "no"
+  seed:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: api
+    environment:
+      <<: *database
+      NODE_ENV: development
+    command: ["npm", "run", "db:seed"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: "no"
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: api
+    environment:
+      <<: *database
+      APP_ORIGIN: http://localhost:8080
+      BIND_HOST: 0.0.0.0
+      PORT: "3000"
+      NODE_ENV: development
+      SEED_DEMO: "true"
+      CSRF_SECRET: ${CSRF_SECRET:?Generate .env first}
+      VERTEX_PROJECT_ID: ${VERTEX_PROJECT_ID:-}
+      VERTEX_LOCATION: ${VERTEX_LOCATION:-global}
+      VERTEX_MODEL: ${VERTEX_MODEL:-gemini-3.8-flash}
+      VERTEX_API_KEY: ${VERTEX_API_KEY:-}
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/v1/health/ready').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: web
+    ports:
+      - "127.0.0.1:8080:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped

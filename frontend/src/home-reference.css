@@ -1,0 +1,1236 @@
+/* The user-selected 1070 × 1470 visual reference; all controls remain live React UI. */
+@font-face {
+  font-family: 'Be Vietnam Pro Display';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-latin-900.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Be Vietnam Pro Display';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-vietnamese-900.woff2') format('woff2');
+  unicode-range:
+    U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304,
+    U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Be Vietnam Pro Display';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/be-vietnam-pro-latin-ext-900.woff2') format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+:root {
+  --home-u: 1px;
+}
+@media (min-width: 961px) and (max-width: 1070px) {
+  :root {
+    --home-u: clamp(0.85px, calc(100vw / 1070), 1px);
+  }
+}
+@media (max-width: 960px) {
+  :root {
+    --home-u: 1px;
+  }
+}
+.home-reference-header {
+  position: relative;
+  height: 56px;
+  min-height: 56px;
+  background: #faf8f1;
+}
+.home-reference-header .header-inner {
+  width: min(calc(100% - 48px), 1070px);
+  max-width: 1070px;
+  margin-inline: auto;
+  min-height: 0;
+  height: 100%;
+  padding: 0;
+  gap: 20px;
+}
+.home-reference-header .brand {
+  font:
+    900 28px / 1 'Be Vietnam Pro Display',
+    sans-serif;
+  letter-spacing: -1.5px;
+  gap: 8px;
+}
+.home-reference-header .brand-symbol {
+  width: 32px;
+  height: 32px;
+}
+.home-reference-header .brand-symbol svg {
+  width: 100%;
+  height: 100%;
+}
+.home-reference-header .desktop-nav {
+  gap: 32px;
+}
+.home-reference-header .desktop-nav a {
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 0;
+}
+.home-reference-header .header-actions {
+  gap: 16px;
+}
+.home-reference-header .header-favorites {
+  padding: 0;
+  min-width: 0;
+  width: 24px;
+  height: 32px;
+}
+.home-reference-header .header-favorites svg {
+  width: 21px;
+  height: 21px;
+}
+.home-reference-header .header-actions > .btn {
+  min-height: 0;
+  height: 34px;
+  padding: 0 20px;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+.home-header-arrow {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #20271e;
+  color: white;
+}
+.home-header-arrow svg {
+  width: calc(20 * var(--home-u));
+}
+.home-v3 {
+  --orange: #f34b16;
+  --brand: #d43c10;
+  --ink: #171f18;
+  --line: #e1dfd7;
+  background: #faf8f1;
+}
+.home-v3 .wrap {
+  width: min(calc(100% - 48px), 1070px);
+  max-width: 1070px;
+  margin-inline: auto;
+}
+.home-v3 h1,
+.home-v3 h2,
+.home-reference-footer .home-footer-wordmark {
+  font-family: 'Be Vietnam Pro Display', 'Plus Jakarta Sans Variable', sans-serif;
+  font-weight: 900;
+}
+.home-v3 .home-intro {
+  height: 460px;
+  display: block;
+  position: relative;
+  padding: 0;
+}
+.home-v3 .home-intro-copy {
+  position: relative;
+  z-index: 2;
+  padding-top: 24px;
+  width: min(100%, 540px);
+  animation: home-copy-enter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.home-v3 .home-intro .eyebrow {
+  margin: 0 0 16px;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+.home-v3 .home-intro h1 {
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.9;
+  letter-spacing: -3px;
+  margin: 0 0 10px;
+  transform: scaleX(0.97);
+  transform-origin: left center;
+  white-space: nowrap;
+  overflow: visible;
+}
+.home-v3 .home-intro h1 > span {
+  display: inline-block;
+  margin-top: 6px;
+  color: #ed481b;
+}
+.home-v3 .home-lead {
+  max-width: 480px;
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+  white-space: normal;
+}
+.home-v3 .home-food {
+  position: absolute;
+  top: 0;
+  right: calc(-34 * var(--home-u));
+  width: calc(536 * var(--home-u));
+  height: calc(430 * var(--home-u));
+  min-height: 0;
+  padding: 0;
+  isolation: isolate;
+  animation: home-dish-float 7s ease-in-out 0.6s infinite;
+}
+.home-v3 .food-backdrop {
+  inset: calc(-40 * var(--home-u)) 0 0 0;
+  border-radius: 50%;
+  background: #ddef89;
+}
+.hero-reference-art {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/homepage-reference-art.png');
+  background-size: 199.6269% 341.8605%;
+  background-position: 97.0037% 4.8077%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 58% 100%, 58% 69%, 0 69%);
+}
+.hero-ingredient {
+  position: absolute;
+  border-radius: 99px;
+  background: #fffef8;
+  color: #20271e;
+  font-size: calc(12 * var(--home-u));
+  font-weight: 750;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  min-height: calc(32 * var(--home-u));
+  padding: 0 calc(14 * var(--home-u));
+}
+.ingredient-tofu {
+  top: calc(52 * var(--home-u));
+  left: calc(43 * var(--home-u));
+}
+.ingredient-tomato {
+  top: calc(190 * var(--home-u));
+  right: calc(3 * var(--home-u));
+}
+.ingredient-scallion {
+  top: calc(304 * var(--home-u));
+  right: calc(75 * var(--home-u));
+}
+.hero-food-arrow {
+  position: absolute;
+  right: calc(20 * var(--home-u));
+  bottom: calc(50 * var(--home-u));
+  width: calc(50 * var(--home-u));
+  height: calc(50 * var(--home-u));
+  border-radius: 50%;
+  background: #f34b16;
+  color: white;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ff9e69;
+}
+.hero-food-arrow svg {
+  width: calc(25 * var(--home-u));
+  height: calc(25 * var(--home-u));
+}
+.home-v3 .home-composer {
+  position: absolute;
+  top: calc(290 * var(--home-u));
+  left: 0;
+  width: min(100%, 760px);
+  margin: 0;
+  border: 1px solid #edece5;
+  border-radius: 16px;
+  background: #fffefbf5;
+  box-shadow: 0 10px 35px rgba(32, 39, 30, 0.08);
+  backdrop-filter: blur(8px);
+}
+.home-v3 .composer-tabs {
+  padding: 0 calc(18 * var(--home-u));
+  gap: calc(31 * var(--home-u));
+}
+.home-v3 .composer-tabs > button {
+  min-height: 0;
+  padding: calc(11 * var(--home-u)) calc(3 * var(--home-u));
+  font-size: calc(12 * var(--home-u));
+  font-weight: 600;
+  color: #20271e;
+  gap: calc(9 * var(--home-u));
+}
+.home-v3 .composer-tabs > button svg {
+  width: calc(17 * var(--home-u));
+  height: calc(17 * var(--home-u));
+}
+.home-v3 .composer-tabs > button.active {
+  font-weight: 750;
+  color: #20271e;
+}
+.home-v3 .composer-tabs > button.active svg {
+  color: #ef4819;
+}
+.home-v3 .composer-tabs > button.active::after {
+  background: #f34b16;
+  height: 2px;
+}
+.home-v3 .home-composer form {
+  padding: calc(10 * var(--home-u)) calc(14 * var(--home-u)) calc(12 * var(--home-u)) calc(18 * var(--home-u));
+  gap: calc(16 * var(--home-u));
+  align-items: flex-end;
+}
+.home-v3 .composer-label {
+  font-size: calc(12 * var(--home-u));
+  line-height: 1.4;
+  margin-bottom: calc(10 * var(--home-u));
+  font-weight: 700;
+}
+.home-v3 .ingredient-chips {
+  gap: calc(5 * var(--home-u));
+}
+.home-v3 .ingredient-chip,
+.home-v3 .ingredient-add {
+  font-size: calc(11 * var(--home-u));
+  font-weight: 500;
+  line-height: 1.2;
+  padding: calc(8 * var(--home-u)) calc(12 * var(--home-u));
+  min-height: calc(33 * var(--home-u));
+  background: #eeede9;
+  gap: calc(7 * var(--home-u));
+  border-radius: 30px;
+}
+.home-v3 .ingredient-chip > svg {
+  width: calc(11 * var(--home-u));
+  height: calc(11 * var(--home-u));
+  color: #20271e;
+}
+.home-v3 .ingredient-add {
+  background: transparent;
+  border-color: #deded8;
+  font-size: calc(10 * var(--home-u));
+  padding-inline: calc(12 * var(--home-u));
+}
+.home-v3 .ingredient-add svg {
+  width: calc(13 * var(--home-u));
+  height: calc(13 * var(--home-u));
+}
+.home-v3 .composer-servings {
+  display: flex;
+  align-items: center;
+  gap: calc(10 * var(--home-u));
+  height: calc(34 * var(--home-u));
+  margin-bottom: calc(2 * var(--home-u));
+  padding: 0 calc(15 * var(--home-u));
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+.home-v3 .composer-servings > span {
+  margin: 0;
+  color: #20271e;
+}
+.home-v3 .composer-servings select {
+  font-size: calc(13 * var(--home-u));
+  font-weight: 600;
+  min-height: 30px;
+  padding-right: calc(17 * var(--home-u));
+}
+.home-v3 .composer-servings > svg {
+  right: calc(14 * var(--home-u));
+  bottom: calc(10 * var(--home-u));
+}
+.home-v3 .composer-submit {
+  min-height: calc(44 * var(--home-u));
+  height: calc(44 * var(--home-u));
+  font-size: calc(13 * var(--home-u));
+  padding-inline: calc(26 * var(--home-u));
+  border: 1px solid #ff7944;
+  background: #f34b16;
+  font-weight: 650;
+  gap: calc(14 * var(--home-u));
+}
+.home-v3 .composer-submit svg {
+  width: calc(18 * var(--home-u));
+  height: calc(18 * var(--home-u));
+}
+.home-v3 .composer-options {
+  padding: 16px 20px;
+  background: #fffefa;
+  border-radius: 0 0 16px 16px;
+}
+.home-explore-link {
+  position: absolute;
+  left: calc(13 * var(--home-u));
+  bottom: calc(13 * var(--home-u));
+  display: flex;
+  gap: 4px;
+  color: #da3c10;
+  font-size: calc(13 * var(--home-u));
+  align-items: center;
+}
+.home-explore-link span {
+  display: flex;
+  align-items: center;
+  gap: calc(5 * var(--home-u));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.home-v3 .brand-ribbon {
+  height: 48px;
+  padding: 0 40px;
+  gap: 32px;
+  justify-content: center;
+  background: #ddef89;
+  font:
+    900 15px / 1 'Be Vietnam Pro Display',
+    sans-serif;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+.home-v3 .brand-ribbon > span[aria-hidden] {
+  font-size: 18px;
+}
+.home-v3 .home-discover {
+  padding-inline: 0;
+  width: min(calc(100% - 48px), 1070px);
+  max-width: 1070px;
+  margin: 0 auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.home-v3 .section-heading {
+  margin: 0 10px;
+  align-items: flex-start;
+  gap: 12px;
+}
+.home-v3 .section-heading .eyebrow {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0 0 6px;
+  letter-spacing: 0.06em;
+}
+.home-v3 .section-heading h2 {
+  font-size: clamp(32px, 3.8vw, 46px);
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+.home-v3 .section-heading .text-link {
+  padding-top: calc(25 * var(--home-u));
+  font-size: calc(13 * var(--home-u));
+  font-weight: 600;
+  color: #da3c10;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.home-v3 .home-cuisines {
+  margin: calc(16 * var(--home-u)) calc(10 * var(--home-u)) calc(10 * var(--home-u));
+  gap: calc(18 * var(--home-u));
+  justify-content: space-between;
+}
+.home-v3 .home-cuisines > button {
+  min-height: calc(32 * var(--home-u));
+  padding: calc(6 * var(--home-u)) calc(26 * var(--home-u));
+  font-size: calc(12 * var(--home-u));
+  font-weight: 500;
+}
+.home-v3 .home-cuisines > button[aria-pressed='true'] {
+  background: #20271e;
+  color: white;
+}
+.home-v3 .home-recipe-grid {
+  grid-template-columns: 2.02fr 1fr 0.97fr;
+  gap: calc(10 * var(--home-u));
+}
+.home-v3 .home-recipe-grid.single {
+  grid-template-columns: minmax(0, calc(491 * var(--home-u)));
+}
+.home-photo-card {
+  position: relative;
+  height: calc(265 * var(--home-u));
+  border-radius: calc(11 * var(--home-u));
+  overflow: hidden;
+  background: #20251b;
+  isolation: isolate;
+}
+.home-photo-link {
+  position: relative;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+.home-photo-link > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.reference-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/homepage-reference-art.png');
+  background-repeat: no-repeat;
+}
+.reference-photo-tofu {
+  background-size: 217.9226% 554.717%;
+  background-position: 7.0812% 62.7386%;
+}
+.reference-photo-kimchi {
+  background-size: 440.3292% 554.717%;
+  background-position: 65.5381% 62.7386%;
+}
+.reference-photo-eggs {
+  background-size: 444% 554.717%;
+  background-position: 95.38% 62.7386%;
+}
+.home-photo-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 36%, #18201526 51%, #182015 66.2%, #182015 100%);
+}
+.home-photo-copy {
+  position: absolute;
+  inset: auto calc(15 * var(--home-u)) calc(7 * var(--home-u));
+  color: #fffdf7;
+}
+.home-photo-cuisine {
+  font-size: calc(10 * var(--home-u));
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.home-photo-copy h3 {
+  font-family: 'Be Vietnam Pro Display', sans-serif;
+  font-size: calc(19 * var(--home-u));
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: calc(-0.8 * var(--home-u));
+  margin: calc(3 * var(--home-u)) 0 calc(9 * var(--home-u));
+}
+.home-photo-meta {
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--home-u));
+  font-size: calc(10 * var(--home-u));
+  line-height: 1.3;
+}
+.home-photo-meta > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: calc(5 * var(--home-u));
+}
+.home-photo-meta svg {
+  width: calc(13 * var(--home-u));
+  height: calc(13 * var(--home-u));
+}
+.home-photo-status {
+  padding: calc(3 * var(--home-u)) calc(8 * var(--home-u));
+  background: #ffffff30;
+  border-radius: 20px;
+}
+.home-photo-copy > p {
+  font-size: calc(9 * var(--home-u));
+  line-height: 1.4;
+  color: #e6e8de;
+  margin: calc(4 * var(--home-u)) 0 0;
+}
+.home-photo-card:first-child .home-photo-copy {
+  bottom: calc(17 * var(--home-u));
+}
+.home-photo-card:first-child .home-photo-copy > p {
+  position: absolute;
+  left: calc(149 * var(--home-u));
+  bottom: 0;
+  white-space: nowrap;
+}
+.home-photo-card .favorite-btn.on-image {
+  min-width: 0;
+  min-height: 0;
+  width: calc(29 * var(--home-u));
+  height: calc(29 * var(--home-u));
+  top: calc(10 * var(--home-u));
+  right: calc(11 * var(--home-u));
+  background: #33342d77;
+  color: white;
+}
+.home-photo-card .favorite-btn svg {
+  width: calc(20 * var(--home-u));
+  height: calc(20 * var(--home-u));
+}
+.home-photo-card .favorite-btn.saved {
+  color: #fff;
+  background: #cc3d18;
+}
+.home-v3 .home-plan-wrap {
+  width: min(calc(100% - 48px), 1070px);
+  max-width: 1070px;
+  margin: 0 auto;
+  padding: 0;
+}
+.home-v3 .home-plan {
+  min-height: auto;
+  height: auto;
+  padding: 28px 36px;
+  grid-template-columns: 0.96fr 1.08fr;
+  gap: 28px;
+  border-radius: 24px;
+  background: #20271e;
+}
+.home-v3 .home-plan .eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
+.home-v3 .home-plan h2 {
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin: 0 0 8px;
+  white-space: normal;
+}
+.home-v3 .home-plan-copy > p:not(.eyebrow) {
+  max-width: 440px;
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0 0 calc(12 * var(--home-u));
+  color: #f0f0e7;
+  white-space: nowrap;
+}
+.home-v3 .home-plan .btn {
+  min-height: calc(43 * var(--home-u));
+  font-size: calc(12 * var(--home-u));
+  padding: calc(11 * var(--home-u)) calc(27 * var(--home-u));
+  gap: calc(19 * var(--home-u));
+  background: #f34b16;
+  border: 1px solid #ff854b;
+}
+.home-v3 .plan-illustration {
+  border-radius: calc(14 * var(--home-u));
+  padding: calc(10 * var(--home-u)) calc(12 * var(--home-u));
+  transform: none;
+  background: #faf8f1;
+}
+.home-v3 .plan-illustration-head {
+  padding: 0 calc(8 * var(--home-u)) calc(7 * var(--home-u));
+  border: 0;
+  font:
+    900 calc(18 * var(--home-u)) / 1.4 'Be Vietnam Pro Display',
+    sans-serif;
+}
+.plan-preview-label {
+  font:
+    500 calc(8 * var(--home-u)) / 1 'Plus Jakarta Sans Variable',
+    sans-serif;
+  margin-left: 4px;
+  color: #666b60;
+}
+.plan-preview-nav {
+  display: flex;
+  gap: calc(5 * var(--home-u));
+}
+.plan-preview-nav > a {
+  width: calc(29 * var(--home-u));
+  height: calc(29 * var(--home-u));
+  border: 1px solid #c9cbc0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.plan-preview-nav svg {
+  width: calc(15 * var(--home-u));
+  height: calc(15 * var(--home-u));
+}
+.home-v3 .plan-illustration-days {
+  gap: calc(5 * var(--home-u));
+  padding: 0 0 calc(12 * var(--home-u));
+}
+.home-v3 .plan-illustration-days > div {
+  padding: calc(8 * var(--home-u));
+  border-radius: calc(11 * var(--home-u));
+}
+.home-v3 .plan-illustration-days > div > span {
+  font-size: calc(12 * var(--home-u));
+}
+.plan-mini-meal {
+  display: flex;
+  align-items: center;
+  gap: calc(7 * var(--home-u));
+  min-height: calc(73 * var(--home-u));
+}
+.plan-mini-meal > img {
+  width: calc(62 * var(--home-u));
+  height: calc(62 * var(--home-u));
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.plan-mini-meal > span {
+  font-size: calc(10 * var(--home-u));
+  font-weight: 600;
+  line-height: 1.5;
+}
+.home-v3 .plan-mini-meal small {
+  display: flex;
+  gap: calc(3 * var(--home-u));
+  align-items: center;
+  font-size: calc(8 * var(--home-u));
+  margin-top: calc(5 * var(--home-u));
+  color: #4b5344;
+}
+.home-v3 .plan-illustration-shop {
+  border: 1px solid #ddded5;
+  padding: calc(10 * var(--home-u));
+  border-radius: calc(13 * var(--home-u));
+  gap: calc(8 * var(--home-u));
+}
+.home-v3 .plan-illustration-shop > span {
+  font-size: calc(11 * var(--home-u));
+  gap: calc(8 * var(--home-u));
+  white-space: nowrap;
+}
+.home-v3 .plan-illustration-shop > .plan-grocery-art {
+  margin-left: auto;
+  font-size: calc(23 * var(--home-u));
+  letter-spacing: calc(3 * var(--home-u));
+}
+.home-v3 .home-closing {
+  padding: 32px 0 24px;
+  gap: 24px;
+  width: min(calc(100% - 48px), 1070px);
+  max-width: 1070px;
+  margin: 0 auto;
+}
+.home-v3 .home-closing h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  letter-spacing: -2px;
+  line-height: 1.05;
+}
+.home-v3 .round-link {
+  width: 50px;
+  height: 50px;
+  margin-right: -3px;
+  border: 1px solid #ff935f;
+  background: #f34b16;
+}
+.home-v3 .round-link svg {
+  width: 24px;
+  height: 24px;
+}
+.home-reference-footer {
+  width: min(calc(100% - 48px), 1070px);
+  max-width: 1070px;
+  margin: 0 auto;
+  min-height: 48px;
+  border-top: 1px solid #deded5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0 28px;
+  gap: 16px;
+  color: #20271e;
+}
+.home-footer-wordmark {
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.home-footer-wordmark > span {
+  color: #ef481a;
+}
+.home-reference-footer nav {
+  display: flex;
+  gap: 28px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.home-reference-footer small {
+  font-size: 11px;
+  color: #666b60;
+}
+@keyframes home-copy-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes home-dish-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+@media (min-width: 961px) {
+  .home-reference-header .desktop-nav {
+    display: flex;
+  }
+  .home-reference-header .menu-toggle {
+    display: none;
+  }
+}
+@media (max-width: 960px) {
+  :root {
+    --home-u: 1px;
+  }
+  .home-reference-header {
+    height: 64px;
+    min-height: 64px;
+    position: sticky;
+    top: 0;
+  }
+  .home-reference-header .header-inner {
+    width: calc(100% - 40px);
+  }
+  .home-reference-header .brand {
+    font-size: 26px;
+  }
+  .home-reference-header .brand-symbol {
+    width: 27px;
+    height: 27px;
+  }
+  .home-reference-header .header-actions {
+    gap: 12px;
+  }
+  .home-reference-header .header-actions > .btn {
+    height: 34px;
+    padding: 0 16px;
+    font-size: 12px;
+  }
+  .home-header-arrow {
+    display: none;
+  }
+  .home-reference-header .menu-toggle {
+    display: grid;
+  }
+  .home-reference-header .desktop-nav {
+    display: none;
+  }
+  .home-reference-header .desktop-nav.open {
+    display: flex;
+    top: 63px;
+    gap: 10px;
+    padding: 16px 20px;
+  }
+  .home-reference-header .desktop-nav a {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .home-v3 .wrap {
+    width: calc(100% - 40px);
+  }
+  .home-v3 .home-intro {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 35px;
+  }
+  .home-v3 .home-intro-copy {
+    width: 100%;
+    padding: 0;
+  }
+  .home-v3 .home-intro .eyebrow {
+    font-size: 11px;
+    margin-bottom: 20px;
+  }
+  .home-v3 .home-intro h1 {
+    font-size: clamp(36px, 10vw, 56px);
+    letter-spacing: -2px;
+    line-height: 0.98;
+    margin-bottom: 14px;
+  }
+  .home-v3 .home-intro h1 > span {
+    margin-top: 5px;
+  }
+  .home-v3 .home-lead {
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: normal;
+    max-width: 520px;
+  }
+  .home-v3 .home-food {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100%, 500px);
+    height: 330px;
+    margin: 20px auto 0;
+    min-height: 0;
+    animation: none;
+  }
+  .home-v3 .food-backdrop {
+    inset: 10px 0 0;
+    border-radius: 50%;
+  }
+  .hero-reference-art {
+    background-image: url('/images/cookora-tofu-640.webp');
+    background-size: cover;
+    background-position: center;
+    inset: 15px 5px;
+    clip-path: ellipse(49% 48% at 50% 50%);
+  }
+  .hero-ingredient {
+    font-size: 11px;
+    min-height: 29px;
+    padding-inline: 12px;
+  }
+  .ingredient-tofu {
+    top: 18px;
+    left: 15px;
+  }
+  .ingredient-tomato {
+    top: 120px;
+    right: 0;
+  }
+  .ingredient-scallion {
+    top: auto;
+    bottom: 35px;
+    right: 40px;
+  }
+  .hero-food-arrow {
+    right: 5px;
+    bottom: 18px;
+    width: 43px;
+    height: 43px;
+  }
+  .home-v3 .home-composer {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin: 12px 0 0;
+    border: 1px solid #e3e2d8;
+    border-radius: 16px;
+  }
+  .home-v3 .composer-tabs {
+    padding: 0 14px;
+    gap: 24px;
+  }
+  .home-v3 .composer-tabs > button {
+    min-height: 47px;
+    font-size: 12px;
+    padding: 12px 0;
+  }
+  .home-v3 .home-composer form {
+    padding: 15px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .home-v3 .composer-field {
+    flex-basis: 100%;
+  }
+  .home-v3 .composer-label {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  .home-v3 .ingredient-chips {
+    gap: 7px;
+  }
+  .home-v3 .ingredient-chip,
+  .home-v3 .ingredient-add {
+    font-size: 11px;
+    min-height: 34px;
+    padding: 8px 11px;
+  }
+  .home-v3 .composer-servings {
+    padding: 0 12px 0 0;
+    border-left: 0;
+    border-right: 0;
+    margin: 0;
+    gap: 8px;
+    height: 44px;
+  }
+  .home-v3 .composer-servings select {
+    font-size: 14px;
+    min-height: 44px;
+  }
+  .home-v3 .composer-servings > svg {
+    right: 14px;
+    bottom: 16px;
+  }
+  .home-v3 .composer-submit {
+    min-height: 44px;
+    height: 44px;
+    font-size: 12px;
+    padding-inline: 18px;
+    margin-left: auto;
+    gap: 12px;
+    flex: 0 1 auto;
+  }
+  .home-explore-link {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin: 14px 0 0 10px;
+    font-size: 12px;
+    min-height: 30px;
+  }
+  .home-v3 .brand-ribbon {
+    height: auto;
+    min-height: 48px;
+    padding: 14px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: clamp(10px, 2.8vw, 15px);
+    letter-spacing: -0.5px;
+  }
+  .home-v3 .brand-ribbon > span[aria-hidden] {
+    display: none;
+  }
+  .home-v3 .home-discover {
+    width: calc(100% - 32px);
+    padding: 28px 0 24px;
+  }
+  .home-v3 .section-heading {
+    margin: 0 4px;
+    align-items: center;
+  }
+  .home-v3 .section-heading .eyebrow {
+    font-size: 10px;
+    margin-bottom: 9px;
+  }
+  .home-v3 .section-heading h2 {
+    font-size: clamp(22px, 5vw, 36px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+  }
+  .home-v3 .section-heading .text-link {
+    padding: 0;
+    font-size: 10px;
+    gap: 3px;
+    white-space: nowrap;
+  }
+  .home-v3 .section-heading .text-link svg {
+    width: 14px;
+  }
+  .home-v3 .home-cuisines {
+    margin: 20px 0 14px;
+    gap: 5px;
+    justify-content: flex-start;
+  }
+  .home-v3 .home-cuisines > button {
+    min-height: 36px;
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+  .home-v3 .home-recipe-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .home-v3 .home-recipe-grid.single {
+    grid-template-columns: 1fr;
+  }
+  .home-photo-card {
+    height: 260px;
+    border-radius: 12px;
+  }
+  .home-photo-card:first-child {
+    grid-column: 1/-1;
+    height: 300px;
+  }
+  .home-photo-copy {
+    inset: auto 12px 12px;
+  }
+  .home-photo-copy h3 {
+    font-size: 18px;
+    margin: 4px 0 9px;
+    letter-spacing: -0.5px;
+  }
+  .home-photo-cuisine {
+    font-size: 10px;
+  }
+  .home-photo-meta {
+    font-size: 10px;
+    gap: 8px;
+  }
+  .home-photo-copy > p {
+    font-size: 9px;
+    margin-top: 6px;
+  }
+  .home-photo-card:first-child .home-photo-copy {
+    bottom: 16px;
+  }
+  .home-photo-card:first-child .home-photo-copy > p {
+    position: static;
+    white-space: normal;
+  }
+  .home-photo-card .favorite-btn.on-image {
+    width: 34px;
+    height: 34px;
+    top: 10px;
+    right: 10px;
+  }
+  .home-photo-card .favorite-btn svg {
+    width: 21px;
+    height: 21px;
+  }
+  .home-photo-meta svg {
+    width: 13px;
+    height: 13px;
+  }
+  .reference-photo {
+    background-image: none;
+  }
+  .reference-photo-tofu {
+    background-image: url('/images/cookora-tofu-640.webp');
+  }
+  .reference-photo-kimchi {
+    background-image: url('/images/kimchi.webp');
+  }
+  .reference-photo-eggs {
+    background-image: url('/images/eggs-tomato.webp');
+  }
+  .reference-photo-tofu,
+  .reference-photo-kimchi,
+  .reference-photo-eggs {
+    background-size: cover;
+    background-position: center;
+  }
+  .home-photo-shade {
+    background: linear-gradient(180deg, transparent 20%, #15201226 40%, #152012e6 80%, #152012 100%);
+  }
+  .home-v3 .home-plan-wrap {
+    width: 100%;
+  }
+  .home-v3 .home-plan {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 20px;
+    border-radius: 25px;
+  }
+  .home-v3 .home-plan .eyebrow {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+  .home-v3 .home-plan h2 {
+    font-size: clamp(22px, 5.5vw, 34px);
+    letter-spacing: -1.2px;
+    line-height: 1.15;
+    white-space: normal;
+    margin-bottom: 12px;
+  }
+  .home-v3 .home-plan-copy > p:not(.eyebrow) {
+    white-space: normal;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .home-v3 .home-plan .btn {
+    font-size: 12px;
+    min-height: 44px;
+    padding: 11px 22px;
+    gap: 17px;
+  }
+  .home-v3 .plan-illustration {
+    padding: 12px 9px;
+    border-radius: 14px;
+  }
+  .home-v3 .plan-illustration-head {
+    font-size: 18px;
+    padding: 0 4px 11px;
+  }
+  .plan-preview-label {
+    font-size: 8px;
+  }
+  .plan-preview-nav > a {
+    width: 28px;
+    height: 28px;
+  }
+  .home-v3 .plan-illustration-days {
+    gap: 4px;
+    padding-bottom: 12px;
+  }
+  .home-v3 .plan-illustration-days > div {
+    padding: 7px;
+    border-radius: 10px;
+  }
+  .home-v3 .plan-illustration-days > div > span {
+    font-size: 11px;
+  }
+  .plan-mini-meal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding-top: 10px;
+    min-height: 126px;
+  }
+  .plan-mini-meal > img {
+    width: 48px;
+    height: 48px;
+  }
+  .plan-mini-meal > span {
+    font-size: 9px;
+  }
+  .home-v3 .plan-mini-meal small {
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  .home-v3 .plan-illustration-shop {
+    padding: 10px 7px;
+    gap: 6px;
+    border-radius: 10px;
+  }
+  .home-v3 .plan-illustration-shop > span {
+    font-size: 10px;
+    gap: 6px;
+  }
+  .home-v3 .plan-illustration-shop > .plan-grocery-art {
+    font-size: 17px;
+    letter-spacing: 0;
+  }
+  .home-v3 .home-closing {
+    padding: 28px 0 25px;
+    gap: 12px;
+  }
+  .home-v3 .home-closing h2 {
+    font-size: clamp(22px, 5.5vw, 34px);
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+  }
+  .home-v3 .round-link {
+    width: 43px;
+    height: 43px;
+    margin: 0;
+  }
+  .home-v3 .round-link svg {
+    width: 24px;
+    height: 24px;
+  }
+  .home-reference-footer {
+    width: calc(100% - 32px);
+    padding: 20px 4px 100px;
+    min-height: 0;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .home-footer-wordmark {
+    font-size: 25px;
+  }
+  .home-reference-footer nav {
+    font-size: 10px;
+    gap: 20px;
+  }
+  .home-reference-footer small {
+    font-size: 9px;
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-v3 .home-intro-copy,
+  .home-v3 .home-food {
+    animation: none !important;
+  }
+  .home-v3 * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

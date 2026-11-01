@@ -1,0 +1,312 @@
+{
+  "date": "2026-10-31",
+  "build": {
+    "command": "npm run check; npm run build -w frontend",
+    "passed": true,
+    "testResultsIncludingParents": 21,
+    "cssBytes": 79310,
+    "cssGzipBytes": 16700,
+    "mainJsBytes": 409730,
+    "mainJsGzipBytes": 129180,
+    "motionFeaturesGzipBytes": 18340
+  },
+  "e2e": {
+    "passed": true,
+    "checks": [
+      "Home ingredients and servings reach real matcher; matching returns real results",
+      "Homepage search filters real recipes",
+      "Registration, password visibility, authenticated navigation",
+      "Favorite persists for signed-in account",
+      "Scale recipe and add to real weekly plan",
+      "Shopping list generation and purchased state survive reload",
+      "Editor retains live 300-item backlog and pagination",
+      "Mobile navigation opens, routes and closes correctly",
+      "AI service error presents a retry action without a fake result",
+      "Reduced motion and local font verified",
+      "Authenticated layouts fit 320/375/768/1440px"
+    ],
+    "audits": [
+      {
+        "name": "homepage desktop",
+        "violations": []
+      },
+      {
+        "name": "favorites",
+        "violations": []
+      },
+      {
+        "name": "add-to-plan dialog",
+        "violations": []
+      },
+      {
+        "name": "planner desktop",
+        "violations": []
+      },
+      {
+        "name": "shopping",
+        "violations": []
+      },
+      {
+        "name": "shopping mobile",
+        "violations": []
+      },
+      {
+        "name": "editor mobile",
+        "violations": []
+      },
+      {
+        "name": "homepage mobile reduced motion",
+        "violations": []
+      }
+    ],
+    "errors": []
+  },
+  "publicPagesAccessibilityFinal": {
+    "audits": [
+      {
+        "route": "/",
+        "violations": []
+      },
+      {
+        "route": "/cong-thuc",
+        "violations": []
+      },
+      {
+        "route": "/dang-nhap",
+        "violations": []
+      },
+      {
+        "route": "/co-gi-nau-nay?tab=manual",
+        "violations": []
+      },
+      {
+        "route": "/co-gi-nau-nay?tab=ai",
+        "violations": []
+      },
+      {
+        "route": "/cong-thuc/dau-hu-sot-ca-chua",
+        "violations": []
+      },
+      {
+        "route": "/cong-thuc/dau-hu-sot-ca-chua/nau",
+        "violations": []
+      },
+      {
+        "route": "/lo-trinh",
+        "violations": []
+      }
+    ],
+    "passed": true,
+    "errors": []
+  },
+  "liveAiAndKeyboard": {
+    "status": 201,
+    "checks": [
+      "empty state",
+      "keyboard skip link",
+      "reduced-motion content",
+      "seven local generated images",
+      "live AI through UI"
+    ],
+    "errors": []
+  },
+  "deployed": {
+    "passed": true,
+    "base": "http://localhost:8080",
+    "ready": 200,
+    "font": "\"Plus Jakarta Sans Variable\", system-ui, sans-serif",
+    "images": [
+      {
+        "src": "/images/cookora-tofu-1200.webp",
+        "loaded": true
+      },
+      {
+        "src": "/images/kimchi.webp",
+        "loaded": true
+      },
+      {
+        "src": "/images/oyakodon.webp",
+        "loaded": true
+      },
+      {
+        "src": "/images/eggs-tomato.webp",
+        "loaded": true
+      },
+      {
+        "src": "/images/gai-yang.webp",
+        "loaded": true
+      },
+      {
+        "src": "/images/aglio-olio.webp",
+        "loaded": true
+      },
+      {
+        "src": "/images/ratatouille.webp",
+        "loaded": true
+      }
+    ],
+    "layouts": [
+      {
+        "width": 320,
+        "route": "/",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "route": "/cong-thuc",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "route": "/co-gi-nau-nay?tab=manual",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "route": "/co-gi-nau-nay?tab=ai",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "route": "/dang-nhap",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "route": "/cong-thuc/dau-hu-sot-ca-chua",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "route": "/cong-thuc/dau-hu-sot-ca-chua/nau",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "route": "/lo-trinh",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "route": "/",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "route": "/cong-thuc",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "route": "/co-gi-nau-nay?tab=manual",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "route": "/co-gi-nau-nay?tab=ai",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "route": "/dang-nhap",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "route": "/cong-thuc/dau-hu-sot-ca-chua",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "route": "/cong-thuc/dau-hu-sot-ca-chua/nau",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "route": "/lo-trinh",
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "route": "/",
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "route": "/cong-thuc",
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "route": "/co-gi-nau-nay?tab=manual",
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "route": "/co-gi-nau-nay?tab=ai",
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "route": "/dang-nhap",
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "route": "/cong-thuc/dau-hu-sot-ca-chua",
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "route": "/cong-thuc/dau-hu-sot-ca-chua/nau",
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "route": "/lo-trinh",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "route": "/",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "route": "/cong-thuc",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "route": "/co-gi-nau-nay?tab=manual",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "route": "/co-gi-nau-nay?tab=ai",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "route": "/dang-nhap",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "route": "/cong-thuc/dau-hu-sot-ca-chua",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "route": "/cong-thuc/dau-hu-sot-ca-chua/nau",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "route": "/lo-trinh",
+        "overflow": false
+      }
+    ],
+    "errors": []
+  }
+}

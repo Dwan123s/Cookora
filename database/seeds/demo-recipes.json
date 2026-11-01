@@ -1,0 +1,799 @@
+{
+  "ingredients": [
+    {
+      "id": "tofu-firm",
+      "name": "Đậu hũ chắc",
+      "unit": "g",
+      "category": "Đậu & trứng",
+      "aliases": [
+        "dau hu",
+        "đậu phụ"
+      ]
+    },
+    {
+      "id": "tomato",
+      "name": "Cà chua",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "ca chua"
+      ]
+    },
+    {
+      "id": "garlic",
+      "name": "Tỏi bóc vỏ",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "toi"
+      ]
+    },
+    {
+      "id": "scallion",
+      "name": "Hành lá",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "hanh la"
+      ]
+    },
+    {
+      "id": "oil",
+      "name": "Dầu ăn",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": [
+        "dau an"
+      ]
+    },
+    {
+      "id": "soy-sauce",
+      "name": "Nước tương",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": [
+        "xi dau",
+        "xì dầu"
+      ]
+    },
+    {
+      "id": "sugar",
+      "name": "Đường",
+      "unit": "g",
+      "category": "Gia vị",
+      "aliases": [
+        "duong"
+      ]
+    },
+    {
+      "id": "water",
+      "name": "Nước",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": [
+        "nuoc"
+      ]
+    },
+    {
+      "id": "rice-cooked",
+      "name": "Cơm chín",
+      "unit": "g",
+      "category": "Gạo & mì",
+      "aliases": [
+        "com",
+        "com chin"
+      ]
+    },
+    {
+      "id": "kimchi",
+      "name": "Kimchi cải thảo",
+      "unit": "g",
+      "category": "Thực phẩm chế biến",
+      "aliases": [
+        "kim chi"
+      ]
+    },
+    {
+      "id": "kimchi-juice",
+      "name": "Nước kimchi",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": []
+    },
+    {
+      "id": "onion",
+      "name": "Hành tây",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "hanh tay"
+      ]
+    },
+    {
+      "id": "gochujang",
+      "name": "Gochujang",
+      "unit": "g",
+      "category": "Gia vị",
+      "aliases": [
+        "tuong ot han"
+      ]
+    },
+    {
+      "id": "sesame-oil",
+      "name": "Dầu mè",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": [
+        "dau me"
+      ]
+    },
+    {
+      "id": "chicken-thigh-raw",
+      "name": "Đùi gà sống không xương",
+      "unit": "g",
+      "category": "Thịt & cá",
+      "aliases": [
+        "ga",
+        "thit ga",
+        "gà"
+      ]
+    },
+    {
+      "id": "egg-edible",
+      "name": "Trứng không vỏ",
+      "unit": "g",
+      "category": "Đậu & trứng",
+      "aliases": [
+        "trung",
+        "trứng"
+      ]
+    },
+    {
+      "id": "dashi",
+      "name": "Dashi pha sẵn",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": []
+    },
+    {
+      "id": "mirin",
+      "name": "Mirin",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": []
+    },
+    {
+      "id": "salt",
+      "name": "Muối",
+      "unit": "g",
+      "category": "Gia vị",
+      "aliases": [
+        "muoi"
+      ]
+    },
+    {
+      "id": "lemongrass",
+      "name": "Sả phần non",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "sa",
+        "sả"
+      ]
+    },
+    {
+      "id": "fish-sauce",
+      "name": "Nước mắm",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": [
+        "nuoc mam"
+      ]
+    },
+    {
+      "id": "dark-soy",
+      "name": "Nước tương đậm",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": []
+    },
+    {
+      "id": "brown-sugar",
+      "name": "Đường nâu",
+      "unit": "g",
+      "category": "Gia vị",
+      "aliases": []
+    },
+    {
+      "id": "pepper",
+      "name": "Tiêu",
+      "unit": "g",
+      "category": "Gia vị",
+      "aliases": [
+        "tieu"
+      ]
+    },
+    {
+      "id": "spaghetti-dry",
+      "name": "Spaghetti khô",
+      "unit": "g",
+      "category": "Gạo & mì",
+      "aliases": [
+        "mi y",
+        "mì ý"
+      ]
+    },
+    {
+      "id": "olive-oil",
+      "name": "Dầu ô liu",
+      "unit": "ml",
+      "category": "Gia vị",
+      "aliases": []
+    },
+    {
+      "id": "chili",
+      "name": "Ớt tươi",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "ot"
+      ]
+    },
+    {
+      "id": "parsley",
+      "name": "Parsley",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": []
+    },
+    {
+      "id": "eggplant",
+      "name": "Cà tím",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "ca tim"
+      ]
+    },
+    {
+      "id": "zucchini",
+      "name": "Bí ngòi",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "bi ngoi"
+      ]
+    },
+    {
+      "id": "bell-pepper",
+      "name": "Ớt chuông",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": [
+        "ot chuong"
+      ]
+    },
+    {
+      "id": "basil",
+      "name": "Basil",
+      "unit": "g",
+      "category": "Rau củ",
+      "aliases": []
+    }
+  ],
+  "recipes": [
+    {
+      "slug": "dau-hu-sot-ca-chua",
+      "title": "Đậu hũ sốt cà chua",
+      "summary": "Miếng đậu mềm, sốt cà chua dịu ngọt. Một gợi ý gần gũi để bắt đầu bữa cơm nhà.",
+      "cuisine": "VN",
+      "category": "Món ăn cùng cơm",
+      "baseServings": 2,
+      "time": [
+        10,
+        18,
+        0,
+        28
+      ],
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1000&q=85",
+      "sourceName": "Vietnam Tourism · nghiên cứu nền món",
+      "sourceUrl": "https://vietnam.travel/things-to-do/vietnamese-home-recipes/",
+      "ingredients": [
+        [
+          "tofu-firm",
+          300,
+          "MAIN"
+        ],
+        [
+          "tomato",
+          300,
+          "SUPPORTING"
+        ],
+        [
+          "garlic",
+          6
+        ],
+        [
+          "scallion",
+          10
+        ],
+        [
+          "oil",
+          20
+        ],
+        [
+          "soy-sauce",
+          10
+        ],
+        [
+          "sugar",
+          3
+        ],
+        [
+          "water",
+          60
+        ]
+      ],
+      "steps": [
+        [
+          "Chuẩn bị nguyên liệu",
+          "Để ráo và thấm mặt đậu. Cắt miếng dày khoảng 1,5–2cm. Cắt nhỏ cà chua, băm tỏi và thái hành."
+        ],
+        [
+          "Áp chảo đậu",
+          "Làm nóng dầu ở lửa vừa, xếp đậu một lớp. Đợi mặt đậu se và dễ nhấc mới trở, sau đó gắp ra đĩa."
+        ],
+        [
+          "Nấu sốt cà",
+          "Phi thơm tỏi và đầu hành với phần dầu còn lại. Thêm cà chua và nước, nấu đến khi cà mềm và sốt bắt đầu kết lại."
+        ],
+        [
+          "Hoàn thiện",
+          "Thêm nước tương, đường rồi cho đậu trở lại. Đảo nhẹ cho sốt bám, thêm hành lá và dùng với cơm chuẩn bị riêng."
+        ]
+      ]
+    },
+    {
+      "slug": "com-kimchi",
+      "title": "Cơm kimchi cho ngày bận rộn",
+      "summary": "Một chiếc chảo, cơm đã sẵn và vị kimchi đậm đà. Xem kỹ điều kiện bảo quản cơm trước khi bắt đầu.",
+      "cuisine": "KR",
+      "category": "Cơm & mì",
+      "baseServings": 2,
+      "time": [
+        8,
+        10,
+        0,
+        18
+      ],
+      "preconditions": "Có cơm chín được bảo quản phù hợp; không bao gồm thời gian nấu gạo.",
+      "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1000&q=85",
+      "sourceName": "Maangchi · nghiên cứu nền món",
+      "sourceUrl": "https://www.maangchi.com/recipe/kimchi-bokkeumbap",
+      "ingredients": [
+        [
+          "rice-cooked",
+          350,
+          "MAIN"
+        ],
+        [
+          "kimchi",
+          160,
+          "MAIN"
+        ],
+        [
+          "kimchi-juice",
+          20
+        ],
+        [
+          "onion",
+          60,
+          "SUPPORTING"
+        ],
+        [
+          "scallion",
+          10
+        ],
+        [
+          "gochujang",
+          8
+        ],
+        [
+          "oil",
+          10
+        ],
+        [
+          "sesame-oil",
+          5
+        ]
+      ],
+      "steps": [
+        [
+          "Kiểm tra cơm",
+          "Chỉ dùng cơm có lịch sử bảo quản phù hợp. Cắt kimchi và hành nhỏ; dùng dụng cụ sạch làm tơi cơm."
+        ],
+        [
+          "Xào kimchi",
+          "Làm nóng dầu, xào hành rồi thêm kimchi. Đảo cho lượng nước tiết ra giảm bớt."
+        ],
+        [
+          "Rang cơm",
+          "Trộn gochujang với nước kimchi trong chảo. Thêm cơm, dàn và đảo đến khi sốt phủ đều và toàn món nóng kỹ. Chia mẻ nếu chảo nhỏ."
+        ],
+        [
+          "Dùng ngay",
+          "Tắt bếp, trộn dầu mè và hành lá. Dùng ngay. Trứng hoặc thịt thêm vào cần được tính thành biến thể riêng."
+        ]
+      ]
+    },
+    {
+      "slug": "oyakodon-com-ga-trung",
+      "title": "Oyakodon · cơm gà trứng",
+      "summary": "Gà, hành và trứng trong phần sốt dashi ấm áp. Nấu phần topping trên một chiếc chảo nhỏ.",
+      "cuisine": "JP",
+      "category": "Món ăn cùng cơm",
+      "baseServings": 2,
+      "time": [
+        12,
+        15,
+        0,
+        27
+      ],
+      "preconditions": "Có cơm và dashi pha sẵn. Lượng bên dưới chỉ gồm topping, chưa tính cơm.",
+      "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85",
+      "sourceName": "Just One Cookbook · nghiên cứu nền món",
+      "sourceUrl": "https://www.justonecookbook.com/oyakodon/",
+      "ingredients": [
+        [
+          "chicken-thigh-raw",
+          220,
+          "MAIN"
+        ],
+        [
+          "egg-edible",
+          150,
+          "MAIN"
+        ],
+        [
+          "onion",
+          100,
+          "SUPPORTING"
+        ],
+        [
+          "dashi",
+          150
+        ],
+        [
+          "soy-sauce",
+          15
+        ],
+        [
+          "mirin",
+          15
+        ],
+        [
+          "sugar",
+          4
+        ],
+        [
+          "scallion",
+          5
+        ]
+      ],
+      "steps": [
+        [
+          "Sơ chế",
+          "Thái hành. Cắt gà sống thành miếng đều khoảng 2cm; tách dụng cụ đồ sống và đồ chín."
+        ],
+        [
+          "Nấu sốt và gà",
+          "Đun dashi, nước tương, mirin, đường và hành đến sôi nhẹ. Thêm gà, nấu và dùng nhiệt kế kiểm tra phần gà đạt ít nhất 74°C."
+        ],
+        [
+          "Thêm trứng",
+          "Đánh trứng vừa hòa, rót đều và đậy nắp. Tiếp tục nấu chín đều; bản thử này dùng tiêu chí topping đạt ít nhất 74°C sau khi thêm trứng."
+        ],
+        [
+          "Hoàn thiện tô cơm",
+          "Chia topping lên cơm nấu riêng và thêm hành. Muốn tính cả tô cần khai thêm lượng cơm. Gia vị có thể chứa cồn; không mặc định cồn bay hết."
+        ]
+      ]
+    },
+    {
+      "slug": "trung-xao-ca-chua",
+      "title": "Trứng xào cà chua",
+      "summary": "Món quen với hai nguyên liệu chính. Nấu trứng và cà theo hai giai đoạn để dễ quan sát cấu trúc.",
+      "cuisine": "CN",
+      "category": "Món ăn cùng cơm",
+      "baseServings": 2,
+      "time": [
+        10,
+        8,
+        0,
+        18
+      ],
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1000&q=85",
+      "sourceName": "China Sichuan Food · nghiên cứu nền món",
+      "sourceUrl": "https://www.chinasichuanfood.com/chinese-tomato-and-egg-stir-fry/",
+      "ingredients": [
+        [
+          "egg-edible",
+          150,
+          "MAIN"
+        ],
+        [
+          "tomato",
+          300,
+          "MAIN"
+        ],
+        [
+          "scallion",
+          10
+        ],
+        [
+          "oil",
+          15
+        ],
+        [
+          "salt",
+          2
+        ],
+        [
+          "sugar",
+          2
+        ],
+        [
+          "water",
+          20
+        ]
+      ],
+      "steps": [
+        [
+          "Chuẩn bị",
+          "Cắt cà chua nhỏ, thái hành và đánh trứng với một phần muối."
+        ],
+        [
+          "Tạo cấu trúc trứng",
+          "Dùng hai phần ba dầu áp chảo trứng. Gom thành mảng rồi chuyển ra bát sạch để hoàn thành chín ở bước cuối."
+        ],
+        [
+          "Nấu cà chua",
+          "Dùng phần dầu còn lại với đầu hành và cà chua. Thêm nước, đường và muối còn lại để tạo sốt."
+        ],
+        [
+          "Nấu chín đều",
+          "Trả trứng vào, đảo nhẹ và nấu đến chín đều, không còn lỏng. Kiểm tra món trứng đạt ít nhất 71°C, thêm hành và dùng cùng cơm riêng."
+        ]
+      ]
+    },
+    {
+      "slug": "ga-gai-yang-ap-chao",
+      "title": "Gà Gai Yang phiên bản áp chảo",
+      "summary": "Mùi sả và lớp sốt đậm đà cho bữa cơm cuối ngày. Cần thời gian ướp lạnh trước khi nấu.",
+      "cuisine": "TH",
+      "category": "Món chính",
+      "baseServings": 2,
+      "time": [
+        15,
+        20,
+        180,
+        215
+      ],
+      "preconditions": "Cần ướp trong tủ lạnh khoảng 3 giờ theo giả thuyết bản thử. Chưa gồm cơm và sốt chấm.",
+      "image": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1000&q=85",
+      "sourceName": "RecipeTin Eats · bản bếp gia đình",
+      "sourceUrl": "https://www.recipetineats.com/thai-grilled-chicken-gai-yang/",
+      "ingredients": [
+        [
+          "chicken-thigh-raw",
+          400,
+          "MAIN"
+        ],
+        [
+          "lemongrass",
+          20,
+          "SUPPORTING"
+        ],
+        [
+          "garlic",
+          10
+        ],
+        [
+          "soy-sauce",
+          15
+        ],
+        [
+          "fish-sauce",
+          10
+        ],
+        [
+          "dark-soy",
+          5
+        ],
+        [
+          "brown-sugar",
+          8
+        ],
+        [
+          "oil",
+          10
+        ],
+        [
+          "pepper",
+          0.5
+        ]
+      ],
+      "steps": [
+        [
+          "Pha phần ướp",
+          "Băm/xay sả, tỏi và trộn với gia vị đã đong. Chia miếng gà có độ dày đều."
+        ],
+        [
+          "Ướp lạnh",
+          "Trộn gà với phần ướp trong hộp có nắp, đặt trong tủ lạnh suốt giai đoạn ướp. Không để ướp ở nhiệt độ phòng."
+        ],
+        [
+          "Áp chảo",
+          "Làm nóng chảo, hạ lửa vừa và xếp gà một lớp. Trở mặt khi dễ nhấc, hạ lửa nếu lớp đường sậm nhanh."
+        ],
+        [
+          "Kiểm tra độ chín",
+          "Dùng nhiệt kế đo phần dày đạt ít nhất 74°C. Đặt lên đĩa sạch, bỏ phần nước ướp tiếp xúc thịt sống; không dùng làm sốt chấm."
+        ]
+      ]
+    },
+    {
+      "slug": "spaghetti-aglio-e-olio",
+      "title": "Spaghetti tỏi & dầu ô liu",
+      "summary": "Ít thành phần, chú trọng từng thao tác. Giữ tỏi thơm và hoàn thiện sợi mì với nước nấu mì.",
+      "cuisine": "IT",
+      "category": "Cơm & mì",
+      "baseServings": 2,
+      "time": [
+        8,
+        15,
+        0,
+        23
+      ],
+      "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=1000&q=85",
+      "sourceName": "GialloZafferano · nghiên cứu kỹ thuật",
+      "sourceUrl": "https://www.giallozafferano.com/recipes/Spaghetti-aglio-e-olio-Spaghetti-with-garlic-oil-and-chili-pepper.html",
+      "ingredients": [
+        [
+          "spaghetti-dry",
+          180,
+          "MAIN"
+        ],
+        [
+          "olive-oil",
+          25
+        ],
+        [
+          "garlic",
+          10,
+          "SUPPORTING"
+        ],
+        [
+          "chili",
+          2
+        ],
+        [
+          "parsley",
+          5
+        ],
+        [
+          "water",
+          1600
+        ],
+        [
+          "salt",
+          6
+        ]
+      ],
+      "steps": [
+        [
+          "Luộc mì",
+          "Đun nước và cho muối, thêm mì khô. Đọc hướng dẫn nhãn làm mốc tham khảo. Thái tỏi, ớt và parsley."
+        ],
+        [
+          "Làm thơm tỏi",
+          "Cho dầu và tỏi vào chảo, làm ấm lửa nhỏ. Thêm ớt và tránh để tỏi chuyển nâu đậm."
+        ],
+        [
+          "Đảo mì",
+          "Giữ lại khoảng 120ml nước từ chính nồi mì, chuyển mì sang chảo. Thêm nước luộc từng ít rồi đảo cho sốt bám."
+        ],
+        [
+          "Hoàn thiện",
+          "Thêm parsley, dùng ngay. Nước luộc và muối không được coi toàn bộ là lượng ăn vào khi tính dinh dưỡng."
+        ]
+      ]
+    },
+    {
+      "slug": "ratatouille-rau-ham",
+      "title": "Ratatouille · rau hầm sắc màu",
+      "summary": "Cà tím, bí ngòi và cà chua cùng một phần sốt dịu. Một món rau để phối cùng bữa ăn của bạn.",
+      "cuisine": "WE",
+      "category": "Rau & món phụ",
+      "baseServings": 4,
+      "time": [
+        15,
+        30,
+        0,
+        45
+      ],
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=85",
+      "sourceName": "Good Food · nghiên cứu nền món",
+      "sourceUrl": "https://www.bbcgoodfood.com/recipes/ratatouille",
+      "ingredients": [
+        [
+          "eggplant",
+          180,
+          "MAIN"
+        ],
+        [
+          "zucchini",
+          180,
+          "MAIN"
+        ],
+        [
+          "bell-pepper",
+          120,
+          "SUPPORTING"
+        ],
+        [
+          "tomato",
+          300,
+          "MAIN"
+        ],
+        [
+          "onion",
+          80,
+          "SUPPORTING"
+        ],
+        [
+          "garlic",
+          8
+        ],
+        [
+          "olive-oil",
+          20
+        ],
+        [
+          "basil",
+          5
+        ],
+        [
+          "salt",
+          3
+        ],
+        [
+          "pepper",
+          0.3
+        ],
+        [
+          "water",
+          40
+        ]
+      ],
+      "steps": [
+        [
+          "Cắt rau",
+          "Cắt cà tím, bí ngòi và ớt chuông miếng khoảng 2cm. Cắt nhỏ hành, tỏi và cà chua."
+        ],
+        [
+          "Đảo rau",
+          "Dùng một phần dầu đảo cà tím đến bắt đầu se mặt, chuyển ra bát. Làm tương tự bí ngòi nếu cần chia mẻ."
+        ],
+        [
+          "Nấu sốt",
+          "Nấu hành với dầu còn lại, thêm tỏi rồi cà chua. Chỉ thêm nước đong sẵn nếu chảo khô."
+        ],
+        [
+          "Om mềm",
+          "Trả rau vào, thêm muối/tiêu và đậy nắp một phần ở lửa nhỏ. Đảo nhẹ, mở nắp nếu sốt quá nhiều nước. Thêm basil khi rau mềm."
+        ]
+      ]
+    }
+  ]
+}

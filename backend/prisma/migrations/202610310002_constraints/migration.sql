@@ -1,0 +1,12 @@
+ALTER TABLE [dbo].[User] ADD CONSTRAINT [User_role_check] CHECK ([role] IN ('USER','EDITOR','ADMIN'));
+ALTER TABLE [dbo].[Ingredient] ADD CONSTRAINT [Ingredient_unit_check] CHECK ([unit] IN ('g','ml','piece'));
+ALTER TABLE [dbo].[Recipe] ADD CONSTRAINT [Recipe_servings_check] CHECK ([baseServings] > 0 AND [baseServings] <= 20);
+ALTER TABLE [dbo].[Recipe] ADD CONSTRAINT [Recipe_status_check] CHECK ([contentStatus] IN ('DRAFT','APPROVED') AND [timingStatus] IN ('ESTIMATED','VERIFIED'));
+ALTER TABLE [dbo].[Recipe] ADD CONSTRAINT [Recipe_timing_check] CHECK (([prepMinutes] IS NULL OR [prepMinutes] >= 0) AND ([cookMinutes] IS NULL OR [cookMinutes] >= 0) AND ([waitMinutes] IS NULL OR [waitMinutes] >= 0) AND ([totalMinutes] IS NULL OR [totalMinutes] >= 0));
+ALTER TABLE [dbo].[RecipeLine] ADD CONSTRAINT [RecipeLine_quantity_check] CHECK ([quantity] IS NULL OR [quantity] > 0);
+ALTER TABLE [dbo].[RecipeLine] ADD CONSTRAINT [RecipeLine_role_check] CHECK ([role] IN ('MAIN','SUPPORTING','SEASONING'));
+ALTER TABLE [dbo].[RecipeLine] ADD CONSTRAINT [RecipeLine_unit_check] CHECK ([unit] IN ('g','kg','ml','l','piece'));
+ALTER TABLE [dbo].[MealEntry] ADD CONSTRAINT [MealEntry_servings_check] CHECK ([servings] > 0 AND [servings] <= 20);
+ALTER TABLE [dbo].[MealEntry] ADD CONSTRAINT [MealEntry_meal_check] CHECK ([mealType] IN ('BREAKFAST','LUNCH','DINNER'));
+ALTER TABLE [dbo].[ShoppingItem] ADD CONSTRAINT [ShoppingItem_quantity_check] CHECK ([quantity] IS NULL OR [quantity] >= 0);
+ALTER TABLE [dbo].[MealPlan] ADD CONSTRAINT [MealPlan_version_check] CHECK ([version] > 0);
