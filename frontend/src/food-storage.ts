@@ -1,7 +1,7 @@
 export const safetySources = {
   chart: 'https://www.foodsafety.gov/food-safety-charts/cold-food-storage-charts',
   fda: 'https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely',
-  leftovers: 'https://ask.fsis.usda.gov/article/How-do-I-reheat-leftovers-safely',
+  leftovers: 'https://ask.fsis.usda.gov/article/What-methods-of-reheating-food-are-safe',
   greens: 'https://extension.usu.edu/nutrition/research/spinach',
   rice: 'https://www.gov.uk/government/publications/home-food-fact-checker/home-food-fact-checker',
 };

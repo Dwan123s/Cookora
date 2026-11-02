@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import type { Ingredient, MatchResult } from '@cookora/contracts';
@@ -17,6 +17,7 @@ import { request } from '../api';
 import { ErrorState, Loading, useNotice } from '../shared';
 import { matcherMedia } from '../matcher-media';
 import { leftoverStatus, localDateTime, storageDate, type Leftover } from '../food-storage';
+import { normalizeFood } from '../tool-data';
 const groups = {
   poultry: 'Thịt / gia cầm đã nấu',
   soup: 'Canh, súp đã nấu',
@@ -60,7 +61,9 @@ export function LeftoverForm({
 }) {
   const [form, setForm] = useState(emptyForm),
     [error, setError] = useState('');
+  const conditions = useRef<HTMLDetailsElement>(null);
   useEffect(() => {
+    if (conditions.current) conditions.current.open = !!editing;
     setError('');
     setForm(
       editing
@@ -176,7 +179,7 @@ export function LeftoverForm({
           </select>
         </label>
       </div>
-      <details className="storage-conditions">
+      <details className="storage-conditions" ref={conditions}>
         <summary>Thời điểm & điều kiện bảo quản</summary>
         <p>
           Giờ Việt Nam (GMT+7). Ghi lần đưa vào bảo quản lạnh đầu tiên; không đặt lại giờ nấu khi hâm lại.
@@ -188,6 +191,7 @@ export function LeftoverForm({
               type="datetime-local"
               required
               value={form.cookedAt}
+              onInput={(e) => update('cookedAt', e.currentTarget.value)}
               onChange={(e) => update('cookedAt', e.target.value)}
             />
           </label>
@@ -197,6 +201,7 @@ export function LeftoverForm({
               type="datetime-local"
               required
               value={form.storedAt}
+              onInput={(e) => update('storedAt', e.currentTarget.value)}
               onChange={(e) => update('storedAt', e.target.value)}
             />
           </label>
@@ -322,15 +327,17 @@ export function LeftoverRecipeSuggestions({ items, now }: { items: Leftover[]; n
   });
   const eligible = items.filter((i) => leftoverStatus(i, now).eligible);
   const rice = eligible.filter((i) => i.group === 'rice');
-  const id = ingredients.data?.data.find((i) => i.id === 'cooked-rice')?.id;
+  const riceIds = (ingredients.data?.data || [])
+    .filter((i) => ['com chin', 'com nguoi bao quan lanh'].includes(normalizeFood(i.name)))
+    .map((i) => i.id);
   const matches = useQuery({
-    queryKey: ['leftover-matches', id, !!rice.length],
+    queryKey: ['leftover-matches', riceIds, !!rice.length],
     queryFn: () =>
       request<MatchResult[]>('/recipes/match', {
         method: 'POST',
-        body: { mode: 'identity', servings: 2, items: [{ ingredientId: id }] },
+        body: { mode: 'identity', servings: 2, items: riceIds.map((ingredientId) => ({ ingredientId })) },
       }),
-    enabled: open && !!id && rice.length > 0,
+    enabled: open && riceIds.length > 0 && rice.length > 0,
   });
   return (
     <section className="storage-suggestions">
@@ -357,7 +364,7 @@ export function LeftoverRecipeSuggestions({ items, now }: { items: Leftover[]; n
             <Loading />
           ) : ingredients.isError ? (
             <ErrorState error={ingredients.error} retry={() => void ingredients.refetch()} />
-          ) : !rice.length || !id ? (
+          ) : !rice.length || !riceIds.length ? (
             <p>
               Kho hiện chưa có nguyên liệu chín tương ứng với món bạn ghi nhận. Có thể đối chiếu cơm đã nấu;
               các món khác cần công thức chế biến lại phù hợp.

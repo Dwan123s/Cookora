@@ -1961,6 +1961,247 @@ body:has(.tools-reference) {
   }
 }
 /* Compact desktop calculator, preserving comfortable mobile controls. */
-@media(min-width:951px){.budget-hero{min-height:138px}.budget-hero>img{height:145px;top:-4px;width:290px}.budget-settings{padding:17px 20px}.budget-settings h2{font-size:22px}.budget-settings h2 .tools-icon{width:36px;height:36px}.budget-settings fieldset{margin-top:12px}.budget-settings legend{line-height:1.4}.budget-settings .tools-segment button{min-height:36px;padding-block:6px}.budget-amount{margin-top:12px}.budget-slider{margin:8px 0 10px}.budget-presets button{font-size:9px;line-height:1.5}.budget-presets small{font-size:8px}.budget-selects{margin:13px 0 10px}.budget-selects select{height:36px!important}.budget-tip{padding:9px 11px;line-height:1.7}.budget-results{padding:0;gap:17px}.budget-summary{padding:20px 22px}.budget-recipes{margin-top:23px;padding-top:15px}.budget-summary h2{font-size:42px}}
-.storage-reference{max-width:1460px;padding-inline:28px}.storage-hero>img{right:-28px;object-position:70% 16%}.storage-food-card h3{min-height:40px}.storage-food-card p{min-height:59px}.storage-duration{min-height:28px;margin-top:9px;margin-bottom:10px}.storage-leftover-empty{padding-block:17px}.budget-recipe-body h3{font-size:16px}.budget-recipe-body>p{font-size:12px}.budget-recipe-meta{font-size:10px}.tools-footnote{font-size:10px}
-@media(max-width:600px){.storage-reference{padding-inline:16px}.storage-hero>img{right:-16px}.storage-food-card h3{font-size:13px;min-height:40px}.storage-food-card p{font-size:10px;min-height:71px}.budget-recipe-body h3{font-size:17px}.budget-recipe-meta{font-size:11px}.storage-duration{font-size:9px}}
+@media (min-width: 951px) {
+  .budget-hero {
+    min-height: 138px;
+  }
+  .budget-hero > img {
+    height: 145px;
+    top: -4px;
+    width: 290px;
+  }
+  .budget-settings {
+    padding: 17px 20px;
+  }
+  .budget-settings h2 {
+    font-size: 22px;
+  }
+  .budget-settings h2 .tools-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .budget-settings fieldset {
+    margin-top: 12px;
+  }
+  .budget-settings legend {
+    line-height: 1.4;
+  }
+  .budget-settings .tools-segment button {
+    min-height: 36px;
+    padding-block: 6px;
+  }
+  .budget-amount {
+    margin-top: 12px;
+  }
+  .budget-slider {
+    margin: 8px 0 10px;
+  }
+  .budget-presets button {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+  .budget-presets small {
+    font-size: 8px;
+  }
+  .budget-selects {
+    margin: 13px 0 10px;
+  }
+  .budget-selects select {
+    height: 36px !important;
+  }
+  .budget-tip {
+    padding: 9px 11px;
+    line-height: 1.7;
+  }
+  .budget-results {
+    padding: 0;
+    gap: 17px;
+  }
+  .budget-summary {
+    padding: 20px 22px;
+  }
+  .budget-recipes {
+    margin-top: 23px;
+    padding-top: 15px;
+  }
+  .budget-summary h2 {
+    font-size: 42px;
+  }
+}
+.storage-reference {
+  max-width: 1460px;
+  padding-inline: 28px;
+}
+.storage-hero > img {
+  right: -28px;
+  object-position: 70% 16%;
+}
+.storage-food-card h3 {
+  min-height: 40px;
+}
+.storage-food-card p {
+  min-height: 59px;
+}
+.storage-duration {
+  min-height: 28px;
+  margin-top: 9px;
+  margin-bottom: 10px;
+}
+.storage-leftover-empty {
+  padding-block: 17px;
+}
+.budget-recipe-body h3 {
+  font-size: 16px;
+}
+.budget-recipe-body > p {
+  font-size: 12px;
+}
+.budget-recipe-meta {
+  font-size: 10px;
+}
+.tools-footnote {
+  font-size: 10px;
+}
+@media (max-width: 600px) {
+  .storage-reference {
+    padding-inline: 16px;
+  }
+  .storage-hero > img {
+    right: -16px;
+  }
+  .storage-food-card h3 {
+    font-size: 13px;
+    min-height: 40px;
+  }
+  .storage-food-card p {
+    font-size: 10px;
+    min-height: 71px;
+  }
+  .budget-recipe-body h3 {
+    font-size: 17px;
+  }
+  .budget-recipe-meta {
+    font-size: 11px;
+  }
+  .storage-duration {
+    font-size: 9px;
+  }
+}
+/* Reading sizes and contrast for the two utility pages. */
+.budget-hero h1 {
+  font-size: 36px;
+  white-space: normal;
+}
+.budget-hero > div {
+  max-width: calc(100% - 250px);
+}
+.tools-hero > div > p:last-child {
+  font-size: 14px;
+}
+.budget-recipe-body h3 {
+  font-size: 17px;
+}
+.budget-recipe-body > p {
+  font-size: 14px;
+  line-height: 1.65;
+  min-height: 46px;
+}
+.budget-recipe-meta {
+  font-size: 11px;
+}
+.budget-recipe-price {
+  font-size: 10px;
+}
+.budget-recipe-price button {
+  font-size: 11px;
+}
+.storage-dashboard {
+  align-items: stretch;
+}
+.storage-leftovers {
+  display: flex;
+  flex-direction: column;
+}
+.storage-leftovers > .storage-suggestions {
+  margin-top: auto;
+  padding-top: 12px;
+}
+.storage-food-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  min-height: 67px;
+  color: #66746b;
+}
+.storage-food-card h3 {
+  font-size: 16px;
+  min-height: 45px;
+}
+.storage-duration {
+  font-size: 11px;
+  min-height: 31px;
+}
+.storage-food-card .tools-outline {
+  font-size: 11px;
+}
+.storage-food-category {
+  font-size: 10px;
+}
+.tools-footnote {
+  color: #6f7d6b;
+}
+.storage-panel-intro {
+  color: #66746b;
+}
+.storage-form-grid > label {
+  color: #66746b;
+}
+@media (max-width: 950px) {
+  .storage-food-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .storage-food-card p {
+    font-size: 14px;
+    min-height: 52px;
+  }
+  .storage-food-card h3 {
+    min-height: 25px;
+  }
+  .budget-hero > div {
+    max-width: 85%;
+  }
+  .budget-hero h1 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .budget-hero > div {
+    max-width: 100%;
+  }
+  .budget-hero h1 {
+    font-size: 29px;
+  }
+  .tools-hero > div > p:last-child {
+    font-size: 12px;
+  }
+  .storage-food-card h3 {
+    font-size: 13px;
+    min-height: 40px;
+  }
+  .storage-food-card p {
+    font-size: 11px;
+    min-height: 75px;
+  }
+  .storage-food-category {
+    font-size: 8px;
+  }
+  .storage-duration {
+    font-size: 10px;
+  }
+  .storage-food-card .tools-outline {
+    font-size: 9px;
+  }
+  .budget-recipe-body > p {
+    font-size: 14px;
+    min-height: 0;
+  }
+}
