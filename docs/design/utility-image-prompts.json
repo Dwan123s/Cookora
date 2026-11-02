@@ -1,0 +1,47 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "name": "budget-hero",
+      "prompt": "Use case: website asset. A charming premium soft 3D illustration of a pale yellow grocery basket filled with crisp lettuce red tomato yellow pepper, beside a sage green pocket calculator with blank display and a few golden coins. Warm daylight, tasteful Cookora sage green and warm cream palette, isolated entire composition, generous padding around all objects, horizontal 3:2 composition. No text, numbers, logos or UI. Transparent background.",
+      "transparent": true,
+      "source": "C:\\Users\\admin\\.codex\\generated_images\\01a19b28-8b3c-72e0-8c20-c2149fdffe43\\exec-60f37c80-53a0-4bf8-97f7-9e31f59751ba.png",
+      "asset": "/images/budget-hero.webp"
+    },
+    {
+      "name": "storage-hero",
+      "prompt": "Use case: website hero photography. Wide close view of an open clean modern refrigerator, its right half filled with separate shallow lidded glass containers of cooked chicken and rice, crisp green lettuce, cherry tomatoes in container and eggs in carton. Raw foods never above cooked food. Warm cream kitchen glimpse on the left with blurred plant, natural bright daylight, realistic food textures, premium editorial photography. Composition all main refrigerator food on right side, landscape 3:2. No text labels logos UI or people.",
+      "transparent": false,
+      "source": "C:\\Users\\admin\\.codex\\generated_images\\01a19b28-8b3c-72e0-8c20-c2149fdffe43\\exec-c6e9f89a-b955-4362-a795-3c5adcdc9510.png",
+      "asset": "/images/storage-hero.webp"
+    },
+    {
+      "name": "storage-chicken",
+      "prompt": "Use case: food storage guide photograph. Two raw boneless skinless chicken breast fillets in a clean pale ceramic tray on a light cream countertop, appetizing realistic pale pink raw poultry, close three-quarter overhead composition, natural daylight, minimal background, no cooked meat, no text logos UI. Landscape 4:3.",
+      "transparent": false,
+      "source": "C:\\Users\\admin\\.codex\\generated_images\\01a19b28-8b3c-72e0-8c20-c2149fdffe43\\exec-e47c63bd-e50d-41b5-a52c-1eaa199d6cf1.png",
+      "asset": "/images/storage-chicken.webp"
+    },
+    {
+      "name": "storage-fish",
+      "prompt": "Use case: food storage guide photograph. Two fresh whole uncooked silver sea bream on crushed ice in a clean shallow steel tray, lemon nearby, light cream kitchen countertop, close three-quarter overhead composition, realistic scales and eyes, natural daylight, premium food photography, landscape 4:3. No text logos UI.",
+      "transparent": false,
+      "source": "C:\\Users\\admin\\.codex\\generated_images\\01a19b28-8b3c-72e0-8c20-c2149fdffe43\\exec-f1f96445-23c3-4859-8171-82c5d0d667e3.png",
+      "asset": "/images/storage-fish.webp"
+    },
+    {
+      "name": "storage-greens",
+      "prompt": "Use case: food storage guide photograph. Fresh uncut spinach and crisp green leaf lettuce with tiny water droplets in a pale ceramic colander on a light cream countertop. Tight three-quarter overhead composition, lush green natural leaves with recognizable spinach shape, bright soft daylight, realistic premium food photography, landscape 4:3. No text logos UI.",
+      "transparent": false,
+      "source": "C:\\Users\\admin\\.codex\\generated_images\\01a19b28-8b3c-72e0-8c20-c2149fdffe43\\exec-b1292443-3e96-4777-8496-e2e81e91b5fb.png",
+      "asset": "/images/storage-greens.webp"
+    },
+    {
+      "name": "storage-rice",
+      "source": "C:\\Users\\admin\\.codex\\generated_images\\01a19b28-8b3c-72e0-8c20-c2149fdffe43\\exec-4fe2941f-f684-474f-8d0e-05d2ec5cfa5d.png",
+      "asset": "/images/storage-rice.webp",
+      "prompt": "Use case: food storage guide photograph. A small white ceramic bowl filled only with freshly cooked plain white rice, individual rice grains visible, clean light cream kitchen counter, three-quarter overhead close composition, soft natural daylight, realistic premium food photography, landscape 4:3. No garnishes, no side dishes, no text, logo or UI.",
+      "transparent": false
+    }
+  ]
+}

@@ -59,7 +59,7 @@ QUY TẮC BẮT BUỘC VỀ NỘI DUNG VÀ ĐỊNH DẠNG:
 
 class VertexRequestError extends Error {
   constructor(readonly status: number) {
-    super('Vertex AI request failed');
+    super('AI request failed');
   }
 }
 
@@ -70,21 +70,48 @@ export class AiChefService {
     const location = process.env.VERTEX_LOCATION?.trim() || 'global';
     const modelName = process.env.VERTEX_MODEL?.trim() || 'gemini-3.8-flash';
     const keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    const apiKey = process.env.VERTEX_API_KEY?.trim();
+    const apiKey = (process.env.GROQ_API_KEY || process.env.VERTEX_API_KEY)?.trim();
 
-    // Check if user has configured Vertex AI project or API key
+    // Check if user has configured Groq, Vertex AI project, or API key
     if (!projectId && !apiKey) {
       throw new BadRequestException({
-        code: 'VERTEX_AI_NOT_CONFIGURED',
+        code: 'AI_NOT_CONFIGURED',
         message:
-          'Chưa cấu hình Google Cloud Vertex AI. Vui lòng thiết lập VERTEX_PROJECT_ID (hoặc VERTEX_API_KEY) trong file .env.',
+          'Chưa cấu hình API Key. Vui lòng thiết lập GROQ_API_KEY hoặc VERTEX_API_KEY trong file .env.',
       });
     }
 
     try {
       let rawJsonText = '';
 
-      if (apiKey) {
+      if (apiKey?.startsWith('gsk_')) {
+        // Groq API integration (ultra fast & free)
+        const groqModel = process.env.GROQ_MODEL?.trim() || 'openai/gpt-oss-120b';
+        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${apiKey}`,
+          },
+          signal: AbortSignal.timeout(60000),
+          body: JSON.stringify({
+            model: groqModel,
+            messages: [
+              { role: 'system', content: SYSTEM_INSTRUCTION },
+              { role: 'user', content: `Khẩu phần: ${servings} người ăn.\nNguyên liệu hiện có: ${prompt}` },
+            ],
+            response_format: { type: 'json_object' },
+          }),
+        });
+
+        if (!response.ok) {
+          await response.body?.cancel();
+          throw new VertexRequestError(response.status);
+        }
+
+        const data = await response.json();
+        rawJsonText = data.choices?.[0]?.message?.content || '';
+      } else if (apiKey) {
         // Vertex AI Express uses a global endpoint without project or location segments.
         const endpoint = `https://aiplatform.googleapis.com/v1/publishers/google/models/${encodeURIComponent(modelName)}:generateContent`;
 
@@ -198,17 +225,17 @@ export class AiChefService {
       };
     } catch (error) {
       const status = error instanceof VertexRequestError ? error.status : undefined;
-      console.error(JSON.stringify({ event: 'VERTEX_AI_ERROR', status }));
+      console.error(JSON.stringify({ event: 'AI_SERVICE_ERROR', status }));
       throw new ServiceUnavailableException({
-        code: 'VERTEX_AI_ERROR',
+        code: 'AI_SERVICE_ERROR',
         message:
           status === 401 || status === 403
-            ? 'Vertex AI từ chối xác thực. Kiểm tra API key, quyền và chính sách Google Cloud.'
+            ? 'Dịch vụ AI từ chối xác thực. Vui lòng kiểm tra lại API Key.'
             : status === 404
-              ? 'Không tìm thấy model trên Vertex AI. Kiểm tra VERTEX_MODEL và quyền truy cập model.'
+              ? 'Không tìm thấy model AI. Vui lòng kiểm tra cấu hình model.'
               : status === 429
-                ? 'Vertex AI đang hết hạn mức hoặc quá tải. Vui lòng thử lại sau.'
-                : 'Không thể lấy gợi ý từ Vertex AI. Vui lòng thử lại sau.',
+                ? 'Dịch vụ AI đang hết hạn mức hoặc quá tải. Vui lòng thử lại sau.'
+                : 'Không thể lấy gợi ý từ trợ lý AI. Vui lòng thử lại sau.',
       });
     }
   }

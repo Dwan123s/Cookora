@@ -17,11 +17,23 @@ import { Favorites } from './pages/Favorites';
 import { AuthPage } from './pages/Auth';
 import { Editor } from './pages/Editor';
 import { Roadmap } from './pages/Roadmap';
+import { EatFit } from './pages/EatFit';
+import { MealCost } from './pages/MealCost';
+import { FoodStorage } from './pages/FoodStorage';
+import { Nutrition } from './pages/Nutrition';
+import { PortionAdjust } from './pages/PortionAdjust';
 
 export function App() {
   const location = useLocation();
+  const isAuthPage = location.pathname === '/dang-nhap';
   const [notice, setNotice] = useState('');
-  const auth = useQuery({ queryKey: ['auth'], queryFn: () => request<User>('/auth/me'), retry: false });
+  const auth = useQuery({
+    queryKey: ['auth'],
+    queryFn: () => request<User>('/auth/me'),
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+    refetchOnWindowFocus: false,
+  });
   useEffect(() => {
     if (!notice) return;
     const timer = setTimeout(() => setNotice(''), 4500);
@@ -33,6 +45,9 @@ export function App() {
       '/cong-thuc': 'Khám phá công thức',
       '/co-gi-nau-nay': 'Có gì nấu nấy',
       '/thuc-don': 'Thực đơn tuần',
+      '/eat-fit': 'Eat Fit · Dinh dưỡng cá nhân hóa',
+      '/ngan-sach': 'Ngân sách ăn uống',
+      '/bao-quan': 'Bảo quản thực phẩm',
       '/yeu-thich': 'Món đã lưu',
       '/dang-nhap': 'Bếp của tôi',
       '/bien-tap': 'Không gian biên tập',
@@ -43,10 +58,14 @@ export function App() {
     <noticeContext.Provider value={setNotice}>
       <authContext.Provider value={auth.data?.data || null}>
         <ScrollTop />
-        <a href="#page-content" className="skip-link">
-          Đến nội dung chính
-        </a>
-        <Header />
+        {!isAuthPage && (
+          <>
+            <a href="#page-content" className="skip-link">
+              Đến nội dung chính
+            </a>
+            <Header />
+          </>
+        )}
         <m.div
           id="page-content"
           tabIndex={-1}
@@ -60,8 +79,14 @@ export function App() {
             <Route path="/cong-thuc" element={<Discover />} />
             <Route path="/cong-thuc/:slug" element={<Detail />} />
             <Route path="/cong-thuc/:slug/nau" element={<Cooking />} />
+            <Route path="/khau-phan" element={<PortionAdjust />} />
+            <Route path="/khau-phan/:slug" element={<PortionAdjust />} />
             <Route path="/co-gi-nau-nay" element={<Matcher />} />
             <Route path="/thuc-don" element={auth.isPending ? <Loading /> : <Planner />} />
+            <Route path="/eat-fit" element={<EatFit />} />
+            <Route path="/ngan-sach" element={<MealCost />} />
+            <Route path="/bao-quan" element={<FoodStorage />} />
+            <Route path="/dinh-duong" element={<Nutrition />} />
             <Route path="/di-cho/:planId" element={auth.isPending ? <Loading /> : <Shopping />} />
             <Route path="/yeu-thich" element={auth.isPending ? <Loading /> : <Favorites />} />
             <Route path="/dang-nhap" element={auth.isPending ? <Loading /> : <AuthPage />} />
@@ -81,7 +106,7 @@ export function App() {
             />
           </Routes>
         </m.div>
-        <Footer />
+        {!isAuthPage && <Footer />}
         {notice && (
           <div className="toast" role="status">
             <CheckCircle2 size={18} />

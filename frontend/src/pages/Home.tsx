@@ -1,450 +1,897 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { m } from 'motion/react';
 import {
-  ArrowUpRight,
+  Apple,
   ArrowRight,
-  BookOpen,
-  CalendarDays,
-  Check,
-  CheckCheck,
-  ChevronDown,
+  Calendar,
+  ChefHat,
   ChevronLeft,
   ChevronRight,
-  CookingPot,
-  Leaf,
+  Clock,
+  Coins,
+  Dumbbell,
+  Heart,
   Plus,
   Search,
-  ShoppingBasket,
-  Sparkles,
-  Sprout,
+  Soup,
+  Utensils,
+  Wallet,
   X,
+  Package,
+  Activity,
+  Play,
   Users,
+  Check,
+  CheckSquare,
+  Leaf,
+  Sparkles,
 } from 'lucide-react';
-import type { Ingredient, Recipe } from '@cookora/contracts';
-import { request } from '../api';
-import { cuisines, ErrorState, Loading, Empty, FavoriteButton } from '../shared';
-import { Reveal } from '../motion';
-import { recipeMedia } from '../recipe-media';
-import { addDays, weekOf } from '../date';
+import { useNotice } from '../shared';
+import { CurvedReelsCarousel } from '../components/CurvedReelsCarousel';
 
-const featuredSlugs = ['dau-hu-sot-ca-chua', 'com-kimchi', 'trung-xao-ca-chua'];
-const artFor = (recipe: Recipe) =>
-  recipe.contentStatus === 'DRAFT' &&
-  recipe.revision === 1 &&
-  recipe.imageCredit === 'Unsplash · ảnh minh họa, không phải mẻ nấu thử'
-    ? (
-        { 'dau-hu-sot-ca-chua': 'tofu', 'com-kimchi': 'kimchi', 'trung-xao-ca-chua': 'eggs' } as Record<
-          string,
-          string
-        >
-      )[recipe.slug]
-    : undefined;
+// 8 Quick Access Tiles matching uploaded image
+const QUICK_NAV = [
+  {
+    title: 'Khám phá công thức',
+    to: '/cong-thuc',
+    icon: Soup,
+    color: 'text-[#47735B]',
+    bgColor: 'bg-[#E8F1E9]',
+  },
+  {
+    title: 'Có gì nấu nấy',
+    to: '/co-gi-nau-nay',
+    icon: ChefHat,
+    color: 'text-[#47735B]',
+    bgColor: 'bg-[#EFF6EE]',
+  },
+  {
+    title: 'Thực đơn tuần',
+    to: '/thuc-don',
+    icon: Calendar,
+    color: 'text-[#8C6D3B]',
+    bgColor: 'bg-[#F8F4EC]',
+  },
+  {
+    title: 'Eat Fit',
+    subtitle: '(Theo mục tiêu)',
+    to: '/eat-fit',
+    icon: Dumbbell,
+    color: 'text-[#6C5B7B]',
+    bgColor: 'bg-[#F3EFF5]',
+  },
+  {
+    title: 'Ước tính chi phí',
+    to: '/ngan-sach',
+    icon: Coins,
+    color: 'text-[#846A36]',
+    bgColor: 'bg-[#FBF6E9]',
+  },
+  {
+    title: 'Bảo quản thực phẩm',
+    to: '/bao-quan',
+    icon: Package,
+    color: 'text-[#3E6B65]',
+    bgColor: 'bg-[#EDF5F4]',
+  },
+  {
+    title: 'Dinh dưỡng & Calories',
+    to: '/dinh-duong',
+    icon: Apple,
+    color: 'text-[#B25D65]',
+    bgColor: 'bg-[#FDF2F0]',
+  },
+  {
+    title: 'Công thức yêu thích',
+    to: '/yeu-thich',
+    icon: Heart,
+    color: 'text-[#B25D65]',
+    bgColor: 'bg-[#FCEEF0]',
+  },
+];
 
-function HomeRecipeCard({ recipe }: { recipe: Recipe }) {
-  const art = artFor(recipe);
-  return (
-    <m.article className="home-photo-card" whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
-      <Link
-        to={`/cong-thuc/${recipe.slug}`}
-        className="home-photo-link"
-        aria-label={`Xem ${recipe.title}`}
-        viewTransition
-      >
-        {art ? (
-          <span
-            className={`reference-photo reference-photo-${art}`}
-            role="img"
-            aria-label={`Ảnh AI minh họa: ${recipe.title}`}
-          />
-        ) : (
-          <img
-            src={recipeMedia(recipe).src}
-            alt={`Ảnh minh họa ${recipe.title}`}
-            loading="lazy"
-            width="900"
-            height="900"
-          />
-        )}
-        <span className="home-photo-shade" />
-        <div className="home-photo-copy">
-          <span className="home-photo-cuisine">{cuisines.find((c) => c.code === recipe.cuisine)?.name}</span>
-          <h3>{recipe.title.replace(' cho ngày bận rộn', '')}</h3>
-          <div className="home-photo-meta">
-            <span>
-              <Users size={13} />
-              {recipe.baseServings} phần
-            </span>
-            <span className="home-photo-status">
-              {recipe.contentStatus === 'DRAFT' ? 'Bản thảo' : 'Đã duyệt'}
-            </span>
-          </div>
-          <p>Công thức mẫu · Chưa nấu thử</p>
-        </div>
-      </Link>
-      <FavoriteButton recipe={recipe} overlay />
-    </m.article>
-  );
-}
+// 4 Featured dishes per row
+const FEATURED_DISHES = [
+  {
+    id: 'd1',
+    title: 'Đậu hũ sốt cà chua',
+    slug: 'dau-hu-sot-ca-chua',
+    image: '/images/hero/tofu.jpg',
+    time: 25,
+    servings: 2,
+    cuisine: 'Món Việt',
+  },
+  {
+    id: 'd2',
+    title: 'Cơm kimchi',
+    slug: 'com-kimchi',
+    image: '/images/hero/kimchi.jpg',
+    time: 20,
+    servings: 2,
+    cuisine: 'Hàn Quốc',
+  },
+  {
+    id: 'd3',
+    title: 'Trứng xào cà chua',
+    slug: 'trung-xao-ca-chua',
+    image: '/images/hero/tomatoegg.jpg',
+    time: 18,
+    servings: 2,
+    cuisine: 'Món Á',
+  },
+  {
+    id: 'd4',
+    title: 'Gà áp chảo sốt tỏi',
+    slug: 'ga-ap-chao-sot-toi',
+    image: '/images/hero/grilledchicken.jpg',
+    time: 25,
+    servings: 2,
+    cuisine: 'Âu - Á',
+  },
+];
 
-const starters = [
-  { id: 'egg-edible', label: 'Trứng' },
-  { id: 'tomato', label: 'Cà chua' },
-  { id: 'tofu-firm', label: 'Đậu hũ' },
+// 6 Cuisines matching the card styles in the image
+const CUISINES = [
+  {
+    name: 'Việt Nam',
+    code: 'VN',
+    tag: '🇻🇳',
+    desc: 'Đậm đà, gần gũi',
+    img: '/recipes/dau-hu-sot-ca-chua.webp',
+  },
+  {
+    name: 'Hàn Quốc',
+    code: 'KR',
+    tag: '🇰🇷',
+    desc: 'Hiện đại, hấp dẫn',
+    img: '/recipes/com-kimchi.webp',
+  },
+  {
+    name: 'Nhật Bản',
+    code: 'JP',
+    tag: '🇯🇵',
+    desc: 'Thanh nhẹ, tinh tế',
+    img: '/recipes/com-ga-trung.webp',
+  },
+  {
+    name: 'Thái Lan',
+    code: 'TH',
+    tag: '🇹🇭',
+    desc: '50 công thức đặc sắc',
+    img: '/recipes/thai/pad-krapow-gai.jpg',
+  },
+  {
+    name: 'Ý',
+    code: 'IT',
+    tag: '🇮🇹',
+    desc: 'Tinh hoa ẩm thực Âu',
+    img: '/recipes/mi-y-toi-dau-o-liu.webp',
+  },
+  {
+    name: 'Âu & Mỹ',
+    code: 'WE',
+    tag: '🇺🇸',
+    desc: 'Đa dạng, sáng tạo',
+    img: '/recipes/thit-nuong.webp',
+  },
+];
+
+// Cooking tips editorial articles
+const ARTICLES = [
+  {
+    id: 'a1',
+    title: '5 mẹo nấu ăn nhanh cho người bận rộn',
+    category: 'Mẹo vào bếp',
+    readTime: '5 phút đọc',
+    image: '/recipes/trung-xao-ca-chua.webp',
+  },
+  {
+    id: 'a2',
+    title: 'Kế hoạch Meal Prep 3 ngày tiết kiệm thời gian',
+    category: 'Lên thực đơn',
+    readTime: '7 phút đọc',
+    image: '/recipes/com-ga-trung.webp',
+  },
+  {
+    id: 'a3',
+    title: 'Cách bảo quản rau củ tươi lâu trong tủ lạnh',
+    category: 'Bảo quản',
+    readTime: '6 phút đọc',
+    image: '/recipes/canh-rong-bien.webp',
+  },
+  {
+    id: 'a4',
+    title: 'Tính calorie món ăn đơn giản tại nhà',
+    category: 'Dinh dưỡng',
+    readTime: '5 phút đọc',
+    image: '/recipes/ga-ap-chao-sot-toi.webp',
+  },
+];
+
+const HERO_SLIDES = [
+  {
+    image: '/images/hero/hero.jpg',
+    tag: 'GỢI Ý HÔM NAY',
+    title: 'Cơm gà rau củ & trứng',
+    time: '25 phút',
+    servings: '2 người',
+    badge: 'Eat Fit',
+  },
+  {
+    image: '/images/hero/grilledchicken.jpg',
+    tag: 'MÓN NƯỚNG THƠM GIÒN',
+    title: 'Gà áp chảo sốt tỏi',
+    time: '25 phút',
+    servings: '2 người',
+    badge: 'Âu - Á',
+  },
+  {
+    image: '/images/hero/tofu.jpg',
+    tag: 'BỮA CƠM THANH ĐẠM',
+    title: 'Đậu hũ sốt cà chua',
+    time: '20 phút',
+    servings: '2 người',
+    badge: 'Món Việt',
+  },
 ];
 
 export function Home() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<'ingredients' | 'search'>('ingredients');
-  const [selected, setSelected] = useState(starters);
-  const [servings, setServings] = useState(2);
-  const [term, setTerm] = useState('');
-  const [adding, setAdding] = useState(false);
-  const [cuisine, setCuisine] = useState('');
-  const recipes = useQuery({
-    queryKey: ['recipes', 'home'],
-    queryFn: () => request<Recipe[]>('/recipes?pageSize=50'),
-  });
-  const ingredients = useQuery({
-    queryKey: ['ingredients'],
-    queryFn: () => request<Ingredient[]>('/ingredients'),
-    enabled: adding,
-  });
-  const normalized = (value: string) =>
-    value
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/đ/g, 'd')
-      .toLowerCase();
-  const choices =
-    ingredients.data?.data
-      .filter(
-        (i) =>
-          !selected.some((s) => s.id === i.id) &&
-          normalized([i.name, ...i.aliases].join(' ')).includes(normalized(term)),
-      )
-      .slice(0, 6) || [];
-  const featured = featuredSlugs.flatMap((slug) => recipes.data?.data.find((r) => r.slug === slug) || []);
-  const shown = cuisine
-    ? recipes.data?.data.filter((r) => r.cuisine === cuisine).slice(0, 3) || []
-    : featured;
-  const submit = () => {
-    if (mode === 'search') navigate(`/cong-thuc?${new URLSearchParams({ q: term.trim() })}`);
-    else
-      navigate(
-        `/co-gi-nau-nay?${new URLSearchParams({ tab: 'manual', ingredients: selected.map((s) => s.id).join(','), servings: String(servings) })}`,
-      );
+  const notice = useNotice();
+
+  const [favorites, setFavorites] = useState<Record<string, boolean>>({});
+  const [pantryItems, setPantryItems] = useState(['Trứng', 'Cà chua', 'Đậu hũ']);
+  const [pantryInput, setPantryInput] = useState('');
+  const [heroSlide, setHeroSlide] = useState(0);
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
+
+  const handlePrevSlide = () => {
+    setHeroSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
   };
+
+  const handleNextSlide = () => {
+    setHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  useEffect(() => {
+    if (isHeroHovered) return;
+    const timer = setInterval(() => {
+      setHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6500);
+    return () => clearInterval(timer);
+  }, [isHeroHovered]);
+
+  const toggleFav = (id: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setFavorites((prev) => {
+      const next = !prev[id];
+      notice(next ? 'Đã lưu công thức vào mục yêu thích.' : 'Đã bỏ lưu món.');
+      return { ...prev, [id]: next };
+    });
+  };
+
+  const addPantryItem = (e: React.FormEvent) => {
+    e.preventDefault();
+    const val = pantryInput.trim();
+    if (val && !pantryItems.includes(val)) {
+      setPantryItems([...pantryItems, val]);
+      setPantryInput('');
+    }
+  };
+
+  const removePantryItem = (item: string) => {
+    setPantryItems(pantryItems.filter((i) => i !== item));
+  };
+
   return (
-    <main className="home-v2 home-v3">
-      <section className="home-intro wrap" aria-labelledby="home-title">
-        <div className="home-intro-copy">
-          <p className="eyebrow">BẾP NHÀ. CẢM HỨNG MỚI.</p>
-          <h1 id="home-title">
-            CÓ GÌ,
-            <br />
-            <span>NẤU NẤY.</span>
-          </h1>
-          <p className="home-lead">Bớt nghĩ hôm nay ăn gì. Bắt đầu từ những nguyên liệu trong bếp.</p>
+    <div className="bg-[#FAF9F6] text-[#273D32] min-h-screen">
+      {/* 1. HERO SECTION (Sage Green & Warm Cream - Modern Food Editorial matching Image 1) */}
+      <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24">
+        {/* Decorative Botanical & Culinary Elements */}
+        <div className="pointer-events-none absolute -top-4 -left-4 w-44 sm:w-60 lg:w-72 z-0 opacity-80 select-none">
+          <img src="/images/hero/leaf-top-left.png" alt="" className="w-full h-auto object-contain" />
         </div>
-        <div className="home-food">
-          <span className="food-backdrop" />
-          <m.div
-            className="hero-reference-art"
-            role="img"
-            aria-label="Ảnh AI minh họa đậu hũ sốt cà chua với cơm, đậu hũ, cà chua và hành lá"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-          <span className="hero-ingredient ingredient-tofu">Đậu hũ</span>
-          <span className="hero-ingredient ingredient-tomato">Cà chua</span>
-          <span className="hero-ingredient ingredient-scallion">Hành lá</span>
-          <Link
-            className="hero-food-arrow"
-            to="/cong-thuc/dau-hu-sot-ca-chua"
-            aria-label="Xem món đậu hũ sốt cà chua"
-          >
-            <ArrowRight />
-          </Link>
+        <div className="pointer-events-none absolute -top-4 -right-4 w-44 sm:w-60 lg:w-72 z-0 opacity-80 select-none">
+          <img src="/images/hero/leaf-top-right.png" alt="" className="w-full h-auto object-contain" />
         </div>
-        <div className="home-composer">
-          <div className="composer-tabs" role="group" aria-label="Cách tìm món">
-            <button
-              type="button"
-              aria-pressed={mode === 'ingredients'}
-              className={mode === 'ingredients' ? 'active' : ''}
-              onClick={() => {
-                setMode('ingredients');
-                setTerm('');
-              }}
-            >
-              <Sprout size={18} /> Từ nguyên liệu
-            </button>
-            <button
-              type="button"
-              aria-pressed={mode === 'search'}
-              className={mode === 'search' ? 'active' : ''}
-              onClick={() => {
-                setMode('search');
-                setTerm('');
-                setAdding(false);
-              }}
-            >
-              <Search size={18} /> Tìm công thức
-            </button>
-          </div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              submit();
-            }}
-          >
-            <div className="composer-field">
-              <label className="composer-label" htmlFor={mode === 'search' ? 'home-search' : undefined}>
-                {mode === 'ingredients' ? 'Bạn đang có gì trong bếp?' : 'Hôm nay, bạn muốn nấu món gì?'}
-              </label>
-              {mode === 'ingredients' ? (
-                <div className="ingredient-chips">
-                  {selected.map((s) => (
-                    <m.button
-                      key={s.id}
-                      type="button"
-                      whileTap={{ scale: 0.95 }}
-                      className="ingredient-chip"
-                      aria-label={`Bỏ ${s.label}`}
-                      onClick={() => setSelected(selected.filter((i) => i.id !== s.id))}
-                    >
-                      {s.label}
-                      <X size={13} />
-                    </m.button>
-                  ))}
-                  <button
-                    type="button"
-                    className="ingredient-add"
-                    aria-expanded={adding}
-                    aria-controls="home-ingredient-options"
-                    onClick={() => setAdding(!adding)}
-                  >
-                    <Plus size={16} />
-                    Thêm nguyên liệu
-                  </button>
-                </div>
-              ) : (
-                <input
-                  id="home-search"
-                  className="composer-search"
-                  value={term}
-                  onChange={(e) => setTerm(e.target.value)}
-                  placeholder="Tên món hoặc nguyên liệu…"
-                  maxLength={100}
-                  autoComplete="off"
-                />
-              )}
-            </div>
-            {mode === 'ingredients' && (
-              <label className="composer-servings">
-                <span>
-                  <Users size={19} />
+        <div className="pointer-events-none absolute left-3 sm:left-6 lg:left-12 top-[44%] -translate-y-1/2 w-16 sm:w-24 lg:w-28 z-10 hidden sm:block select-none drop-shadow-md">
+          <img src="/images/hero/tomato-transparent.png" alt="Cà chua tươi" className="w-full h-auto object-contain" />
+        </div>
+        <div className="pointer-events-none absolute right-3 sm:right-6 lg:right-12 bottom-6 sm:bottom-10 w-24 sm:w-32 lg:w-40 z-10 hidden sm:block select-none drop-shadow-md">
+          <img src="/images/hero/rosemary-transparent.png" alt="Hương thảo" className="w-full h-auto object-contain" />
+        </div>
+
+        {/* Ambient Warm Editorial Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#E8F1E9]/35 rounded-full blur-3xl pointer-events-none -z-10" />
+
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
+            {/* Left Column: Eyebrow, Title, Description, Buttons, Meta */}
+            <div className="lg:col-span-6 space-y-6 lg:pr-2">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-2.5">
+                <span className="w-6 h-[2px] bg-[#47735B]" />
+                <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#47735B]">
+                  Bếp nhà cùng Cookora
                 </span>
-                <select
-                  aria-label="Số người"
-                  value={servings}
-                  onChange={(e) => setServings(Number(e.target.value))}
+              </div>
+
+              {/* Title with editorial italic accent */}
+              <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-bold text-[#273D32] tracking-tight leading-[1.18]">
+                Nấu ngon hơn,
+                <br />
+                <span className="text-[#47735B] font-serif italic font-normal inline-flex items-center gap-2">
+                  sống lành mạnh hơn.
+                  <span className="inline-block text-xl not-italic">🍃</span>
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p className="text-[#5C7065] text-base sm:text-[16.5px] leading-[1.8] max-w-lg">
+                Khám phá công thức dễ làm, lên thực đơn thông minh và chăm sóc từng bữa ăn – tất cả trong một không gian bếp nhỏ thư thái của riêng bạn.
+              </p>
+
+              {/* CTAs matching Image 1 */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-1">
+                <Link
+                  to="/cong-thuc"
+                  className="bg-[#3E6B52] hover:bg-[#325742] text-white px-7 py-3 rounded-full font-semibold text-[14.5px] shadow-sm hover:shadow-md hover:-translate-y-0.5 inline-flex items-center gap-2 transition duration-200"
                 >
-                  {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <option key={n} value={n}>
-                      {n} người
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown size={14} aria-hidden="true" />
-              </label>
-            )}
-            <m.button
-              whileTap={{ scale: 0.97 }}
-              className="btn composer-submit"
-              type="submit"
-              disabled={mode === 'ingredients' && !selected.length}
-            >
-              {mode === 'ingredients' ? 'Tìm món hợp ý' : 'Khám phá món'}
-              <ArrowRight size={20} />
-            </m.button>
-          </form>
-          {adding && (
-            <div className="composer-options" id="home-ingredient-options">
-              <label className="search-input">
-                <Search size={17} />
-                <input
-                  aria-label="Thêm nguyên liệu từ danh mục"
-                  value={term}
-                  onChange={(e) => setTerm(e.target.value)}
-                  placeholder="Tìm nguyên liệu…"
-                  autoFocus
-                />
-              </label>
-              {ingredients.isPending ? (
-                <Loading />
-              ) : ingredients.isError ? (
-                <ErrorState error={ingredients.error} retry={() => ingredients.refetch()} />
-              ) : (
-                <div className="composer-option-list">
-                  {choices.map((i) => (
-                    <button
-                      type="button"
-                      key={i.id}
-                      disabled={selected.length >= 50}
-                      onClick={() => {
-                        setSelected([...selected, { id: i.id, label: i.name }]);
-                        setTerm('');
-                      }}
-                    >
-                      <Plus size={14} />
-                      {i.name}
-                    </button>
-                  ))}
-                  {!choices.length && <p className="muted tiny">Không có nguyên liệu phù hợp.</p>}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-        <Link className="home-explore-link" to="/cong-thuc">
-          Hoặc{' '}
-          <span>
-            khám phá công thức <ArrowRight size={16} />
-          </span>
-        </Link>
-      </section>
-      <div className="brand-ribbon" aria-label="Ít lãng phí, nhiều cảm hứng, thêm vị ngon">
-        <span>ÍT LÃNG PHÍ.</span>
-        <span aria-hidden="true">✳</span>
-        <span>NHIỀU CẢM HỨNG.</span>
-        <span aria-hidden="true">✳</span>
-        <span>THÊM VỊ NGON.</span>
-      </div>
-      <Reveal className="home-discover wrap">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">01 / KHÁM PHÁ</p>
-            <h2>
-              Món quen.
-              <br />
-              Cảm hứng mới.
-            </h2>
-          </div>
-          <Link className="text-link" to="/cong-thuc">
-            Xem công thức <ArrowRight size={18} />
-          </Link>
-        </div>
-        <div className="home-cuisines" role="group" aria-label="Lọc công thức theo nền ẩm thực">
-          {cuisines.map((c) => (
-            <button
-              aria-pressed={cuisine === c.code || (!cuisine && c.code === 'VN')}
-              key={c.code}
-              onClick={() => setCuisine(c.code)}
-            >
-              {c.name}
-            </button>
-          ))}
-        </div>
-        {recipes.isPending ? (
-          <Loading />
-        ) : recipes.isError ? (
-          <ErrorState error={recipes.error} retry={() => recipes.refetch()} />
-        ) : shown.length ? (
-          <div className={`home-recipe-grid ${shown.length === 1 ? 'single' : ''}`}>
-            {shown.map((r) => (
-              <HomeRecipeCard key={r.id} recipe={r} />
-            ))}
-          </div>
-        ) : (
-          <Empty icon={<BookOpen />} title="Thư viện đang được chuẩn bị">
-            <p>Chưa có công thức để hiển thị trong nhóm này.</p>
-          </Empty>
-        )}
-      </Reveal>
-      <Reveal className="home-plan-wrap wrap">
-        <section className="home-plan">
-          <div className="home-plan-copy">
-            <p className="eyebrow">02 / NHẸ VIỆC MỖI NGÀY</p>
-            <h2>
-              Một tuần gọn gàng.
-              <br />
-              Bữa nào cũng có ý.
-            </h2>
-            <p>Chọn món, lên thực đơn và gộp danh sách đi chợ.</p>
-            <Link className="btn" to="/thuc-don">
-              Lên thực đơn tuần <ArrowRight size={19} />
-            </Link>
-          </div>
-          <div className="plan-illustration" aria-label="Minh họa gợi ý thực đơn, chưa phải thực đơn đã lưu">
-            <div className="plan-illustration-head">
-              <span>
-                Thực đơn tuần <small className="plan-preview-label">Mẫu</small>
-              </span>
-              <div className="plan-preview-nav">
-                <Link to={`/thuc-don?week=${addDays(weekOf(), -7)}`} aria-label="Tuần trước">
-                  <ChevronLeft />
+                  <Search size={16} strokeWidth={2.2} /> Khám phá công thức <ArrowRight size={16} strokeWidth={2.2} />
                 </Link>
-                <Link to={`/thuc-don?week=${addDays(weekOf(), 7)}`} aria-label="Tuần sau">
-                  <ChevronRight />
+                <Link
+                  to="/thuc-don"
+                  className="border border-[#DFE5DD] bg-white text-[#273D32] hover:bg-[#E8F1E9] px-6 py-3 rounded-full font-semibold text-[14.5px] shadow-2xs hover:-translate-y-0.5 inline-flex items-center gap-2 transition duration-200"
+                >
+                  <Calendar size={16} className="text-[#47735B]" strokeWidth={2.2} /> Lên thực đơn tuần
                 </Link>
               </div>
+
+              {/* 3 Value Pillars */}
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-5 border-t border-[#DFE5DD]/70 text-xs sm:text-[13px] text-[#5C7065]">
+                <span className="flex items-center gap-2 font-medium">
+                  <Leaf size={15} className="text-[#47735B]" /> Dễ nấu mỗi ngày
+                </span>
+                <span className="hidden sm:inline text-[#DFE5DD]">|</span>
+                <span className="flex items-center gap-2 font-medium">
+                  <Clock size={15} className="text-[#47735B]" /> Tiết kiệm thời gian
+                </span>
+                <span className="hidden sm:inline text-[#DFE5DD]">|</span>
+                <span className="flex items-center gap-2 font-medium">
+                  <Heart size={15} className="text-[#47735B]" /> Cân bằng dinh dưỡng
+                </span>
+              </div>
             </div>
-            <div className="plan-illustration-days">
-              {['Thứ 2', 'Thứ 3', 'Thứ 4'].map((day, i) => (
-                <div key={day}>
-                  <span>{day}</span>
-                  <Link className="plan-mini-meal" to="/thuc-don">
-                    {featured[i] ? (
-                      <img
-                        src={recipeMedia(featured[i]).src}
-                        alt="Ảnh AI minh họa"
-                        loading="lazy"
-                        width="64"
-                        height="64"
-                      />
-                    ) : (
-                      <CookingPot size={26} />
-                    )}
-                    <span>
-                      {featured[i]?.title.replace(' cho ngày bận rộn', '') || 'Chọn món'}
-                      <small>
-                        <Users size={11} />2 phần
-                      </small>
-                    </span>
-                  </Link>
-                </div>
-              ))}
-            </div>
-            <Link
-              className="plan-illustration-shop"
-              to="/thuc-don"
-              aria-label="Mở thực đơn và danh sách đi chợ"
+
+            {/* Right Column: Interactive Food Card Showcase with Carousel Arrows */}
+            <div
+              className="lg:col-span-6 flex flex-col items-center lg:items-end relative"
+              onMouseEnter={() => setIsHeroHovered(true)}
+              onMouseLeave={() => setIsHeroHovered(false)}
             >
-              <span>
-                <ShoppingBasket size={19} /> Danh sách đi chợ
-              </span>
-              <span className="plan-grocery-art" aria-hidden="true">
-                🍅 🥚 🌱 ◻
-              </span>
-              <ChevronRight size={19} />
+              <div className="relative w-full max-w-[540px]">
+                {/* Food photo container with overlay */}
+                <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-[28px] sm:rounded-[36px] overflow-hidden bg-stone-100 border-2 border-white shadow-[0_20px_50px_-10px_rgba(39,61,50,0.12)]">
+                  {HERO_SLIDES.map((slide, idx) => (
+                    <img
+                      key={slide.image}
+                      src={slide.image}
+                      alt={slide.title}
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
+                        idx === heroSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+                      }`}
+                      onError={(e) => {
+                        e.currentTarget.src = '/images/hero/hero.jpg';
+                      }}
+                    />
+                  ))}
+
+                  {/* Left Carousel Arrow Button */}
+                  <button
+                    type="button"
+                    onClick={handlePrevSlide}
+                    aria-label="Món trước"
+                    className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 text-[#273D32] shadow-md flex items-center justify-center hover:bg-white hover:scale-105 transition-all z-20"
+                  >
+                    <ChevronLeft size={20} strokeWidth={2.4} />
+                  </button>
+
+                  {/* Right Carousel Arrow Button */}
+                  <button
+                    type="button"
+                    onClick={handleNextSlide}
+                    aria-label="Món tiếp theo"
+                    className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 text-[#273D32] shadow-md flex items-center justify-center hover:bg-white hover:scale-105 transition-all z-20"
+                  >
+                    <ChevronRight size={20} strokeWidth={2.4} />
+                  </button>
+
+                  {/* Bottom gradient caption */}
+                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 via-black/35 to-transparent pointer-events-none" />
+
+                  {/* Inside Food Caption Bottom-Left */}
+                  <div className="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 text-white pointer-events-none z-10">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-[#E8F1E9] drop-shadow-xs mb-1">
+                      {HERO_SLIDES[heroSlide].tag}
+                    </p>
+                    <h3 className="text-lg sm:text-2xl font-bold tracking-tight text-white drop-shadow-sm mb-2">
+                      {HERO_SLIDES[heroSlide].title}
+                    </h3>
+                    <div className="flex items-center gap-3 text-xs text-white/90">
+                      <span className="flex items-center gap-1 font-medium drop-shadow-xs">
+                        <Clock size={13} /> {HERO_SLIDES[heroSlide].time}
+                      </span>
+                      <span className="text-white/60">•</span>
+                      <span className="flex items-center gap-1 font-medium drop-shadow-xs">
+                        <Users size={13} /> {HERO_SLIDES[heroSlide].servings}
+                      </span>
+                      <span className="text-white/60">•</span>
+                      <span className="bg-[#47735B]/90 backdrop-blur-xs text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-full drop-shadow-xs">
+                        {HERO_SLIDES[heroSlide].badge}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Overlapping Checklist Note: Hôm nay ăn gì? matching Image 1 */}
+                <div className="animate-note-float absolute -bottom-5 -right-2 sm:-right-5 z-30 bg-white/95 backdrop-blur-xs border border-[#E9D9C7] rounded-2xl p-4 sm:p-5 shadow-[0_14px_35px_rgba(39,61,50,0.12)] w-48 sm:w-56 text-xs">
+                  <div className="flex items-center justify-between mb-2.5 pb-2 border-b border-[#E9D9C7]/80">
+                    <span className="font-semibold text-[#273D32] text-xs sm:text-[13px]">Hôm nay ăn gì?</span>
+                    <span className="text-[#8C6D3B] text-sm font-serif">♡</span>
+                  </div>
+                  <div className="space-y-2 text-[11px] sm:text-xs text-[#5C7065] font-medium">
+                    <p className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">✓</span>
+                      Ngon miệng
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">✓</span>
+                      Ít tốn kém
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">✓</span>
+                      Phù hợp với bạn
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Carousel Pagination Dots */}
+              <div className="flex items-center justify-center gap-2 mt-5 sm:mt-6">
+                {HERO_SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setHeroSlide(idx)}
+                    aria-label={`Xem slide ${idx + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      idx === heroSlide ? 'w-6 bg-[#47735B]' : 'w-2 bg-[#DFE5DD] hover:bg-[#8CAA93]'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. EIGHT QUICK ACCESS BAR - UNIFIED FLOATING ROW CONTAINER MATCHING IMAGE 1 */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 -mt-4 sm:-mt-6 mb-20 relative z-20">
+        <div className="bg-white/95 backdrop-blur-sm rounded-[28px] p-3 sm:p-4 border border-[#DFE5DD] shadow-[0_12px_36px_rgba(39,61,50,0.06)] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-2.5">
+          {QUICK_NAV.map((tile) => {
+            const Icon = tile.icon;
+            return (
+              <Link
+                key={tile.title}
+                to={tile.to}
+                className="rounded-2xl p-3 hover:bg-[#FAF9F6] border border-transparent hover:border-[#DFE5DD] transition duration-200 flex flex-col items-center text-center group"
+              >
+                <div
+                  className={`w-11 h-11 rounded-2xl flex items-center justify-center mb-2 transition-transform duration-200 ${tile.bgColor} ${tile.color} group-hover:scale-110 shadow-2xs`}
+                >
+                  <Icon size={20} strokeWidth={1.8} />
+                </div>
+                <span className="text-[12.5px] font-semibold text-[#273D32] leading-tight group-hover:text-[#47735B] transition">
+                  {tile.title}
+                </span>
+                {tile.subtitle && (
+                  <span className="text-[10px] text-[#5C7065] mt-0.5 leading-none">
+                    {tile.subtitle}
+                  </span>
+                )}
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 3. SECTION: GỢI Ý MÓN NGON CHO BẠN (EDITORIAL CENTERED HEADING MATCHING IMAGE 1) */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
+        <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <span className="w-8 h-[1px] bg-[#47735B]/40" />
+            <p className="text-xs uppercase font-bold tracking-[0.2em] text-[#47735B]">
+              Thực đơn gợi ý từ Cookora
+            </p>
+            <span className="w-8 h-[1px] bg-[#47735B]/40" />
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#273D32] tracking-tight flex items-center justify-center gap-2">
+            Gợi ý món ngon cho bạn <Leaf size={22} className="text-[#47735B] inline" />
+          </h2>
+          <p className="text-xs sm:text-sm text-[#5C7065] mt-1.5 leading-relaxed">
+            Những công thức được cộng đồng Cookora yêu thích nhất tuần này.
+          </p>
+          <div className="mt-3">
+            <Link
+              to="/cong-thuc"
+              className="text-xs sm:text-sm font-semibold text-[#47735B] hover:text-[#3B634F] inline-flex items-center gap-1 transition"
+            >
+              Xem tất cả công thức →
             </Link>
           </div>
-        </section>
-      </Reveal>
-      <section className="home-closing wrap">
-        <h2>
-          Bếp nhà,
-          <br />
-          <span>thêm một chút mới.</span>
-        </h2>
-        <Link to="/cong-thuc" aria-label="Khám phá công thức" className="round-link">
-          <ArrowRight />
-        </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {FEATURED_DISHES.map((dish) => (
+            <Link
+              key={dish.id}
+              to={`/cong-thuc/${dish.slug}`}
+              className="bg-white rounded-2xl overflow-hidden border border-[#DFE5DD] shadow-2xs hover:shadow-sm hover:-translate-y-1 transition duration-300 group flex flex-col"
+            >
+              <div className="relative aspect-4/3 overflow-hidden bg-stone-100">
+                <img
+                  src={dish.image}
+                  alt={dish.title}
+                  className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                  }}
+                />
+                <button
+                  onClick={(e) => toggleFav(dish.id, e)}
+                  className="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-[#5C7065] hover:text-[#B25D65] shadow-xs transition"
+                  title="Lưu món"
+                >
+                  <Heart
+                    size={15}
+                    className={favorites[dish.id] ? 'fill-[#B25D65] text-[#B25D65]' : ''}
+                  />
+                </button>
+                <span className="absolute bottom-2.5 left-2.5 px-2.5 py-0.5 rounded-md bg-[#273D32]/80 backdrop-blur-xs text-[11px] font-medium text-white">
+                  {dish.cuisine}
+                </span>
+              </div>
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <h3 className="font-semibold text-[#273D32] text-base mb-2 group-hover:text-[#47735B] transition line-clamp-1">
+                  {dish.title}
+                </h3>
+                <div className="flex items-center justify-between text-xs text-[#5C7065]">
+                  <span className="flex items-center gap-1">
+                    <Clock size={12} className="text-[#5C7065]" /> {dish.time} phút
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Users size={12} className="text-[#5C7065]" /> {dish.servings} phần
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
-    </main>
+
+      {/* 4. PROMINENT 3D CURVED REELS CAROUSEL */}
+      <section className="max-w-[1360px] mx-auto px-4 sm:px-8 mb-24">
+        <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
+          <p className="text-xs uppercase font-bold tracking-[0.2em] text-[#47735B]">
+            Thước phim bữa cơm nhà
+          </p>
+          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-semibold text-[#273D32] tracking-tight mt-2">
+            Gợi ý món ngon lướt là thích
+          </h2>
+          <p className="text-sm sm:text-base text-[#5C7065] mt-2 leading-relaxed">
+            Lướt qua các công thức nổi bật với video hướng dẫn từng bước trực quan.
+          </p>
+        </div>
+        <CurvedReelsCarousel />
+      </section>
+
+      {/* 5. SECTION: KHÁM PHÁ ẨM THỰC THEO QUỐC GIA */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <div>
+            <div className="flex items-center gap-2.5 text-[#273D32] font-semibold text-2xl">
+              <span className="w-1 h-5 bg-[#47735B] rounded-full inline-block" />
+              <h2>Khám phá ẩm thực theo quốc gia</h2>
+            </div>
+            <p className="text-xs sm:text-sm text-[#5C7065] mt-1">
+              Từ món cơm Việt Nam thân thuộc đến những hương vị đặc trưng khắp năm châu.
+            </p>
+          </div>
+          <div className="hidden sm:flex items-center gap-2">
+            <button className="w-8 h-8 rounded-full border border-[#DFE5DD] bg-white flex items-center justify-center text-[#5C7065] hover:text-[#273D32] hover:bg-[#E8F1E9] transition">
+              <ChevronLeft size={16} />
+            </button>
+            <button className="w-8 h-8 rounded-full border border-[#DFE5DD] bg-white flex items-center justify-center text-[#5C7065] hover:text-[#273D32] hover:bg-[#E8F1E9] transition">
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {CUISINES.map((c) => (
+            <Link
+              key={c.code}
+              to={`/cong-thuc?cuisine=${c.code}`}
+              className="bg-white rounded-2xl overflow-hidden border border-[#DFE5DD] shadow-2xs hover:shadow-xs hover:border-[#47735B]/40 transition duration-200 group flex flex-col"
+            >
+              <div className="aspect-16/10 overflow-hidden bg-stone-100 relative">
+                <img
+                  src={c.img}
+                  alt={c.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                  onError={(e) => {
+                    e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-2.5 text-white">
+                  <div className="flex items-center gap-1.5 font-semibold text-xs">
+                    <span>{c.tag}</span>
+                    <span>{c.name}</span>
+                  </div>
+                  <span className="text-[10px] text-stone-200 font-normal">{c.desc}</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. TWO-COLUMN UTILITY SECTION: CÓ GÌ NẤU NẤY & LÊN THỰC ĐƠN TUẦN */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Left Card: Có gì nấu nấy (White card with clean border) */}
+          <div className="lg:col-span-6 bg-white rounded-2xl p-6 sm:p-7 border border-[#DFE5DD] shadow-2xs flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-1 h-5 bg-[#47735B] rounded-full inline-block" />
+                <h3 className="text-xl font-semibold text-[#273D32]">Có gì nấu nấy</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-[#5C7065] leading-relaxed mb-5">
+                Nhập nguyên liệu bạn đang có, Cookora sẽ gợi ý món phù hợp, giảm lãng phí và tiết kiệm thời gian.
+              </p>
+
+              {/* Search input */}
+              <form onSubmit={addPantryItem} className="relative mb-3">
+                <input
+                  type="text"
+                  placeholder="Nhập nguyên liệu (ví dụ: trứng, cà chua, hành lá...)"
+                  value={pantryInput}
+                  onChange={(e) => setPantryInput(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#DFE5DD] text-xs sm:text-sm text-[#273D32] placeholder-[#5C7065] focus:outline-hidden focus:bg-white focus:border-[#47735B] transition"
+                />
+                <Search size={15} className="absolute left-3 top-3 text-[#5C7065]" />
+              </form>
+
+              {/* Selected chips */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {pantryItems.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-[#E8F1E9] text-xs font-medium text-[#273D32]"
+                  >
+                    {item}
+                    <button
+                      type="button"
+                      onClick={() => removePantryItem(item)}
+                      className="hover:text-red-500 transition ml-0.5"
+                    >
+                      <X size={12} />
+                    </button>
+                  </span>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => navigate('/co-gi-nau-nay')}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg border border-dashed border-[#DFE5DD] text-xs font-medium text-[#5C7065] hover:text-[#47735B] hover:border-[#47735B] transition"
+                >
+                  <Plus size={12} /> Thêm nguyên liệu
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <Link
+                to="/co-gi-nau-nay"
+                className="btn-cta-primary inline-flex items-center gap-2 h-11 px-6 rounded-xl text-sm shadow-xs"
+              >
+                Tìm món phù hợp <ArrowRight size={15} />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Card: Lên thực đơn tuần */}
+          <div className="lg:col-span-6 bg-white rounded-2xl p-6 sm:p-7 border border-[#DFE5DD] shadow-2xs flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-1 h-5 bg-[#47735B] rounded-full inline-block" />
+                <h3 className="text-xl font-semibold text-[#273D32]">Lên thực đơn tuần</h3>
+              </div>
+              <p className="text-xs sm:text-sm text-[#5C7065] leading-relaxed mb-5">
+                Lập kế hoạch bữa ăn cân bằng, tiết kiệm và dễ thực hiện.
+              </p>
+
+              {/* 7-Day Mini Plan */}
+              <div className="grid grid-cols-7 gap-1.5 sm:gap-2 mb-6 text-center">
+                {['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'].map((day, idx) => (
+                  <div key={day} className="flex flex-col items-center">
+                    <span className="text-[10px] font-semibold text-[#5C7065] mb-1">{day}</span>
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[#DFE5DD] bg-[#FAF9F6]">
+                      <img
+                        src={FEATURED_DISHES[idx % FEATURED_DISHES.length].image}
+                        alt={day}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <Link
+                to="/thuc-don"
+                className="btn-cta-primary inline-flex items-center gap-2 h-11 px-6 rounded-xl text-sm shadow-xs"
+              >
+                Tạo thực đơn ngay <ArrowRight size={15} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. THREE FEATURE CARDS ROW (Eat Fit, Chi Phí, Bảo Quản) */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Eat Fit */}
+          <Link
+            to="/eat-fit"
+            className="bg-white rounded-2xl p-5 border border-[#DFE5DD] shadow-2xs hover:shadow-xs hover:border-[#47735B]/40 transition duration-200 group flex items-center justify-between"
+          >
+            <div className="space-y-1 pr-3">
+              <div className="flex items-center gap-2 text-[#47735B]">
+                <Dumbbell size={18} strokeWidth={2} />
+                <h3 className="font-semibold text-sm sm:text-base text-[#273D32] group-hover:text-[#47735B] transition">
+                  Eat Fit – Thực đơn mục tiêu
+                </h3>
+              </div>
+              <p className="text-xs text-[#5C7065] leading-relaxed">
+                Ăn ngon, lành mạnh theo mục tiêu thể trạng của bạn.
+              </p>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-[#E8F1E9] flex items-center justify-center text-[#47735B] group-hover:bg-[#47735B] group-hover:text-white transition shrink-0">
+              →
+            </div>
+          </Link>
+
+          {/* Card 2: Ước tính chi phí */}
+          <Link
+            to="/ngan-sach"
+            className="bg-white rounded-2xl p-5 border border-[#DFE5DD] shadow-2xs hover:shadow-xs hover:border-[#47735B]/40 transition duration-200 group flex items-center justify-between"
+          >
+            <div className="space-y-1 pr-3">
+              <div className="flex items-center gap-2 text-[#846A36]">
+                <Wallet size={18} strokeWidth={2} />
+                <h3 className="font-semibold text-sm sm:text-base text-[#273D32] group-hover:text-[#47735B] transition">
+                  Ước tính chi phí
+                </h3>
+              </div>
+              <p className="text-xs text-[#5C7065] leading-relaxed">
+                Tính nhanh chi phí món ăn và quản lý ngân sách hàng tuần.
+              </p>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-[#E8F1E9] flex items-center justify-center text-[#47735B] group-hover:bg-[#47735B] group-hover:text-white transition shrink-0">
+              →
+            </div>
+          </Link>
+
+          {/* Card 3: Bảo quản thực phẩm */}
+          <Link
+            to="/bao-quan"
+            className="bg-white rounded-2xl p-5 border border-[#DFE5DD] shadow-2xs hover:shadow-xs hover:border-[#47735B]/40 transition duration-200 group flex items-center justify-between"
+          >
+            <div className="space-y-1 pr-3">
+              <div className="flex items-center gap-2 text-[#3E6B65]">
+                <Package size={18} strokeWidth={2} />
+                <h3 className="font-semibold text-sm sm:text-base text-[#273D32] group-hover:text-[#47735B] transition">
+                  Bảo quản thực phẩm
+                </h3>
+              </div>
+              <p className="text-xs text-[#5C7065] leading-relaxed">
+                Hướng dẫn bảo quản, tận dụng thực phẩm an toàn, hiệu quả.
+              </p>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-[#E8F1E9] flex items-center justify-center text-[#47735B] group-hover:bg-[#47735B] group-hover:text-white transition shrink-0">
+              →
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* 7. SECTION: MẸO VÀO BẾP */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+          <div>
+            <div className="flex items-center gap-2.5 text-[#273D32] font-semibold text-2xl">
+              <span className="w-1 h-5 bg-[#47735B] rounded-full inline-block" />
+              <h2>Mẹo vào bếp</h2>
+            </div>
+            <p className="text-xs sm:text-sm text-[#5C7065] mt-1">
+              Kinh nghiệm nấu ăn, bảo quản và tối ưu thời gian cho bữa ăn gia đình.
+            </p>
+          </div>
+          <button
+            onClick={() => notice('Đang mở thư viện bài viết mẹo vào bếp.')}
+            className="text-xs sm:text-sm font-medium text-[#47735B] hover:text-[#3B634F] flex items-center gap-1 transition self-start sm:self-auto"
+          >
+            Xem tất cả bài viết →
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {ARTICLES.map((art) => (
+            <div
+              key={art.id}
+              onClick={() => notice(`Đang mở bài viết: ${art.title}`)}
+              className="bg-white rounded-2xl overflow-hidden border border-[#DFE5DD] shadow-2xs hover:shadow-xs hover:-translate-y-1 transition duration-300 cursor-pointer group flex flex-col"
+            >
+              <div className="aspect-16/10 overflow-hidden bg-stone-100">
+                <img
+                  src={art.image}
+                  alt={art.title}
+                  className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                  }}
+                />
+              </div>
+              <div className="p-4 flex-1 flex flex-col justify-between">
+                <h3 className="font-semibold text-[#273D32] text-sm mb-2 group-hover:text-[#47735B] transition line-clamp-2 leading-snug">
+                  {art.title}
+                </h3>
+                <div className="flex items-center justify-between text-xs text-[#5C7065] pt-2">
+                  <span>{art.category}</span>
+                  <span>• {art.readTime}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 8. BOTTOM CALLOUT BANNER (High contrast, clearly visible) */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="bg-[#1C3225] rounded-3xl p-8 sm:p-10 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border border-[#274734]">
+          <div className="space-y-2 text-center md:text-left">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white" style={{ color: '#FFFFFF' }}>
+              Hôm nay bạn muốn nấu món gì?
+            </h2>
+            <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#E4ECE7' }}>
+              Khám phá thêm hàng ngàn công thức phù hợp với sở thích và thói quen ăn uống của bạn.
+            </p>
+          </div>
+
+          <Link
+            to="/cong-thuc"
+            className="btn-cta-primary h-12 px-7 rounded-xl text-sm sm:text-base shadow-md whitespace-nowrap flex items-center gap-2 shrink-0"
+          >
+            Khám phá ngay <ArrowRight size={16} />
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 }

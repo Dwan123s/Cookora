@@ -1,0 +1,17 @@
+[
+  {
+    "path": "frontend/public/images/planner-weekly-hero.webp",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Asset type: transparent wide hero illustration for Cookora weekly meal planner. Elegant warm polished 3D illustration, a small ivory spiral-bound desktop weekly calendar on the LEFT with a simple grid and a few green checkmarks, no dates or lettering; an olive-green leafy sprig in front of it. On the RIGHT a shallow wooden tray of fresh ruffled green lettuce, two ripe red tomatoes and one yellow bell pepper, beside a clear glass olive-oil bottle with cork lid. A tiny pale cream note with a simple green chef-hat outline rests in front of calendar. Compact horizontal composition, soft warm natural studio lighting, rounded premium tactile forms, light natural shadows, all objects fully visible. Truly transparent background, no text, no lettering, no words, no numbers, no frame, no watermark. Wide landscape composition."
+  },
+  {
+    "path": "frontend/public/images/matcher-ingredients-board.webp",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: product-mockup. Asset type: transparent decorative illustration for a Vietnamese cooking app. A charming polished 3D clay-render style wooden cutting board viewed at a slightly elevated three-quarter angle, arranged with fresh bright green lettuce leaves, scallions, one red tomato and a sliced tomato half, two orange salmon fillet slices, one white button mushroom and a boiled egg half. Compact wide horizontal composition, entire board fully visible, isolated on true transparent background. Soft natural studio lighting, warm appetizing colors, clean high quality details, soft ambient shadow directly below board only. No lettering, no text, no logo, no frame, no background scenery. Landscape wide asset."
+  },
+  {
+    "path": "frontend/public/images/matcher-bear-chef.webp",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Asset type: transparent friendly mascot illustration for Cookora's cooking assistant panel. A single adorable small light-brown TEDDY BEAR chef with round ears, cream muzzle, rosy cheeks, kind round eyes and a welcoming smile, wearing a tall white chef hat and a forest-green apron with a tiny white outlined cooking-pot emblem with no text. The bear waves with one rounded paw and holds a small dark gray spatula with the other. Compact half-body portrait, polished soft rounded 3D clay toy rendering, warm cream brown and sage green colors, entire character inside frame with small margins, clean crisp silhouette. Isolated on truly transparent background, no backdrop. No fox, no pointed ears, no tail, no lettering, no text, no watermark, no frame."
+  }
+]

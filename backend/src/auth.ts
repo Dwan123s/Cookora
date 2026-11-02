@@ -22,10 +22,11 @@ import { production } from './config';
 const credentials = z
   .object({
     email: z
-      .email()
+      .string()
+      .min(1, 'Vui lòng nhập tài khoản hoặc email')
       .max(254)
       .transform((v) => v.toLowerCase().trim()),
-    password: z.string().min(12, 'Mật khẩu cần ít nhất 12 ký tự').max(128),
+    password: z.string().min(6, 'Mật khẩu cần ít nhất 6 ký tự').max(128),
   })
   .strict();
 const userDto = (u: { id: string; email: string; displayName: string; role: string }) => ({
@@ -79,7 +80,14 @@ export class AuthController {
     @Body() body: unknown,
   ) {
     const input = parse(credentials, body),
-      user = await this.db.user.findUnique({ where: { email: input.email } });
+      user = await this.db.user.findFirst({
+        where: {
+          OR: [
+            { email: input.email },
+            { email: `${input.email}@gmail.com` },
+          ],
+        },
+      });
     const fallbackHash =
       '$argon2id$v=19$m=65536,t=3,p=4$MTIzNDU2Nzg5MGFiY2RlZg$cXrEQfoe4T4YgJvVQH7HoqfSXBqkfbnBAgPKzJ4JF6M';
     const valid = await argon2.verify(user?.passwordHash || fallbackHash, input.password).catch(() => false);

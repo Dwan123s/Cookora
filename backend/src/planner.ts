@@ -162,6 +162,39 @@ export class PlannerController {
     });
     return ok(req, planDto(await this.plan(id, req.user!.id)));
   }
+  @Patch('meal-plans/:id/entries/:entryId') async replace(
+    @Req() req: AuthRequest,
+    @Param('id') id: string,
+    @Param('entryId') entryId: string,
+    @Body() body: unknown,
+  ) {
+    const input = parse(
+      z
+        .object({
+          recipeId: uuid,
+          servings: z.number().int().min(1).max(20),
+          version: z.number().int().positive(),
+        })
+        .strict(),
+      body,
+    );
+    parse(uuid, entryId);
+    await this.plan(id, req.user!.id);
+    await this.catalog.find(input.recipeId);
+    await this.db.$transaction(async (tx) => {
+      const updated = await tx.mealPlan.updateMany({
+        where: { id, userId: req.user!.id, version: input.version },
+        data: { version: { increment: 1 } },
+      });
+      if (!updated.count) throw conflict();
+      const entry = await tx.mealEntry.updateMany({
+        where: { id: entryId, planId: id },
+        data: { recipeId: input.recipeId, servings: input.servings },
+      });
+      if (!entry.count) throw new NotFoundException('Không tìm thấy món trong thực đơn.');
+    });
+    return ok(req, planDto(await this.plan(id, req.user!.id)));
+  }
   @Delete('meal-plans/:id/entries/:entryId') async remove(
     @Req() req: AuthRequest,
     @Param('id') id: string,

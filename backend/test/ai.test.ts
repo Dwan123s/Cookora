@@ -35,7 +35,15 @@ test('AI controller resolves its service in the development runtime', async () =
 });
 
 test('Vertex AI key routing and safe failures', async (t) => {
-  const names = ['VERTEX_API_KEY', 'VERTEX_MODEL', 'VERTEX_PROJECT_ID', 'GOOGLE_CLOUD_PROJECT', 'NODE_ENV'];
+  const names = [
+    'VERTEX_API_KEY',
+    'VERTEX_MODEL',
+    'VERTEX_PROJECT_ID',
+    'GOOGLE_CLOUD_PROJECT',
+    'GROQ_API_KEY',
+    'GROQ_MODEL',
+    'NODE_ENV',
+  ];
   const saved = names.map((name) => [name, process.env[name]] as const);
   const secret = 'test-only-secret-not-a-real-key';
   const body = { parsedIngredients: [], menuOverview: 'Gợi ý thử nghiệm', dishes: [] };
@@ -44,6 +52,8 @@ test('Vertex AI key routing and safe failures', async (t) => {
     process.env.VERTEX_PROJECT_ID = 'test-project';
     process.env.NODE_ENV = 'development';
     delete process.env.VERTEX_MODEL;
+    delete process.env.GROQ_API_KEY;
+    delete process.env.GROQ_MODEL;
 
     await t.test(
       'uses Gemini 3.8 Flash on Vertex Express and sends the key only in a header',
@@ -93,7 +103,7 @@ test('Vertex AI key routing and safe failures', async (t) => {
         );
         await assert.rejects(new AiChefService().suggestRecipes('2 lạng thịt bò'), (error: any) => {
           assert.equal(error.getStatus(), 503);
-          assert.equal(error.getResponse().code, 'VERTEX_AI_ERROR');
+          assert.equal(error.getResponse().code, 'AI_SERVICE_ERROR');
           assert.ok(!JSON.stringify(error.getResponse()).includes(secret));
           assert.ok(!JSON.stringify(error.getResponse()).includes('private provider data'));
           return true;
@@ -124,7 +134,7 @@ test('Vertex AI key routing and safe failures', async (t) => {
         throw new Error('Network must not be called');
       });
       await assert.rejects(new AiChefService().suggestRecipes('2 lạng thịt bò'), (error: any) => {
-        assert.equal(error.getResponse().code, 'VERTEX_AI_NOT_CONFIGURED');
+        assert.equal(error.getResponse().code, 'AI_NOT_CONFIGURED');
         return true;
       });
     });

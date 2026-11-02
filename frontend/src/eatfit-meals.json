@@ -1,0 +1,44 @@
+[
+  {
+    "number": 1,
+    "title": "Salad ức gà và bơ",
+    "image": "/recipes/eat-fit/001_salad_uc_ga_va_bo.jpg",
+    "ingredients": "150g ức gà, 1/2 quả bơ, xà lách, cà chua bi, dầu ô liu, cốt chanh.",
+    "recipeContext": "Salad ức gà và bơ\nNguyên liệu: 150g ức gà, 1/2 quả bơ, xà lách, cà chua bi, dầu ô liu, cốt chanh.\nCông thức:\nỨc gà áp chảo hoặc luộc chín, xé sợi hoặc thái lát vừa ăn.\nXà lách, cà chua bi rửa sạch để ráo; bơ thái hạt lựu.\nTrộn đều các nguyên liệu, rưới 1-2 thìa cà phê dầu ô liu và nước cốt chanh lên trên, trộn nhẹ và thưởng thức."
+  },
+  {
+    "number": 2,
+    "title": "Salad tôm xoài",
+    "image": "/recipes/eat-fit/002_salad_tom_xoai.jpg",
+    "ingredients": "120g tôm, 80g xoài chín vừa, 70g xà lách, 50g dưa leo, 40g cà rốt, chanh, ít nước mắm.",
+    "recipeContext": "2. Salad tôm xoài\nNguyên liệu: 120g tôm, 80g xoài chín vừa, 70g xà lách, 50g dưa leo, 40g cà rốt, chanh, ít nước mắm.\nCách làm: \nLuộc tôm, thái xoài và rau củ thành sợi. \nPha chanh với chút nước mắm, tỏi, ớt và đường ăn kiêng rồi trộn đều."
+  },
+  {
+    "number": 6,
+    "title": "Salad cá hồi nướng",
+    "image": "/recipes/eat-fit/006_salad_ca_hoi_nuong.jpg",
+    "ingredients": "120g cá hồi, 50g bơ, 80g rau xà lách, 60g cà chua bi, 50g dưa leo, chanh, tiêu.",
+    "recipeContext": "6. Salad cá hồi nướng\nNguyên liệu: 120g cá hồi, 50g bơ, 80g rau xà lách, 60g cà chua bi, 50g dưa leo, chanh, tiêu.\nCách làm: \nƯớp cá hồi với một chút muối và tiêu tầm 10 phút \nNướng hoặc áp chảo cá hồi đến khi chín.\n Xếp cá cùng rau củ và bơ, rưới chanh, thêm tiêu."
+  },
+  {
+    "number": 8,
+    "title": "Salad bò áp chảo ớt chuông",
+    "image": "/recipes/eat-fit/008_salad_bo_ap_chao_ot_chuong.jpg",
+    "ingredients": "120g thịt bò nạc, 80g ớt chuông, 80g xà lách, 60g cà chua bi, 50g dưa leo, tỏi, chanh.",
+    "recipeContext": "8. Salad bò áp chảo ớt chuông\nNguyên liệu: 120g thịt bò nạc, 80g ớt chuông, 80g xà lách, 60g cà chua bi, 50g dưa leo, tỏi, chanh.\nCách làm: \nƯớp bò với tỏi và tiêu, áp chảo đến mức chín an toàn. \nThái bò, trộn cùng rau củ thái nhỏ và nước chanh."
+  },
+  {
+    "number": 9,
+    "title": "Salad quinoa ức gà",
+    "image": "/recipes/eat-fit/009_salad_quinoa_uc_ga.jpg",
+    "ingredients": "100g quinoa đã nấu chín, 100g ức gà, 60g xà lách, 50g cà chua bi, 50g dưa leo, 30g bơ, chanh.",
+    "recipeContext": "9. Salad quinoa ức gà\nNguyên liệu: 100g quinoa đã nấu chín, 100g ức gà, 60g xà lách, 50g cà chua bi, 50g dưa leo, 30g bơ, chanh.\nCách làm: \nLuộc quinoa và ức gà riêng.\nĐể nguội bớt, sau đó thì xé nhỏ gà ra.\nTrộn cùng rau củ, bơ và nước sốt đơn giản (bao gồm: chanh, ít nước mắm tỏi và ớt)"
+  },
+  {
+    "number": 11,
+    "title": "Cháo yến mạch thịt bằm rau củ",
+    "image": "/recipes/eat-fit/011_chao_yen_mach_thit_bam_rau_cu.jpg",
+    "ingredients": "40g yến mạch cán dẹt, 100g thịt nạc vai bằm, cà rốt thái hạt lựu, hành lá",
+    "recipeContext": "        11. Cháo yến mạch thịt bằm rau củ \nNguyên liệu: 40g yến mạch cán dẹt, 100g thịt nạc vai bằm, cà rốt thái hạt lựu, hành lá \nCông thức:\nPhi thơm nhẹ thịt nạc bằm với một chút dầu ô liu, thêm cà rốt vào xào sơ \nCho nước đủ dùng vào đun sôi, thả yến mạch vào khuấy đều trong 5–7 phút đến khi chín mềm. \nNêm nếm gia vị nhạt, rắc hành lá rồi tắt bếp."
+  }
+]

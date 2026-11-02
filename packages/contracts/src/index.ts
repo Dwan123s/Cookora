@@ -32,8 +32,9 @@ export type Recipe = {
   contentStatus: 'DRAFT' | 'APPROVED';
   sourceUrl: string;
   sourceName: string;
+  createdAt?: string;
   ingredients: RecipeLine[];
-  steps: { id: string; order: number; title: string; instruction: string }[];
+  steps: { id: string; recipeId?: string; order: number; title: string; instruction: string }[];
 };
 export type ScaledRecipe = {
   recipeId: string;

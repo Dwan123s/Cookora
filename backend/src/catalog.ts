@@ -55,15 +55,29 @@ export const quantitySchema = z
   .refine((s) => Number(s) > 0, 'Lượng cần lớn hơn 0');
 @Injectable()
 export class Catalog {
+  private cacheAll: { time: number; data: Recipe[] } | null = null;
+  private cacheIngredients: { time: number; data: Ingredient[] } | null = null;
+
   constructor(@Inject(Database) private readonly db: Database) {}
-  async all() {
-    return (
+
+  clearCache() {
+    this.cacheAll = null;
+    this.cacheIngredients = null;
+  }
+  async all(): Promise<Recipe[]> {
+    const now = Date.now();
+    if (this.cacheAll && now - this.cacheAll.time < 30000) {
+      return this.cacheAll.data;
+    }
+    const recipes = (
       await this.db.recipe.findMany({
         where: visibleWhere(),
         include: recipeInclude,
         orderBy: { createdAt: 'asc' },
       })
     ).map(recipeDto);
+    this.cacheAll = { time: now, data: recipes };
+    return recipes;
   }
   async find(ref: string) {
     const recipe = await this.db.recipe.findFirst({
@@ -108,7 +122,7 @@ export class CatalogController {
           category: z.string().max(60).optional(),
           maxMinutes: z.coerce.number().int().min(1).max(1440).optional(),
           page: z.coerce.number().int().min(1).default(1),
-          pageSize: z.coerce.number().int().min(1).max(50).default(12),
+          pageSize: z.coerce.number().int().min(1).max(100).default(60),
           ingredientIds: z.string().max(2000).optional(),
         })
         .strict(),
@@ -127,7 +141,7 @@ export class CatalogController {
         (!q.q ||
           normalize(`${r.title} ${r.ingredients.map((i) => i.name).join(' ')}`).includes(normalize(q.q)) ||
           r.ingredients.some((i) => matchingIngredients.has(i.ingredientId))) &&
-        (!q.cuisine || r.cuisine === q.cuisine) &&
+        (!q.cuisine || r.cuisine === q.cuisine || (q.cuisine === 'THAI' && r.cuisine === 'TH') || (q.cuisine === 'VIETNAMESE' && r.cuisine === 'VN')) &&
         (!q.category || r.category === q.category) &&
         (!q.maxMinutes ||
           (r.timingStatus === 'VERIFIED' && r.totalMinutes !== null && r.totalMinutes <= q.maxMinutes)) &&

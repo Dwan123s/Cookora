@@ -1,0 +1,1198 @@
+body:has(.eatfit-reference) {
+  background: #fbf9f4;
+}
+body:has(.eatfit-reference) #root > header {
+  background: #fffefaed;
+  border-color: #eee9df;
+}
+body:has(.eatfit-reference) #root > header > div:first-child {
+  height: 62px;
+  max-width: 1370px;
+}
+body:has(.eatfit-reference) #root > footer {
+  margin-top: 12px;
+}
+.eatfit-reference {
+  --ef-ink: #16372b;
+  --ef-green: #087347;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 36px 24px;
+  color: var(--ef-ink);
+  font-family: 'Plus Jakarta Sans Variable', sans-serif;
+  isolation: isolate;
+  position: relative;
+}
+.eatfit-reference * {
+  box-sizing: border-box;
+}
+.eatfit-reference h1,
+.eatfit-reference h2,
+.eatfit-reference h3,
+.eatfit-reference p {
+  margin: 0;
+}
+.eatfit-reference button {
+  cursor: pointer;
+}
+.eatfit-reference button:focus-visible,
+.eatfit-reference a:focus-visible,
+.eatfit-reference input:focus-visible,
+.eatfit-reference select:focus-visible {
+  outline: 3px solid #6bb88b;
+  outline-offset: 3px;
+}
+.ef-hero {
+  position: relative;
+  min-height: 162px;
+  display: flex;
+  align-items: center;
+  margin: 0 0 16px;
+}
+.ef-hero-art {
+  position: absolute;
+  inset: 0 -36px -90px 49%;
+  z-index: -1;
+  background: url('/images/auth-kitchen-background.webp') right 77% / cover no-repeat;
+  mask-image: linear-gradient(90deg, transparent, #000 28%), linear-gradient(#000 55%, transparent);
+  mask-composite: intersect;
+  opacity: 0.93;
+}
+.ef-hero-copy {
+  max-width: 760px;
+}
+.ef-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #bd542a;
+}
+.ef-hero h1 {
+  font-size: 35px;
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1.4px;
+  margin: 8px 0 10px;
+  max-width: 760px;
+}
+.ef-hero h1 > span {
+  color: #edb42c;
+  font-size: 42px;
+}
+.ef-hero-copy > p:last-child {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #59675e;
+}
+.ef-dashboard {
+  display: grid;
+  grid-template-columns: minmax(330px, 0.85fr) minmax(0, 1.4fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.ef-card {
+  background: #fffffff2;
+  border: 1px solid #eae7df;
+  border-radius: 20px;
+  box-shadow: 0 3px 9px #3b402607;
+}
+.ef-body-card {
+  padding: 20px 22px;
+}
+.eatfit-reference h2 {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ef-body-card h2 > svg {
+  color: var(--ef-green);
+  width: 23px;
+  flex-shrink: 0;
+}
+.ef-body-card fieldset {
+  padding: 0;
+  border: 0;
+  margin: 14px 0 0;
+}
+.ef-body-card legend,
+.ef-fields label,
+.ef-activity {
+  font-size: 10px;
+  font-weight: 650;
+  display: block;
+  color: #384b40;
+}
+.ef-choice {
+  display: grid;
+  gap: 12px;
+  margin-top: 5px;
+}
+.ef-sex {
+  grid-template-columns: 1fr 1fr;
+}
+.ef-choice button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #fffdfa;
+  border: 1px solid #e5e2dc;
+  border-radius: 10px;
+  color: #293d30;
+  min-height: 34px;
+  font-size: 11px;
+  font-weight: 700;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.ef-choice button[aria-pressed='true'] {
+  background: #e2f7e8;
+  border-color: #3db97e;
+  color: #075b39;
+}
+.ef-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 12px 0;
+}
+.ef-fields input,
+.ef-activity select {
+  width: 100%;
+  border: 1px solid #deded5;
+  border-radius: 9px;
+  background: #fffdfa;
+  height: 34px;
+  color: #223b2b;
+  margin-top: 5px;
+  padding: 0 9px;
+  font-size: 12px;
+}
+.ef-fields input {
+  text-align: center;
+  font-weight: 700;
+}
+.ef-activity select {
+  font-size: 10px;
+}
+.ef-goals {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+.ef-form-note {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 9px;
+  color: #7c897d;
+  margin-top: 11px !important;
+}
+.ef-nutrition {
+  border-radius: 20px;
+  border: 2px solid #fff;
+  padding: 16px 20px 10px;
+  background:
+    radial-gradient(ellipse at 10% 0, #0c8c58, transparent 58%), linear-gradient(120deg, #006c45, #034e44);
+  box-shadow: 0 7px 18px #034e4417;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ef-result-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.ef-mini-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 20px;
+  background: #ffffff13;
+  padding: 4px 9px;
+}
+.ef-result-copy h2 {
+  font-size: 39px;
+  letter-spacing: -1px;
+  margin: 2px 0 5px;
+  gap: 7px;
+  font-weight: 850;
+  color: #fff;
+}
+.ef-result-copy h2 > span {
+  font-size: 17px;
+  letter-spacing: 0;
+  font-weight: 650;
+}
+.ef-result-copy p {
+  font-size: 10px;
+  line-height: 1.65;
+  color: #e3f3e9;
+}
+.ef-chart {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.ef-donut {
+  width: 108px;
+  height: 108px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: conic-gradient(#78cf8a 0 30%, #f3d763 30% 70%, #d9f6d6 70%);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 15px #003f2920;
+}
+.ef-donut > div {
+  width: 76px;
+  height: 76px;
+  background: #075b47;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+.ef-donut strong {
+  font-size: 19px;
+  font-weight: 800;
+}
+.ef-chart ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 13px;
+  font-size: 10px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.ef-chart li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.ef-chart i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #78cf8a;
+}
+.ef-chart li:nth-child(2) i {
+  background: #f3d763;
+}
+.ef-chart li:nth-child(3) i {
+  background: #d9f6d6;
+}
+.ef-macros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 12px 0;
+}
+.ef-macros > div {
+  display: flex;
+  gap: 16px;
+  padding: 10px 15px;
+  background: #ffffff14;
+  border: 1px solid #ffffff05;
+  border-radius: 13px;
+}
+.ef-macros > div > svg {
+  width: 27px;
+  height: 27px;
+  color: #e8e58e;
+  margin-top: 2px;
+  stroke-width: 1.5;
+}
+.ef-macros span,
+.ef-macros strong,
+.ef-macros small {
+  display: block;
+}
+.ef-macros span {
+  font-size: 10px;
+}
+.ef-macros strong {
+  font-size: 19px;
+  line-height: 1.4;
+  font-weight: 750;
+}
+.ef-macros small {
+  font-size: 9px;
+  color: #c0e4d5;
+}
+.ef-budget-strip {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #fffefb;
+  color: #17372d;
+  border-radius: 13px;
+  padding: 9px 10px;
+  justify-content: space-between;
+}
+.ef-budget-strip > strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.ef-budget-strip > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 7px;
+  background: #f8f7f2;
+  border-radius: 9px;
+  flex: 1;
+}
+.ef-budget-strip > div > svg {
+  color: #e6ac00;
+  flex-shrink: 0;
+}
+.ef-budget-strip span {
+  font-size: 8px;
+  line-height: 1.7;
+}
+.ef-budget-strip b {
+  display: block;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.ef-budget-strip small {
+  font-size: 8px;
+  font-weight: 500;
+}
+.ef-estimate-note {
+  font-size: 8px;
+  color: #c4e1d5;
+  margin-top: 7px !important;
+}
+.ef-benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: linear-gradient(90deg, #eff4e5b3, #f1f5e9);
+  border-radius: 22px;
+  margin: 16px -5px 17px;
+  padding: 10px 16px;
+}
+.ef-benefits > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  border-right: 1px solid #dce5d6;
+}
+.ef-benefits > div:last-child {
+  border: 0;
+}
+.ef-benefits svg {
+  color: #087344;
+  stroke-width: 1.7;
+  width: 25px;
+  height: 25px;
+}
+.ef-benefits b,
+.ef-benefits small {
+  display: block;
+}
+.ef-benefits b {
+  font-size: 12px;
+}
+.ef-benefits small {
+  font-size: 10px;
+  color: #62705e;
+  margin-top: 2px;
+}
+.ef-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.ef-section-heading p {
+  font-size: 10px;
+  color: #738071;
+  margin-top: 3px;
+}
+.ef-section-heading > a {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 750;
+  color: #087344;
+  white-space: nowrap;
+}
+.ef-recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+.ef-recipe {
+  border-radius: 14px;
+  background: #fffdfa;
+  overflow: hidden;
+  border: 1px solid #e6e2d8;
+  box-shadow: 0 3px 5px #283b2010;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.ef-recipe:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px #283b2015;
+}
+.ef-recipe-photo {
+  position: relative;
+  aspect-ratio: 2.15;
+}
+.ef-photo-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+}
+.ef-photo-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ef-recipe-tag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: #eefbd6ed;
+  color: #245a2e;
+  font-size: 8px;
+  font-weight: 750;
+  padding: 3px 6px;
+  border-radius: 12px;
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  pointer-events: none;
+}
+.ef-heart {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  border: 0;
+  background: #fffc;
+  color: #4a5946;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.ef-heart[aria-pressed='true'] {
+  color: #bf5d50;
+}
+.ef-recipe-title {
+  border: 0;
+  background: none;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 800;
+  color: #1b3729;
+  line-height: 1.5;
+  padding: 7px 9px 3px;
+  min-height: 36px;
+  display: block;
+}
+.ef-recipe-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 9px 9px;
+  color: #6c7f61;
+  font-size: 8px;
+}
+.ef-recipe-meta button {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: auto;
+  border: 0;
+  background: none;
+  font-size: 8px;
+  color: #356d47;
+  padding: 0;
+}
+.ef-catalog-note {
+  font-size: 8px;
+  color: #83907f;
+  margin-top: 7px !important;
+}
+.ef-day {
+  margin-top: 14px;
+}
+.ef-day h2 {
+  font-size: 16px;
+}
+.ef-day h2 svg {
+  color: #007147;
+}
+.ef-total {
+  background: #e4f2df;
+  color: #2d653c;
+  border-radius: 20px;
+  padding: 5px 13px;
+  font-size: 10px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+.ef-day-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 42px;
+}
+.ef-day-meal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(100deg, #fffefb, #f5f3ed);
+  border: 1px solid #eeebe4;
+  border-radius: 17px;
+  padding: 9px 13px;
+  min-height: 72px;
+}
+.ef-day-meal > img,
+.ef-fruit {
+  width: 60px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px #41503110;
+}
+.ef-fruit {
+  display: grid;
+  place-items: center;
+  background: #e8f4d4;
+  color: #689849;
+}
+.ef-day-meal b {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-size: 10px;
+}
+.ef-day-meal b svg {
+  color: #e1b01d;
+}
+.ef-day-meal strong {
+  display: block;
+  color: #14814a;
+  font-size: 9px;
+  margin: 2px 0;
+}
+.ef-day-meal small {
+  font-size: 8px;
+}
+.ef-day-meal p {
+  font-size: 9px;
+  color: #596855;
+  line-height: 1.4;
+}
+.ef-day-arrow {
+  position: absolute;
+  right: -30px;
+  color: #17724b;
+}
+.ef-bottom {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 16px;
+  margin-top: 13px;
+}
+.ef-bottom .ef-card {
+  padding: 13px 17px;
+  border-radius: 15px;
+  background: #fffdf8;
+}
+.ef-bottom h2 {
+  font-size: 12px;
+  letter-spacing: 0;
+  gap: 7px;
+}
+.ef-bottom h2 svg {
+  color: #168151;
+}
+.ef-tips > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 10px;
+}
+.ef-tips > div > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.ef-tips > div > div > svg {
+  flex-shrink: 0;
+  width: 29px;
+  height: 29px;
+  padding: 5px;
+  background: #eaf5dc;
+  border-radius: 9px;
+  color: #59a35c;
+}
+.ef-tips b,
+.ef-tips small {
+  display: block;
+}
+.ef-tips b {
+  font-size: 9px;
+}
+.ef-tips small {
+  font-size: 8px;
+  color: #75806b;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+.ef-progress > p {
+  font-size: 9px;
+  color: #7e8878;
+  margin: 3px 0 !important;
+}
+.ef-empty-progress {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 9px;
+  margin: 8px 0;
+}
+.ef-empty-progress i {
+  flex: 1;
+  height: 8px;
+  border-radius: 10px;
+  background: #e6eddf;
+}
+.ef-empty-progress b {
+  font-size: 9px;
+  color: #8b9683;
+  font-weight: 500;
+}
+.ef-progress > a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9px;
+  font-weight: 650;
+  color: #227245;
+}
+.ef-modal {
+  padding: 0;
+  border: 1px solid #e6e6da;
+  border-radius: 24px;
+  width: min(620px, calc(100% - 32px));
+  max-height: 90dvh;
+  color: #183d2b;
+  background: #fffdf7;
+  box-shadow: 0 25px 90px #12372235;
+}
+.ef-modal::backdrop {
+  background: #0c2a1e99;
+  backdrop-filter: blur(5px);
+}
+.ef-modal > img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+.ef-modal > div {
+  padding: 25px;
+}
+.ef-modal h2 {
+  font-size: 23px;
+  margin: 8px 0 18px;
+}
+.ef-modal h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin: 17px 0 8px;
+}
+.ef-modal p {
+  font-size: 13px;
+  line-height: 1.9;
+}
+.ef-instructions {
+  white-space: pre-line;
+}
+.ef-modal small {
+  display: block;
+  color: #7e8a75;
+  margin-top: 20px;
+  font-size: 10px;
+}
+.ef-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: white;
+  padding: 7px;
+  display: grid;
+  place-items: center;
+}
+@media (min-width: 1450px) {
+  .ef-hero {
+    min-height: 165px;
+  }
+  .ef-dashboard {
+    grid-template-columns: 0.85fr 1.4fr;
+  }
+  .ef-body-card {
+    padding: 20px 23px;
+  }
+  .ef-recipe-photo {
+    aspect-ratio: 2.2;
+  }
+  .ef-hero h1 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 1200px) {
+  .eatfit-reference {
+    padding-inline: 24px;
+  }
+  .ef-chart ul {
+    display: none;
+  }
+  .ef-chart {
+    gap: 0;
+  }
+  .ef-result-copy h2 {
+    font-size: 34px;
+  }
+  .ef-budget-strip > strong {
+    display: none;
+  }
+  .ef-nutrition {
+    padding-inline: 15px;
+  }
+  .ef-macros > div {
+    padding: 9px;
+    gap: 8px;
+  }
+  .ef-macros small {
+    font-size: 8px;
+  }
+  .ef-hero-copy {
+    max-width: 620px;
+  }
+  .ef-hero h1 {
+    font-size: 30px;
+  }
+  .ef-benefits {
+    padding-inline: 5px;
+  }
+  .ef-benefits > div {
+    gap: 9px;
+  }
+  .ef-benefits small {
+    font-size: 8px;
+  }
+  .ef-day-grid {
+    gap: 22px;
+  }
+  .ef-day-arrow {
+    right: -20px;
+  }
+  .ef-day-meal {
+    padding: 9px;
+    gap: 7px;
+  }
+  .ef-day-meal > img,
+  .ef-fruit {
+    width: 45px;
+    height: 45px;
+  }
+  .ef-recipe-grid {
+    gap: 8px;
+  }
+}
+@media (max-width: 950px) {
+  .ef-dashboard {
+    grid-template-columns: 1fr;
+  }
+  .ef-body-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 22px;
+  }
+  .ef-body-card h2,
+  .ef-form-note {
+    grid-column: 1/-1;
+  }
+  .ef-body-card fieldset {
+    margin: 0;
+  }
+  .ef-fields {
+    margin: 0;
+  }
+  .ef-chart ul {
+    display: grid;
+  }
+  .ef-chart {
+    gap: 22px;
+  }
+  .ef-recipe-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .ef-recipe-photo {
+    aspect-ratio: 1.9;
+  }
+  .ef-bottom {
+    grid-template-columns: 1fr;
+  }
+  .ef-benefits b {
+    font-size: 10px;
+  }
+  .ef-day-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .ef-day-arrow {
+    display: none;
+  }
+  .ef-hero-art {
+    opacity: 0.5;
+    left: 40%;
+  }
+  .ef-hero {
+    min-height: 165px;
+  }
+  .ef-budget-strip {
+    margin-top: 3px;
+  }
+  .ef-nutrition {
+    padding: 20px;
+  }
+}
+@media (max-width: 600px) {
+  body:has(.eatfit-reference) #root > header > div:first-child {
+    padding-inline: 16px;
+    gap: 10px;
+  }
+  body:has(.eatfit-reference) #root > header > div:first-child > a > span {
+    font-size: 23px;
+  }
+  body:has(.eatfit-reference) #root > header a[href='/yeu-thich'],
+  body:has(.eatfit-reference) #root > header button[aria-label='Thông báo'] {
+    display: none;
+  }
+  body:has(.eatfit-reference) #root > header a[href='/dang-nhap'] {
+    font-size: 11px;
+    padding-inline: 10px;
+    white-space: nowrap;
+  }
+  .eatfit-reference {
+    padding: 0 16px 20px;
+  }
+  .ef-hero {
+    min-height: 191px;
+    margin-bottom: 12px;
+  }
+  .ef-hero-art {
+    inset: 0 -16px 0 35%;
+    opacity: 0.28;
+  }
+  .ef-hero-copy {
+    max-width: 100%;
+  }
+  .ef-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+  .ef-hero h1 {
+    font-size: 29px;
+    max-width: 350px;
+    margin-top: 8px;
+    letter-spacing: -1px;
+  }
+  .ef-hero h1 > span {
+    font-size: 30px;
+  }
+  .ef-hero-copy > p:last-child {
+    font-size: 11px;
+    max-width: 320px;
+  }
+  .ef-desktop-break {
+    display: none;
+  }
+  .ef-body-card {
+    display: block;
+    padding: 19px;
+  }
+  .eatfit-reference h2 {
+    font-size: 17px;
+  }
+  .ef-body-card fieldset {
+    margin-top: 15px;
+  }
+  .ef-fields {
+    margin: 13px 0;
+  }
+  .ef-nutrition {
+    padding: 16px;
+    border-radius: 20px;
+  }
+  .ef-result-top {
+    align-items: center;
+    gap: 6px;
+  }
+  .ef-result-copy h2 {
+    font-size: 33px;
+    white-space: nowrap;
+  }
+  .ef-result-copy h2 > span {
+    font-size: 12px;
+  }
+  .ef-result-copy p {
+    font-size: 9px;
+  }
+  .ef-mini-label {
+    font-size: 8px;
+  }
+  .ef-chart ul {
+    display: none;
+  }
+  .ef-donut {
+    width: 78px;
+    height: 78px;
+  }
+  .ef-donut > div {
+    width: 55px;
+    height: 55px;
+  }
+  .ef-donut strong {
+    font-size: 14px;
+  }
+  .ef-donut span {
+    font-size: 9px;
+  }
+  .ef-macros {
+    gap: 6px;
+  }
+  .ef-macros > div {
+    display: block;
+    padding: 8px;
+  }
+  .ef-macros > div > svg {
+    width: 21px;
+    height: 21px;
+    margin-bottom: 4px;
+  }
+  .ef-macros strong {
+    font-size: 18px;
+  }
+  .ef-macros small {
+    font-size: 7px;
+  }
+  .ef-budget-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 7px;
+  }
+  .ef-budget-strip > div {
+    gap: 9px;
+    padding: 6px 8px;
+  }
+  .ef-budget-strip span {
+    font-size: 9px;
+  }
+  .ef-budget-strip b {
+    font-size: 10px;
+  }
+  .ef-estimate-note {
+    line-height: 1.6;
+    font-size: 8px;
+  }
+  .ef-benefits {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 6px;
+    margin: 15px 0 20px;
+    padding: 15px 9px;
+    border-radius: 18px;
+  }
+  .ef-benefits > div {
+    justify-content: flex-start;
+    padding-left: 8px;
+    gap: 9px;
+  }
+  .ef-benefits > div:nth-child(2) {
+    border: 0;
+  }
+  .ef-benefits b {
+    font-size: 9px;
+  }
+  .ef-benefits small {
+    font-size: 7px;
+  }
+  .ef-benefits svg {
+    width: 22px;
+    flex-shrink: 0;
+  }
+  .ef-section-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ef-section-heading p {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+  .ef-section-heading > a {
+    font-size: 9px;
+  }
+  .ef-recipe-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .ef-recipe-photo {
+    aspect-ratio: 1.6;
+  }
+  .ef-recipe-title {
+    font-size: 10px;
+    min-height: 38px;
+  }
+  .ef-catalog-note {
+    font-size: 8px;
+    line-height: 1.7;
+  }
+  .ef-day {
+    margin-top: 20px;
+  }
+  .ef-day h2 {
+    font-size: 15px;
+  }
+  .ef-total {
+    font-size: 9px;
+  }
+  .ef-day-grid {
+    gap: 9px;
+  }
+  .ef-day-meal {
+    display: block;
+    padding: 12px;
+  }
+  .ef-day-meal > img,
+  .ef-fruit {
+    width: 55px;
+    height: 43px;
+    margin-bottom: 7px;
+  }
+  .ef-day-meal p {
+    font-size: 9px;
+    min-height: 26px;
+  }
+  .ef-day-meal b {
+    font-size: 11px;
+  }
+  .ef-tips > div {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .ef-tips b {
+    font-size: 11px;
+  }
+  .ef-tips small {
+    font-size: 10px;
+  }
+  .ef-progress > p,
+  .ef-empty-progress,
+  .ef-empty-progress b,
+  .ef-progress > a {
+    font-size: 10px;
+  }
+  .ef-bottom h2 {
+    font-size: 13px;
+  }
+  .ef-modal > img {
+    height: 180px;
+  }
+  .ef-modal > div {
+    padding: 20px;
+  }
+}
+/* Keep the reference's compact rhythm without fixed heights on content. */
+.eatfit-reference {
+  line-height: 1.45;
+}
+.ef-body-card {
+  padding-block: 16px;
+}
+.ef-body-card fieldset {
+  margin-top: 11px;
+}
+.ef-fields {
+  margin-block: 10px;
+}
+.ef-fields input,
+.ef-activity select {
+  height: 32px;
+}
+.ef-choice button {
+  min-height: 32px;
+}
+.ef-hero {
+  min-height: 145px;
+}
+.ef-hero-art {
+  background-position: right 76%;
+}
+.ef-budget-strip {
+  padding-block: 7px;
+}
+.ef-benefits {
+  padding-block: 9px;
+}
+.ef-bottom .ef-card {
+  padding-block: 11px;
+}
+@media (min-width: 1450px) {
+  .ef-hero {
+    min-height: 145px;
+  }
+}
+@media (max-width: 600px) {
+  .ef-hero {
+    min-height: 191px;
+  }
+  .ef-body-card {
+    padding: 19px;
+  }
+  .ef-body-card fieldset {
+    margin-top: 15px;
+  }
+  .ef-fields {
+    margin-block: 13px;
+  }
+  .ef-fields input,
+  .ef-activity select {
+    height: 36px;
+  }
+  .ef-choice button {
+    min-height: 36px;
+  }
+}

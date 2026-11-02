@@ -1,0 +1,2448 @@
+body:has(.pantry-reference) {
+  background: #fcfaf6;
+}
+body:has(.pantry-reference) #root > header {
+  background: #fffefa;
+  border-color: #ebe9e2;
+}
+body:has(.pantry-reference) #root > header > div:first-child {
+  max-width: 1560px;
+  height: 62px;
+}
+body:has(.pantry-reference) #root > header > div:first-child > a > span {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #103e2c;
+}
+body:has(.pantry-reference) #root > header nav {
+  color: #111e18;
+  font-weight: 700;
+}
+.pantry-reference {
+  --pantry-ink: #124531;
+  --pantry-green: #407653;
+  --pantry-line: #e9e6df;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0 40px 25px;
+  color: #14231c;
+  font-family: 'Plus Jakarta Sans Variable', sans-serif;
+  line-height: 1.5;
+  position: relative;
+}
+.pantry-reference * {
+  box-sizing: border-box;
+}
+.pantry-reference button,
+.pantry-reference textarea,
+.pantry-reference select {
+  font-family: inherit;
+}
+.pantry-reference :focus-visible {
+  outline: 3px solid #85aa69;
+  outline-offset: 4px;
+}
+.pantry-hero {
+  position: relative;
+  min-height: 224px;
+  display: flex;
+  align-items: center;
+  padding: 22px 46px 24px;
+  isolation: isolate;
+}
+.pantry-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 660px;
+}
+.pantry-title-row {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  width: max-content;
+  max-width: 100%;
+}
+.pantry-reference h1 {
+  margin: 0;
+  color: var(--pantry-ink);
+  font-size: clamp(35px, 3.1vw, 51px);
+  font-weight: 800;
+  line-height: 1.17;
+  letter-spacing: -1.6px;
+}
+.pantry-hero-copy > p {
+  font-size: 15px;
+  color: #424641;
+  margin: 7px 0 21px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.pantry-rays {
+  position: relative;
+  display: block;
+  width: 31px;
+  height: 42px;
+  align-self: flex-start;
+  margin-top: -6px;
+  transform: rotate(-8deg);
+}
+.pantry-rays i {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 20px;
+  border-radius: 4px;
+  background: #efa21a;
+  right: 0;
+  bottom: 2px;
+}
+.pantry-rays i:nth-child(2) {
+  transform: rotate(-35deg);
+  right: 0;
+  top: 16px;
+}
+.pantry-rays i:nth-child(3) {
+  transform: rotate(-63deg);
+  top: 3px;
+  left: 0;
+}
+.pantry-tabs {
+  display: flex;
+  gap: 7px;
+}
+.pantry-tabs button {
+  height: 45px;
+  min-width: 231px;
+  padding: 0 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid #e8e5dd;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 2px 4px #303a1c05;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1b2820;
+}
+.pantry-tabs button[aria-pressed='true'] {
+  background: var(--pantry-green);
+  color: white;
+  border-color: var(--pantry-green);
+}
+.pantry-board {
+  position: absolute;
+  z-index: 1;
+  left: 49%;
+  top: 5px;
+  width: 29%;
+  height: 205px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 7px #67481a12);
+}
+.pantry-note {
+  position: absolute;
+  right: 6%;
+  top: 30px;
+  width: 230px;
+  min-height: 124px;
+  padding: 20px 22px;
+  background: linear-gradient(115deg, #fff9dc, #fff9e5);
+  transform: rotate(-6deg);
+  border: 1px solid #f6efd2;
+  border-radius: 5px;
+  box-shadow: 0 4px 9px #66582612;
+  z-index: 2;
+}
+.pantry-note::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 26px;
+  height: 12px;
+  border-radius: 2px;
+  background: #f8db8ba1;
+  transform: rotate(1deg);
+}
+.pantry-note > svg {
+  position: absolute;
+  right: 10px;
+  top: -13px;
+  color: #3b3b25;
+  fill: #fff8e0;
+}
+.pantry-note p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.7;
+}
+.pantry-hero-leaf {
+  position: absolute;
+  right: -20px;
+  bottom: 1px;
+  width: 135px;
+  height: 135px;
+  color: #dee9ce;
+  opacity: 0.3;
+  transform: rotate(-30deg);
+  z-index: -1;
+}
+.pantry-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.47fr) minmax(0, 1fr) minmax(0, 0.86fr);
+  gap: 14px;
+  align-items: start;
+}
+.pantry-surface {
+  border: 1px solid var(--pantry-line);
+  background: #fffefb;
+  border-radius: 24px;
+  box-shadow: 0 2px 5px #34412a08;
+}
+.pantry-input-card {
+  padding: 20px 24px 18px;
+}
+.pantry-reference h2 {
+  letter-spacing: -0.75px;
+  color: var(--pantry-ink);
+  font-weight: 800;
+  font-size: clamp(20px, 1.72vw, 29px);
+  line-height: 1.25;
+  margin: 0;
+}
+.pantry-input-card > h2,
+.pantry-results-heading h2,
+.pantry-assistant h2 {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.pantry-input-card > h2 > svg {
+  flex: none;
+  width: 37px;
+  height: 37px;
+  color: #2e943c;
+  stroke-width: 1.6;
+}
+.pantry-input-description {
+  font-size: 14px;
+  color: #424640;
+  line-height: 1.6;
+  margin: 8px 0 16px;
+  font-weight: 500;
+}
+.pantry-chips {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 17px;
+}
+.pantry-chips button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 6px 12px;
+  border: 1px solid #e2e5dd;
+  border-radius: 23px;
+  background: #fff;
+  color: #354539;
+  font-size: 12px;
+  font-weight: 800;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.pantry-chips button[aria-pressed='true'] {
+  background: #eaf3e4;
+  border-color: #daead4;
+  color: #214a32;
+}
+.pantry-chips button > span:not(.pantry-sr-only) {
+  font-size: 22px;
+  line-height: 1;
+}
+.pantry-chips button:hover {
+  border-color: #8ab77d;
+}
+.pantry-chips .pantry-add {
+  font-weight: 600;
+  background: #fff;
+  color: #4e514a;
+}
+.pantry-reference textarea {
+  display: block;
+  resize: vertical;
+  width: 100%;
+  min-height: 109px;
+  max-height: 260px;
+  border: 1px solid #dadbd4;
+  background: linear-gradient(130deg, #f8f8f7, #fcfcfb);
+  border-radius: 18px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #2a3d2f;
+  outline-offset: 2px;
+  margin: 0 0 18px;
+  box-shadow: inset 0 1px 4px #434c3703;
+}
+.pantry-reference textarea::placeholder {
+  color: #808079;
+  opacity: 1;
+}
+.pantry-how {
+  background: linear-gradient(100deg, #f2f7eb, #f7f9ee);
+  border-radius: 18px;
+  padding: 12px 16px 14px;
+}
+.pantry-reference .pantry-how h3 {
+  font-size: 15px;
+  letter-spacing: -0.3px;
+  font-weight: 800;
+  color: #17462d;
+  margin: 0 0 11px;
+}
+.pantry-steps {
+  display: grid;
+  grid-template-columns: 1fr 18px 1.05fr 18px 1fr;
+  gap: 11px;
+  align-items: start;
+}
+.pantry-steps > div {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.pantry-steps > div > svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  color: #25873c;
+  stroke-width: 1.5;
+}
+.pantry-steps strong {
+  display: block;
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 800;
+  color: #193d29;
+  white-space: nowrap;
+}
+.pantry-steps small {
+  display: block;
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 3px;
+  color: #4b5348;
+}
+.pantry-step-arrow {
+  width: 18px;
+  color: #315d3d;
+  margin-top: 7px;
+  stroke-width: 1.5;
+}
+.pantry-controls {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  margin: 9px 0;
+  color: #5c6a58;
+}
+.pantry-controls label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.pantry-controls select {
+  border: 1px solid #dfe6d6;
+  padding: 2px 17px 2px 6px;
+  border-radius: 7px;
+  color: #345c3d;
+  background: #fffdf8;
+  font-size: 11px;
+}
+.pantry-controls > span {
+  margin-left: auto;
+}
+.pantry-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 18px;
+  min-height: 44px;
+  width: 100%;
+  padding: 9px 15px;
+  color: white;
+  background: var(--pantry-green, #407653);
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 1.4;
+  transition:
+    background 0.15s,
+    box-shadow 0.15s;
+}
+.pantry-primary > svg:first-child {
+  color: #f6d15f;
+}
+.pantry-primary:hover:not(:disabled) {
+  background: #315f40;
+  box-shadow: 0 4px 15px #345c3320;
+}
+.pantry-input-hint {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 11px 0 0;
+  color: #54564e;
+  text-align: center;
+}
+.pantry-input-hint > svg {
+  flex: none;
+}
+.pantry-results {
+  min-width: 0;
+  border: 1px solid #edeae3;
+  background: #fffefa;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px #34412a04;
+  padding-top: 21px;
+}
+.pantry-results-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 18px 17px;
+}
+.pantry-results-heading h2 {
+  font-size: clamp(18px, 1.45vw, 25px);
+  white-space: nowrap;
+  gap: 8px;
+}
+.pantry-results-heading h2 > svg {
+  width: 25px;
+  height: 30px;
+  color: #388a36;
+  stroke-width: 1.6;
+}
+.pantry-results-heading > span {
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+  padding: 7px 12px;
+  border-radius: 20px;
+  color: #285330;
+  background: #e7f1df;
+}
+.pantry-dish-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  padding: 13px 18px;
+  border: 1px solid #eae7e0;
+  border-radius: 22px;
+  background: #fffefa;
+  min-height: 134px;
+  color: #171d18;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 0;
+  box-shadow: 0 2px 5px #4d4b3605;
+  transition: background 0.15s;
+}
+.pantry-dish-card:hover {
+  background: #f8faef;
+}
+.pantry-dish-card + .pantry-dish-card {
+  margin-top: 0;
+}
+.pantry-dish-photo {
+  position: relative;
+  width: 126px;
+  height: 108px;
+  flex: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #eef3e6;
+  display: grid;
+  place-items: center;
+  color: #8aa175;
+}
+.pantry-dish-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pantry-dish-content {
+  min-width: 0;
+  flex: 1;
+}
+.pantry-reference .pantry-dish-card h3 {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+  margin: 0 0 9px;
+  color: #171e18;
+}
+.pantry-badges {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.pantry-badges > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  line-height: 1.3;
+  white-space: nowrap;
+  padding: 5px 9px;
+  background: #e4f0d9;
+  border-radius: 20px;
+  color: #315a2c;
+  font-weight: 800;
+}
+.pantry-badges > span.pantry-missing {
+  background: #fff0c7;
+  color: #66512a;
+}
+.pantry-dish-meta {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  font-size: 12px;
+  color: #555c51;
+  margin: 11px 0 0;
+}
+.pantry-dish-meta > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.pantry-dish-arrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 29px;
+  height: 29px;
+  border: 1px solid #e4e4dc;
+  border-radius: 50%;
+  color: #45634b;
+  background: #fff;
+}
+.pantry-results-note {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #7b8072;
+  padding: 11px 18px;
+  margin: 0;
+  background: #fffdf6;
+}
+.pantry-result-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+  color: #66795d;
+  gap: 12px;
+}
+.pantry-result-status p {
+  margin: 0;
+}
+.pantry-result-status button {
+  border: 1px solid #d5e4ca;
+  background: #edf5e6;
+  border-radius: 10px;
+  padding: 8px 18px;
+  color: #315d37;
+}
+.pantry-assistant {
+  min-height: 490px;
+  padding: 24px 20px 30px;
+  background: linear-gradient(120deg, #f4f8ed, #f5f7eb);
+  position: relative;
+}
+.pantry-assistant-top {
+  position: relative;
+  padding-bottom: 9px;
+}
+.pantry-assistant h2 {
+  font-size: clamp(19px, 1.5vw, 26px);
+  gap: 8px;
+  margin-top: 5px;
+}
+.pantry-assistant h2 > svg {
+  width: 29px;
+  height: 29px;
+  flex: none;
+  color: #30933e;
+  stroke-width: 1.5;
+}
+.pantry-assistant-top > img {
+  position: absolute;
+  right: -15px;
+  top: -41px;
+  width: 130px;
+  height: 150px;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+}
+.pantry-greeting {
+  position: relative;
+  margin: 20px 0 13px;
+  max-width: 245px;
+  width: 74%;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 20px;
+  background: #fff;
+  padding: 15px 17px;
+  box-shadow: 0 3px 8px #5a743212;
+  z-index: 1;
+  min-height: 117px;
+}
+.pantry-reference .pantry-quick-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #17452d;
+}
+.pantry-quick-heading svg {
+  width: 25px;
+  color: #eebc24;
+  fill: #f9df72;
+}
+.pantry-quick-questions {
+  display: grid;
+  gap: 13px;
+}
+.pantry-quick-questions button {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 49px;
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e9eade;
+  background: #fff;
+  border-radius: 28px;
+  font-size: 12px;
+  color: #19281b;
+  font-weight: 700;
+  text-align: left;
+  box-shadow: 0 2px 4px #3b562a08;
+}
+.pantry-quick-questions button:hover:not(:disabled) {
+  background: #f9fff3;
+  border-color: #b6ce98;
+}
+.pantry-quick-questions button > svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: #6ca828;
+  stroke-width: 1.6;
+}
+.pantry-quick-questions button:nth-child(2) > svg:first-child {
+  color: #e4a91f;
+}
+.pantry-quick-questions button > svg:last-child {
+  margin-left: auto;
+  color: #35653c;
+  width: 18px;
+}
+.pantry-values {
+  margin: 19px 30px 0;
+  border-radius: 30px;
+  background: linear-gradient(100deg, #f0f6e6aa, #f6f8ee);
+  padding: 15px 25px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  position: relative;
+}
+.pantry-values > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 19px;
+  border-right: 1px solid #e0e5d5;
+}
+.pantry-values > div:last-child {
+  border: 0;
+}
+.pantry-values svg {
+  width: 43px;
+  height: 43px;
+  flex: none;
+  color: #3e9148;
+}
+.pantry-values strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+.pantry-values small {
+  display: block;
+  font-size: 13px;
+  color: #60675a;
+  margin-top: 1px;
+}
+.pantry-feedback {
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 14px;
+  padding: 12px;
+  background: #f2f5e9;
+  border-radius: 12px;
+  color: #4a6740;
+}
+.pantry-feedback.is-error {
+  background: #fff1e5;
+  color: #92512d;
+}
+.pantry-feedback p {
+  margin: 0;
+}
+.pantry-feedback button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  padding: 7px 0 0;
+  font-weight: 800;
+  color: #3e6c43;
+  font-size: 12px;
+}
+.pantry-ai-overview {
+  padding: 24px;
+  margin-top: 18px;
+}
+.pantry-ai-overview h2 {
+  display: flex;
+  gap: 9px;
+  font-size: 22px;
+}
+.pantry-ai-overview h2 svg {
+  color: #b1a02b;
+}
+.pantry-ai-overview > p {
+  font-size: 14px;
+  color: #58674f;
+}
+.pantry-ai-detail-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pantry-ai-detail-list button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f2f7e9;
+  border: 1px solid #dce8cf;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #365c39;
+  font-weight: 700;
+}
+.pantry-modal-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #dfe5d8;
+  border-radius: 12px;
+  padding: 0 12px;
+  margin: 20px 0;
+  color: #74915e;
+}
+.pantry-modal-search input {
+  width: 100%;
+  border: 0;
+  padding: 12px 0;
+  background: transparent;
+}
+.pantry-ingredient-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  max-height: 340px;
+  overflow: auto;
+  margin-bottom: 18px;
+}
+.pantry-ingredient-options button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  border: 1px solid #e5e8df;
+  background: #f9fbf5;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+  text-align: left;
+  color: #3c5d36;
+}
+.pantry-ingredient-options button[aria-pressed='true'] {
+  background: #e4efd9;
+  border-color: #a7c48e;
+}
+.pantry-recipe-detail {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #43553c;
+}
+.pantry-recipe-detail h3 {
+  margin: 22px 0 8px;
+  font-size: 17px;
+  color: #245431;
+}
+.pantry-recipe-detail ul,
+.pantry-recipe-detail ol {
+  padding-left: 23px;
+  list-style: revert;
+}
+.pantry-recipe-detail li {
+  margin-bottom: 8px;
+}
+.pantry-recipe-detail li p {
+  margin: 4px 0 16px;
+}
+.pantry-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (min-width: 1500px) {
+  .pantry-input-description {
+    font-size: 15px;
+  }
+  .pantry-chips button {
+    font-size: 13px;
+  }
+  .pantry-steps strong {
+    font-size: 12px;
+  }
+  .pantry-steps small {
+    font-size: 10px;
+  }
+  .pantry-dish-photo {
+    width: 136px;
+  }
+  .pantry-quick-questions button {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1350px) {
+  .pantry-reference {
+    padding-inline: 25px;
+  }
+  .pantry-hero {
+    padding-left: 20px;
+  }
+  .pantry-hero-copy {
+    max-width: 560px;
+  }
+  .pantry-hero-copy > p {
+    font-size: 13px;
+  }
+  .pantry-board {
+    left: 48%;
+    width: 30%;
+    height: 185px;
+    top: 15px;
+  }
+  .pantry-note {
+    right: 2%;
+    width: 180px;
+    padding: 18px 16px;
+    min-height: 112px;
+  }
+  .pantry-note p {
+    font-size: 12px;
+  }
+  .pantry-tabs button {
+    min-width: 195px;
+    font-size: 14px;
+  }
+  .pantry-workspace {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: 12px;
+  }
+  .pantry-input-card {
+    padding: 20px 18px;
+  }
+  .pantry-chips {
+    gap: 5px;
+  }
+  .pantry-chips button {
+    font-size: 11px;
+    padding-inline: 9px;
+  }
+  .pantry-results-heading {
+    padding-inline: 14px;
+    flex-wrap: wrap;
+  }
+  .pantry-results-heading h2 {
+    font-size: 21px;
+  }
+  .pantry-dish-card {
+    padding: 13px 11px;
+    gap: 11px;
+    min-height: 130px;
+  }
+  .pantry-dish-photo {
+    width: 89px;
+    height: 96px;
+    border-radius: 15px;
+  }
+  .pantry-reference .pantry-dish-card h3 {
+    font-size: 14px;
+  }
+  .pantry-badges > span {
+    font-size: 9px;
+    padding-inline: 7px;
+  }
+  .pantry-dish-arrow {
+    width: 23px;
+    height: 23px;
+  }
+  .pantry-dish-meta {
+    gap: 9px;
+    font-size: 10px;
+  }
+  .pantry-assistant {
+    padding-inline: 15px;
+  }
+  .pantry-assistant-top > img {
+    width: 105px;
+    right: -12px;
+    top: -30px;
+  }
+  .pantry-greeting {
+    font-size: 13px;
+    padding: 13px;
+    max-width: 74%;
+    width: 74%;
+  }
+  .pantry-quick-questions button {
+    padding: 11px;
+    gap: 8px;
+    font-size: 10px;
+  }
+  .pantry-quick-questions button > svg {
+    width: 17px;
+  }
+  .pantry-steps {
+    gap: 6px;
+    grid-template-columns: 1fr 13px 1fr 13px 1fr;
+  }
+  .pantry-steps > div {
+    gap: 6px;
+  }
+  .pantry-steps > div > svg {
+    width: 24px;
+  }
+  .pantry-steps strong {
+    font-size: 9px;
+  }
+  .pantry-steps small {
+    font-size: 8px;
+  }
+  .pantry-step-arrow {
+    width: 13px;
+  }
+  .pantry-values {
+    margin-inline: 0;
+    padding-inline: 17px;
+    gap: 10px;
+  }
+  .pantry-values > div {
+    gap: 10px;
+  }
+  .pantry-values strong {
+    font-size: 12px;
+  }
+  .pantry-values small {
+    font-size: 11px;
+  }
+  .pantry-values svg {
+    width: 35px;
+  }
+}
+@media (max-width: 1050px) {
+  body:has(.pantry-reference) #root > header nav {
+    font-size: 12px;
+    gap: 0;
+  }
+  body:has(.pantry-reference) #root > header > div:first-child {
+    gap: 7px;
+    padding-inline: 20px;
+  }
+  body:has(.pantry-reference) #root > header nav a {
+    padding-inline: 8px;
+  }
+  .pantry-workspace {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  }
+  .pantry-assistant {
+    grid-column: 1/-1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 15px 28px;
+  }
+  .pantry-assistant-top {
+    grid-row: 1/3;
+  }
+  .pantry-greeting {
+    max-width: 280px;
+    margin-bottom: 0;
+    width: 76%;
+  }
+  .pantry-assistant-top > img {
+    right: 0;
+    top: -5px;
+    width: 110px;
+    height: 130px;
+  }
+  .pantry-quick-heading {
+    align-self: end;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .pantry-quick-questions {
+    gap: 8px;
+  }
+  .pantry-assistant h2 {
+    font-size: 23px;
+  }
+  .pantry-quick-questions button {
+    font-size: 12px;
+    min-height: 40px;
+    padding-block: 9px;
+  }
+  .pantry-note {
+    display: none;
+  }
+  .pantry-board {
+    left: auto;
+    right: 0;
+    width: 36%;
+    top: 14px;
+  }
+  .pantry-hero-copy {
+    max-width: 65%;
+  }
+  .pantry-hero {
+    min-height: 220px;
+  }
+  .pantry-wide-break {
+    display: none;
+  }
+  .pantry-values {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .pantry-values > div:nth-child(2) {
+    border: 0;
+  }
+  .pantry-values > div {
+    justify-content: flex-start;
+    padding-left: 25px;
+  }
+  .pantry-steps strong {
+    font-size: 11px;
+  }
+  .pantry-steps small {
+    font-size: 10px;
+  }
+  .pantry-steps > div > svg {
+    width: 27px;
+  }
+  .pantry-results-heading h2 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 750px) {
+  .pantry-reference {
+    padding: 0 17px 22px;
+  }
+  .pantry-hero {
+    padding: 25px 4px 22px;
+    min-height: 240px;
+    align-items: flex-start;
+  }
+  .pantry-hero-copy {
+    max-width: 100%;
+  }
+  .pantry-reference h1 {
+    font-size: 38px;
+  }
+  .pantry-hero-copy > p {
+    max-width: 65%;
+    font-size: 12px;
+    margin-top: 12px;
+    line-height: 1.65;
+  }
+  .pantry-board {
+    width: 43%;
+    height: 136px;
+    right: -5px;
+    top: 42px;
+  }
+  .pantry-tabs {
+    position: relative;
+    z-index: 2;
+    margin-top: 18px;
+    gap: 7px;
+  }
+  .pantry-tabs button {
+    min-width: 0;
+    padding-inline: 15px;
+    font-size: 12px;
+    height: 41px;
+    border-radius: 16px;
+    gap: 7px;
+  }
+  .pantry-tabs button svg {
+    width: 20px;
+  }
+  .pantry-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+  }
+  .pantry-input-card {
+    padding: 20px 18px;
+  }
+  .pantry-reference h2 {
+    font-size: 22px;
+    letter-spacing: -0.5px;
+  }
+  .pantry-input-card > h2 {
+    gap: 7px;
+  }
+  .pantry-input-card > h2 > svg {
+    width: 29px;
+  }
+  .pantry-input-description {
+    font-size: 12px;
+  }
+  .pantry-chips {
+    gap: 7px;
+  }
+  .pantry-chips button {
+    font-size: 11px;
+    padding: 6px 10px;
+    min-height: 35px;
+  }
+  .pantry-reference textarea {
+    font-size: 12px;
+    padding: 12px;
+    min-height: 110px;
+  }
+  .pantry-how {
+    padding: 12px;
+  }
+  .pantry-reference .pantry-how h3 {
+    font-size: 13px;
+  }
+  .pantry-steps {
+    gap: 5px;
+  }
+  .pantry-steps > div {
+    display: block;
+  }
+  .pantry-steps > div > svg {
+    height: 26px;
+    margin-bottom: 5px;
+  }
+  .pantry-steps strong {
+    font-size: 9px;
+    white-space: normal;
+  }
+  .pantry-steps small {
+    font-size: 9px;
+  }
+  .pantry-step-arrow {
+    margin-top: 26px;
+  }
+  .pantry-controls {
+    font-size: 10px;
+  }
+  .pantry-primary {
+    font-size: 15px;
+  }
+  .pantry-input-hint {
+    font-size: 10px;
+    align-items: flex-start;
+  }
+  .pantry-results-heading {
+    flex-wrap: nowrap;
+  }
+  .pantry-results-heading h2 {
+    font-size: 23px;
+  }
+  .pantry-dish-photo {
+    width: 98px;
+    height: 95px;
+  }
+  .pantry-reference .pantry-dish-card h3 {
+    font-size: 16px;
+  }
+  .pantry-badges > span {
+    font-size: 9px;
+  }
+  .pantry-dish-meta {
+    font-size: 11px;
+  }
+  .pantry-dish-card {
+    padding: 13px;
+    gap: 13px;
+  }
+  .pantry-assistant {
+    grid-column: auto;
+    display: block;
+    padding: 23px 20px 26px;
+    min-height: 445px;
+  }
+  .pantry-assistant-top > img {
+    width: 125px;
+    height: 148px;
+    right: -9px;
+    top: -34px;
+  }
+  .pantry-assistant h2 {
+    font-size: 24px;
+  }
+  .pantry-greeting {
+    width: 73%;
+    max-width: 250px;
+    margin: 20px 0 15px;
+    font-size: 14px;
+  }
+  .pantry-quick-heading {
+    margin: 0 0 13px !important;
+  }
+  .pantry-quick-questions {
+    gap: 11px;
+  }
+  .pantry-quick-questions button {
+    font-size: 12px;
+    min-height: 47px;
+  }
+  .pantry-values {
+    padding: 18px 13px;
+    border-radius: 20px;
+    gap: 20px 10px;
+  }
+  .pantry-values > div {
+    padding: 0;
+    gap: 8px;
+    border: 0;
+    align-items: flex-start;
+  }
+  .pantry-values svg {
+    width: 28px;
+    height: 31px;
+  }
+  .pantry-values strong {
+    font-size: 11px;
+  }
+  .pantry-values small {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .pantry-results-note {
+    font-size: 10px;
+  }
+  .pantry-hero-leaf {
+    width: 90px;
+    height: 90px;
+    bottom: 6px;
+    right: -4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pantry-reference * {
+    transition: none !important;
+  }
+}
+.is-pantry-mode {
+  padding-inline: 25px;
+}
+.is-pantry-mode .pantry-hero {
+  min-height: 264px;
+  padding-left: 60px;
+  align-items: center;
+}
+.pantry-hero-copy > .pantry-eyebrow {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #386a43;
+  margin: 0 0 7px;
+}
+.is-pantry-mode .pantry-hero-copy > p:not(.pantry-eyebrow) {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 8px 0 28px;
+}
+.is-pantry-mode .pantry-hero-copy {
+  max-width: 640px;
+}
+.is-pantry-mode .pantry-board {
+  top: 8px;
+  left: 45%;
+  width: 33%;
+  height: 221px;
+}
+.is-pantry-mode .pantry-note {
+  right: 5%;
+  top: 47px;
+}
+.is-pantry-mode .pantry-tabs button {
+  min-width: 225px;
+}
+.is-pantry-mode .pantry-workspace {
+  grid-template-columns: minmax(250px, 0.96fr) minmax(0, 1.7fr) minmax(270px, 1fr);
+  gap: 28px;
+}
+.fridge-card {
+  padding: 22px 22px 23px;
+  min-width: 0;
+}
+.pantry-reference .fridge-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  letter-spacing: -0.75px;
+}
+.fridge-card h2 > svg {
+  width: 36px;
+  height: 36px;
+  color: #227a3b;
+  flex: none;
+}
+.fridge-description {
+  font-size: 10px;
+  color: #58614f;
+  line-height: 1.7;
+  margin: 9px 0 22px;
+}
+.fridge-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1dbca;
+  border-radius: 25px;
+  padding: 4px 4px 4px 13px;
+  height: 45px;
+  gap: 8px;
+  color: #7d8975;
+  background: #fffefb;
+  margin-bottom: 17px;
+}
+.fridge-search input {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  padding: 5px 0;
+  outline: 0;
+  color: #334f32;
+}
+.fridge-search:focus-within {
+  border-color: #6a995b;
+  box-shadow: 0 0 0 3px #6f995b12;
+}
+.fridge-search button {
+  flex: none;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #366940;
+  color: white;
+  background: linear-gradient(#54865a, #2e6540);
+}
+.fridge-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px 9px;
+  min-height: 97px;
+  align-content: flex-start;
+  margin: 0 0 18px;
+}
+.fridge-chips button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #e4e2da;
+  border-radius: 19px;
+  background: #fffefb;
+  min-height: 43px;
+  padding: 5px 11px;
+  box-shadow: 0 3px 5px #575c3908;
+  font-size: 12px;
+  color: #253c2a;
+  max-width: 100%;
+  text-align: left;
+}
+.fridge-chips button > span {
+  font-size: 27px;
+  line-height: 1;
+}
+.fridge-chips strong {
+  font-weight: 800;
+}
+.fridge-chips button > svg {
+  margin-left: 3px;
+  flex: none;
+}
+.fridge-chips button:hover {
+  border-color: #8daf7e;
+  background: #f4f8ee;
+}
+.fridge-advanced-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 6px;
+  border: 1px solid #ecece3;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 16px;
+  background: #fffefb;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1f4730;
+  margin-bottom: 10px;
+}
+.fridge-options {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.fridge-options > div,
+.fridge-options > label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  min-height: 38px;
+}
+.fridge-options > div > span,
+.fridge-options > label > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+}
+.fridge-options svg {
+  stroke-width: 1.5;
+  color: #294c36;
+}
+.fridge-options select {
+  width: 46%;
+  min-width: 120px;
+  min-height: 39px;
+  border: 1px solid #dedfd7;
+  border-radius: 20px;
+  padding: 7px 12px;
+  background: #fffefa;
+  font-size: 13px;
+  color: #1c3122;
+  outline-offset: 1px;
+}
+.fridge-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 46%;
+  min-width: 120px;
+  height: 39px;
+  border: 1px solid #dedfd7;
+  border-radius: 20px;
+  background: #fffefa;
+}
+.fridge-stepper button {
+  width: 33px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: #215234;
+}
+.fridge-stepper > span {
+  font-size: 13px;
+  white-space: nowrap;
+}
+.fridge-find {
+  min-height: 52px;
+  border-radius: 18px;
+  font-size: 16px;
+}
+.fridge-feedback,
+.fridge-empty {
+  font-size: 11px;
+  color: #59714d;
+  line-height: 1.7;
+  margin: 11px 0 0;
+}
+.fridge-results {
+  min-width: 0;
+  padding-top: 10px;
+}
+.fridge-results-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pantry-reference .fridge-results-heading h2 {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: -0.7px;
+}
+.fridge-results-heading h2 > svg {
+  flex: none;
+  color: #1b6035;
+}
+.fridge-results-heading > span {
+  flex: none;
+  border-radius: 20px;
+  background: linear-gradient(#50855b, #2f7048);
+  padding: 4px 11px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+.fridge-results-subtitle {
+  font-size: 12px;
+  color: #596052;
+  margin: 10px 0 17px;
+  line-height: 1.6;
+}
+.fridge-results-subtitle strong {
+  font-weight: 500;
+  color: #2c3d2d;
+}
+.fridge-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+.fridge-category-tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.fridge-category-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+  color: #243e2b;
+  padding: 7px 9px;
+  border-radius: 23px;
+}
+.fridge-category-tabs button[aria-pressed='true'] {
+  background: linear-gradient(#4e8f5a, #16713b);
+  color: white;
+}
+.fridge-sort {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+  padding: 4px 8px;
+  border: 1px solid #e4e5db;
+  border-radius: 20px;
+  background: #fffefa;
+}
+.fridge-sort select {
+  border: 0;
+  background: transparent;
+  font-size: 10px;
+  color: #394b32;
+  max-width: 110px;
+  padding: 1px 0;
+}
+.fridge-dish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px 14px;
+}
+.fridge-dish-card {
+  position: relative;
+  background: #fffefa;
+  border: 1px solid #e0ddcf;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 3px 5px #5c533706;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+.fridge-dish-card:hover {
+  border-color: #a9bd8b;
+  transform: translateY(-2px);
+}
+.fridge-dish-image {
+  position: relative;
+  height: 124px;
+  background: #eff4e7;
+  overflow: hidden;
+}
+.fridge-dish-image > a {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: #8caa7d;
+}
+.fridge-dish-image > a > svg {
+  width: 35px;
+  height: 35px;
+}
+.fridge-dish-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fridge-dish-image .favorite-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  bottom: auto;
+  left: auto;
+  border: 1px solid #e1e2d8;
+  border-radius: 50%;
+  background: #fffefa;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: #3e5c3b;
+  box-shadow: 0 2px 5px #374b2210;
+}
+.fridge-dish-image .favorite-btn > svg {
+  width: 18px;
+  height: 18px;
+}
+.fridge-dish-image .favorite-btn.saved {
+  color: #47833c;
+}
+.fridge-dish-body {
+  padding: 8px 10px 9px;
+  position: relative;
+}
+.pantry-reference .fridge-dish-body h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: -0.35px;
+  color: #1c2e20;
+  min-height: 18px;
+}
+.fridge-dish-body h3 a {
+  color: inherit;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fridge-dish-meta {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  font-size: 9px;
+  color: #67705f;
+  line-height: 1.4;
+}
+.fridge-dish-meta > span {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+.fridge-dish-meta .fridge-difficulty {
+  margin-left: auto;
+  background: #f0f0e7;
+  border-radius: 10px;
+  padding: 3px 7px;
+  color: #71775f;
+  font-size: 8px;
+}
+.fridge-dish-meta .fridge-difficulty.is-easy {
+  background: #d8f1be;
+  color: #2f6a2c;
+}
+.fridge-match-score {
+  display: block;
+  font-size: 9px;
+  line-height: 1.5;
+  color: #71865a;
+  margin-top: 5px;
+}
+.fridge-show-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #dddcd0;
+  background: #fffefa;
+  border-radius: 25px;
+  min-height: 41px;
+  margin: 17px auto 0;
+  padding: 8px 22px;
+  color: #243523;
+  font-size: 13px;
+  font-weight: 700;
+}
+.is-pantry-mode .pantry-assistant {
+  min-height: 542px;
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.is-pantry-mode .pantry-assistant h2 {
+  font-size: 23px;
+  gap: 8px;
+  margin: 2px 0 0;
+  white-space: nowrap;
+}
+.is-pantry-mode .pantry-assistant h2 > svg {
+  background: #e8f2dc;
+  border-radius: 50%;
+  padding: 5px;
+  width: 42px;
+  height: 42px;
+}
+.is-pantry-mode .pantry-assistant-top > img {
+  width: 122px;
+  height: 151px;
+  right: -20px;
+  top: -36px;
+}
+.is-pantry-mode .pantry-greeting {
+  font-size: 13px;
+  line-height: 1.7;
+  width: 76%;
+  min-height: 110px;
+  margin: 24px 0 15px;
+  padding: 17px 17px;
+  border-radius: 25px;
+}
+.is-pantry-mode .pantry-quick-heading {
+  margin: 0 0 14px;
+  font-size: 15px;
+}
+.is-pantry-mode .pantry-quick-questions {
+  gap: 12px;
+}
+.is-pantry-mode .pantry-quick-questions button {
+  font-size: 11px;
+  min-height: 49px;
+}
+.pantry-chat-form {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #d9e1cc;
+  border-radius: 28px;
+  background: #fffefa;
+  box-shadow: 0 2px 5px #405b2d0a;
+  min-height: 53px;
+  padding: 5px 6px 5px 16px;
+  margin-top: 36px;
+}
+.pantry-chat-form input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-size: 13px;
+  outline: 0;
+  padding: 5px 0;
+  color: #3b5935;
+}
+.pantry-chat-form button {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  flex: none;
+  background: #3e7850;
+  color: white;
+  border: 1px solid #2d633d;
+  display: grid;
+  place-items: center;
+}
+.pantry-chat-form button:disabled {
+  opacity: 0.5;
+}
+.is-pantry-mode .pantry-values {
+  margin: 24px 30px 0;
+}
+@media (min-width: 1600px) {
+  .is-pantry-mode .pantry-hero {
+    min-height: 264px;
+  }
+  .fridge-dish-image {
+    height: 140px;
+  }
+  .fridge-dish-body h3 {
+    font-size: 15px !important;
+  }
+  .fridge-dish-meta {
+    font-size: 10px;
+  }
+}
+@media (max-width: 1350px) {
+  .is-pantry-mode .pantry-workspace {
+    grid-template-columns: minmax(225px, 0.95fr) minmax(0, 1.55fr) minmax(245px, 1fr);
+    gap: 17px;
+  }
+  .is-pantry-mode .pantry-hero {
+    padding-left: 25px;
+  }
+  .is-pantry-mode .pantry-hero-copy {
+    max-width: 57%;
+  }
+  .is-pantry-mode .pantry-hero-copy > p:not(.pantry-eyebrow) {
+    font-size: 13px;
+  }
+  .is-pantry-mode .pantry-tabs button {
+    min-width: 190px;
+  }
+  .is-pantry-mode .pantry-note {
+    right: 2%;
+    width: 180px;
+  }
+  .is-pantry-mode .pantry-board {
+    left: 45%;
+    width: 32%;
+  }
+  .fridge-card {
+    padding: 20px 17px;
+  }
+  .pantry-reference .fridge-card h2 {
+    font-size: 21px;
+  }
+  .fridge-options > div,
+  .fridge-options > label {
+    font-size: 11px;
+  }
+  .fridge-options select,
+  .fridge-stepper {
+    min-width: 104px;
+  }
+  .fridge-options select,
+  .fridge-stepper > span {
+    font-size: 11px;
+  }
+  .fridge-chips {
+    gap: 9px;
+  }
+  .fridge-chips button {
+    font-size: 11px;
+    padding: 5px 8px;
+    gap: 5px;
+  }
+  .fridge-chips button > span {
+    font-size: 23px;
+  }
+  .fridge-find {
+    font-size: 14px;
+  }
+  .pantry-reference .fridge-results-heading h2 {
+    font-size: 21px;
+    gap: 6px;
+  }
+  .fridge-results-heading > span {
+    font-size: 9px;
+    padding-inline: 9px;
+  }
+  .fridge-results-subtitle {
+    font-size: 11px;
+  }
+  .fridge-toolbar {
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .fridge-category-tabs {
+    gap: 2px;
+  }
+  .fridge-category-tabs button {
+    font-size: 9px;
+    padding: 6px;
+  }
+  .fridge-category-tabs button svg {
+    width: 11px;
+  }
+  .fridge-sort {
+    padding: 4px;
+  }
+  .fridge-sort select {
+    font-size: 9px;
+  }
+  .fridge-dish-grid {
+    gap: 10px;
+  }
+  .fridge-dish-image {
+    height: 105px;
+  }
+  .fridge-dish-body {
+    padding: 7px;
+  }
+  .pantry-reference .fridge-dish-body h3 {
+    font-size: 12px;
+  }
+  .fridge-dish-meta {
+    font-size: 8px;
+    gap: 5px;
+  }
+  .fridge-dish-meta .fridge-difficulty {
+    margin-left: 0;
+  }
+  .is-pantry-mode .pantry-assistant {
+    padding-inline: 15px;
+  }
+  .is-pantry-mode .pantry-assistant h2 {
+    font-size: 19px;
+  }
+  .is-pantry-mode .pantry-assistant-top > img {
+    width: 105px;
+    height: 134px;
+    right: -14px;
+  }
+  .is-pantry-mode .pantry-greeting {
+    font-size: 12px;
+    padding: 15px 12px;
+    width: 77%;
+  }
+  .is-pantry-mode .pantry-quick-questions button {
+    font-size: 10px;
+    gap: 8px;
+    padding-inline: 10px;
+  }
+  .pantry-chat-form input {
+    font-size: 11px;
+  }
+}
+@media (max-width: 1080px) {
+  .is-pantry-mode .pantry-workspace {
+    grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.6fr);
+    gap: 20px;
+  }
+  .is-pantry-mode .pantry-assistant {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 0;
+    gap: 15px 30px;
+  }
+  .is-pantry-mode .pantry-assistant-top {
+    grid-row: 1/3;
+  }
+  .is-pantry-mode .pantry-greeting {
+    max-width: 270px;
+    width: 78%;
+  }
+  .pantry-chat-form {
+    grid-column: 1/-1;
+    margin-top: 0;
+  }
+  .is-pantry-mode .pantry-quick-heading {
+    margin-bottom: 0;
+  }
+  .fridge-dish-image {
+    height: 120px;
+  }
+  .is-pantry-mode .pantry-hero-copy {
+    max-width: 64%;
+  }
+  .is-pantry-mode .pantry-note {
+    display: none;
+  }
+  .is-pantry-mode .pantry-board {
+    left: auto;
+    right: 0;
+    width: 37%;
+  }
+  .is-pantry-mode .pantry-assistant-top > img {
+    top: -5px;
+    right: 0;
+    width: 120px;
+    height: 140px;
+  }
+  .pantry-reference .fridge-results-heading h2 {
+    font-size: 23px;
+  }
+  .fridge-category-tabs button {
+    font-size: 11px;
+  }
+}
+@media (max-width: 750px) {
+  .is-pantry-mode {
+    padding-inline: 17px;
+  }
+  .is-pantry-mode .pantry-hero {
+    min-height: 285px;
+    padding: 22px 4px 18px;
+  }
+  .is-pantry-mode .pantry-hero-copy {
+    max-width: 100%;
+  }
+  .is-pantry-mode .pantry-hero-copy > p:not(.pantry-eyebrow) {
+    max-width: 64%;
+    font-size: 12px;
+    margin-top: 12px;
+    margin-bottom: 22px;
+  }
+  .is-pantry-mode .pantry-eyebrow {
+    font-size: 11px;
+  }
+  .is-pantry-mode .pantry-board {
+    width: 42%;
+    height: 140px;
+    top: 72px;
+    right: -5px;
+  }
+  .is-pantry-mode .pantry-tabs {
+    margin-top: 0;
+  }
+  .is-pantry-mode .pantry-tabs button {
+    min-width: 0;
+    font-size: 12px;
+    padding-inline: 16px;
+  }
+  .is-pantry-mode .pantry-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .fridge-card {
+    padding: 22px;
+  }
+  .pantry-reference .fridge-card h2 {
+    font-size: 25px;
+  }
+  .fridge-description {
+    font-size: 11px;
+  }
+  .fridge-chips {
+    min-height: 0;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+  .fridge-chips button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .fridge-chips button > span {
+    font-size: 25px;
+  }
+  .fridge-options > div,
+  .fridge-options > label {
+    font-size: 13px;
+  }
+  .fridge-options select,
+  .fridge-stepper {
+    min-width: 140px;
+  }
+  .fridge-options select,
+  .fridge-stepper > span {
+    font-size: 13px;
+  }
+  .fridge-find {
+    font-size: 16px;
+  }
+  .fridge-results {
+    padding-top: 0;
+  }
+  .pantry-reference .fridge-results-heading h2 {
+    font-size: 22px;
+  }
+  .fridge-results-heading {
+    gap: 6px;
+  }
+  .fridge-results-heading > span {
+    font-size: 9px;
+  }
+  .fridge-results-heading h2 > svg {
+    width: 25px;
+  }
+  .fridge-results-subtitle {
+    font-size: 11px;
+  }
+  .fridge-toolbar {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  .fridge-category-tabs {
+    gap: 2px;
+  }
+  .fridge-category-tabs button {
+    font-size: 10px;
+    padding-inline: 8px;
+  }
+  .fridge-dish-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .fridge-dish-image {
+    height: 119px;
+  }
+  .pantry-reference .fridge-dish-body h3 {
+    font-size: 13px;
+  }
+  .fridge-dish-meta {
+    font-size: 9px;
+  }
+  .fridge-dish-body {
+    padding: 9px;
+  }
+  .fridge-sort select {
+    font-size: 10px;
+  }
+  .is-pantry-mode .pantry-assistant {
+    grid-column: auto;
+    display: flex;
+    min-height: 470px;
+    padding: 23px 20px;
+  }
+  .is-pantry-mode .pantry-assistant h2 {
+    font-size: 24px;
+  }
+  .is-pantry-mode .pantry-greeting {
+    font-size: 13px;
+    max-width: 250px;
+    min-height: 115px;
+    margin-bottom: 20px;
+  }
+  .is-pantry-mode .pantry-assistant-top > img {
+    top: -28px;
+    right: -12px;
+    width: 124px;
+    height: 151px;
+  }
+  .is-pantry-mode .pantry-quick-heading {
+    margin-bottom: 13px;
+  }
+  .is-pantry-mode .pantry-quick-questions button {
+    font-size: 12px;
+  }
+  .is-pantry-mode .pantry-values {
+    margin: 22px 0 0;
+  }
+  .pantry-chat-form {
+    margin-top: 25px;
+  }
+  .pantry-chat-form input {
+    font-size: 12px;
+  }
+  .fridge-show-more {
+    font-size: 12px;
+  }
+}
+/* Shared alignment for the pantry and AI workspaces. */
+@media (min-width: 1081px) {
+  .pantry-reference {
+    padding-inline: 25px;
+  }
+  .pantry-reference .pantry-hero {
+    min-height: 264px;
+    padding: 22px 60px 24px;
+    align-items: center;
+  }
+  .pantry-reference .pantry-hero-copy {
+    max-width: 640px;
+  }
+  .pantry-reference .pantry-hero-copy > p:not(.pantry-eyebrow) {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 8px 0 28px;
+  }
+  .pantry-reference .pantry-board {
+    top: 8px;
+    left: 45%;
+    width: 33%;
+    height: 221px;
+  }
+  .pantry-reference .pantry-note {
+    right: 5%;
+    top: 47px;
+  }
+  .pantry-reference .pantry-tabs {
+    margin-top: 0;
+  }
+  .pantry-reference .pantry-tabs button {
+    min-width: 225px;
+  }
+  .pantry-reference .pantry-workspace {
+    align-items: stretch;
+    gap: 24px;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.06fr) minmax(280px, 1fr);
+  }
+  .pantry-reference.is-pantry-mode .pantry-workspace {
+    grid-template-columns: minmax(250px, 0.96fr) minmax(0, 1.7fr) minmax(280px, 1fr);
+  }
+  .pantry-input-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .pantry-input-card > form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .pantry-reference textarea {
+    flex: 1;
+    min-height: 120px;
+  }
+  .pantry-chips {
+    min-height: 40px;
+    align-content: flex-start;
+  }
+  .pantry-how {
+    margin-top: 0;
+  }
+  .pantry-reference .pantry-assistant {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 24px 20px;
+  }
+  .pantry-reference:not(.is-pantry-mode) .pantry-assistant .pantry-quick-heading {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+  .fridge-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .fridge-find {
+    margin-top: auto;
+  }
+  .pantry-chat-form {
+    margin-top: auto;
+  }
+  .fridge-results {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+  .fridge-toolbar {
+    min-height: 33px;
+  }
+  .fridge-dish-grid {
+    align-content: start;
+    grid-auto-rows: 1fr;
+  }
+  .fridge-show-more {
+    margin-bottom: 0;
+  }
+  .pantry-reference .pantry-values {
+    margin: 24px 30px 0;
+  }
+}
+@media (min-width: 1081px) and (max-width: 1350px) {
+  .pantry-reference .pantry-hero {
+    padding-inline: 25px;
+  }
+  .pantry-reference .pantry-hero-copy {
+    max-width: 57%;
+  }
+  .pantry-reference .pantry-hero-copy > p:not(.pantry-eyebrow) {
+    font-size: 13px;
+  }
+  .pantry-reference .pantry-board {
+    width: 32%;
+  }
+  .pantry-reference .pantry-note {
+    right: 2%;
+    width: 180px;
+  }
+  .pantry-reference .pantry-tabs button {
+    min-width: 190px;
+  }
+  .pantry-reference .pantry-workspace {
+    gap: 17px;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.06fr) minmax(245px, 1fr);
+  }
+  .pantry-reference.is-pantry-mode .pantry-workspace {
+    grid-template-columns: minmax(225px, 0.95fr) minmax(0, 1.55fr) minmax(245px, 1fr);
+  }
+}
+@media (min-width: 751px) and (max-width: 1080px) {
+  .pantry-reference .pantry-hero {
+    min-height: 264px;
+    padding-inline: 20px;
+  }
+  .pantry-reference .pantry-workspace {
+    gap: 20px;
+  }
+  .pantry-reference .pantry-values {
+    margin-inline: 0;
+  }
+}
+@media (max-width: 750px) {
+  .pantry-reference .pantry-hero {
+    min-height: 285px;
+    padding: 22px 4px 18px;
+  }
+  .pantry-reference .pantry-eyebrow {
+    font-size: 11px;
+  }
+  .pantry-reference .pantry-hero-copy > p:not(.pantry-eyebrow) {
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 12px 0 22px;
+    max-width: 64%;
+  }
+  .pantry-reference .pantry-board {
+    width: 42%;
+    height: 140px;
+    top: 72px;
+    right: -5px;
+    left: auto;
+  }
+  .pantry-reference .pantry-tabs {
+    margin-top: 0;
+  }
+  .pantry-reference .pantry-values {
+    margin: 22px 0 0;
+  }
+  .pantry-reference .pantry-workspace {
+    gap: 22px;
+  }
+}
+.fridge-match-score {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (min-width: 1081px) {
+  .pantry-reference .pantry-workspace {
+    min-height: 566px;
+  }
+  .fridge-dish-grid {
+    margin-bottom: 17px;
+  }
+  .fridge-dish-card {
+    min-height: 184px;
+  }
+  .pantry-reference .fridge-dish-body h3 {
+    font-size: 14px;
+  }
+  .fridge-show-more {
+    margin-top: auto;
+  }
+  .pantry-reference .pantry-assistant h2 {
+    padding-right: 55px;
+  }
+  .pantry-reference .pantry-assistant-top > img {
+    right: -12px;
+    width: 112px;
+  }
+}
+@media (max-width: 680px) {
+  body:has(.weekly-reference) #root > header > div:first-child,
+  body:has(.pantry-reference) #root > header > div:first-child {
+    padding-inline: 16px;
+    gap: 10px;
+  }
+  body:has(.weekly-reference) #root > header > div:first-child > a > span,
+  body:has(.pantry-reference) #root > header > div:first-child > a > span {
+    font-size: 25px;
+  }
+  body:has(.weekly-reference) #root > header a[aria-label='Món yêu thích'],
+  body:has(.weekly-reference) #root > header button[aria-label='Thông báo'],
+  body:has(.pantry-reference) #root > header a[aria-label='Món yêu thích'],
+  body:has(.pantry-reference) #root > header button[aria-label='Thông báo'] {
+    display: none;
+  }
+  .weekly-hero > div > p:last-child {
+    max-width: 54%;
+  }
+}
+.weekly-table-scroll {
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+@media (max-width: 680px) {
+  body:has(.weekly-reference) #root > header a[href='/dang-nhap'],
+  body:has(.pantry-reference) #root > header a[href='/dang-nhap'] {
+    white-space: nowrap;
+    padding-inline: 10px;
+    font-size: 11px;
+    gap: 5px;
+  }
+}
+@media (min-width: 1351px) {
+  .pantry-reference .pantry-workspace {
+    min-height: 620px;
+  }
+}

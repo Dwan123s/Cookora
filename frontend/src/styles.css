@@ -1,26 +1,189 @@
 @import 'tailwindcss';
+/* Hide browser scrollbar completely while maintaining scrollability */
+html,
+body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  overflow-y: scroll !important;
+}
+
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  display: none !important;
+  background: transparent !important;
+  width: 0px !important;
+  height: 0px !important;
+}
+
 @theme {
-  --color-brand: #b6472b;
-  --color-cream: #fff9f2;
-  --font-sans: 'Plus Jakarta Sans Variable', sans-serif;
+  --color-page-bg: #FAF9F6;
+  --color-surface: #FFFFFF;
+  --color-primary: #47735B;
+  --color-primary-hover: #3B634F;
+  --color-secondary-bg: #E8F1E9;
+  --color-warm-beige: #E9D9C7;
+  --color-main-text: #273D32;
+  --color-border: #DFE5DD;
+  --font-sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 :root {
-  font-family: 'Plus Jakarta Sans Variable', sans-serif;
-  color: #302a24;
-  background: #fffdf9;
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #273D32;
+  background-color: #FAF9F6;
   font-synthesis: none;
   font-weight: 400;
-  --brand: #b6472b;
-  --ink: #302a24;
-  --muted: #77736b;
-  --line: #e9e4db;
-  --green: #496b4a;
+  --primary: #47735B;
+  --primary-hover: #3B634F;
+  --secondary-bg: #E8F1E9;
+  --warm-beige: #E9D9C7;
+  --ink: #273D32;
+  --muted: #5C7065;
+  --line: #DFE5DD;
+  --surface: #FFFFFF;
 }
-* {
-  box-sizing: border-box;
-}
+
 body {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #273D32;
+  background-color: #FAF9F6;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* High-contrast Warm Terracotta CTA Buttons (Clear, appetizing, beautiful) */
+.btn-cta-primary {
+  background-color: #E26A38 !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  transition: all 0.22s ease !important;
+}
+
+.btn-cta-primary:hover {
+  background-color: #CB5625 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 10px 24px -4px rgba(226, 106, 56, 0.4) !important;
+}
+
+.btn-cta-primary * {
+  color: #FFFFFF !important;
+}
+
+@keyframes float-gentle-1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes float-gentle-2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes note-float-sway {
+  0%, 100% { transform: rotate(2.5deg) translateY(0); }
+  50% { transform: rotate(1deg) translateY(-8px); }
+}
+
+@keyframes hero-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-1 {
+  animation: float-gentle-1 6.2s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-gentle-2 7.4s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float-gentle-1 8s ease-in-out infinite reverse;
+}
+
+.animate-note-float {
+  animation: note-float-sway 7.6s ease-in-out infinite;
+}
+
+.animate-rise-1 {
+  animation: hero-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.05s;
+}
+
+.animate-rise-2 {
+  animation: hero-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.18s;
+}
+
+.animate-rise-3 {
+  animation: hero-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.3s;
+}
+
+.animate-rise-4 {
+  animation: hero-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.42s;
+}
+
+.animate-rise-5 {
+  animation: hero-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.52s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-1,
+  .animate-float-2,
+  .animate-float-3,
+  .animate-note-float,
+  .animate-rise-1,
+  .animate-rise-2,
+  .animate-rise-3,
+  .animate-rise-4,
+  .animate-rise-5 {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+button, input, select, textarea {
+  font-family: inherit;
 }
 button,
 input,
@@ -45,11 +208,11 @@ button:disabled {
   opacity: 0.5;
 }
 a {
-  color: inherit;
+  
   text-decoration: none;
 }
 button {
-  color: inherit;
+  
 }
 img {
   max-width: 100%;
@@ -63,9 +226,31 @@ select {
 :focus-visible {
   outline: 2px solid var(--brand);
 }
-button {
-  border: 0;
-  background: transparent;
+/* High-contrast Filter Pills */
+.filter-pill-active {
+  background-color: #47735B !important;
+  color: #FFFFFF !important;
+  border: 1px solid #47735B !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px -2px rgba(71, 115, 91, 0.35) !important;
+}
+
+.filter-pill-active,
+.filter-pill-active * {
+  color: #FFFFFF !important;
+}
+
+.filter-pill-inactive {
+  background-color: #FFFFFF !important;
+  color: #273D32 !important;
+  border: 1px solid #DFE5DD !important;
+  font-weight: 500 !important;
+}
+
+.filter-pill-inactive:hover {
+  background-color: #E8F1E9 !important;
+  color: #273D32 !important;
+  border-color: #47735B !important;
 }
 h1,
 h2,
