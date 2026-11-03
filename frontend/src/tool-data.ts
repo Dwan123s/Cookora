@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { Recipe } from '@cookora/contracts';
-import { request } from './api';
+import { loadRecipeCatalog } from './recipe-catalog';
 import { useUser } from './shared';
 
 export const money = (value: number) => `${Math.round(value).toLocaleString('vi-VN')} đ`;
@@ -12,16 +11,9 @@ export const normalizeFood = (value: string) =>
     .toLowerCase()
     .trim();
 export async function toolRecipes() {
-  const first = await request<Recipe[]>('/recipes?pageSize=50');
-  const pages = (first.meta.pagination as { totalPages?: number } | undefined)?.totalPages || 1;
-  const rest = await Promise.all(
-    Array.from({ length: Math.max(0, pages - 1) }, (_, n) =>
-      request<Recipe[]>(`/recipes?pageSize=50&page=${n + 2}`),
-    ),
-  );
-  return [...first.data, ...rest.flatMap((p) => p.data)];
+  return loadRecipeCatalog();
 }
-// No storage/price API exists yet. Device storage is explicitly scoped to the current account.
+// No price API exists yet. Device storage is explicitly scoped to the current account.
 export function useToolStorage<T>(feature: string, fallback: T, validate: (value: unknown) => value is T) {
   const user = useUser();
   const key = `cookora.${feature}.v1.${user?.id || 'guest'}`;

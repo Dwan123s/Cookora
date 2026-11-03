@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { loadRecipeCatalog } from '../recipe-catalog';
+import { RECIPE_PLACEHOLDER } from '../recipe-media';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Apple,
@@ -17,7 +20,6 @@ import {
   Utensils,
   Wallet,
   X,
-  Package,
   Activity,
   Play,
   Users,
@@ -26,10 +28,10 @@ import {
   Leaf,
   Sparkles,
 } from 'lucide-react';
-import { useNotice } from '../shared';
+import { useNotice, cuisineFor, ErrorState, Loading } from '../shared';
 import { CurvedReelsCarousel } from '../components/CurvedReelsCarousel';
 
-// 8 Quick Access Tiles matching uploaded image
+// Quick access to available features
 const QUICK_NAV = [
   {
     title: 'Khám phá công thức',
@@ -68,13 +70,6 @@ const QUICK_NAV = [
     bgColor: 'bg-[#FBF6E9]',
   },
   {
-    title: 'Bảo quản thực phẩm',
-    to: '/bao-quan',
-    icon: Package,
-    color: 'text-[#3E6B65]',
-    bgColor: 'bg-[#EDF5F4]',
-  },
-  {
     title: 'Dinh dưỡng & Calories',
     to: '/dinh-duong',
     icon: Apple,
@@ -90,154 +85,83 @@ const QUICK_NAV = [
   },
 ];
 
-// 4 Featured dishes per row
-const FEATURED_DISHES = [
-  {
-    id: 'd1',
-    title: 'Đậu hũ sốt cà chua',
-    slug: 'dau-hu-sot-ca-chua',
-    image: '/images/hero/tofu.jpg',
-    time: 25,
-    servings: 2,
-    cuisine: 'Món Việt',
-  },
-  {
-    id: 'd2',
-    title: 'Cơm kimchi',
-    slug: 'com-kimchi',
-    image: '/images/hero/kimchi.jpg',
-    time: 20,
-    servings: 2,
-    cuisine: 'Hàn Quốc',
-  },
-  {
-    id: 'd3',
-    title: 'Trứng xào cà chua',
-    slug: 'trung-xao-ca-chua',
-    image: '/images/hero/tomatoegg.jpg',
-    time: 18,
-    servings: 2,
-    cuisine: 'Món Á',
-  },
-  {
-    id: 'd4',
-    title: 'Gà áp chảo sốt tỏi',
-    slug: 'ga-ap-chao-sot-toi',
-    image: '/images/hero/grilledchicken.jpg',
-    time: 25,
-    servings: 2,
-    cuisine: 'Âu - Á',
-  },
-];
-
-// 6 Cuisines matching the card styles in the image
-const CUISINES = [
-  {
-    name: 'Việt Nam',
-    code: 'VN',
-    tag: '🇻🇳',
-    desc: 'Đậm đà, gần gũi',
-    img: '/recipes/dau-hu-sot-ca-chua.webp',
-  },
-  {
-    name: 'Hàn Quốc',
-    code: 'KR',
-    tag: '🇰🇷',
-    desc: 'Hiện đại, hấp dẫn',
-    img: '/recipes/com-kimchi.webp',
-  },
-  {
-    name: 'Nhật Bản',
-    code: 'JP',
-    tag: '🇯🇵',
-    desc: 'Thanh nhẹ, tinh tế',
-    img: '/recipes/com-ga-trung.webp',
-  },
-  {
-    name: 'Thái Lan',
-    code: 'TH',
-    tag: '🇹🇭',
-    desc: '50 công thức đặc sắc',
-    img: '/recipes/thai/pad-krapow-gai.jpg',
-  },
-  {
-    name: 'Ý',
-    code: 'IT',
-    tag: '🇮🇹',
-    desc: 'Tinh hoa ẩm thực Âu',
-    img: '/recipes/mi-y-toi-dau-o-liu.webp',
-  },
-  {
-    name: 'Âu & Mỹ',
-    code: 'WE',
-    tag: '🇺🇸',
-    desc: 'Đa dạng, sáng tạo',
-    img: '/recipes/thit-nuong.webp',
-  },
+const CUISINE_OPTIONS = [
+  { name: 'Việt Nam', code: 'VN', tag: '🇻🇳' },
+  { name: 'Hàn Quốc', code: 'KR', tag: '🇰🇷' },
+  { name: 'Nhật Bản', code: 'JP', tag: '🇯🇵' },
+  { name: 'Trung Quốc', code: 'CN', tag: '🇨🇳' },
+  { name: 'Thái Lan', code: 'TH', tag: '🇹🇭' },
+  { name: 'Ý', code: 'IT', tag: '🇮🇹' },
+  { name: 'Âu & Mỹ', code: 'WE', tag: '🇺🇸' },
 ];
 
 // Cooking tips editorial articles
-const ARTICLES = [
+const ARTICLE_TOPICS = [
   {
     id: 'a1',
     title: '5 mẹo nấu ăn nhanh cho người bận rộn',
     category: 'Mẹo vào bếp',
     readTime: '5 phút đọc',
-    image: '/recipes/trung-xao-ca-chua.webp',
   },
   {
     id: 'a2',
     title: 'Kế hoạch Meal Prep 3 ngày tiết kiệm thời gian',
     category: 'Lên thực đơn',
     readTime: '7 phút đọc',
-    image: '/recipes/com-ga-trung.webp',
   },
   {
     id: 'a3',
-    title: 'Cách bảo quản rau củ tươi lâu trong tủ lạnh',
-    category: 'Bảo quản',
+    title: 'Cách sơ chế rau củ nhanh gọn cho bữa cơm nhà',
+    category: 'Mẹo vào bếp',
     readTime: '6 phút đọc',
-    image: '/recipes/canh-rong-bien.webp',
   },
   {
     id: 'a4',
     title: 'Tính calorie món ăn đơn giản tại nhà',
     category: 'Dinh dưỡng',
     readTime: '5 phút đọc',
-    image: '/recipes/ga-ap-chao-sot-toi.webp',
-  },
-];
-
-const HERO_SLIDES = [
-  {
-    image: '/images/hero/hero.jpg',
-    tag: 'GỢI Ý HÔM NAY',
-    title: 'Cơm gà rau củ & trứng',
-    time: '25 phút',
-    servings: '2 người',
-    badge: 'Eat Fit',
-  },
-  {
-    image: '/images/hero/grilledchicken.jpg',
-    tag: 'MÓN NƯỚNG THƠM GIÒN',
-    title: 'Gà áp chảo sốt tỏi',
-    time: '25 phút',
-    servings: '2 người',
-    badge: 'Âu - Á',
-  },
-  {
-    image: '/images/hero/tofu.jpg',
-    tag: 'BỮA CƠM THANH ĐẠM',
-    title: 'Đậu hũ sốt cà chua',
-    time: '20 phút',
-    servings: '2 người',
-    badge: 'Món Việt',
   },
 ];
 
 export function Home() {
   const navigate = useNavigate();
   const notice = useNotice();
+  const catalog = useQuery({
+    queryKey: ['recipes', 'catalog', 'sql-v1'],
+    queryFn: () => loadRecipeCatalog(),
+    staleTime: 30000,
+  });
+  const recipes = catalog.data || [];
+  const featured = CUISINE_OPTIONS.map((c) => recipes.find((r) => r.cuisine === c.code && r.image))
+    .filter((r): r is NonNullable<typeof r> => !!r)
+    .slice(0, 4);
+  const FEATURED_DISHES = featured.map((r) => ({
+    id: r.id,
+    slug: r.slug,
+    title: r.title,
+    image: r.image || RECIPE_PLACEHOLDER,
+    time: r.totalMinutes === null ? 'Chưa rõ thời gian' : '~' + r.totalMinutes + ' phút',
+    servings: r.baseServings,
+    cuisine: cuisineFor(r.cuisine).name,
+  }));
+  const HERO_SLIDES = FEATURED_DISHES.slice(0, 3).map((r) => ({
+    ...r,
+    tag: 'GỢI Ý HÔM NAY',
+    servings: r.servings + ' người',
+    badge: r.cuisine,
+  }));
+  const CUISINES = CUISINE_OPTIONS.map((c) => {
+    const items = recipes.filter((r) => r.cuisine === c.code);
+    return {
+      ...c,
+      img: items.find((r) => r.image)?.image || RECIPE_PLACEHOLDER,
+      desc: items.length + ' công thức',
+    };
+  }).filter((c) => recipes.some((r) => r.cuisine === c.code));
+  const ARTICLES = ARTICLE_TOPICS.map((topic, i) => ({
+    ...topic,
+    image: FEATURED_DISHES[i]?.image || RECIPE_PLACEHOLDER,
+  }));
 
   const [favorites, setFavorites] = useState<Record<string, boolean>>({});
   const [pantryItems, setPantryItems] = useState(['Trứng', 'Cà chua', 'Đậu hũ']);
@@ -254,12 +178,12 @@ export function Home() {
   };
 
   useEffect(() => {
-    if (isHeroHovered) return;
+    if (isHeroHovered || !HERO_SLIDES.length) return;
     const timer = setInterval(() => {
       setHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
     }, 6500);
     return () => clearInterval(timer);
-  }, [isHeroHovered]);
+  }, [isHeroHovered, HERO_SLIDES.length]);
 
   const toggleFav = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -284,6 +208,9 @@ export function Home() {
     setPantryItems(pantryItems.filter((i) => i !== item));
   };
 
+  if (catalog.isPending) return <Loading />;
+  if (catalog.isError) return <ErrorState error={catalog.error} retry={() => void catalog.refetch()} />;
+  if (!FEATURED_DISHES.length) return <p className="container">Chưa có công thức trong danh mục.</p>;
   return (
     <div className="bg-[#FAF9F6] text-[#273D32] min-h-screen">
       {/* 1. HERO SECTION (Sage Green & Warm Cream - Modern Food Editorial matching Image 1) */}
@@ -296,10 +223,18 @@ export function Home() {
           <img src="/images/hero/leaf-top-right.png" alt="" className="w-full h-auto object-contain" />
         </div>
         <div className="pointer-events-none absolute left-3 sm:left-6 lg:left-12 top-[44%] -translate-y-1/2 w-16 sm:w-24 lg:w-28 z-10 hidden sm:block select-none drop-shadow-md">
-          <img src="/images/hero/tomato-transparent.png" alt="Cà chua tươi" className="w-full h-auto object-contain" />
+          <img
+            src="/images/hero/tomato-transparent.png"
+            alt="Cà chua tươi"
+            className="w-full h-auto object-contain"
+          />
         </div>
         <div className="pointer-events-none absolute right-3 sm:right-6 lg:right-12 bottom-6 sm:bottom-10 w-24 sm:w-32 lg:w-40 z-10 hidden sm:block select-none drop-shadow-md">
-          <img src="/images/hero/rosemary-transparent.png" alt="Hương thảo" className="w-full h-auto object-contain" />
+          <img
+            src="/images/hero/rosemary-transparent.png"
+            alt="Hương thảo"
+            className="w-full h-auto object-contain"
+          />
         </div>
 
         {/* Ambient Warm Editorial Glow */}
@@ -317,19 +252,22 @@ export function Home() {
                 </span>
               </div>
 
-              {/* Title with editorial italic accent */}
-              <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-bold text-[#273D32] tracking-tight leading-[1.18]">
+              {/* Both lines use the same Vietnamese typeface. */}
+              <h1 className="home-hero-heading text-[#273D32]">
                 Nấu ngon hơn,
-                <br />
-                <span className="text-[#47735B] font-serif italic font-normal inline-flex items-center gap-2">
+                <span className="home-hero-heading-accent">
                   sống lành mạnh hơn.
-                  <span className="inline-block text-xl not-italic">🍃</span>
+                  <Leaf
+                    className="ml-2 inline-block h-[0.45em] w-[0.45em] align-baseline"
+                    aria-hidden="true"
+                  />
                 </span>
               </h1>
 
               {/* Description */}
               <p className="text-[#5C7065] text-base sm:text-[16.5px] leading-[1.8] max-w-lg">
-                Khám phá công thức dễ làm, lên thực đơn thông minh và chăm sóc từng bữa ăn – tất cả trong một không gian bếp nhỏ thư thái của riêng bạn.
+                Khám phá công thức dễ làm, lên thực đơn thông minh và chăm sóc từng bữa ăn – tất cả trong một
+                không gian bếp nhỏ thư thái của riêng bạn.
               </p>
 
               {/* CTAs matching Image 1 */}
@@ -338,7 +276,8 @@ export function Home() {
                   to="/cong-thuc"
                   className="bg-[#3E6B52] hover:bg-[#325742] text-white px-7 py-3 rounded-full font-semibold text-[14.5px] shadow-sm hover:shadow-md hover:-translate-y-0.5 inline-flex items-center gap-2 transition duration-200"
                 >
-                  <Search size={16} strokeWidth={2.2} /> Khám phá công thức <ArrowRight size={16} strokeWidth={2.2} />
+                  <Search size={16} strokeWidth={2.2} /> Khám phá công thức{' '}
+                  <ArrowRight size={16} strokeWidth={2.2} />
                 </Link>
                 <Link
                   to="/thuc-don"
@@ -379,10 +318,12 @@ export function Home() {
                       src={slide.image}
                       alt={slide.title}
                       className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
-                        idx === heroSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+                        idx === heroSlide
+                          ? 'opacity-100 scale-100'
+                          : 'opacity-0 scale-105 pointer-events-none'
                       }`}
                       onError={(e) => {
-                        e.currentTarget.src = '/images/hero/hero.jpg';
+                        e.currentTarget.src = RECIPE_PLACEHOLDER;
                       }}
                     />
                   ))}
@@ -437,20 +378,28 @@ export function Home() {
                 {/* Overlapping Checklist Note: Hôm nay ăn gì? matching Image 1 */}
                 <div className="animate-note-float absolute -bottom-5 -right-2 sm:-right-5 z-30 bg-white/95 backdrop-blur-xs border border-[#E9D9C7] rounded-2xl p-4 sm:p-5 shadow-[0_14px_35px_rgba(39,61,50,0.12)] w-48 sm:w-56 text-xs">
                   <div className="flex items-center justify-between mb-2.5 pb-2 border-b border-[#E9D9C7]/80">
-                    <span className="font-semibold text-[#273D32] text-xs sm:text-[13px]">Hôm nay ăn gì?</span>
+                    <span className="font-semibold text-[#273D32] text-xs sm:text-[13px]">
+                      Hôm nay ăn gì?
+                    </span>
                     <span className="text-[#8C6D3B] text-sm font-serif">♡</span>
                   </div>
                   <div className="space-y-2 text-[11px] sm:text-xs text-[#5C7065] font-medium">
                     <p className="flex items-center gap-2">
-                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">✓</span>
+                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">
+                        ✓
+                      </span>
                       Ngon miệng
                     </p>
                     <p className="flex items-center gap-2">
-                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">✓</span>
+                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">
+                        ✓
+                      </span>
                       Ít tốn kém
                     </p>
                     <p className="flex items-center gap-2">
-                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">✓</span>
+                      <span className="w-4 h-4 rounded-full bg-[#E8F1E9] text-[#47735B] flex items-center justify-center text-[10px] font-bold">
+                        ✓
+                      </span>
                       Phù hợp với bạn
                     </p>
                   </div>
@@ -478,7 +427,7 @@ export function Home() {
 
       {/* 2. EIGHT QUICK ACCESS BAR - UNIFIED FLOATING ROW CONTAINER MATCHING IMAGE 1 */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 -mt-4 sm:-mt-6 mb-20 relative z-20">
-        <div className="bg-white/95 backdrop-blur-sm rounded-[28px] p-3 sm:p-4 border border-[#DFE5DD] shadow-[0_12px_36px_rgba(39,61,50,0.06)] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-2.5">
+        <div className="bg-white/95 backdrop-blur-sm rounded-[28px] p-3 sm:p-4 border border-[#DFE5DD] shadow-[0_12px_36px_rgba(39,61,50,0.06)] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-2.5">
           {QUICK_NAV.map((tile) => {
             const Icon = tile.icon;
             return (
@@ -496,9 +445,7 @@ export function Home() {
                   {tile.title}
                 </span>
                 {tile.subtitle && (
-                  <span className="text-[10px] text-[#5C7065] mt-0.5 leading-none">
-                    {tile.subtitle}
-                  </span>
+                  <span className="text-[10px] text-[#5C7065] mt-0.5 leading-none">{tile.subtitle}</span>
                 )}
               </Link>
             );
@@ -520,7 +467,7 @@ export function Home() {
             Gợi ý món ngon cho bạn <Leaf size={22} className="text-[#47735B] inline" />
           </h2>
           <p className="text-xs sm:text-sm text-[#5C7065] mt-1.5 leading-relaxed">
-            Những công thức được cộng đồng Cookora yêu thích nhất tuần này.
+            Khám phá món ngon và chọn công thức cho bữa ăn hôm nay.
           </p>
           <div className="mt-3">
             <Link
@@ -545,7 +492,7 @@ export function Home() {
                   alt={dish.title}
                   className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
                   onError={(e) => {
-                    e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                    e.currentTarget.src = RECIPE_PLACEHOLDER;
                   }}
                 />
                 <button
@@ -553,10 +500,7 @@ export function Home() {
                   className="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-[#5C7065] hover:text-[#B25D65] shadow-xs transition"
                   title="Lưu món"
                 >
-                  <Heart
-                    size={15}
-                    className={favorites[dish.id] ? 'fill-[#B25D65] text-[#B25D65]' : ''}
-                  />
+                  <Heart size={15} className={favorites[dish.id] ? 'fill-[#B25D65] text-[#B25D65]' : ''} />
                 </button>
                 <span className="absolute bottom-2.5 left-2.5 px-2.5 py-0.5 rounded-md bg-[#273D32]/80 backdrop-blur-xs text-[11px] font-medium text-white">
                   {dish.cuisine}
@@ -568,7 +512,7 @@ export function Home() {
                 </h3>
                 <div className="flex items-center justify-between text-xs text-[#5C7065]">
                   <span className="flex items-center gap-1">
-                    <Clock size={12} className="text-[#5C7065]" /> {dish.time} phút
+                    <Clock size={12} className="text-[#5C7065]" /> {dish.time}
                   </span>
                   <span className="flex items-center gap-1">
                     <Users size={12} className="text-[#5C7065]" /> {dish.servings} phần
@@ -590,10 +534,10 @@ export function Home() {
             Gợi ý món ngon lướt là thích
           </h2>
           <p className="text-sm sm:text-base text-[#5C7065] mt-2 leading-relaxed">
-            Lướt qua các công thức nổi bật với video hướng dẫn từng bước trực quan.
+            Lướt qua hình ảnh món ăn và mở công thức để xem cách làm chi tiết.
           </p>
         </div>
-        <CurvedReelsCarousel />
+        <CurvedReelsCarousel recipes={recipes.filter((r) => r.image).slice(0, 8)} />
       </section>
 
       {/* 5. SECTION: KHÁM PHÁ ẨM THỰC THEO QUỐC GIA */}
@@ -631,7 +575,7 @@ export function Home() {
                   alt={c.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
                   onError={(e) => {
-                    e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                    e.currentTarget.src = RECIPE_PLACEHOLDER;
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-2.5 text-white">
@@ -658,7 +602,8 @@ export function Home() {
                 <h3 className="text-xl font-semibold text-[#273D32]">Có gì nấu nấy</h3>
               </div>
               <p className="text-xs sm:text-sm text-[#5C7065] leading-relaxed mb-5">
-                Nhập nguyên liệu bạn đang có, Cookora sẽ gợi ý món phù hợp, giảm lãng phí và tiết kiệm thời gian.
+                Nhập nguyên liệu bạn đang có, Cookora sẽ gợi ý món phù hợp, giảm lãng phí và tiết kiệm thời
+                gian.
               </p>
 
               {/* Search input */}
@@ -732,7 +677,7 @@ export function Home() {
                         alt={day}
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                          e.currentTarget.src = RECIPE_PLACEHOLDER;
                         }}
                       />
                     </div>
@@ -753,9 +698,9 @@ export function Home() {
         </div>
       </section>
 
-      {/* 6. THREE FEATURE CARDS ROW (Eat Fit, Chi Phí, Bảo Quản) */}
+      {/* 6. FEATURE CARDS (Eat Fit, Chi Phí) */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Eat Fit */}
           <Link
             to="/eat-fit"
@@ -797,27 +742,6 @@ export function Home() {
               →
             </div>
           </Link>
-
-          {/* Card 3: Bảo quản thực phẩm */}
-          <Link
-            to="/bao-quan"
-            className="bg-white rounded-2xl p-5 border border-[#DFE5DD] shadow-2xs hover:shadow-xs hover:border-[#47735B]/40 transition duration-200 group flex items-center justify-between"
-          >
-            <div className="space-y-1 pr-3">
-              <div className="flex items-center gap-2 text-[#3E6B65]">
-                <Package size={18} strokeWidth={2} />
-                <h3 className="font-semibold text-sm sm:text-base text-[#273D32] group-hover:text-[#47735B] transition">
-                  Bảo quản thực phẩm
-                </h3>
-              </div>
-              <p className="text-xs text-[#5C7065] leading-relaxed">
-                Hướng dẫn bảo quản, tận dụng thực phẩm an toàn, hiệu quả.
-              </p>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-[#E8F1E9] flex items-center justify-center text-[#47735B] group-hover:bg-[#47735B] group-hover:text-white transition shrink-0">
-              →
-            </div>
-          </Link>
         </div>
       </section>
 
@@ -830,7 +754,7 @@ export function Home() {
               <h2>Mẹo vào bếp</h2>
             </div>
             <p className="text-xs sm:text-sm text-[#5C7065] mt-1">
-              Kinh nghiệm nấu ăn, bảo quản và tối ưu thời gian cho bữa ăn gia đình.
+              Kinh nghiệm nấu ăn và tối ưu thời gian cho bữa ăn gia đình.
             </p>
           </div>
           <button
@@ -854,7 +778,7 @@ export function Home() {
                   alt={art.title}
                   className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
                   onError={(e) => {
-                    e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                    e.currentTarget.src = RECIPE_PLACEHOLDER;
                   }}
                 />
               </div>
@@ -876,7 +800,10 @@ export function Home() {
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <div className="bg-[#1C3225] rounded-3xl p-8 sm:p-10 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border border-[#274734]">
           <div className="space-y-2 text-center md:text-left">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white" style={{ color: '#FFFFFF' }}>
+            <h2
+              className="text-2xl sm:text-3xl font-bold tracking-tight text-white"
+              style={{ color: '#FFFFFF' }}
+            >
               Hôm nay bạn muốn nấu món gì?
             </h2>
             <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#E4ECE7' }}>

@@ -29,6 +29,7 @@ export type Recipe = {
   timingStatus: 'ESTIMATED' | 'VERIFIED';
   preconditions: string;
   difficulty: string;
+  difficultyBasis?: 'PROVIDED' | 'ESTIMATED' | 'UNKNOWN';
   contentStatus: 'DRAFT' | 'APPROVED';
   sourceUrl: string;
   sourceName: string;
@@ -131,7 +132,37 @@ export type AiChefSuggestionResponse = {
   servings: number;
   parsedIngredients: AiParsedIngredient[];
   menuOverview: string;
+  catalogDishes: { recipe: Recipe; reason: string }[];
   dishes: AiSuggestedDish[];
+};
+export type AiChatMessage = { role: 'user' | 'assistant'; content: string };
+
+export type BudgetSuggestionInput = {
+  amount: number;
+  mode: 'week' | 'day';
+  days: number;
+  people: number;
+  mealsPerDay: number;
+  region: string;
+  preferences: string;
+};
+export type BudgetSuggestionResponse = {
+  input: BudgetSuggestionInput;
+  budget: number;
+  overview: string;
+  meals: {
+    day: number;
+    meal: number;
+    dishes: { recipe: Recipe; estimatedCost: number; reason: string }[];
+    estimatedCost: number;
+  }[];
+  estimatedTotal: number;
+  remaining: number;
+  withinBudget: boolean;
+  shoppingList: { ingredientId: string; name: string; quantity: string | null; unit: string; note: string }[];
+  tips: string[];
+  priceNote: string;
+  generatedAt: string;
 };
 
 export type Envelope<T> = { data: T; meta: { requestId: string; [key: string]: unknown } };

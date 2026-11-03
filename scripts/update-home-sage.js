@@ -17,7 +17,6 @@ import {
   Utensils,
   Wallet,
   X,
-  Package,
   Activity,
   Play,
   Users,
@@ -26,7 +25,7 @@ import {
 } from 'lucide-react';
 import { useNotice } from '../shared';
 
-// 8 Quick Access Tiles matching uploaded image
+// Quick access to available features
 const QUICK_NAV = [
   {
     title: 'Khám phá công thức',
@@ -63,13 +62,6 @@ const QUICK_NAV = [
     icon: Wallet,
     color: 'text-[#846A36]',
     bgColor: 'bg-[#FBF6E9]',
-  },
-  {
-    title: 'Bảo quản thực phẩm',
-    to: '/bao-quan',
-    icon: Package,
-    color: 'text-[#3E6B65]',
-    bgColor: 'bg-[#EDF5F4]',
   },
   {
     title: 'Dinh dưỡng & Calories',
@@ -191,8 +183,8 @@ const ARTICLES = [
   },
   {
     id: 'a3',
-    title: 'Cách bảo quản rau củ tươi lâu trong tủ lạnh',
-    category: 'Bảo quản',
+    title: 'Cách sơ chế rau củ nhanh gọn cho bữa cơm nhà',
+    category: 'Mẹo vào bếp',
     readTime: '6 phút đọc',
     image: '/recipes/canh-rong-bien.webp',
   },
@@ -320,7 +312,7 @@ export function Home() {
 
       {/* 2. EIGHT QUICK ACCESS TILES */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-18">
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-3.5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-3.5">
           {QUICK_NAV.map((tile) => {
             const Icon = tile.icon;
             return (
@@ -573,7 +565,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 6. THREE FEATURE CARDS ROW (Eat Fit, Chi Phí, Bảo Quản) */}
+      {/* 6. FEATURE CARDS (Eat Fit, Chi Phí) */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1: Eat Fit */}
@@ -618,26 +610,6 @@ export function Home() {
             </div>
           </Link>
 
-          {/* Card 3: Bảo quản thực phẩm */}
-          <Link
-            to="/bao-quan"
-            className="bg-white rounded-2xl p-5 border border-[#DFE5DD] shadow-2xs hover:shadow-xs hover:border-[#47735B]/40 transition duration-200 group flex items-center justify-between"
-          >
-            <div className="space-y-1 pr-3">
-              <div className="flex items-center gap-2 text-[#3E6B65]">
-                <Package size={18} strokeWidth={2} />
-                <h3 className="font-semibold text-sm sm:text-base text-[#273D32] group-hover:text-[#47735B] transition">
-                  Bảo quản thực phẩm
-                </h3>
-              </div>
-              <p className="text-xs text-[#5C7065] leading-relaxed">
-                Hướng dẫn bảo quản, tận dụng thực phẩm an toàn, hiệu quả.
-              </p>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-[#E8F1E9] flex items-center justify-center text-[#47735B] group-hover:bg-[#47735B] group-hover:text-white transition shrink-0">
-              →
-            </div>
-          </Link>
         </div>
       </section>
 
@@ -650,7 +622,7 @@ export function Home() {
               <h2>Mẹo vào bếp</h2>
             </div>
             <p className="text-xs sm:text-sm text-[#5C7065] mt-1">
-              Kinh nghiệm nấu ăn, bảo quản và tối ưu thời gian cho bữa ăn gia đình.
+              Kinh nghiệm nấu ăn và tối ưu thời gian cho bữa ăn gia đình.
             </p>
           </div>
           <button

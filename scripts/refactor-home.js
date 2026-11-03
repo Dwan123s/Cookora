@@ -17,7 +17,6 @@ import {
   Utensils,
   Wallet,
   X,
-  Package,
   Activity,
   Send,
   Users,
@@ -60,13 +59,6 @@ const QUICK_NAV = [
     icon: Wallet,
     color: 'text-[#846A36]',
     bgColor: 'bg-[#FBF6E9]',
-  },
-  {
-    title: 'Bảo quản thực phẩm',
-    to: '/bao-quan',
-    icon: Package,
-    color: 'text-[#3E6B65]',
-    bgColor: 'bg-[#EDF5F4]',
   },
   {
     title: 'Dinh dưỡng & Calories',
@@ -146,7 +138,7 @@ const ARTICLES = [
   {
     id: 'a2',
     title: 'Bí quyết bảo quản rau thơm và củ quả tươi trọn cả tuần',
-    category: 'Bảo quản',
+    category: 'Mẹo vào bếp',
     readTime: '6 phút đọc',
     image: '/recipes/canh-rong-bien.webp',
   },
@@ -264,7 +256,7 @@ export function Home() {
 
       {/* 2. EIGHT QUICK ACCESS TILES */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-3.5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-3.5">
           {QUICK_NAV.map((tile) => {
             const Icon = tile.icon;
             return (
@@ -689,7 +681,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 8. TWO CARDS: ƯỚC TÍNH CHI PHÍ & BẢO QUẢN THỰC PHẨM */}
+      {/* 8. ƯỚC TÍNH CHI PHÍ */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Ước tính chi phí */}
@@ -727,45 +719,6 @@ export function Home() {
             </div>
           </Link>
 
-          {/* Card 2: Bảo quản thực phẩm */}
-          <Link
-            to="/bao-quan"
-            className="bg-white rounded-2xl p-7 border border-[#E8E8E1] shadow-2xs hover:shadow-sm hover:border-[#66746B]/40 transition duration-200 group flex flex-col justify-between"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-[#EDF5F4] text-[#3E6B65] flex items-center justify-center">
-                    <Package size={18} strokeWidth={2} />
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#202721] group-hover:text-[#274734] transition">
-                    Bảo quản thực phẩm
-                  </h3>
-                </div>
-                <span className="text-xs font-medium text-[#274734] group-hover:translate-x-0.5 transition">
-                  →
-                </span>
-              </div>
-              <p className="text-sm text-[#66746B] mb-6">
-                Hướng dẫn phân loại nhiệt độ, hộp kín và hạn dùng an toàn cho từng nhóm thực phẩm.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2 text-center text-xs">
-              <div className="p-2.5 bg-[#FAF8F5] rounded-lg border border-[#E8E8E1]">
-                <p className="font-medium text-[#202721]">Rau xanh</p>
-                <p className="text-[11px] text-[#66746B] mt-0.5">5 – 7 ngày</p>
-              </div>
-              <div className="p-2.5 bg-[#FAF8F5] rounded-lg border border-[#E8E8E1]">
-                <p className="font-medium text-[#202721]">Thịt cá</p>
-                <p className="text-[11px] text-[#66746B] mt-0.5">Ngăn đông an toàn</p>
-              </div>
-              <div className="p-2.5 bg-[#FAF8F5] rounded-lg border border-[#E8E8E1]">
-                <p className="font-medium text-[#202721]">Đồ ăn thừa</p>
-                <p className="text-[11px] text-[#66746B] mt-0.5">Trong 24 – 48h</p>
-              </div>
-            </div>
-          </Link>
         </div>
       </section>
 

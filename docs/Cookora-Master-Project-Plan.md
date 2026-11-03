@@ -1,5 +1,7 @@
 # Cookora Master Project Plan
 
+**Thay đổi phạm vi 03/11/2026:** Người dùng đã loại bỏ tính năng Bảo quản thực phẩm, quản lý đồ thừa và nhắc bảo quản khỏi sản phẩm. Các mô tả G09, storage rules, inventory/leftovers và route bảo quản bên dưới chỉ lưu lịch sử đề xuất ban đầu, không còn thuộc phạm vi triển khai hoặc roadmap hiện tại.
+
 **Kế hoạch sản phẩm, kiến trúc và triển khai Cookora – Bếp Nhà**  
 Ngày lập: **31/10/2026** · Phiên bản: **1.4** · Ngôn ngữ sản phẩm ban đầu: tiếng Việt  
 Đầu vào: toàn bộ nội dung `C:/Users/reiko/Downloads/web cookara.docx` và yêu cầu trong `Pasted text.txt`. Đây là tài liệu phân tích và đặc tả; chưa triển khai source code.

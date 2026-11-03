@@ -7,3 +7,4 @@ node_modules
 .review
 *.log
 docs/reference
+backend/generated

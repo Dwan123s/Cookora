@@ -19,7 +19,6 @@ import {
   Utensils,
   Wallet,
   X,
-  Package,
   Activity,
   Send,
   Check,
@@ -57,12 +56,6 @@ const QUICK_NAV = [
     to: '/ngan-sach',
     icon: Wallet,
     bg: 'bg-yellow-50 text-yellow-700 border-yellow-100',
-  },
-  {
-    title: 'Bảo quản thực phẩm',
-    to: '/bao-quan',
-    icon: Package,
-    bg: 'bg-teal-50 text-teal-700 border-teal-100',
   },
   {
     title: 'Dinh dưỡng & Calories',
@@ -144,8 +137,8 @@ const ARTICLES = [
   },
   {
     id: 'a2',
-    title: 'Cách bảo quản rau củ tươi lâu trong tủ lạnh',
-    category: 'Bảo quản',
+    title: 'Cách sơ chế rau củ nhanh gọn cho bữa cơm nhà',
+    category: 'Mẹo vào bếp',
     readTime: '6 phút đọc',
     image: '/recipes/canh-rong-bien.webp',
   },
@@ -275,7 +268,7 @@ export function Home() {
 
       {/* 2. 8 QUICK ACCESS TILES */}
       <section className="max-w-[1360px] mx-auto px-4 sm:px-6 mb-14">
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
           {QUICK_NAV.map((tile) => {
             const Icon = tile.icon;
             return (
@@ -727,43 +720,6 @@ export function Home() {
             </div>
           </Link>
 
-          {/* Card 2: Bảo quản thực phẩm */}
-          <Link
-            to="/bao-quan"
-            className="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-2xs hover:shadow-md transition duration-200 group flex flex-col justify-between"
-          >
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <Package size={20} className="text-teal-600" />
-                  <h3 className="text-base sm:text-lg font-bold text-stone-900 group-hover:text-[#C85233] transition">
-                    Bảo quản thực phẩm
-                  </h3>
-                </div>
-                <span className="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center text-xs text-stone-600 group-hover:bg-[#C85233] group-hover:text-white transition">
-                  →
-                </span>
-              </div>
-              <p className="text-xs text-stone-500 mb-5">
-                Hướng dẫn bảo quản, sử dụng và tận dụng thực phẩm hiệu quả.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2">
-              <div className="p-2.5 bg-[#FAF8F5] rounded-xl text-center border border-stone-200/60">
-                <p className="text-xs font-bold text-stone-800">🌿 Rau củ</p>
-                <p className="text-[10px] text-stone-500 mt-0.5">Giữ tươi 5–7 ngày</p>
-              </div>
-              <div className="p-2.5 bg-[#FAF8F5] rounded-xl text-center border border-stone-200/60">
-                <p className="text-xs font-bold text-stone-800">🥩 Thịt cá</p>
-                <p className="text-[10px] text-stone-500 mt-0.5">Bảo quản an toàn</p>
-              </div>
-              <div className="p-2.5 bg-[#FAF8F5] rounded-xl text-center border border-stone-200/60">
-                <p className="text-xs font-bold text-stone-800">🍲 Món đã nấu</p>
-                <p className="text-[10px] text-stone-500 mt-0.5">Giữ ngon lâu hơn</p>
-              </div>
-            </div>
-          </Link>
         </div>
       </section>
 

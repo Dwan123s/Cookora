@@ -1,0 +1,4683 @@
+{
+  "sourceName": "Menu món.docx",
+  "sourceSha256": "f6eb204610cab440534e8a802fa1d9e19a406ce74cff4de73b12fb41321b64ab",
+  "recipes": [
+    {
+      "sourceNumber": 1,
+      "slug": "menu-salad-uc-ga-va-bo",
+      "title": "Salad ức gà và bơ",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "/recipes/eat-fit/001_salad_uc_ga_va_bo.jpg",
+      "rawIngredients": "150g ức gà, 1/2 quả bơ, xà lách, cà chua bi, dầu ô liu, cốt chanh.",
+      "timeText": "20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "ức gà",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g ức gà",
+          "role": "MAIN"
+        },
+        {
+          "name": "bơ",
+          "quantity": "0.5",
+          "unit": "piece",
+          "note": "1/2 quả bơ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua bi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: cà chua bi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ô liu",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: dầu ô liu",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cốt chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: cốt chanh",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ức gà áp chảo hoặc luộc chín, xé sợi hoặc thái lát vừa ăn."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Xà lách, cà chua bi rửa sạch để ráo; bơ thái hạt lựu."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Trộn đều các nguyên liệu, rưới 1-2 thìa cà phê dầu ô liu và nước cốt chanh lên trên, trộn nhẹ và thưởng thức."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 2,
+      "slug": "menu-salad-tom-xoai",
+      "title": "Salad tôm xoài",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 15-20 phút. Chưa nấu thử.",
+      "image": "/recipes/eat-fit/002_salad_tom_xoai.jpg",
+      "rawIngredients": "120g tôm, 80g xoài chín vừa, 70g xà lách, 50g dưa leo, 40g cà rốt, chanh, ít nước mắm.",
+      "timeText": "15-20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "tôm",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g tôm",
+          "role": "MAIN"
+        },
+        {
+          "name": "xoài chín vừa",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g xoài chín vừa",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "40",
+          "unit": "g",
+          "note": "40g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "ít nước mắm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: ít nước mắm",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Luộc tôm, thái xoài và rau củ thành sợi."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Pha chanh với chút nước mắm, tỏi, ớt và đường ăn kiêng rồi trộn đều."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 3,
+      "slug": "menu-salad-ca-ngu-trung-luoc",
+      "title": "Salad cá ngừ trứng luộc",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 15,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 10-15 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "100g cá ngừ ngâm nước, 1 quả trứng, 80g xà lách, 60g cà chua bi, 50g dưa leo, 30g sữa chua không đường hoặc ít đường.",
+      "timeText": "10-15 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "cá ngừ ngâm nước",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g cá ngừ ngâm nước",
+          "role": "MAIN"
+        },
+        {
+          "name": "trứng",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 quả trứng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua bi",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g cà chua bi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sữa chua không đường hoặc ít đường",
+          "quantity": "30",
+          "unit": "g",
+          "note": "30g sữa chua không đường hoặc ít đường",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Luộc trứng, cắt rau củ và để ráo cá ngừ."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Trộn sữa chua với chanh làm sốt rồi rưới lên salad."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 4,
+      "slug": "menu-salad-khoai-lang-trung",
+      "title": "Salad khoai lang trứng",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "120g khoai lang, 2 quả trứng, 80g xà lách, 50g cà chua, 50g dưa leo, 30g sữa chua không đường.",
+      "timeText": "20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "khoai lang",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g khoai lang",
+          "role": "MAIN"
+        },
+        {
+          "name": "trứng",
+          "quantity": "2",
+          "unit": "piece",
+          "note": "2 quả trứng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà chua",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sữa chua không đường",
+          "quantity": "30",
+          "unit": "g",
+          "note": "30g sữa chua không đường",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Hấp khoai, luộc trứng rồi cắt miếng."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Trộn với rau xanh và sốt sữa chua chanh."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 5,
+      "slug": "menu-salad-dau-ga-kieu-dia-trung-hai",
+      "title": "Salad đậu gà kiểu Địa Trung Hải",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 10,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 10 phút (nếu đậu đã chín). Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "130g đậu gà chín, 80g cà chua bi, 70g dưa leo, 30g hành tím, 50g xà lách, chanh, 1 thìa cà phê dầu olive.",
+      "timeText": "10 phút (nếu đậu đã chín)",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "đậu gà chín",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g đậu gà chín",
+          "role": "MAIN"
+        },
+        {
+          "name": "cà chua bi",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g cà chua bi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tím",
+          "quantity": "30",
+          "unit": "g",
+          "note": "30g hành tím",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu olive",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 thìa cà phê dầu olive",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Rửa và để ráo đậu gà, cắt nhỏ rau củ."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Trộn với nước chanh, dầu olive và chút tiêu."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 6,
+      "slug": "menu-salad-ca-hoi-nuong",
+      "title": "Salad cá hồi nướng",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "/recipes/eat-fit/006_salad_ca_hoi_nuong.jpg",
+      "rawIngredients": "120g cá hồi, 50g bơ, 80g rau xà lách, 60g cà chua bi, 50g dưa leo, chanh, tiêu.",
+      "timeText": "20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "cá hồi",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g cá hồi",
+          "role": "MAIN"
+        },
+        {
+          "name": "bơ",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g bơ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau xà lách",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g rau xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua bi",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g cà chua bi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tiêu",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tiêu",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ướp cá hồi với một chút muối và tiêu tầm 10 phút"
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Nướng hoặc áp chảo cá hồi đến khi chín."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Xếp cá cùng rau củ và bơ, rưới chanh, thêm tiêu."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 7,
+      "slug": "menu-salad-dau-hu-bong-cai",
+      "title": "Salad đậu hũ bông cải",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "150g đậu hũ, 120g bông cải xanh, 60g cà rốt, 60g đậu nành Nhật edamame chín, chanh, nước tương ít muối.",
+      "timeText": "20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "đậu hũ",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g đậu hũ",
+          "role": "MAIN"
+        },
+        {
+          "name": "bông cải xanh",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g bông cải xanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu nành Nhật edamame chín",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g đậu nành Nhật edamame chín",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước tương ít muối",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước tương ít muối",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Hấp bông cải, cà rốt và edamame."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Áp chảo đậu hũ ít dầu, sau đó trộn với rau và sốt chanh nước tương."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 8,
+      "slug": "menu-salad-bo-ap-chao-ot-chuong",
+      "title": "Salad bò áp chảo ớt chuông",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 15-20 phút. Chưa nấu thử.",
+      "image": "/recipes/eat-fit/008_salad_bo_ap_chao_ot_chuong.jpg",
+      "rawIngredients": "120g thịt bò nạc, 80g ớt chuông, 80g xà lách, 60g cà chua bi, 50g dưa leo, tỏi, chanh.",
+      "timeText": "15-20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "thịt bò nạc",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g thịt bò nạc",
+          "role": "MAIN"
+        },
+        {
+          "name": "ớt chuông",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g ớt chuông",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua bi",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g cà chua bi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ướp bò với tỏi và tiêu, áp chảo đến mức chín an toàn."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Thái bò, trộn cùng rau củ thái nhỏ và nước chanh."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 9,
+      "slug": "menu-salad-quinoa-uc-ga",
+      "title": "Salad quinoa ức gà",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 25,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 25 phút. Chưa nấu thử.",
+      "image": "/recipes/eat-fit/009_salad_quinoa_uc_ga.jpg",
+      "rawIngredients": "100g quinoa đã nấu chín, 100g ức gà, 60g xà lách, 50g cà chua bi, 50g dưa leo, 30g bơ, chanh.",
+      "timeText": "25 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "quinoa đã nấu chín",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g quinoa đã nấu chín",
+          "role": "MAIN"
+        },
+        {
+          "name": "ức gà",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g ức gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua bi",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà chua bi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bơ",
+          "quantity": "30",
+          "unit": "g",
+          "note": "30g bơ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Luộc quinoa và ức gà riêng."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Để nguội bớt, sau đó thì xé nhỏ gà ra."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Trộn cùng rau củ, bơ và nước sốt đơn giản (bao gồm: chanh, ít nước mắm tỏi và ớt)"
+        }
+      ]
+    },
+    {
+      "sourceNumber": 10,
+      "slug": "menu-salad-ga-bap-cai-kieu-viet",
+      "title": "Salad gà bắp cải kiểu Việt",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "WE",
+      "category": "Gỏi & món ăn nhẹ",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "120g ức gà, 120g bắp cải, 50g cà rốt, 20g hành tây, rau răm, 10g đậu phộng, chanh, nước mắm.",
+      "timeText": "20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "ức gà",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g ức gà",
+          "role": "MAIN"
+        },
+        {
+          "name": "bắp cải",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g bắp cải",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tây",
+          "quantity": "20",
+          "unit": "g",
+          "note": "20g hành tây",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau răm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau răm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu phộng",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g đậu phộng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước mắm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước mắm",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Luộc gà rồi xé nhỏ."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Bào bắp cải, cà rốt, trộn cùng hành tây, rau răm và nước mắm chanh pha loãng."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Cuối cùng là rắc đậu phộng rang lên."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 11,
+      "slug": "menu-chao-yen-mach-thit-bam-rau-cu",
+      "title": "Cháo yến mạch thịt bằm rau củ",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": null,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Nguồn chưa ghi thời gian. Chưa nấu thử.",
+      "image": "/recipes/eat-fit/011_chao_yen_mach_thit_bam_rau_cu.jpg",
+      "rawIngredients": "40g yến mạch cán dẹt, 100g thịt nạc vai bằm, cà rốt thái hạt lựu, hành lá",
+      "timeText": "",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "yến mạch cán dẹt",
+          "quantity": "40",
+          "unit": "g",
+          "note": "40g yến mạch cán dẹt",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt nạc vai bằm",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g thịt nạc vai bằm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt thái hạt lựu",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: cà rốt thái hạt lựu",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Rau củ và hồng hương rửa sạch, thái hạt lựu thật nhỏ. Thịt bằm liễu với một ít hành tím băm, nước mắm và hạt tiêu khoảng 5-10 phút"
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Bắc hấp lên bếp, cho chút dầu ăn rồi phi thơm hành tím còn lại. Cho thịt bằm vào xào đến khi săn lại và chín thơm, sau đó đưa ra bát"
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Nêm nếm gia vị nhạt, rắc hành lá rồi tắt bếp."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 12,
+      "slug": "menu-ca-hoi-nuong-mang-tay",
+      "title": "Cá hồi nướng măng tây",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "150g phi-lê cá hồi, 100g măng tây, tiêu đen, muối, 1 lát chanh.",
+      "timeText": "20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "phi-lê cá hồi",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g phi-lê cá hồi",
+          "role": "MAIN"
+        },
+        {
+          "name": "măng tây",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g măng tây",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tiêu đen",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tiêu đen",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "muối",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: muối",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 lát chanh",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ướp cá hồi với một chút muối và tiêu trong 10 phút. Măng tây rửa sạch, cắt khúc vừa ăn."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Cho cá hồi và măng tây vào nồi chiên không dầu hoặc lò nướng ở nhiệt độ 180°C trong khoảng 10–12 phút."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Khi ăn vắt thêm vài giọt nước cốt chanh."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 13,
+      "slug": "menu-com-gao-luc-va-thit-bo-xao-sup-lo",
+      "title": "Cơm gạo lức và thịt bò xào súp lơ",
+      "summary": "Theo Menu giảm mỡ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "1 bát con cơm gạo lứt, 100g thịt bò nạc, 150g bông cải xanh.",
+      "timeText": "20 phút",
+      "section": "I. Menu giảm mỡ",
+      "ingredients": [
+        {
+          "name": "cơm gạo lứt",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 bát con cơm gạo lứt",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt bò nạc",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g thịt bò nạc",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bông cải xanh",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g bông cải xanh",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Thịt bò thái mỏng ướp tỏi và một ít hạt nêm, dầu hào, tiêu. Bông cải xanh chần sơ qua nước sôi."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Dùng chảo chống dính, đảo nhanh thịt bò trên lửa lớn, sau đó cho bông cải xanh vào đảo đều rồi tắt bếp. Ăn kèm cơm gạo lứt."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 14,
+      "slug": "menu-com-gao-lut-uc-ga-ap-chao",
+      "title": "Cơm gạo lứt ức gà áp chảo",
+      "summary": "Theo Menu tăng cơ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 25-30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "150g ức gà sống, 150g cơm gạo lứt chín, 150g bông cải xanh, 5g dầu olive, tỏi, tiêu.",
+      "timeText": "25-30 phút",
+      "section": "II. Menu tăng cơ",
+      "ingredients": [
+        {
+          "name": "ức gà sống",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g ức gà sống",
+          "role": "MAIN"
+        },
+        {
+          "name": "cơm gạo lứt chín",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g cơm gạo lứt chín",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bông cải xanh",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g bông cải xanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu olive",
+          "quantity": "5",
+          "unit": "g",
+          "note": "5g dầu olive",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tiêu",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tiêu",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ướp gà với tỏi, muối, tiêu và một ít dầu hào áp chảo đến chín."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Hấp bông cải, ăn cùng cơm gạo lứt."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 15,
+      "slug": "menu-com-bo-ap-chao-rau-cu",
+      "title": "Cơm bò áp chảo rau củ",
+      "summary": "Theo Menu tăng cơ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 25,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20-25 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "150g thịt bò nạc, 180g cơm chín, 100g bông cải, 70g cà rốt, 5g dầu ăn, tỏi.",
+      "timeText": "20-25 phút",
+      "section": "II. Menu tăng cơ",
+      "ingredients": [
+        {
+          "name": "thịt bò nạc",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g thịt bò nạc",
+          "role": "MAIN"
+        },
+        {
+          "name": "cơm chín",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g cơm chín",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bông cải",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g bông cải",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "5",
+          "unit": "g",
+          "note": "5g dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ướp bò với tỏi và tiêu, áp chảo đến độ chín phù hợp. Hấp rau củ và dùng cùng cơm."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 16,
+      "slug": "menu-ca-hoi-ap-chao-khoai-lang",
+      "title": "Cá hồi áp chảo khoai lang",
+      "summary": "Theo Menu tăng cơ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "150g cá hồi, 200g khoai lang, 120g măng tây, 5g dầu olive, chanh, tiêu.",
+      "timeText": "20 phút",
+      "section": "II. Menu tăng cơ",
+      "ingredients": [
+        {
+          "name": "cá hồi",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g cá hồi",
+          "role": "MAIN"
+        },
+        {
+          "name": "khoai lang",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g khoai lang",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "măng tây",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g măng tây",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu olive",
+          "quantity": "5",
+          "unit": "g",
+          "note": "5g dầu olive",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tiêu",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tiêu",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Hấp khoai lang, áp chảo cá hồi đến chín"
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "xào hoặc hấp măng tây rồi bày cùng nhau."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 17,
+      "slug": "menu-mi-y-nguyen-cam-sot-ca-chua-uc-ga",
+      "title": "Mì Ý nguyên cám sốt cà chua ức gà",
+      "summary": "Theo Menu tăng cơ trong Menu món.docx.",
+      "cuisine": "IT",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "80g mì nguyên cám khô, 150g ức gà sống, 150g cà chua, 50g hành tây, 5g dầu olive, tỏi, húng quế.",
+      "timeText": "30 phút",
+      "section": "II. Menu tăng cơ",
+      "ingredients": [
+        {
+          "name": "mì nguyên cám khô",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g mì nguyên cám khô",
+          "role": "MAIN"
+        },
+        {
+          "name": "ức gà sống",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g ức gà sống",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g cà chua",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tây",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g hành tây",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu olive",
+          "quantity": "5",
+          "unit": "g",
+          "note": "5g dầu olive",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "húng quế",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: húng quế",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Luộc mì với một chút muối và dầu ăn để mì được mềm và không dính vào nhau"
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Ướp gà với một chút muối và tiêu sau đó áp chảo gà và thái miếng."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Xào cà chua với một chút dầu và tỏi cho đến khi cà chua mềm nhừ, bỏ thêm một ít nước luộc mì vào để phần nước sốt trở nên sánh mịn hơn"
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Bày mỳ và gà ra đĩa sau đó  chan nước sốt lên và thưởng thức."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 18,
+      "slug": "menu-dau-hu-sot-ca-chua-tom",
+      "title": "Đậu hũ sốt cà chua tôm",
+      "summary": "Theo Menu tăng cơ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 15-20 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "150g tôm bóc vỏ, 150g đậu hũ, 150g cà chua, hành lá, tỏi, 5g dầu ăn.",
+      "timeText": "15-20 phút",
+      "section": "II. Menu tăng cơ",
+      "ingredients": [
+        {
+          "name": "tôm bóc vỏ",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g tôm bóc vỏ",
+          "role": "MAIN"
+        },
+        {
+          "name": "đậu hũ",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g đậu hũ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g cà chua",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "5",
+          "unit": "g",
+          "note": "5g dầu ăn",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ướp tôm với một ít muối và tiêu, sau đó cho dầu và một ít tỏi băm vào chảo, cho tôm vào và đảo sơ cho đến khi tôm chín tới"
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Phần sốt cà: cắt nhỏ cà chua, đảo với dầu trên lửa vừa cho đến khi cà chua mềm thì bỏ thêm một ít nước vào và nêm nếm gia vị ( nước mắm, hạt nêm,..) sao cho vừa ăn."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Thêm đậu hũ và tôm vào sốt, đun cho thấm gia vị."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Bỏ ra đĩa thưởng thức. Ăn cùng cơm."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 19,
+      "slug": "menu-sandwich-trung-pho-mai-uc-ga",
+      "title": "Sandwich trứng phô mai ức gà",
+      "summary": "Theo Menu tăng cơ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 15–20 phút · Bữa sáng. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "2 lát bánh mì nguyên cám (70g), 2 quả trứng, 60g ức gà chín, 20g phô mai, 50g xà lách và cà chua.",
+      "timeText": "15–20 phút · Bữa sáng",
+      "section": "II. Menu tăng cơ",
+      "ingredients": [
+        {
+          "name": "bánh mì nguyên cám (70g)",
+          "quantity": "2",
+          "unit": "piece",
+          "note": "2 lát bánh mì nguyên cám (70g)",
+          "role": "MAIN"
+        },
+        {
+          "name": "trứng",
+          "quantity": "2",
+          "unit": "piece",
+          "note": "2 quả trứng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "ức gà chín",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g ức gà chín",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "phô mai",
+          "quantity": "20",
+          "unit": "g",
+          "note": "20g phô mai",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách và cà chua",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g xà lách và cà chua",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Chiên trứng với một ít dầu ô liu."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Ướp gà với một ít muối và tiêu, sau đó áp chảo, gà chín thì cắt nhỏ ra thành miếng vừa ăn."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Kẹp cùng phô mai và rau vào bánh mì, áp chảo nhẹ."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 20,
+      "slug": "menu-com-thit-heo-nac-nuong-sa",
+      "title": "Cơm thịt heo nạc nướng sả",
+      "summary": "Theo Menu tăng cơ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "150g thăn heo, 180g cơm chín, 100g dưa leo, 70g cà rốt, sả, tỏi, nước mắm, 5g dầu.",
+      "timeText": "30 phút",
+      "section": "II. Menu tăng cơ",
+      "ingredients": [
+        {
+          "name": "thăn heo",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g thăn heo",
+          "role": "MAIN"
+        },
+        {
+          "name": "cơm chín",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g cơm chín",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sả",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: sả",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước mắm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước mắm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu",
+          "quantity": "5",
+          "unit": "g",
+          "note": "5g dầu",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ướp thịt với sả, tỏi và nước mắm trong vòng 15-20p"
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Nướng hoặc áp chảo chín, dùng với cơm và rau."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 21,
+      "slug": "menu-com-chien-tom-trung-rau-cu",
+      "title": "Cơm chiên tôm trứng rau củ",
+      "summary": "Theo Menu tăng cơ trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Thịt & hải sản",
+      "baseServings": 1,
+      "totalMinutes": 20,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 20 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g cơm chín, 120g tôm, 2 quả trứng, 50g đậu Hà Lan, 50g cà rốt, 5g dầu ăn, hành lá.",
+      "timeText": "20 phút",
+      "section": "II. Menu tăng cơ",
+      "ingredients": [
+        {
+          "name": "cơm chín",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g cơm chín",
+          "role": "MAIN"
+        },
+        {
+          "name": "tôm",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g tôm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "trứng",
+          "quantity": "2",
+          "unit": "piece",
+          "note": "2 quả trứng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu Hà Lan",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g đậu Hà Lan",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "5",
+          "unit": "g",
+          "note": "5g dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Tôm bóc vỏ, bỏ chỉ lưng, rửa sạch và cắt miếng vừa ăn. Cà rốt gọt vỏ, thái hạt lựu. Hành lá rửa sạch, thái nhỏ. Đập trứng vào bát và đánh tan."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Làm nóng chảo với một ít dầu ăn, phi thơm tỏi rồi cho tôm vào xào đến khi chín và chuyển màu hồng đục."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Thêm cà rốt và đậu Hà Lan vào chảo, đảo đều. Cho một ít nước để rau củ nhanh chín và không bị khô."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Đẩy tôm và rau củ sang một bên chảo, đổ trứng vào phần chảo trống, đảo nhẹ đến khi trứng vừa chín."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Cho cơm vào chảo, đảo đều để cơm tơi và hòa quyện với tôm, trứng, rau củ."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Nêm một ít nước mắm và tiêu, tiếp tục đảo trên lửa vừa khoảng 2–3 phút cho cơm nóng đều và thấm gia vị."
+        },
+        {
+          "order": 7,
+          "title": "Bước 7",
+          "instruction": "Cuối cùng, rắc hành lá, đảo thêm khoảng 30 giây rồi tắt bếp. Cho cơm ra đĩa và thưởng thức khi còn nóng."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 22,
+      "slug": "menu-bun-bo-hue",
+      "title": "Bún bò Huế",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 110,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Chuẩn bị: 15 phút · Nấu: 75–95 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún tươi, 120g bắp bò, 50g chả bò chín, 500ml nước dùng xương, 2 cây sả, 10g mắm ruốc Huế, hành tím, sa tế, hành lá, rau sống.",
+      "timeText": "Chuẩn bị: 15 phút · Nấu: 75–95 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún tươi",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún tươi",
+          "role": "MAIN"
+        },
+        {
+          "name": "bắp bò",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g bắp bò",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chả bò chín",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g chả bò chín",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước dùng xương",
+          "quantity": "500",
+          "unit": "ml",
+          "note": "500ml nước dùng xương",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sả",
+          "quantity": "2",
+          "unit": "piece",
+          "note": "2 cây sả",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "mắm ruốc Huế",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g mắm ruốc Huế",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tím",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành tím",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sa tế",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: sa tế",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau sống",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau sống",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Rửa bắp bò, đập dập sả, thái hành tím. Hòa mắm ruốc với 50ml nước, để lắng rồi lọc lấy nước trong khoảng 5 phút."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Cho bắp bò, sả và nước dùng vào nồi. Đun sôi, hớt bọt rồi hạ lửa, hầm khoảng 60–80 phút đến khi thịt mềm, có thể dùng đũa xiên qua dễ dàng."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Vớt thịt ra, để nguội 5 phút rồi thái lát mỏng. Phi hành tím với sa tế khoảng 1–2 phút, cho vào nước dùng cùng phần nước mắm ruốc đã lọc."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Đun nước dùng thêm 5 phút, nêm vừa ăn. Cho chả bò vào hâm nóng 2–3 phút."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bún trong nước sôi khoảng 30–60 giây, cho vào tô, xếp thịt và chả bò rồi chan nước dùng nóng. Thêm hành lá và rau sống."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 23,
+      "slug": "menu-bun-cha-ha-noi",
+      "title": "Bún chả Hà Nội",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 60,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: 45-60 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 150g thịt heo vai, 50g cà rốt và đu đủ xanh, 80g rau sống, hành tím, tỏi, nước mắm, đường, giấm.",
+      "timeText": "45-60 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt heo vai",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g thịt heo vai",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt và đu đủ xanh",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà rốt và đu đủ xanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau sống",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g rau sống",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tím",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành tím",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước mắm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước mắm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đường",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: đường",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "giấm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: giấm",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Thái thịt thành lát mỏng khoảng 0,5cm, ướp với hành tím băm, 2 thìa cà phê nước mắm và 1 thìa cà phê đường trong 20 phút."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Bào cà rốt và đu đủ xanh thành lát mỏng, ngâm với ít giấm và đường khoảng 10 phút rồi để ráo."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Nướng thịt ở 190–200°C trong khoảng 12–18 phút, lật giữa chừng; kiểm tra thịt chín hoàn toàn, không còn phần sống."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Pha nước chấm với nước mắm, nước ấm, đường, giấm và tỏi, đun 2 phút nếu muốn dùng nóng."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Cho thịt nướng và đồ chua vào bát nước chấm, ăn cùng bún và rau sống."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 24,
+      "slug": "menu-bun-rieu-cua",
+      "title": "Bún riêu cua",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 60,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 45-60 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 150g cua đồng xay đã làm sạch, 100g cà chua, 80g đậu hũ, 1 quả trứng, hành tím, rau sống, gia vị.",
+      "timeText": "Nấu: 45-60 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "cua đồng xay đã làm sạch",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g cua đồng xay đã làm sạch",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g cà chua",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu hũ",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g đậu hũ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "trứng",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 quả trứng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tím",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành tím",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau sống",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau sống",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "gia vị",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: gia vị",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Hòa cua xay với 500ml nước, bóp và lọc qua rây 2–3 lần để lấy nước cua, bỏ phần xác."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Cho nước cua vào nồi, khuấy nhẹ lúc đầu rồi đun lửa vừa khoảng 8–12 phút. Khi riêu nổi lên thành mảng, giảm lửa để riêu không vỡ."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Vớt phần riêu ra bát. Đánh tan trứng, trộn cùng riêu và hấp khoảng 10–12 phút đến khi đông chín."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Phi hành tím cho đến khi thơm, thêm cà chua thái múi cau vào xào cho đến khi mềm. Cho cà chua vào nước cua, thêm đậu hũ và đun 5 phút."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Nêm nước dùng, trụng bún 30–60 giây rồi xếp riêu, đậu hũ, cà chua và chan nước nóng."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 25,
+      "slug": "menu-bun-thit-nuong",
+      "title": "Bún thịt nướng",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 60,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 60 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 150g thịt heo, 60g xà lách, 50g dưa leo, 40g cà rốt, 10g đậu phộng rang, sả, tỏi, nước mắm.",
+      "timeText": "Nấu: 60 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt heo",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g thịt heo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "40",
+          "unit": "g",
+          "note": "40g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu phộng rang",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g đậu phộng rang",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sả",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: sả",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước mắm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước mắm",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Thái thịt mỏng khoảng 0,5cm, ướp với sả băm, tỏi, nước mắm và một ít đường, ướp trong khoảng 20-25p để thịt được thấm."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Rửa rau, để ráo; thái dưa leo và cà rốt thành sợi."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Làm nóng chảo, áp chảo thịt khoảng 4–6 phút mỗi mặt tùy độ dày, đến khi thịt chín vàng. Có thể nướng bằng nồi chiên không dầu ở 190°C khoảng 12–15 phút."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Pha nước mắm với nước, đường, chanh và tỏi, khuấy khoảng 1 phút đến khi tan."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Cho bún vào tô, xếp thịt, rau củ và đậu phộng rồi rưới nước sốt và thưởng thức ."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 26,
+      "slug": "menu-bun-ca-ca-chua",
+      "title": "Bún cá cà chua",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 150g cá phi lê, 120g cà chua, 50g rau cải, 400ml nước dùng, thì là, hành, gừng.",
+      "timeText": "Nấu: 30 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "cá phi lê",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g cá phi lê",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g cà chua",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau cải",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g rau cải",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước dùng",
+          "quantity": "400",
+          "unit": "ml",
+          "note": "400ml nước dùng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "thì là",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: thì là",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "gừng",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: gừng",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Thái cá thành miếng dày khoảng 2cm, ướp với gừng băm và một ít muối trong khoảng 10 phút."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Phi hành tím cho đến khi thơm, cho cà chua vào xào 3–4 phút đến khi mềm."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Thêm nước dùng, đun sôi . Khi nước đã sôi cho cá vào và nấu lửa vừa cho đến khi cá chín đục và dễ tách thớ."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Thêm rau cải, nấu 2–3 phút. Cho thì là và hành lá vào cuối cùng."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bún khoảng 30–60 giây, chan nước dùng cùng cá và rau."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 27,
+      "slug": "menu-bun-mam-mien-tay",
+      "title": "Bún mắm miền Tây",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 60,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 60 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 60g tôm, 70g mực, 60g cá phi lê, 40g mắm cá linh hoặc cá sặc, 80g cà tím, 500ml nước, sả, rau sống.",
+      "timeText": "Nấu: 60 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "tôm",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g tôm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "mực",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g mực",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cá phi lê",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g cá phi lê",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "mắm cá linh hoặc cá sặc",
+          "quantity": "40",
+          "unit": "g",
+          "note": "40g mắm cá linh hoặc cá sặc",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà tím",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g cà tím",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước",
+          "quantity": "500",
+          "unit": "ml",
+          "note": "500ml nước",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sả",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: sả",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau sống",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau sống",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Bóc vỏ, bỏ chỉ lưng tôm; làm sạch mực, thái khoanh; cắt cá và cà tím thành miếng vừa ăn."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Cho mắm cá, nước và 2 cây sả đập dập vào nồi, đun sôi nhẹ 10–12 phút để mắm tan và dậy mùi."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Lọc nước mắm qua rây, bỏ xương và cặn. Cho nước đã lọc trở lại nồi, thêm cà tím và nấu 7–10 phút."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Thêm cá, nấu 4–5 phút; tiếp tục cho tôm và mực vào nấu 3–5 phút đến khi tất cả hải sản chín."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bún 30–60 giây, chan nước dùng, xếp hải sản và cà tím lên trên, ăn cùng rau sống."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 28,
+      "slug": "menu-bun-ga-nuong-sa",
+      "title": "Bún gà nướng sả",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 45,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu:45 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 150g đùi gà lọc xương, 80g xà lách, 50g dưa leo, 40g cà rốt, sả, tỏi, nước mắm.",
+      "timeText": "Nấu:45 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "đùi gà lọc xương",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g đùi gà lọc xương",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "40",
+          "unit": "g",
+          "note": "40g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sả",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: sả",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước mắm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước mắm",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Rửa và thấm khô thịt gà, ướp với sả băm, tỏi, nước mắm và một ít đường trong 15 phút."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Rửa xà lách, thái dưa leo, bào sợi cà rốt rồi để ráo."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Nướng gà bằng nồi chiên không dầu ở 190°C trong 15–18 phút, lật giữa chừng; thịt phải chín hoàn toàn, nhiệt độ tâm đạt 74°C."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Để gà nghỉ 3 phút rồi thái lát."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Pha nước mắm chua ngọt với định lượng là 15ml nước mắm (1 muỗng canh), 20ml nước cốt chanh,15g đường (khoảng 3 muỗng cà phê),30ml nước lọc, 1 tép tỏi băm nhuyễn và ½ quả ớt băm nhỏ (tùy khẩu vị)"
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Cho bún vào tô, thêm rau, gà nướng và nước chấm."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 29,
+      "slug": "menu-bun-moc-nam",
+      "title": "Bún mọc nấm",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 60,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 45-60 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 130g giò sống, 60g nấm hương tươi, 10g nấm mèo khô, hành lá, 400ml nước dùng.",
+      "timeText": "Nấu: 45-60 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "giò sống",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g giò sống",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm hương tươi",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g nấm hương tươi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm mèo khô",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g nấm mèo khô",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước dùng",
+          "quantity": "400",
+          "unit": "ml",
+          "note": "400ml nước dùng",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ngâm nấm mèo khô trong nước ấm 15 phút cho nở, rửa sạch, cắt bỏ gốc rồi băm nhỏ."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Trộn giò sống với nấm mèo, một ít tiêu, dùng thìa chia thành các viên vừa ăn."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Đun sôi nước dùng, thả mọc vào nấu 8–10 phút tùy kích thước, đến khi mọc chín hoàn toàn."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Thêm nấm hương đã thái lát, nấu 20 phút nữa,nêm gia vị vừa ăn."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bún khoảng 30–60 giây, cho vào tô rồi chan nước, thêm mọc, nấm và hành lá."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 30,
+      "slug": "menu-bun-tom-hai-phong",
+      "title": "Bún tôm Hải Phòng",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 150g tôm, 80g cà chua, 60g rau cần, 40g nấm, 500ml nước, hành lá, thì là, hành tím.",
+      "timeText": "Nấu: 30 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "tôm",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g tôm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g cà chua",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau cần",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g rau cần",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm",
+          "quantity": "40",
+          "unit": "g",
+          "note": "40g nấm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước",
+          "quantity": "500",
+          "unit": "ml",
+          "note": "500ml nước",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "thì là",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: thì là",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tím",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành tím",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Bóc vỏ tôm, bỏ chỉ lưng, rửa sạch. Giữ lại phần vỏ và đầu tôm còn tươi để nấu nước dùng."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Cho vỏ và đầu tôm vào nồi với 500ml nước, đun sôi rồi hạ lửa, nấu 10 phút và lọc sạch."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Phi hành tím cho thơm, sau đó thêm cà chua thái múi cau vào xào khoảng 3 phút cho đến khi cà chua mềm."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Đổ nước dùng tôm vào, đun sôi rồi thêm nấm và tôm, nấu 3–5 phút."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Cho rau cần vào nấu thêm 2 phút, nêm vừa ăn. Trụng bún, chan nước dùng và rắc thì là, hành lá."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 31,
+      "slug": "menu-bun-dau-mam-tom",
+      "title": "Bún đậu mắm tôm",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 45,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 40-45 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún, 120g đậu hũ, 100g thịt heo, 80g dưa leo, rau thơm, dầu ăn, mắm tôm loại dùng để nấu hoặc nước mắm, chanh.",
+      "timeText": "Nấu: 40-45 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún",
+          "role": "MAIN"
+        },
+        {
+          "name": "đậu hũ",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g đậu hũ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "thịt heo",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g thịt heo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau thơm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau thơm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "mắm tôm loại dùng để nấu hoặc nước mắm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: mắm tôm loại dùng để nấu hoặc nước mắm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "chanh",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: chanh",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Rửa thịt heo rồi cho vào nồi nước lạnh, đun sôi và luộc 20-25 phút tùy độ dày đến khi thịt chín."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Vớt thịt ra, để nguội rồi thái lát mỏng."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Cắt đậu hũ thành miếng, thấm ráo và chiên trong chảo dầu nóng khoảng 6–8 phút, trở mặt đến khi vàng."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Rửa rau thơm, thái dưa leo, cắt bún thành miếng vừa ăn."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Nếu dùng mắm tôm, pha với đường, chanh và chút nước rồi đun sôi nhẹ 2–3 phút; hoặc pha nước mắm chua ngọt. Bày mọi thứ ra đĩa và dùng cùng nước chấm."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 32,
+      "slug": "menu-pho-bo-tai",
+      "title": "Phở bò tái",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 25,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 25 phút với nước dùng có sẵn. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g bánh phở tươi, 130g bò nạc, 400ml nước dùng bò, 30g hành tây, gừng, hành lá, rau thơm, gia vị phở.",
+      "timeText": "Nấu: 25 phút với nước dùng có sẵn",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bánh phở tươi",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g bánh phở tươi",
+          "role": "MAIN"
+        },
+        {
+          "name": "bò nạc",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g bò nạc",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước dùng bò",
+          "quantity": "400",
+          "unit": "ml",
+          "note": "400ml nước dùng bò",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tây",
+          "quantity": "30",
+          "unit": "g",
+          "note": "30g hành tây",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "gừng",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: gừng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau thơm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau thơm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "gia vị phở",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: gia vị phở",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Thái bò thành lát thật mỏng, để riêng trong ngăn mát. Rửa rau thơm và thái hành lá."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Nướng sơ gừng và hành tây trên chảo khô khoảng 3–4 phút."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Cho gừng, hành và gia vị phở vào nước dùng, đun sôi nhẹ 8–10 phút cho dậy mùi."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Trụng bánh phở trong nước sôi khoảng 30–60 giây rồi cho vào tô."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bò riêng trong nước dùng đang sôi đến khi đạt độ chín an toàn, xếp lên bánh phở. Chan nước dùng nóng và thêm rau thơm."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 33,
+      "slug": "menu-pho-ga-xe",
+      "title": "Phở gà xé",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 40,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 35-40 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g bánh phở, 150g thịt gà, 500ml nước, hành tây, gừng, hành lá, rau mùi, gia vị.",
+      "timeText": "Nấu: 35-40 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bánh phở",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g bánh phở",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt gà",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g thịt gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước",
+          "quantity": "500",
+          "unit": "ml",
+          "note": "500ml nước",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tây",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành tây",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "gừng",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: gừng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau mùi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau mùi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "gia vị",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: gia vị",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Làm sạch gà, đập dập gừng và bổ đôi hành tây."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Đun 500ml nước cùng gừng và hành tây đến sôi, cho gà vào rồi hạ lửa."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Luộc gà khoảng 15–20 phút tùy độ dày, đến khi thịt chín hoàn toàn, sau đó vớt ra và xé sợi."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Nêm nước luộc gà vừa ăn với mắm, muối, hạt nêm,..., đun thêm khoảng 3 phút."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bánh phở 30–60 giây, thêm gà xé, chan nước dùng và rắc hành lá, rau mùi."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 34,
+      "slug": "menu-pho-ga-tron",
+      "title": "Phở gà trộn",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 40,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 35- 40 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g bánh phở, 150g ức gà, 60g giá đỗ, 60g dưa leo, rau thơm, 10g đậu phộng rang, nước tương, giấm gạo.",
+      "timeText": "Nấu: 35- 40 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bánh phở",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g bánh phở",
+          "role": "MAIN"
+        },
+        {
+          "name": "ức gà",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g ức gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "giá đỗ",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g giá đỗ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau thơm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau thơm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu phộng rang",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g đậu phộng rang",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước tương",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước tương",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "giấm gạo",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: giấm gạo",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Cho gà vào nước đang sôi, hạ lửa và luộc 15-20 phút tùy độ dày đến khi chín hoàn toàn."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Vớt gà ra, để nguội 3 phút rồi xé sợi."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Trụng bánh phở 30–60 giây, chần giá đỗ 30–60 giây; thái dưa leo thành sợi."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Pha nước sốt gồm nước tương, giấm gạo, chút đường và tỏi, khuấy đều."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trộn bánh phở, gà, giá, dưa leo, rau thơm với nước sốt; thêm đậu phộng trước khi ăn."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 35,
+      "slug": "menu-pho-cuon-thit-bo",
+      "title": "Phở cuốn thịt bò",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "150g bánh phở cuốn, 130g thịt bò, 60g xà lách, 50g dưa leo, rau mùi, tỏi, nước mắm.",
+      "timeText": "Nấu: 30 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bánh phở cuốn",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g bánh phở cuốn",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt bò",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g thịt bò",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau mùi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: rau mùi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước mắm",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước mắm",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Thái bò mỏng, ướp với tỏi, tiêu và chút nước mắm, dầu hào khoảng 15 phút"
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Rửa và để ráo xà lách, rau mùi; thái dưa leo thành thanh dài."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Làm nóng chảo với một ít dầu, xào bò khoảng 3–4 phút cho chín, để nguội bớt 2 phút."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Trải bánh phở cuốn lên mặt phẳng sạch, xếp rau, dưa leo và bò vào giữa rồi cuộn chặt."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Pha nước mắm chua ngọt: Hòa tan 2 muỗng cà phê đường với 2 muỗng canh nước lọc. Thêm 1 muỗng canh nước mắm và 1 muỗng canh cốt chanh, khuấy đều. Cuối cùng cho tỏi, ớt băm vào và nêm nếm vừa ăn."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 36,
+      "slug": "menu-pho-ap-chao-bo-nam",
+      "title": "Phở áp chảo bò nấm",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 25,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 25 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g bánh phở tươi, 130g bò nạc, 100g nấm, 80g cải thìa, 10g dầu ăn, tỏi, dầu hào, 5g bột bắp.",
+      "timeText": "Nấu: 25 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bánh phở tươi",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g bánh phở tươi",
+          "role": "MAIN"
+        },
+        {
+          "name": "bò nạc",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g bò nạc",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g nấm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cải thìa",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g cải thìa",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu hào",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: dầu hào",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bột bắp",
+          "quantity": "5",
+          "unit": "g",
+          "note": "5g bột bắp",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Thái bò mỏng, cắt nấm và cải thìa thành miếng vừa ăn."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Làm nóng một nửa dầu trong chảo chống dính, dàn bánh phở thành lớp mỏng, áp chảo khoảng 3–4 phút mỗi mặt đến khi vàng nhẹ rồi lấy ra đĩa."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Dùng phần dầu còn lại xào thịt bò khoảng 2–3 phút, thêm nấm và cải thìa, đảo tiếp 3 phút và nêm nếm gia vị sao cho vừa ăn."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Pha bột bắp với 50ml nước nguội và một ít dầu hào, đổ vào chảo."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Đun khoảng 1–2 phút đến khi sốt sánh và nguyên liệu chín, sau đó rưới lên bánh phở."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 37,
+      "slug": "menu-pho-chay-nam-dau-hu",
+      "title": "Phở chay nấm đậu hũ",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 45,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 45 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g bánh phở, 150g đậu hũ, 120g nấm, 80g cải thìa, 500ml nước dùng rau củ, gừng, hành tây.",
+      "timeText": "Nấu: 45 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bánh phở",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g bánh phở",
+          "role": "MAIN"
+        },
+        {
+          "name": "đậu hũ",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g đậu hũ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm",
+          "quantity": "120",
+          "unit": "g",
+          "note": "120g nấm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cải thìa",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g cải thìa",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước dùng rau củ",
+          "quantity": "500",
+          "unit": "ml",
+          "note": "500ml nước dùng rau củ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "gừng",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: gừng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tây",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành tây",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Rửa nấm, cắt gốc; đậu hũ thái miếng, cải thìa cắt khúc."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Nướng sơ gừng và hành tây bằng chảo khô khoảng 3 phút."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Cho gừng, hành vào nước dùng rau củ, đun sôi nhẹ 8–10 phút."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Cho nấm vào nấu khoảng 20 phút, thêm đậu hũ và cải thìa, nấu tiếp 3–4 phút đến khi rau chín."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bánh phở khoảng 30–60 giây, chan nước dùng và xếp nấm, đậu hũ lên trên."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 38,
+      "slug": "menu-pho-ga-nam-huong",
+      "title": "Phở gà nấm hương",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 45,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 40–45 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g bánh phở, 130g thịt gà, 70g nấm hương tươi, 50g cà rốt, 450ml nước dùng gà, gừng, hành lá.",
+      "timeText": "Nấu: 40–45 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bánh phở",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g bánh phở",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt gà",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g thịt gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm hương tươi",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g nấm hương tươi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước dùng gà",
+          "quantity": "450",
+          "unit": "ml",
+          "note": "450ml nước dùng gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "gừng",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: gừng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Rửa thịt gà, nấm hương và cà rốt. Thái nấm, cắt cà rốt thành lát mỏng."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Đun nước dùng với gừng, cho thịt gà vào luộc khoảng 12–15 phút đến chín hoàn toàn."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Vớt gà ra để nguội bớt rồi xé sợi."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Cho cà rốt và nấm hương vào vào nước dùng nấu tầm 20 phút"
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bánh phở khoảng 30 giây, xếp gà xé lên trên, chan nước nấm và rắc hành lá."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 39,
+      "slug": "menu-mi-ramen-ga-trung",
+      "title": "Mì Ramen gà trứng",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "JP",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 35,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 30-35 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "90g mì ramen khô, 130g thịt gà, 1 quả trứng, 60g nấm, 400ml nước dùng gà, hành lá, nước tương.",
+      "timeText": "Nấu: 30-35 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "mì ramen khô",
+          "quantity": "90",
+          "unit": "g",
+          "note": "90g mì ramen khô",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt gà",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g thịt gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "trứng",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 quả trứng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g nấm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước dùng gà",
+          "quantity": "400",
+          "unit": "ml",
+          "note": "400ml nước dùng gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước tương",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước tương",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Luộc trứng trong nước sôi 8–10 phút tùy độ chín mong muốn, vớt ra ngâm nước mát rồi bóc vỏ."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Ướp thịt gà với ít muối và tiêu, áp chảo khoảng 5–7 phút mỗi mặt tùy độ dày đến khi chín hoàn toàn, để nghỉ 3 phút rồi thái lát."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Đun nước dùng với nấm, gừng và nước tương khoảng 7–8 phút."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Luộc mì riêng theo hướng dẫn trên bao bì, thường khoảng 3–5 phút, vớt ra để ráo."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Cho mì vào tô, chan nước dùng, xếp thịt gà, trứng và hành lá lên trên."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 40,
+      "slug": "menu-mi-bo-kimchi-han-quoc",
+      "title": "Mì bò kimchi Hàn Quốc",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "KR",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 25-30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "90g mì khô, 100g kimchi, 100g bò thái mỏng, 80g đậu hũ, 1 quả trứng, 400ml nước dùng, 10g tương ớt Gochujang.",
+      "timeText": "Nấu: 25-30 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "mì khô",
+          "quantity": "90",
+          "unit": "g",
+          "note": "90g mì khô",
+          "role": "MAIN"
+        },
+        {
+          "name": "kimchi",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g kimchi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bò thái mỏng",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g bò thái mỏng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu hũ",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g đậu hũ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "trứng",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 quả trứng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước dùng",
+          "quantity": "400",
+          "unit": "ml",
+          "note": "400ml nước dùng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tương ớt Gochujang",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g tương ớt Gochujang",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Cắt kimchi thành miếng nhỏ, thái đậu hũ thành khối vuông."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Làm nóng nồi với ít dầu, xào kimchi khoảng 2–3 phút rồi cho tương ớt Gochujang vào đảo thêm 30 giây."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Thêm nước dùng, đun sôi khoảng 4–5 phút."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Cho thịt bò và đậu hũ vào nấu cho đến khi bò chín."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Thêm mì, nấu theo hướng dẫn bao bì, thường 3–5 phút."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Đập trứng vào nồi, đậy nắp nấu thêm 2–4 phút đến độ chín mong muốn, rồi rắc hành lá."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 41,
+      "slug": "menu-mi-xao-bo-rau-cai",
+      "title": "Mì xào bò rau cải",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 25,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 25 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "90g mì trứng khô, 130g bò, 100g cải thìa, 50g cà rốt, 10g dầu ăn, tỏi, dầu hào.",
+      "timeText": "Nấu: 25 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "mì trứng khô",
+          "quantity": "90",
+          "unit": "g",
+          "note": "90g mì trứng khô",
+          "role": "MAIN"
+        },
+        {
+          "name": "bò",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g bò",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cải thìa",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g cải thìa",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu hào",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: dầu hào",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Luộc mì trứng theo bao bì, thường 3–5 phút, vớt ra xả nhanh với nước rồi để ráo."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Thái bò mỏng, ướp tỏi và dầu hào 5 phút; cắt rau cải và cà rốt."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Làm nóng chảo với một nửa dầu, xào bò khoảng 2–3 phút đến chín rồi cho ra đĩa."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Cho phần dầu còn lại vào, xào cà rốt 2 phút rồi thêm cải thìa xào tiếp 2–3 phút."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Thêm mì và một ít nước tương, đảo 2 phút."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Cho thịt bò trở lại, đảo thêm 1 phút rồi tắt bếp."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 42,
+      "slug": "menu-mi-y-sot-bo-bam",
+      "title": "Mì Ý sốt bò bằm",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "IT",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 35,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 35 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "100g spaghetti khô, 130g bò xay, 180g cà chua, 50g hành tây, 10g dầu olive, 15g phô mai Parmesan, tỏi.",
+      "timeText": "Nấu: 35 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "spaghetti khô",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g spaghetti khô",
+          "role": "MAIN"
+        },
+        {
+          "name": "bò xay",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g bò xay",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà chua",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g cà chua",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tây",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g hành tây",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu olive",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g dầu olive",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "phô mai Parmesan",
+          "quantity": "15",
+          "unit": "g",
+          "note": "15g phô mai Parmesan",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Đun sôi nồi nước, thêm ít muối, luộc mì theo bao bì khoảng 8–12 phút đến khi mì chín vừa, để ráo."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Băm hành tây và tỏi, thái nhỏ cà chua."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Làm nóng dầu olive, phi hành tỏi cho đến khi thơm rồi thêm bò xay, đảo 4–5 phút cho thịt tơi."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Cho cà chua và 50ml nước luộc mỳ vào, đun nhỏ lửa 10–12 phút đến khi thịt chín hoàn toàn và sốt sánh, nêm nếm gia vị lại cho vừa ăn."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Cho mì vào trộn cùng sốt khoảng 1 phút, rắc phô mai và dùng nóng."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 43,
+      "slug": "menu-mi-y-sot-kem-ga-nam",
+      "title": "Mì Ý sốt kem gà nấm",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "IT",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "100g mì Ý khô, 130g ức gà, 100g nấm, 100ml sữa tươi, 30g phô mai, 10g dầu olive, tỏi, tiêu.",
+      "timeText": "Nấu: 30 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "mì Ý khô",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g mì Ý khô",
+          "role": "MAIN"
+        },
+        {
+          "name": "ức gà",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g ức gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g nấm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "sữa tươi",
+          "quantity": "100",
+          "unit": "ml",
+          "note": "100ml sữa tươi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "phô mai",
+          "quantity": "30",
+          "unit": "g",
+          "note": "30g phô mai",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu olive",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g dầu olive",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tiêu",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tiêu",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Luộc mì theo thời gian ghi trên bao bì, thường khoảng 8–12 phút, giữ lại 30ml nước luộc mì."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Thái gà thành miếng nhỏ ướp với một chút muối và tiêu, cắt lát nấm và băm tỏi."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Làm nóng dầu olive, xào gà khoảng 5–7 phút đến gần chín, thêm nấm và tỏi, đảo 3–4 phút."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Đổ sữa vào chảo, thêm phô mai, khuấy trên lửa nhỏ 2–3 phút đến khi sốt sánh và gà chín hoàn toàn."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Cho mì vào trộn khoảng 1 phút, thêm chút nước luộc mì nếu sốt quá đặc, nêm tiêu rồi dùng."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 44,
+      "slug": "menu-mi-udon-xao-tom-rau-cu",
+      "title": "Mì Udon xào tôm rau củ",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "JP",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 25,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 20-25 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g mì udon tươi, 130g tôm, 70g bắp cải, 50g cà rốt, 50g nấm, 10g dầu ăn, nước tương, dầu mè, tỏi.",
+      "timeText": "Nấu: 20-25 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "mì udon tươi",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g mì udon tươi",
+          "role": "MAIN"
+        },
+        {
+          "name": "tôm",
+          "quantity": "130",
+          "unit": "g",
+          "note": "130g tôm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bắp cải",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g bắp cải",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g nấm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước tương",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: nước tương",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu mè",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: dầu mè",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Bóc vỏ tôm, bỏ chỉ lưng rồi rửa sạch. Thái bắp cải, cà rốt và nấm thành miếng vừa ăn."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Nếu mì udon đóng gói bị dính, trụng trong nước sôi khoảng 1–2 phút rồi để ráo."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Làm nóng dầu ăn, phi thơm tỏi 30 giây, cho tôm vào xào 3–4 phút đến chín."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Thêm cà rốt, nấm và bắp cải, xào khoảng 3 phút cho rau chín tới."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Cho mì udon vào, thêm nước tương và một ít dầu mè, đảo 2–3 phút đến khi mì nóng đều và thấm gia vị."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 45,
+      "slug": "menu-mi-hoanh-thanh-tom-thit",
+      "title": "Mì hoành thánh tôm thịt",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 45,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Nấu: 45 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "80g mì trứng khô, 80g tôm, 70g thịt heo xay, 5 lá hoành thánh, 70g cải thìa, cà rốt, su hào , hành lá, tiêu.",
+      "timeText": "Nấu: 45 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "mì trứng khô",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g mì trứng khô",
+          "role": "MAIN"
+        },
+        {
+          "name": "tôm",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g tôm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "thịt heo xay",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g thịt heo xay",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hoành thánh",
+          "quantity": "5",
+          "unit": "piece",
+          "note": "5 lá hoành thánh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cải thìa",
+          "quantity": "70",
+          "unit": "g",
+          "note": "70g cải thìa",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "su hào",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: su hào",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tiêu",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tiêu",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Bóc vỏ tôm, bỏ chỉ lưng rồi băm nhỏ. Trộn tôm với thịt heo xay, tiêu và một ít nước mắm trong 2 phút."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Chia nhân vào 5 lá hoành thánh, gấp đôi, thấm một ít nước lên mép và miết chặt để không bị bung."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Đun sôi một nồi nước riêng, cho hoành thánh vào luộc khoảng 6–8 phút tùy kích thước, đến khi phần nhân bên trong chín hoàn toàn."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Đun sôi 400ml nước, bỏ cà rốt và su hào vào hầm tầm 20 phút và nêm nếm gia vị sao cho nước dùng vừa ăn. Sau đó bỏ cải thìa vào nấu thêm tầm 2 phút cho rau chín."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Luộc mì trứng theo hướng dẫn bao bì, thường khoảng 3–5 phút, vớt ra để ráo."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Xếp mì và hoành thánh vào tô, chan nước dùng cùng cải thìa, rắc hành lá và tiêu."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 46,
+      "slug": "menu-hu-tieu-kho-tom-thit",
+      "title": "Hủ tiếu khô tôm thịt",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 45,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Thời gian:45 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g hủ tiếu tươi, 100g tôm, 80g thịt heo xay, 50g giá đỗ, 50g cải thìa, 1 tép tỏi, hành lá, 1 muỗng canh nước tương, 1 muỗng cà phê dầu hào, 1 muỗng cà phê đường, 1 muỗng cà phê dầu ăn, 2 muỗng canh nước lọc.",
+      "timeText": "Thời gian:45 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "hủ tiếu tươi",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g hủ tiếu tươi",
+          "role": "MAIN"
+        },
+        {
+          "name": "tôm",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g tôm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "thịt heo xay",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g thịt heo xay",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "giá đỗ",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g giá đỗ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cải thìa",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cải thìa",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 tép tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước tương",
+          "quantity": "15",
+          "unit": "ml",
+          "note": "1 muỗng canh nước tương",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu hào",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê dầu hào",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đường",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê đường",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước lọc",
+          "quantity": "30",
+          "unit": "ml",
+          "note": "2 muỗng canh nước lọc",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Bóc vỏ 100g tôm, bỏ chỉ lưng và rửa sạch. Rửa giá đỗ, cải thìa, thái nhỏ hành lá và băm tỏi, khoảng 5 phút."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Đun sôi nước, cho tôm vào luộc khoảng 3–4 phút đến khi chín, vớt ra để ráo."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Làm nóng chảo với 1 muỗng cà phê dầu ăn, phi thơm tỏi khoảng 30 giây rồi cho 80g thịt heo xay vào xào 5–6 phút đến khi chín hoàn toàn."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Pha sốt gồm 1 muỗng canh nước tương, 1 muỗng cà phê dầu hào, 1 muỗng cà phê đường và 2 muỗng canh nước lọc, khuấy tan rồi đun cùng thịt khoảng 1–2 phút."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng cải thìa, giá đỗ khoảng và hủ tiếu tươi đến khi sợi mềm vừa."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Cho hủ tiếu vào tô, trộn với sốt thịt, xếp tôm, cải thìa và giá đỗ lên trên. Rắc hành lá rồi thưởng thức."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 47,
+      "slug": "menu-bun-tron-bo-nam-bo",
+      "title": "Bún trộn bò Nam Bộ",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 30,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Thời gian: 30 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "180g bún tươi, 150g thịt bò nạc, 60g xà lách, 50g giá đỗ, 50g dưa leo, 10g đậu phộng rang, tỏi, 1 muỗng canh nước mắm, 1 muỗng canh nước cốt chanh, 2 muỗng cà phê đường, 2 muỗng canh nước lọc, 1 muỗng cà phê dầu ăn.",
+      "timeText": "Thời gian: 30 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "bún tươi",
+          "quantity": "180",
+          "unit": "g",
+          "note": "180g bún tươi",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt bò nạc",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g thịt bò nạc",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "xà lách",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g xà lách",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "giá đỗ",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g giá đỗ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu phộng rang",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g đậu phộng rang",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước mắm",
+          "quantity": "15",
+          "unit": "ml",
+          "note": "1 muỗng canh nước mắm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước cốt chanh",
+          "quantity": "15",
+          "unit": "ml",
+          "note": "1 muỗng canh nước cốt chanh",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đường",
+          "quantity": "10",
+          "unit": "ml",
+          "note": "2 muỗng cà phê đường",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước lọc",
+          "quantity": "30",
+          "unit": "ml",
+          "note": "2 muỗng canh nước lọc",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê dầu ăn",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Thái thịt bò thành lát mỏng, ướp với một ít tỏi băm, tiêu và ½ muỗng cà phê nước mắm trong khoảng 10 phút."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Rửa sạch xà lách, giá đỗ và dưa leo. Thái dưa leo thành sợi, cắt xà lách vừa ăn."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Pha nước trộn bằng cách hòa tan 2 muỗng cà phê đường với 2 muỗng canh nước lọc, thêm 1 muỗng canh nước mắm và 1 muỗng canh nước cốt chanh, khuấy đều rồi thêm tỏi băm."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Làm nóng chảo với 1 muỗng cà phê dầu ăn, cho thịt bò vào xào khoảng 3–4 phút đến khi chín, không xào quá lâu để tránh bị dai."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng bún tươi trong nước sôi khoảng 30–60 giây, chần giá đỗ khoảng 1 phút rồi để ráo."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Cho xà lách, dưa leo, giá và bún vào tô, xếp thịt bò lên trên. Rưới nước trộn, rắc đậu phộng và đảo đều trước khi ăn."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 48,
+      "slug": "menu-mien-tron-ga-xe-sot-me-rang",
+      "title": "Miến trộn gà xé sốt mè rang",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 40,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Thời gian: 40 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "80g miến dong khô, 150g ức gà, 60g dưa leo, 50g cà rốt, 40g nấm đùi gà, 1 muỗng cà phê mè rang xay, 1 muỗng canh nước tương, 1 muỗng cà phê giấm gạo, 1 muỗng cà phê dầu mè, 2 muỗng canh nước lọc, hành lá.",
+      "timeText": "Thời gian: 40 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "miến dong khô",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g miến dong khô",
+          "role": "MAIN"
+        },
+        {
+          "name": "ức gà",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g ức gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dưa leo",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g dưa leo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "cà rốt",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g cà rốt",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nấm đùi gà",
+          "quantity": "40",
+          "unit": "g",
+          "note": "40g nấm đùi gà",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "mè rang xay",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê mè rang xay",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước tương",
+          "quantity": "15",
+          "unit": "ml",
+          "note": "1 muỗng canh nước tương",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "giấm gạo",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê giấm gạo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu mè",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê dầu mè",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước lọc",
+          "quantity": "30",
+          "unit": "ml",
+          "note": "2 muỗng canh nước lọc",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành lá",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành lá",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Ngâm 80g miến dong trong nước khoảng 10 phút cho mềm rồi vớt ra để ráo."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Cho 150g ức gà vào nồi nước đang sôi, hạ lửa và luộc khoảng 12–15 phút tùy độ dày, đến khi gà chín hoàn toàn. Vớt ra, để nguội bớt rồi xé sợi."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Rửa sạch dưa leo, cà rốt và nấm. Thái dưa leo, cà rốt thành sợi; nấm cắt lát mỏng."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Luộc nấm khoảng 10 phút cho nấm chín hẳn , sau đó luộc miến khoảng 2–4 phút hoặc theo hướng dẫn bao bì. Vớt miến ra, xả nhanh bằng nước mát và để ráo."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Pha sốt bằng cách trộn 1 muỗng cà phê mè rang xay, 1 muỗng canh nước tương, 1 muỗng cà phê giấm gạo, 1 muỗng cà phê dầu mè và 2 muỗng canh nước lọc, khuấy đều khoảng 1 phút."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Cho miến, gà xé, rau củ và nấm vào tô. Rưới sốt mè rang, trộn đều rồi rắc hành lá."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 49,
+      "slug": "menu-mi-quang-tom-thit",
+      "title": "Mì Quảng tôm thịt",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 40,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Thời gian: 40 phút. Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g mì Quảng tươi, 80g tôm, 100g thịt heo, 1 quả trứng cút, 50g rau sống, 10g đậu phộng rang, 1 miếng bánh tráng mè nướng, ½ muỗng cà phê bột nghệ, 1 muỗng canh nước mắm, 1 muỗng cà phê dầu ăn, hành tím, tỏi, 150ml nước lọc.",
+      "timeText": "Thời gian: 40 phút",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "mì Quảng tươi",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g mì Quảng tươi",
+          "role": "MAIN"
+        },
+        {
+          "name": "tôm",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g tôm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "thịt heo",
+          "quantity": "100",
+          "unit": "g",
+          "note": "100g thịt heo",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "trứng cút",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 quả trứng cút",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau sống",
+          "quantity": "50",
+          "unit": "g",
+          "note": "50g rau sống",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "đậu phộng rang",
+          "quantity": "10",
+          "unit": "g",
+          "note": "10g đậu phộng rang",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bánh tráng mè nướng",
+          "quantity": "1",
+          "unit": "piece",
+          "note": "1 miếng bánh tráng mè nướng",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bột nghệ",
+          "quantity": "2.5",
+          "unit": "ml",
+          "note": "½ muỗng cà phê bột nghệ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước mắm",
+          "quantity": "15",
+          "unit": "ml",
+          "note": "1 muỗng canh nước mắm",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "hành tím",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: hành tím",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước lọc",
+          "quantity": "150",
+          "unit": "ml",
+          "note": "150ml nước lọc",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Bóc vỏ tôm, bỏ chỉ lưng. Thịt heo thái lát mỏng. Ướp tôm và thịt với ½ muỗng canh nước mắm, tỏi và hành tím băm khoảng 15-20 phút."
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Luộc trứng cút khoảng 5 phút rồi bóc vỏ. Rửa sạch rau sống, để ráo."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Làm nóng chảo với 1 muỗng cà phê dầu ăn, phi thơm hành tím khoảng 30 giây, cho thịt vào xào 3 phút rồi thêm tôm, đảo tiếp 3–4 phút."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Cho ½ muỗng cà phê bột nghệ và 150ml nước lọc vào chảo, nêm ½ muỗng canh nước mắm còn lại, đun nhỏ lửa khoảng 7–10 phút đến khi thịt và tôm chín, nước hơi sánh."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Trụng 200g mì Quảng tươi trong nước sôi khoảng 30–60 giây hoặc đến khi nóng mềm."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Cho mì vào tô, xếp tôm, thịt và trứng cút lên trên. Chan khoảng 100–150ml nước nhân, chỉ vừa xâm xấp phần đáy tô, không ngập mì."
+        },
+        {
+          "order": 7,
+          "title": "Bước 7",
+          "instruction": "Rắc đậu phộng, thêm rau sống và bánh tráng mè nướng rồi thưởng thức."
+        }
+      ]
+    },
+    {
+      "sourceNumber": 50,
+      "slug": "menu-cao-lau-thit-xa-xiu-hoi-an",
+      "title": "Cao lầu thịt xá xíu Hội An",
+      "summary": "Theo Bún, Mỳ, Phở trong Menu món.docx.",
+      "cuisine": "VN",
+      "category": "Cơm, mì & bún",
+      "baseServings": 1,
+      "totalMinutes": 60,
+      "preconditions": "Nguồn chưa ghi số khẩu phần; tạm tính 1 phần cho định lượng trong tài liệu. Thời gian gốc: Thời gian: 60 phút (không tính thời gian ướp). Chưa nấu thử.",
+      "image": "",
+      "rawIngredients": "200g sợi cao lầu tươi, 150g thịt heo nạc vai, 80g giá đỗ, 60g rau sống, 20g bánh cao lầu chiên giòn hoặc bánh đa, 1 muỗng canh nước tương, 1 muỗng cà phê dầu hào, 1 muỗng cà phê mật ong, ½ muỗng cà phê ngũ vị hương, 1 muỗng cà phê dầu ăn, tỏi, 100ml nước lọc.",
+      "timeText": "Thời gian: 60 phút (không tính thời gian ướp)",
+      "section": "III. Bún, Mỳ, Phở",
+      "ingredients": [
+        {
+          "name": "sợi cao lầu tươi",
+          "quantity": "200",
+          "unit": "g",
+          "note": "200g sợi cao lầu tươi",
+          "role": "MAIN"
+        },
+        {
+          "name": "thịt heo nạc vai",
+          "quantity": "150",
+          "unit": "g",
+          "note": "150g thịt heo nạc vai",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "giá đỗ",
+          "quantity": "80",
+          "unit": "g",
+          "note": "80g giá đỗ",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "rau sống",
+          "quantity": "60",
+          "unit": "g",
+          "note": "60g rau sống",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "bánh cao lầu chiên giòn hoặc bánh đa",
+          "quantity": "20",
+          "unit": "g",
+          "note": "20g bánh cao lầu chiên giòn hoặc bánh đa",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước tương",
+          "quantity": "15",
+          "unit": "ml",
+          "note": "1 muỗng canh nước tương",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu hào",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê dầu hào",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "mật ong",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê mật ong",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "ngũ vị hương",
+          "quantity": "2.5",
+          "unit": "ml",
+          "note": "½ muỗng cà phê ngũ vị hương",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "dầu ăn",
+          "quantity": "5",
+          "unit": "ml",
+          "note": "1 muỗng cà phê dầu ăn",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "tỏi",
+          "quantity": null,
+          "unit": "",
+          "note": "Nguồn chưa ghi rõ định lượng: tỏi",
+          "role": "SUPPORTING"
+        },
+        {
+          "name": "nước lọc",
+          "quantity": "100",
+          "unit": "ml",
+          "note": "100ml nước lọc",
+          "role": "SUPPORTING"
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Bước 1",
+          "instruction": "Rửa sạch 150g thịt heo, thấm khô. Ướp với 1 muỗng canh nước tương, 1 muỗng cà phê dầu hào, 1 muỗng cà phê mật ong, ½ muỗng cà phê ngũ vị hương và tỏi băm ướp, ướp tầm 30-45 phút (ướp càng lâu thì thịt càng thấm và ngon hơn)"
+        },
+        {
+          "order": 2,
+          "title": "Bước 2",
+          "instruction": "Làm nóng chảo với dầu ăn, áp chảo thịt khoảng 2–3 phút mỗi mặt cho vàng."
+        },
+        {
+          "order": 3,
+          "title": "Bước 3",
+          "instruction": "Thêm 100ml nước lọc và phần nước ướp vào chảo, đậy nắp, rim lửa nhỏ khoảng 25-30 phút đến khi thịt chín hoàn toàn và nước sốt sánh lại."
+        },
+        {
+          "order": 4,
+          "title": "Bước 4",
+          "instruction": "Gắp thịt ra, để nghỉ 3–5 phút rồi thái lát mỏng. Giữ lại phần sốt trong chảo."
+        },
+        {
+          "order": 5,
+          "title": "Bước 5",
+          "instruction": "Chần 80g giá đỗ trong nước sôi khoảng 1 phút. Trụng sợi cao lầu tươi khoảng 1–2 phút hoặc theo hướng dẫn của nhà sản xuất."
+        },
+        {
+          "order": 6,
+          "title": "Bước 6",
+          "instruction": "Cho sợi cao lầu vào tô, thêm giá, rau sống và thịt xá xíu. Rưới khoảng 2–3 muỗng canh nước sốt thịt, trộn đều rồi thêm bánh cao lầu giòn."
+        }
+      ]
+    }
+  ]
+}

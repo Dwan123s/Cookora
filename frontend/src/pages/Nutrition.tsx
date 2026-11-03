@@ -15,15 +15,51 @@ interface FoodNutrient {
 }
 
 const COMMON_FOODS: FoodNutrient[] = [
-  { name: 'Ức gà không da', category: 'Thịt & Hải sản', per100g: { calories: 165, protein: 31, carbs: 0, fat: 3.6 } },
-  { name: 'Thịt đùi gà', category: 'Thịt & Hải sản', per100g: { calories: 209, protein: 26, carbs: 0, fat: 10.9 } },
-  { name: 'Thịt bò nạc', category: 'Thịt & Hải sản', per100g: { calories: 250, protein: 26, carbs: 0, fat: 15 } },
-  { name: 'Thịt nạc vai heo', category: 'Thịt & Hải sản', per100g: { calories: 242, protein: 27, carbs: 0, fat: 14 } },
-  { name: 'Tôm tươi', category: 'Thịt & Hải sản', per100g: { calories: 99, protein: 24, carbs: 0.2, fat: 0.3 } },
-  { name: 'Trứng gà (1 quả ~50g)', category: 'Đậu & Trứng', per100g: { calories: 143, protein: 12.6, carbs: 0.7, fat: 9.5 } },
-  { name: 'Đậu hũ trắng', category: 'Đậu & Trứng', per100g: { calories: 76, protein: 8, carbs: 1.9, fat: 4.8 } },
-  { name: 'Cơm trắng chín', category: 'Tinh bột', per100g: { calories: 130, protein: 2.7, carbs: 28.2, fat: 0.3 } },
-  { name: 'Bánh phở / Hủ tiếu tươi', category: 'Tinh bột', per100g: { calories: 109, protein: 2.3, carbs: 24, fat: 0.2 } },
+  {
+    name: 'Ức gà không da',
+    category: 'Thịt & Hải sản',
+    per100g: { calories: 165, protein: 31, carbs: 0, fat: 3.6 },
+  },
+  {
+    name: 'Thịt đùi gà',
+    category: 'Thịt & Hải sản',
+    per100g: { calories: 209, protein: 26, carbs: 0, fat: 10.9 },
+  },
+  {
+    name: 'Thịt bò nạc',
+    category: 'Thịt & Hải sản',
+    per100g: { calories: 250, protein: 26, carbs: 0, fat: 15 },
+  },
+  {
+    name: 'Thịt nạc vai heo',
+    category: 'Thịt & Hải sản',
+    per100g: { calories: 242, protein: 27, carbs: 0, fat: 14 },
+  },
+  {
+    name: 'Tôm tươi',
+    category: 'Thịt & Hải sản',
+    per100g: { calories: 99, protein: 24, carbs: 0.2, fat: 0.3 },
+  },
+  {
+    name: 'Trứng gà (1 quả ~50g)',
+    category: 'Đậu & Trứng',
+    per100g: { calories: 143, protein: 12.6, carbs: 0.7, fat: 9.5 },
+  },
+  {
+    name: 'Đậu hũ trắng',
+    category: 'Đậu & Trứng',
+    per100g: { calories: 76, protein: 8, carbs: 1.9, fat: 4.8 },
+  },
+  {
+    name: 'Cơm trắng chín',
+    category: 'Tinh bột',
+    per100g: { calories: 130, protein: 2.7, carbs: 28.2, fat: 0.3 },
+  },
+  {
+    name: 'Bánh phở / Hủ tiếu tươi',
+    category: 'Tinh bột',
+    per100g: { calories: 109, protein: 2.3, carbs: 24, fat: 0.2 },
+  },
   { name: 'Rau muống', category: 'Rau củ', per100g: { calories: 19, protein: 3, carbs: 3.1, fat: 0.2 } },
   { name: 'Cà chua', category: 'Rau củ', per100g: { calories: 18, protein: 0.9, carbs: 3.9, fat: 0.2 } },
   { name: 'Đu đủ xanh', category: 'Rau củ', per100g: { calories: 43, protein: 0.5, carbs: 10.8, fat: 0.3 } },
@@ -43,10 +79,7 @@ export function Nutrition() {
   const [search, setSearch] = useState('');
   const [selectedFood, setSelectedFood] = useState<FoodNutrient>(COMMON_FOODS[0]);
   const [inputWeight, setInputWeight] = useState<number>(150);
-  const [dailyLog, setDailyLog] = useState<LoggedMeal[]>([
-    { id: '1', name: 'Ức gà luộc', weightGrams: 150, calories: 248, protein: 46.5, carbs: 0, fat: 5.4 },
-    { id: '2', name: 'Cơm trắng', weightGrams: 200, calories: 260, protein: 5.4, carbs: 56.4, fat: 0.6 },
-  ]);
+  const [dailyLog, setDailyLog] = useState<LoggedMeal[]>([]);
 
   // Calculations for current selected food
   const calcCalo = Math.round((selectedFood.per100g.calories * inputWeight) / 100);
@@ -78,9 +111,10 @@ export function Nutrition() {
   const totalLogCarbs = Math.round(dailyLog.reduce((s, m) => s + m.carbs, 0));
   const totalLogFat = Math.round(dailyLog.reduce((s, m) => s + m.fat, 0));
 
-  const filteredFoods = COMMON_FOODS.filter((f) =>
-    f.name.toLowerCase().includes(search.toLowerCase()) ||
-    f.category.toLowerCase().includes(search.toLowerCase())
+  const filteredFoods = COMMON_FOODS.filter(
+    (f) =>
+      f.name.toLowerCase().includes(search.toLowerCase()) ||
+      f.category.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -121,7 +155,9 @@ export function Nutrition() {
                   }`}
                 >
                   <span className="font-bold text-xs block truncate">{food.name}</span>
-                  <span className="text-[11px] text-stone-500 block mt-0.5">{food.per100g.calories} kcal / 100g</span>
+                  <span className="text-[11px] text-stone-500 block mt-0.5">
+                    {food.per100g.calories} kcal / 100g
+                  </span>
                 </button>
               ))}
             </div>
@@ -219,7 +255,8 @@ export function Nutrition() {
                   <div>
                     <span className="font-bold text-xs text-stone-800 block">{meal.name}</span>
                     <span className="text-[11px] text-stone-500 block">
-                      {meal.weightGrams}g · {meal.calories} kcal (P:{meal.protein}g C:{meal.carbs}g F:{meal.fat}g)
+                      {meal.weightGrams}g · {meal.calories} kcal (P:{meal.protein}g C:{meal.carbs}g F:
+                      {meal.fat}g)
                     </span>
                   </div>
                   <button

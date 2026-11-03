@@ -56,7 +56,10 @@ export class AuthController {
         code: 'REGISTRATION_NOT_ENABLED',
         message: 'Đăng ký public sẽ mở sau khi hoàn tất xác minh email.',
       });
-    const input = parse(credentials.extend({ displayName: z.string().trim().min(2).max(100) }), body);
+    const input = parse(credentials.extend({
+      email: z.string().trim().toLowerCase().pipe(z.email().max(254)),
+      displayName: z.string().trim().min(2).max(100),
+    }), body);
     const passwordHash = await argon2.hash(input.password, { type: argon2.argon2id });
     let user;
     try {
@@ -91,7 +94,7 @@ export class AuthController {
     const fallbackHash =
       '$argon2id$v=19$m=65536,t=3,p=4$MTIzNDU2Nzg5MGFiY2RlZg$cXrEQfoe4T4YgJvVQH7HoqfSXBqkfbnBAgPKzJ4JF6M';
     const valid = await argon2.verify(user?.passwordHash || fallbackHash, input.password).catch(() => false);
-    if (!user || !valid)
+    if (!user || !user.passwordHash || !valid)
       throw new UnauthorizedException({
         code: 'INVALID_CREDENTIALS',
         message: 'Email hoặc mật khẩu chưa đúng.',

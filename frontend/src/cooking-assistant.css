@@ -1,0 +1,401 @@
+.cooking-assistant {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 80;
+  color: #233c2e;
+  font-family: inherit;
+}
+.cooking-assistant[hidden] {
+  display: none;
+}
+.cooking-chat-launcher {
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin-left: auto;
+  width: 64px;
+  height: 64px;
+  padding: 3px;
+  border: 2px solid #fffef8;
+  border-radius: 50%;
+  background: #dfead4;
+  color: white;
+  box-shadow: 0 6px 24px #263d2b30;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+.cooking-chat-launcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px #263d2b40;
+}
+.cooking-chat-launcher.is-open {
+  background: #345c40;
+}
+.cooking-chat-launcher > img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+.cooking-chat-launcher-badge {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  background: #345c40;
+  border-radius: 50%;
+  box-sizing: content-box;
+  padding: 5px;
+  border: 2px solid white;
+}
+.cooking-chat-panel {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  bottom: 78px;
+  width: min(420px, calc(100vw - 40px));
+  height: min(660px, calc(100dvh - 126px));
+  max-height: calc(100dvh - 126px);
+  border: 1px solid #d9e2d3;
+  border-radius: 24px;
+  background: #fffefa;
+  box-shadow: 0 18px 60px #263d2b26;
+  overflow: hidden;
+}
+.cooking-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  background: #edf3e6;
+  border-bottom: 1px solid #dfe6d7;
+  flex: none;
+}
+.cooking-chat-header > img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.cooking-chat-header > div {
+  flex: 1;
+  min-width: 0;
+}
+.cooking-chat-header h2 {
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  color: #223e2d;
+}
+.cooking-chat-header p {
+  margin: 3px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #66735d;
+}
+.cooking-chat-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  background: #fffefaaa;
+  color: #405b42;
+  cursor: pointer;
+}
+.cooking-chat-log {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px 16px;
+  background: #faf9f3;
+  scrollbar-width: thin;
+}
+.cooking-chat-welcome {
+  padding: 16px;
+  border: 1px solid #e2e9d9;
+  border-radius: 18px;
+  background: #fffefa;
+}
+.cooking-chat-welcome > span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #edf3e6;
+  color: #4a724c;
+}
+.cooking-chat-welcome p,
+.cooking-chat-reply > p,
+.cooking-chat-user p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 9px 0 0;
+}
+.cooking-chat-welcome small {
+  display: block;
+  margin-top: 9px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #77836f;
+}
+.cooking-chat-exchange {
+  margin-top: 18px;
+}
+.cooking-chat-user {
+  background: #365f43;
+  color: #fffef8;
+  margin-left: 34px;
+  padding: 12px 14px;
+  border-radius: 17px 17px 4px 17px;
+}
+.cooking-chat-user p {
+  margin: 0;
+}
+.cooking-chat-user small {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  color: #dce9d4;
+}
+.cooking-chat-reply {
+  margin-top: 13px;
+  padding: 14px;
+  border: 1px solid #e3e7dc;
+  border-radius: 4px 17px 17px;
+  background: #fffefa;
+}
+.cooking-chat-author {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #4d7451;
+  font-size: 11px;
+  font-weight: 800;
+}
+.cooking-chat-recipes {
+  margin-top: 16px;
+}
+.cooking-chat-recipes h3 {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #3c6446;
+}
+.cooking-chat-recipes.is-generated h3 {
+  color: #8b663b;
+}
+.cooking-chat-recipes > a,
+.cooking-chat-recipes > button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 7px;
+  padding: 11px;
+  text-align: left;
+  color: #2d4934;
+  background: #f1f6eb;
+  border: 1px solid #e0e8d6;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cooking-chat-recipes.is-generated > button {
+  background: #faf4e9;
+  border-color: #eee1cd;
+}
+.cooking-chat-recipes > a:hover,
+.cooking-chat-recipes > button:hover {
+  border-color: #90ad80;
+}
+.cooking-chat-recipes > a > span,
+.cooking-chat-recipes > button > span {
+  flex: 1;
+  min-width: 0;
+}
+.cooking-chat-recipes svg {
+  flex: none;
+}
+.cooking-chat-recipes strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.cooking-chat-recipes small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #6a765f;
+}
+.cooking-chat-disclaimer {
+  padding-inline: 2px;
+}
+.cooking-chat-error {
+  margin-top: 12px;
+  padding: 12px;
+  background: #fff0e9;
+  border: 1px solid #f1d8c8;
+  border-radius: 12px;
+  color: #884d35;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.cooking-chat-error p {
+  margin: 0;
+}
+.cooking-chat-error button {
+  margin-top: 8px;
+  padding: 5px 10px;
+  border: 1px solid #d8aa8d;
+  border-radius: 7px;
+  background: #fffaf5;
+  color: #884d35;
+  cursor: pointer;
+}
+.cooking-chat-pending {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  color: #6e7e63;
+  font-size: 12px;
+}
+.cooking-chat-composer {
+  flex: none;
+  padding: 12px 14px 10px;
+  border-top: 1px solid #e1e7d9;
+  background: #fffefa;
+}
+.cooking-chat-composer-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 9px;
+  font-size: 11px;
+  color: #6e7b64;
+}
+.cooking-chat-composer-top select {
+  border: 1px solid #dfe5d8;
+  border-radius: 7px;
+  padding: 3px 5px;
+  background: #fafbf6;
+  color: #3e5b42;
+  font-size: 11px;
+}
+.cooking-chat-composer-top small {
+  margin-left: auto;
+  font-size: 10px;
+}
+.cooking-chat-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 9px;
+  border: 1px solid #d8e2cf;
+  border-radius: 14px;
+  background: #fafbf6;
+}
+.cooking-chat-input-row:focus-within {
+  border-color: #6e9765;
+  box-shadow: 0 0 0 3px #e8f0e1;
+}
+.cooking-chat-input-row textarea {
+  min-width: 0;
+  flex: 1;
+  resize: none;
+  min-height: 43px;
+  max-height: 110px;
+  padding: 2px 1px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #304835;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.cooking-chat-input-row textarea::placeholder {
+  color: #8b9780;
+}
+.cooking-chat-input-row > button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border: 0;
+  border-radius: 10px;
+  background: #365f43;
+  color: #fff;
+  cursor: pointer;
+}
+.cooking-chat-input-row > button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.cooking-chat-composer > p {
+  margin: 6px 0 0;
+  color: #8a9582;
+  font-size: 10px;
+  text-align: center;
+}
+.cooking-assistant button:focus-visible,
+.cooking-assistant a:focus-visible,
+.cooking-assistant select:focus-visible {
+  outline: 3px solid #82a96b;
+  outline-offset: 3px;
+}
+.cooking-chat-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .cooking-assistant {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  .cooking-chat-launcher {
+    width: 58px;
+    height: 58px;
+  }
+  .cooking-chat-launcher > img {
+    width: 50px;
+    height: 50px;
+  }
+  .cooking-chat-panel {
+    width: calc(100vw - 32px);
+    bottom: 70px;
+    height: min(640px, calc(100dvh - 106px));
+    max-height: calc(100dvh - 106px);
+    border-radius: 20px;
+  }
+  .cooking-chat-header {
+    padding: 12px;
+  }
+  .cooking-chat-log {
+    padding: 14px 12px;
+  }
+  .cooking-chat-input-row textarea {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cooking-chat-launcher {
+    transition: none;
+  }
+}

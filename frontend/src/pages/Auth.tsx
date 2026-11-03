@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate, Link } from 'react-router-dom';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   CookingPot,
   ChefHat,
@@ -19,6 +19,7 @@ import {
 import type { User as UserType } from '@cookora/contracts';
 import { request, setCsrf } from '../api';
 import { useUser, errorText, Modal } from '../shared';
+import '@fontsource-variable/plus-jakarta-sans/wght-italic.css';
 import '../auth-reference.css';
 
 function Brand({ badge = false }: { badge?: boolean }) {
@@ -40,6 +41,15 @@ const benefits = [
   { Icon: CalendarDays, title: 'Lên thực đơn tuần', text: 'Cân bằng dinh dưỡng, tiết kiệm thời gian' },
   { Icon: Leaf, title: 'Eat Fit – Sống khỏe', text: 'Giảm mỡ, tăng cơ, theo mục tiêu cá nhân' },
 ];
+const googleErrors: Record<string, string> = {
+  cancelled: 'Bạn đã hủy đăng nhập Google. Bạn có thể thử lại.',
+  invalid_state: 'Phiên đăng nhập Google đã hết hạn hoặc không hợp lệ. Vui lòng thử lại.',
+  invalid_identity: 'Không xác minh được tài khoản Google. Vui lòng thử lại với email đã xác minh.',
+  not_configured: 'Đăng nhập Google chưa được kết nối. Vui lòng dùng email và mật khẩu.',
+  email_conflict: 'Email này đã có tài khoản Cookora. Vui lòng đăng nhập bằng mật khẩu đã đăng ký.',
+  mfa_required: 'Tài khoản quản trị cần xác thực bổ sung trước khi đăng nhập.',
+  temporarily_unavailable: 'Chưa hoàn tất được đăng nhập Google. Vui lòng thử lại sau.',
+};
 export function AuthPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [register, setRegister] = useState(false);
@@ -58,6 +68,27 @@ export function AuthPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const user = useUser();
+  const googleStatus = useQuery({
+    queryKey: ['auth', 'google', 'status'],
+    queryFn: () => request<{ enabled: boolean }>('/auth/google/status'),
+    retry: false,
+  });
+  const googleLogin = useMutation({
+    mutationFn: () =>
+      request<{ authorizationUrl: string }>('/auth/google/start', {
+        method: 'POST',
+        body: { returnTo: location.state?.from || '/thuc-don' },
+      }),
+    onSuccess: (result) => {
+      window.location.assign(result.data.authorizationUrl);
+    },
+  });
+  const googleErrorCode = new URLSearchParams(location.search).get('google_error');
+  const googleError = googleLogin.isError
+    ? errorText(googleLogin.error)
+    : googleErrorCode
+      ? googleErrors[googleErrorCode] || googleErrors.temporarily_unavailable
+      : null;
   const mutation = useMutation({
     mutationFn: () =>
       request<{ user: UserType; csrfToken: string }>(`/auth/${register ? 'register' : 'login'}`, {
@@ -86,16 +117,12 @@ export function AuthPage() {
       );
     },
   });
+  const busy = mutation.isPending || googleLogin.isPending;
   if (user) return <Navigate to="/thuc-don" replace />;
   const switchMode = (next: boolean) => {
     setRegister(next);
     mutation.reset();
   };
-  const socialHelp = (provider: string) =>
-    setHelp({
-      title: `Đăng nhập với ${provider}`,
-      message: `${provider} hiện chưa được kết nối với Cookora. Bạn có thể đăng nhập bằng tài khoản Cookora hoặc chọn Đăng ký để tạo tài khoản mới.`,
-    });
   return (
     <main className="login-reference">
       <section className="login-story" aria-labelledby="login-story-title">
@@ -163,18 +190,13 @@ export function AuthPage() {
               <button
                 type="button"
                 aria-pressed={!register}
-                disabled={mutation.isPending}
+                disabled={busy}
                 onClick={() => switchMode(false)}
               >
                 <User size={16} />
                 <span>Đăng nhập</span>
               </button>
-              <button
-                type="button"
-                aria-pressed={register}
-                disabled={mutation.isPending}
-                onClick={() => switchMode(true)}
-              >
+              <button type="button" aria-pressed={register} disabled={busy} onClick={() => switchMode(true)}>
                 <UserPlus size={17} />
                 <span>Đăng ký</span>
               </button>
@@ -185,7 +207,7 @@ export function AuthPage() {
                 event.preventDefault();
                 mutation.mutate();
               }}
-              aria-busy={mutation.isPending}
+              aria-busy={busy}
             >
               {register && (
                 <label className="login-field">
@@ -200,7 +222,7 @@ export function AuthPage() {
                     value={name}
                     onChange={(event) => setName(event.target.value)}
                     placeholder="Tên của bạn"
-                    disabled={mutation.isPending}
+                    disabled={busy}
                   />
                 </label>
               )}
@@ -209,16 +231,16 @@ export function AuthPage() {
                 <span className="login-sr-only">Email hoặc tên tài khoản</span>
                 <input
                   name="email"
-                  type="text"
+                  type={register ? 'email' : 'text'}
                   autoComplete="username"
                   required
                   maxLength={254}
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  placeholder="Email hoặc tên tài khoản"
+                  placeholder={register ? 'Email của bạn' : 'Email hoặc tên tài khoản'}
                   autoCapitalize="none"
                   spellCheck={false}
-                  disabled={mutation.isPending}
+                  disabled={busy}
                 />
               </label>
               <div className="login-field">
@@ -237,7 +259,7 @@ export function AuthPage() {
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                   placeholder={register ? 'Mật khẩu (ít nhất 6 ký tự)' : 'Mật khẩu'}
-                  disabled={mutation.isPending}
+                  disabled={busy}
                 />
                 <button
                   type="button"
@@ -265,7 +287,7 @@ export function AuthPage() {
                       }
                     }}
                   />
-                  <span>Ghi nhớ đăng nhập</span>
+                  <span>Ghi nhớ tài khoản</span>
                 </label>
                 {!register && (
                   <button
@@ -288,7 +310,7 @@ export function AuthPage() {
                   <span>{errorText(mutation.error)}</span>
                 </p>
               )}
-              <button className="login-submit" type="submit" disabled={mutation.isPending}>
+              <button className="login-submit" type="submit" disabled={busy}>
                 {mutation.isPending ? (
                   <>
                     <LoaderCircle className="spin" size={18} />
@@ -306,7 +328,12 @@ export function AuthPage() {
               <span>Hoặc {register ? 'đăng ký' : 'đăng nhập'} với</span>
             </div>
             <div className="login-social">
-              <button type="button" aria-label="Đăng nhập với Google" onClick={() => socialHelp('Google')}>
+              <button
+                type="button"
+                aria-label="Tiếp tục với Google"
+                disabled={busy || !googleStatus.data?.data.enabled}
+                onClick={() => googleLogin.mutate()}
+              >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fill="#4285F4"
@@ -325,22 +352,24 @@ export function AuthPage() {
                     d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
                   />
                 </svg>
-              </button>
-              <button
-                type="button"
-                aria-label="Đăng nhập với Facebook"
-                onClick={() => socialHelp('Facebook')}
-              >
-                <svg viewBox="0 0 24 24" fill="#1877F2" aria-hidden="true">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              </button>
-              <button type="button" aria-label="Đăng nhập với Apple" onClick={() => socialHelp('Apple')}>
-                <svg viewBox="0 0 24 24" fill="#080b09" aria-hidden="true">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8.92-2.85-.9.04-2 .6-2.65 1.36-.58.67-1.08 1.74-.95 2.77 1 .08 2.06-.52 2.68-1.28z" />
-                </svg>
+                <span>{googleLogin.isPending ? 'Đang chuyển đến Google…' : 'Tiếp tục với Google'}</span>
               </button>
             </div>
+            {googleError && (
+              <p className="login-error" role="alert">
+                <AlertCircle size={17} />
+                <span>{googleError}</span>
+              </p>
+            )}
+            {!googleStatus.data?.data.enabled && (
+              <p className="login-google-note" role="status">
+                {googleStatus.isPending
+                  ? 'Đang kiểm tra đăng nhập Google…'
+                  : googleStatus.isError
+                    ? 'Chưa kết nối được máy chủ để kiểm tra Google. Vui lòng tải lại trang.'
+                    : 'Đăng nhập Google chưa được kết nối. Bạn vẫn có thể dùng email và mật khẩu.'}
+              </p>
+            )}
           </div>
           <svg className="login-wave" viewBox="0 0 500 85" preserveAspectRatio="none" aria-hidden="true">
             <path d="M0 35C120-18 227 100 355 57C410 39 461 31 500 0V85H0Z" fill="#dce6cb" />

@@ -15,10 +15,6 @@ export function Roadmap() {
             text: 'Chờ mapping nguồn dinh dưỡng, review công thức và chính sách mục tiêu.',
           },
           { title: 'Chi phí & ngân sách', text: 'Chờ dữ liệu giá theo vùng, đơn vị và nguồn cập nhật.' },
-          {
-            title: 'Bảo quản & thức ăn dư',
-            text: 'Chờ quy tắc có nguồn, điều kiện nhiệt độ và reviewer chuyên môn.',
-          },
         ].map((x) => (
           <div className="roadmap-card" key={x.title}>
             <span className="badge">Giai đoạn tiếp theo</span>

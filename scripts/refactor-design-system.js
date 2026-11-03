@@ -135,9 +135,7 @@ export function Header() {
     }
   };
 
-  const isToolActive = ['/khau-phan', '/ngan-sach', '/bao-quan', '/dinh-duong', '/yeu-thich'].includes(
-    location.pathname
-  );
+  const isToolActive = location.pathname === '/ngan-sach';
 
   return (
     <header className="sticky top-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8E8E1] transition-colors">
@@ -224,34 +222,10 @@ export function Header() {
             {toolsOpen && (
               <div className="absolute top-[calc(100%-6px)] left-0 w-56 bg-white rounded-2xl shadow-md border border-[#E8E8E1] p-2 text-sm z-50 space-y-0.5 animate-in fade-in slide-in-from-top-1">
                 <Link
-                  to="/khau-phan"
-                  className="block px-3.5 py-2.5 rounded-xl hover:bg-[#FAF8F5] text-[#202721] transition"
-                >
-                  Điều chỉnh khẩu phần
-                </Link>
-                <Link
                   to="/ngan-sach"
                   className="block px-3.5 py-2.5 rounded-xl hover:bg-[#FAF8F5] text-[#202721] transition"
                 >
                   Ước tính chi phí
-                </Link>
-                <Link
-                  to="/bao-quan"
-                  className="block px-3.5 py-2.5 rounded-xl hover:bg-[#FAF8F5] text-[#202721] transition"
-                >
-                  Bảo quản thực phẩm
-                </Link>
-                <Link
-                  to="/dinh-duong"
-                  className="block px-3.5 py-2.5 rounded-xl hover:bg-[#FAF8F5] text-[#202721] transition"
-                >
-                  Dinh dưỡng & Calories
-                </Link>
-                <Link
-                  to="/yeu-thich"
-                  className="block px-3.5 py-2.5 rounded-xl hover:bg-[#FAF8F5] text-[#202721] transition"
-                >
-                  Công thức yêu thích
                 </Link>
               </div>
             )}
@@ -342,20 +316,8 @@ export function Header() {
             <p className="px-3 py-1 text-xs font-semibold text-[#66746B] uppercase tracking-wider">
               Công cụ
             </p>
-            <Link to="/khau-phan" className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] text-[#202721]">
-              Điều chỉnh khẩu phần
-            </Link>
             <Link to="/ngan-sach" className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] text-[#202721]">
               Ước tính chi phí
-            </Link>
-            <Link to="/bao-quan" className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] text-[#202721]">
-              Bảo quản thực phẩm
-            </Link>
-            <Link to="/dinh-duong" className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] text-[#202721]">
-              Dinh dưỡng & Calories
-            </Link>
-            <Link to="/yeu-thich" className="block px-3 py-2 rounded-xl hover:bg-[#FAF8F5] text-[#202721]">
-              Công thức yêu thích
             </Link>
           </div>
         </div>

@@ -47,9 +47,12 @@ services:
       NODE_ENV: development
       SEED_DEMO: "true"
       CSRF_SECRET: ${CSRF_SECRET:?Generate .env first}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI:-}
       VERTEX_PROJECT_ID: ${VERTEX_PROJECT_ID:-}
       VERTEX_LOCATION: ${VERTEX_LOCATION:-global}
-      VERTEX_MODEL: ${VERTEX_MODEL:-gemini-3.8-flash}
+      VERTEX_MODEL: ${VERTEX_MODEL:-gemini-3.7-flash}
       VERTEX_API_KEY: ${VERTEX_API_KEY:-}
     depends_on:
       seed:

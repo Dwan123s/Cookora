@@ -6,7 +6,6 @@ const navTarget = '<NavLink to="/thuc-don">Thực đơn tuần</NavLink>';
 const navReplacement = `<NavLink to="/thuc-don">Thực đơn tuần</NavLink>
             <NavLink to="/eat-fit">Eat Fit</NavLink>
             <NavLink to="/ngan-sach">Ví ăn uống</NavLink>
-            <NavLink to="/bao-quan">Bảo quản</NavLink>
             <NavLink to="/dinh-duong">Dinh dưỡng</NavLink>`;
 
 if (layout.includes(navTarget) && !layout.includes('/eat-fit')) {
@@ -21,14 +20,12 @@ const importTarget = "import { Roadmap } from './pages/Roadmap';";
 const importReplacement = `import { Roadmap } from './pages/Roadmap';
 import { EatFit } from './pages/EatFit';
 import { MealCost } from './pages/MealCost';
-import { FoodStorage } from './pages/FoodStorage';
 import { Nutrition } from './pages/Nutrition';`;
 
 const routeTarget = '<Route path="/thuc-don" element={auth.isPending ? <Loading /> : <Planner />} />';
 const routeReplacement = `<Route path="/thuc-don" element={auth.isPending ? <Loading /> : <Planner />} />
             <Route path="/eat-fit" element={<EatFit />} />
             <Route path="/ngan-sach" element={<MealCost />} />
-            <Route path="/bao-quan" element={<FoodStorage />} />
             <Route path="/dinh-duong" element={<Nutrition />} />`;
 
 if (app.includes(importTarget) && !app.includes('EatFit')) {

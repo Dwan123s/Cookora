@@ -18,6 +18,7 @@ import { demoEnabled } from './config';
 import { ok, parse } from './http';
 import { match, normalize, scale } from './domain';
 import type { Ingredient, Recipe } from '@cookora/contracts';
+import { canonicalDifficulty, recipeDifficulty } from './recipe-difficulty';
 export const cuisines = [
   { code: 'VN', name: 'Việt Nam', flag: '🇻🇳' },
   { code: 'KR', name: 'Hàn Quốc', flag: '🇰🇷' },
@@ -34,6 +35,7 @@ export const recipeInclude = {
 export function recipeDto(r: any): Recipe {
   return {
     ...r,
+    ...recipeDifficulty(r),
     ingredients: r.lines.map((l: any) => ({
       id: l.id,
       ingredientId: l.ingredientId,
@@ -73,7 +75,7 @@ export class Catalog {
       await this.db.recipe.findMany({
         where: visibleWhere(),
         include: recipeInclude,
-        orderBy: { createdAt: 'asc' },
+        orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
       })
     ).map(recipeDto);
     this.cacheAll = { time: now, data: recipes };
@@ -120,6 +122,9 @@ export class CatalogController {
           q: z.string().max(100).optional(),
           cuisine: z.string().max(12).optional(),
           category: z.string().max(60).optional(),
+          difficulty: z
+            .enum(['Dễ', 'Vừa', 'Nâng cao', 'Trung bình', 'Khó', 'EASY', 'MEDIUM', 'HARD'])
+            .optional(),
           maxMinutes: z.coerce.number().int().min(1).max(1440).optional(),
           page: z.coerce.number().int().min(1).default(1),
           pageSize: z.coerce.number().int().min(1).max(100).default(60),
@@ -141,8 +146,12 @@ export class CatalogController {
         (!q.q ||
           normalize(`${r.title} ${r.ingredients.map((i) => i.name).join(' ')}`).includes(normalize(q.q)) ||
           r.ingredients.some((i) => matchingIngredients.has(i.ingredientId))) &&
-        (!q.cuisine || r.cuisine === q.cuisine || (q.cuisine === 'THAI' && r.cuisine === 'TH') || (q.cuisine === 'VIETNAMESE' && r.cuisine === 'VN')) &&
+        (!q.cuisine ||
+          r.cuisine === q.cuisine ||
+          (q.cuisine === 'THAI' && r.cuisine === 'TH') ||
+          (q.cuisine === 'VIETNAMESE' && r.cuisine === 'VN')) &&
         (!q.category || r.category === q.category) &&
+        (!q.difficulty || r.difficulty === canonicalDifficulty(q.difficulty)) &&
         (!q.maxMinutes ||
           (r.timingStatus === 'VERIFIED' && r.totalMinutes !== null && r.totalMinutes <= q.maxMinutes)) &&
         ingredientIds.every((id) => r.ingredients.some((i) => i.ingredientId === id)),

@@ -34,22 +34,13 @@ type MealType = MealEntry['mealType'];
 type LocalEntry = Omit<MealEntry, 'recipe'> & { recipeId: string };
 type LocalWeek = { entries: LocalEntry[]; checked: Record<string, boolean> };
 const dayLabel = (value: string) => `${value.slice(8, 10)}/${value.slice(5, 7)}`;
-const storageKey = 'cookora.guest-week-plans.v1';
+const storageKey = 'cookora.guest-week-plans.document-v2';
 const rows: { type: MealType; label: string; Icon: typeof Sun }[] = [
   { type: 'BREAKFAST', label: 'Bữa sáng', Icon: Sun },
   { type: 'LUNCH', label: 'Bữa trưa', Icon: Soup },
   { type: 'DINNER', label: 'Bữa tối', Icon: Moon },
 ];
 const weekdays = ['THỨ 2', 'THỨ 3', 'THỨ 4', 'THỨ 5', 'THỨ 6', 'THỨ 7', 'CN'];
-const starterSlugs = [
-  'dau-hu-sot-ca-chua',
-  'com-kimchi',
-  'oyakodon-com-ga-trung',
-  'trung-xao-ca-chua',
-  'ga-gai-yang-ap-chao',
-  'spaghetti-aglio-e-olio',
-  'ratatouille-rau-ham',
-];
 const shortTitle = (title: string) => title.match(/\(([^()]+)\)\s*$/)?.[1] || title.replace(' · ', ' ');
 function readLocalWeeks(): Record<string, LocalWeek> {
   try {
@@ -150,9 +141,6 @@ export function Planner() {
   const recipes = useQuery({ queryKey: ['recipes', 'weekly-reference'], queryFn: allRecipes });
   const recipeList = recipes.data || [];
   const recipeMap = useMemo(() => new Map(recipeList.map((recipe) => [recipe.id, recipe])), [recipeList]);
-  const samplePool = starterSlugs
-    .map((slug) => recipeList.find((recipe) => recipe.slug === slug))
-    .filter((recipe): recipe is Recipe => !!recipe);
   const planKey = ['weekly-reference', user?.id, week];
   const plan = useQuery({
     queryKey: planKey,
@@ -174,10 +162,7 @@ export function Planner() {
           : {
               ...previous,
               [week]: {
-                entries:
-                  week === currentWeek && samplePool.length
-                    ? initialEntries(week, samplePool, 0, preferredServings)
-                    : [],
+                entries: [],
                 checked: {},
               },
             },
@@ -301,7 +286,7 @@ export function Planner() {
     });
   const autoPlan = () =>
     run(async () => {
-      const pool = samplePool.length ? samplePool : recipeList;
+      const pool = recipeList;
       if (!pool.length) return;
       const proposals = initialEntries(
         week,

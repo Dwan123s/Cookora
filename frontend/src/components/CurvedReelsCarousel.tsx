@@ -1,84 +1,18 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import type { Recipe } from '@cookora/contracts';
+import { RECIPE_PLACEHOLDER } from '../recipe-media';
 import { ChevronLeft, ChevronRight, Play, Sparkles } from 'lucide-react';
 
-interface ReelItem {
-  id: string;
-  slug: string;
-  title: string;
-  time: string;
-  category: string;
-  image: string;
-}
-
-const REEL_RECIPES: ReelItem[] = [
-  {
-    id: 'r1',
-    slug: 'dau-hu-sot-ca-chua',
-    title: 'Đậu hũ sốt cà chua',
-    time: '25 phút',
-    category: 'Món Việt',
-    image: '/images/hero/tofu.jpg',
-  },
-  {
-    id: 'r2',
-    slug: 'com-kimchi',
-    title: 'Cơm chiên kimchi',
-    time: '20 phút',
-    category: 'Hàn Quốc',
-    image: '/images/hero/kimchi.jpg',
-  },
-  {
-    id: 'r3',
-    slug: 'trung-xao-ca-chua',
-    title: 'Trứng xào cà chua mềm',
-    time: '18 phút',
-    category: 'Bữa cơm nhà',
-    image: '/images/hero/tomatoegg.jpg',
-  },
-  {
-    id: 'r4',
-    slug: 'ga-ap-chao-sot-toi',
-    title: 'Gà áp chảo sốt tỏi',
-    time: '25 phút',
-    category: 'Món đậm vị',
-    image: '/images/hero/grilledchicken.jpg',
-  },
-  {
-    id: 'r5',
-    slug: 'mi-y-toi-dau-o-liu',
-    title: 'Spaghetti tỏi & ô liu',
-    time: '23 phút',
-    category: 'Món Ý',
-    image: '/images/hero/pasta.jpg',
-  },
-  {
-    id: 'r6',
-    slug: 'com-ga-trung',
-    title: 'Cơm gà trứng Oyakodon',
-    time: '27 phút',
-    category: 'Nhật Bản',
-    image: '/images/hero/oyakodon.jpg',
-  },
-  {
-    id: 'r7',
-    slug: 'canh-rong-bien',
-    title: 'Canh rong biển đậu hũ',
-    time: '15 phút',
-    category: 'Thanh mát',
-    image: '/images/hero/hero.jpg',
-  },
-  {
-    id: 'r8',
-    slug: 'thit-nuong',
-    title: 'Thịt xiên nướng thơm',
-    time: '35 phút',
-    category: 'Món nướng',
-    image: '/images/hero/grilledchicken.jpg',
-  },
-];
-
-export function CurvedReelsCarousel() {
+export function CurvedReelsCarousel({ recipes }: { recipes: Recipe[] }) {
+  const REEL_RECIPES = recipes.map((recipe) => ({
+    id: recipe.id,
+    slug: recipe.slug,
+    title: recipe.title,
+    image: recipe.image || RECIPE_PLACEHOLDER,
+    category: recipe.category,
+    time: recipe.totalMinutes === null ? 'Chưa rõ thời gian' : '~' + recipe.totalMinutes + ' phút',
+  }));
   const trackRef = useRef<HTMLDivElement>(null);
   const isDown = useRef(false);
   const startX = useRef(0);
@@ -86,12 +20,7 @@ export function CurvedReelsCarousel() {
   const singleSetWidthRef = useRef(0);
 
   // 4 sets of cards for completely seamless infinite looping
-  const items = [
-    ...REEL_RECIPES,
-    ...REEL_RECIPES,
-    ...REEL_RECIPES,
-    ...REEL_RECIPES,
-  ];
+  const items = [...REEL_RECIPES, ...REEL_RECIPES, ...REEL_RECIPES, ...REEL_RECIPES];
 
   // Function to apply the inverted arch: Ở GIỮA NHỎ, Ở 2 BÊN TO RA
   const updateTransforms = useCallback(() => {
@@ -163,7 +92,7 @@ export function CurvedReelsCarousel() {
     animId = requestAnimationFrame(loop);
 
     return () => cancelAnimationFrame(animId);
-  }, [updateTransforms]);
+  }, [updateTransforms, REEL_RECIPES.length]);
 
   // Click arrow navigation
   const slide = (direction: 'left' | 'right') => {
@@ -300,7 +229,7 @@ export function CurvedReelsCarousel() {
               alt={recipe.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
               onError={(e) => {
-                e.currentTarget.src = '/images/cookora-tofu-1200.webp';
+                e.currentTarget.src = RECIPE_PLACEHOLDER;
               }}
               draggable={false}
             />

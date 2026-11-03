@@ -4,8 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { ArrowRight, Clock3, Heart, Minus, Plus } from 'lucide-react';
 import type { Recipe } from '@cookora/contracts';
 import { request } from '../api';
-import { recipeMedia } from '../recipe-media';
-import { useNotice } from '../shared';
+import { recipeMedia, RECIPE_PLACEHOLDER } from '../recipe-media';
+import { useNotice, Loading, ErrorState } from '../shared';
 
 interface IngredientRow {
   name: string;
@@ -18,10 +18,11 @@ export function PortionAdjust() {
   const navigate = useNavigate();
   const notice = useNotice();
 
-  const recipeSlug = slug || 'dau-hu-sot-ca-chua';
+  const recipeSlug = slug;
 
   const q = useQuery({
     queryKey: ['recipe', recipeSlug],
+    enabled: !!recipeSlug,
     queryFn: () => request<Recipe>(`/recipes/${recipeSlug}`),
   });
 
@@ -31,14 +32,6 @@ export function PortionAdjust() {
 
   const ratio = servings / baseServings;
 
-  const defaultIngredients: IngredientRow[] = [
-    { name: 'Đậu hũ', baseQty: 300, unit: 'g' },
-    { name: 'Cà chua', baseQty: 2, unit: 'quả' },
-    { name: 'Hành lá', baseQty: 2, unit: 'nhánh' },
-    { name: 'Dầu ăn', baseQty: 1, unit: 'muỗng' },
-    { name: 'Muối', baseQty: null, unit: 'Vừa đủ' },
-  ];
-
   const ingredientList: IngredientRow[] =
     recipe?.ingredients && recipe.ingredients.length > 0
       ? recipe.ingredients.map((l) => ({
@@ -46,10 +39,22 @@ export function PortionAdjust() {
           baseQty: l.quantity ? parseFloat(l.quantity) || null : null,
           unit: l.unit,
         }))
-      : defaultIngredients;
+      : [];
 
-  const media = recipe ? recipeMedia(recipe) : { src: '/recipes/dau-hu-sot-ca-chua.webp', label: 'Đậu hũ sốt cà chua' };
+  const media = recipe ? recipeMedia(recipe) : { src: RECIPE_PLACEHOLDER, label: 'Chưa có ảnh' };
 
+  if (!recipeSlug)
+    return (
+      <main className="container">
+        <h1>Điều chỉnh khẩu phần</h1>
+        <p>Chọn một công thức để điều chỉnh nguyên liệu.</p>
+        <Link className="btn" to="/cong-thuc">
+          Chọn công thức
+        </Link>
+      </main>
+    );
+  if (q.isPending) return <Loading />;
+  if (q.isError || !recipe) return <ErrorState error={q.error} retry={() => void q.refetch()} />;
   return (
     <main className="container max-w-6xl mx-auto px-4 py-8">
       {/* Header section matching 04_portion.png */}
@@ -71,14 +76,7 @@ export function PortionAdjust() {
         <div className="lg:col-span-5 bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs">
           {/* Dish Photo */}
           <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-stone-100 mb-5 border border-stone-100">
-            <img
-              src={media.src}
-              alt={recipe?.title || 'Đậu hũ sốt cà chua'}
-              className="w-full h-full object-cover"
-            />
-            <span className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-xs text-[11px] font-medium text-stone-700 px-2.5 py-1 rounded-full shadow-xs">
-              Ảnh AI minh họa
-            </span>
+            <img src={media.src} alt={recipe.title} className="w-full h-full object-cover" />
             <button
               onClick={() => notice('Đã lưu vào danh sách yêu thích!')}
               className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center text-stone-700 hover:text-red-500 shadow-xs"
@@ -87,15 +85,18 @@ export function PortionAdjust() {
             </button>
           </div>
 
-          <h2 className="text-xl font-bold text-stone-900 mb-1">
-            {recipe?.title || 'Đậu hũ sốt cà chua'}
-          </h2>
+          <h2 className="text-xl font-bold text-stone-900 mb-1">{recipe.title}</h2>
           <p className="text-xs text-stone-500 mb-5 flex items-center gap-2">
             <span className="inline-flex items-center gap-1">
-              <Clock3 size={13} /> {recipe?.totalMinutes || 25} phút
+              <Clock3 size={13} />{' '}
+              {recipe.totalMinutes === null ? 'Chưa rõ thời gian' : '~' + recipe.totalMinutes + ' phút'}
             </span>
-            <span>•</span>
-            <span>Mức độ dễ</span>
+            {recipe.difficulty && !recipe.difficulty.toLowerCase().startsWith('chưa') && (
+              <>
+                <span>•</span>
+                <span>{recipe.difficulty}</span>
+              </>
+            )}
           </p>
 
           {/* Stepper control */}
@@ -127,9 +128,7 @@ export function PortionAdjust() {
 
           {/* Conversion Ratio Box */}
           <div className="bg-[#E8F1E9] rounded-2xl p-4 border border-[#DFE5DD]">
-            <p className="text-xs font-bold text-[#47735B] uppercase tracking-wider mb-1">
-              — TỶ LỆ QUY ĐỔI
-            </p>
+            <p className="text-xs font-bold text-[#47735B] uppercase tracking-wider mb-1">— TỶ LỆ QUY ĐỔI</p>
             <p className="text-2xl font-extrabold text-stone-900 mb-1">
               × {ratio % 1 === 0 ? ratio : ratio.toFixed(1)}
             </p>
@@ -137,8 +136,8 @@ export function PortionAdjust() {
               {ratio === 1
                 ? `Giữ nguyên so với công thức gốc ${baseServings} phần.`
                 : ratio > 1
-                ? `Tăng gấp ${ratio % 1 === 0 ? ratio : ratio.toFixed(1)} so với công thức gốc ${baseServings} phần.`
-                : `Giảm còn ${(ratio * 100).toFixed(0)}% so với công thức gốc ${baseServings} phần.`}
+                  ? `Tăng gấp ${ratio % 1 === 0 ? ratio : ratio.toFixed(1)} so với công thức gốc ${baseServings} phần.`
+                  : `Giảm còn ${(ratio * 100).toFixed(0)}% so với công thức gốc ${baseServings} phần.`}
             </p>
           </div>
         </div>
@@ -146,9 +145,7 @@ export function PortionAdjust() {
         {/* Right Column Card: Comparison Table */}
         <div className="lg:col-span-7 bg-white rounded-3xl p-6 md:p-8 border border-stone-200/80 shadow-xs">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg md:text-xl font-bold text-stone-900">
-              Bảng định lượng nguyên liệu
-            </h2>
+            <h2 className="text-lg md:text-xl font-bold text-stone-900">Bảng định lượng nguyên liệu</h2>
             <span className="px-3 py-1 rounded-full bg-stone-100 text-stone-700 text-xs font-semibold">
               {baseServings} phần gốc → {servings} phần
             </span>
@@ -166,8 +163,8 @@ export function PortionAdjust() {
               </thead>
               <tbody className="divide-y divide-stone-100">
                 {ingredientList.map((item, idx) => {
-                  let adjustedText = 'Nêm theo khẩu vị';
-                  let baseText = item.unit || 'Vừa đủ';
+                  let adjustedText = 'Chưa rõ lượng';
+                  let baseText = 'Chưa rõ lượng';
 
                   if (item.baseQty !== null && item.baseQty !== undefined) {
                     const scaled = item.baseQty * ratio;
@@ -179,9 +176,7 @@ export function PortionAdjust() {
                     <tr key={idx} className="hover:bg-stone-50/60 transition">
                       <td className="py-3.5 font-bold text-stone-900">{item.name}</td>
                       <td className="py-3.5 text-stone-500 font-medium">{baseText}</td>
-                      <td className="py-3.5 text-right font-extrabold text-[#47735B]">
-                        {adjustedText}
-                      </td>
+                      <td className="py-3.5 text-right font-extrabold text-[#47735B]">{adjustedText}</td>
                     </tr>
                   );
                 })}
@@ -192,9 +187,7 @@ export function PortionAdjust() {
           {/* Action Callout Box */}
           <div className="bg-[#E8F1E9] rounded-2xl p-5 border border-[#DFE5DD] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <p className="text-sm font-bold text-stone-900 mb-0.5">
-                Chuẩn bị vừa đủ, hạn chế dư thừa.
-              </p>
+              <p className="text-sm font-bold text-stone-900 mb-0.5">Chuẩn bị vừa đủ, hạn chế dư thừa.</p>
               <p className="text-xs text-stone-600">
                 Gia vị nêm nếm nên điều chỉnh theo khẩu vị, không luôn tăng tuyến tính.
               </p>

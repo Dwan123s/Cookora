@@ -1,0 +1,12 @@
+ALTER TABLE "User" ADD CONSTRAINT "User_role_check" CHECK ("role" IN ('USER','EDITOR','ADMIN'));
+ALTER TABLE "Ingredient" ADD CONSTRAINT "Ingredient_unit_check" CHECK ("unit" IN ('g','ml','piece'));
+ALTER TABLE "Recipe" ADD CONSTRAINT "Recipe_servings_check" CHECK ("baseServings" > 0 AND "baseServings" <= 20);
+ALTER TABLE "Recipe" ADD CONSTRAINT "Recipe_status_check" CHECK ("contentStatus" IN ('DRAFT','APPROVED') AND "timingStatus" IN ('ESTIMATED','VERIFIED'));
+ALTER TABLE "Recipe" ADD CONSTRAINT "Recipe_timing_check" CHECK (("prepMinutes" IS NULL OR "prepMinutes" >= 0) AND ("cookMinutes" IS NULL OR "cookMinutes" >= 0) AND ("waitMinutes" IS NULL OR "waitMinutes" >= 0) AND ("totalMinutes" IS NULL OR "totalMinutes" >= 0));
+ALTER TABLE "RecipeLine" ADD CONSTRAINT "RecipeLine_quantity_check" CHECK ("quantity" IS NULL OR "quantity" > 0);
+ALTER TABLE "RecipeLine" ADD CONSTRAINT "RecipeLine_role_check" CHECK ("role" IN ('MAIN','SUPPORTING','SEASONING'));
+ALTER TABLE "RecipeLine" ADD CONSTRAINT "RecipeLine_unit_check" CHECK ("unit" IN ('g','kg','ml','l','piece'));
+ALTER TABLE "MealEntry" ADD CONSTRAINT "MealEntry_servings_check" CHECK ("servings" > 0 AND "servings" <= 20);
+ALTER TABLE "MealEntry" ADD CONSTRAINT "MealEntry_meal_check" CHECK ("mealType" IN ('BREAKFAST','LUNCH','DINNER'));
+ALTER TABLE "ShoppingItem" ADD CONSTRAINT "ShoppingItem_quantity_check" CHECK ("quantity" IS NULL OR "quantity" >= 0);
+ALTER TABLE "MealPlan" ADD CONSTRAINT "MealPlan_version_check" CHECK ("version" > 0);

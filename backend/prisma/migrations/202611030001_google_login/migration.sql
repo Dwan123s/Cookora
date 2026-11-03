@@ -1,0 +1,20 @@
+BEGIN TRY
+BEGIN TRAN;
+
+ALTER TABLE [dbo].[User] ALTER COLUMN [passwordHash] VARCHAR(255) NULL;
+
+CREATE TABLE [dbo].[GoogleIdentity] (
+    [subject] VARCHAR(255) NOT NULL,
+    [userId] UNIQUEIDENTIFIER NOT NULL,
+    [createdAt] DATETIME2 NOT NULL CONSTRAINT [GoogleIdentity_createdAt_df] DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT [GoogleIdentity_pkey] PRIMARY KEY CLUSTERED ([subject]),
+    CONSTRAINT [GoogleIdentity_userId_key] UNIQUE NONCLUSTERED ([userId]),
+    CONSTRAINT [GoogleIdentity_userId_fkey] FOREIGN KEY ([userId]) REFERENCES [dbo].[User]([id]) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+COMMIT TRAN;
+END TRY
+BEGIN CATCH
+IF @@TRANCOUNT > 0 ROLLBACK TRAN;
+THROW;
+END CATCH

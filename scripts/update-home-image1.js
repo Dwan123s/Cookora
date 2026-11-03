@@ -50,13 +50,6 @@ const newQuickNav = `const QUICK_NAV = [
     bgColor: 'bg-[#FBF6E9]',
   },
   {
-    title: 'Bảo quản thực phẩm',
-    to: '/bao-quan',
-    icon: Package,
-    color: 'text-[#3E6B65]',
-    bgColor: 'bg-[#EDF5F4]',
-  },
-  {
     title: 'Dinh dưỡng & Calories',
     to: '/dinh-duong',
     icon: Apple,
@@ -317,7 +310,7 @@ const newHeroAndNav = `{/* 1. HERO SECTION (Sage Green & Warm Cream - Modern Foo
 
       {/* 2. EIGHT QUICK ACCESS BAR - UNIFIED FLOATING ROW CONTAINER MATCHING IMAGE 1 */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 -mt-4 sm:-mt-6 mb-20 relative z-20">
-        <div className="bg-white/95 backdrop-blur-sm rounded-[28px] p-3 sm:p-4 border border-[#DFE5DD] shadow-[0_12px_36px_rgba(39,61,50,0.06)] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-2.5">
+        <div className="bg-white/95 backdrop-blur-sm rounded-[28px] p-3 sm:p-4 border border-[#DFE5DD] shadow-[0_12px_36px_rgba(39,61,50,0.06)] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-2.5">
           {QUICK_NAV.map((tile) => {
             const Icon = tile.icon;
             return (

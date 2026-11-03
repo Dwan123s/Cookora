@@ -19,9 +19,11 @@ import {
 } from 'lucide-react';
 import { FavoriteButton, Loading, ErrorState } from '../shared';
 import { matcherMedia } from '../matcher-media';
+import { recipeSummary } from '../recipe-media';
 import { money, toolRecipes, useToolStorage } from '../tool-data';
 import { budgetResult, isPriceBook, recipeCost, type PriceBook } from '../meal-cost';
 import { RecipePriceEditor } from '../components/RecipePriceEditor';
+import { BudgetAssistant } from '../components/BudgetAssistant';
 import type { Recipe } from '@cookora/contracts';
 import '../tools-reference.css';
 const emptyPrices: PriceBook = [];
@@ -48,24 +50,16 @@ export function MealCost() {
     (r) => result && r.cost.perPerson !== null && r.cost.perPerson <= result.perMeal,
   );
   const unknown = all.filter((r) => !r.cost.complete);
-  const orderedUnknown = [...unknown].sort(
-    (a, b) =>
-      ['trung-xao-ca-chua', 'dau-hu-sot-ca-chua', 'spaghetti-aglio-e-olio', 'com-kimchi'].indexOf(
-        b.recipe.slug,
-      ) -
-      ['trung-xao-ca-chua', 'dau-hu-sot-ca-chua', 'spaghetti-aglio-e-olio', 'com-kimchi'].indexOf(
-        a.recipe.slug,
-      ),
-  );
+  const orderedUnknown = [...unknown].sort((a, b) => a.recipe.title.localeCompare(b.recipe.title, 'vi'));
   const visible = [...suitable, ...(onlyPriced ? [] : orderedUnknown)].slice(0, more ? 12 : 4);
   const planLink = result ? `/thuc-don?budget=${Math.round(result.total)}&servings=${people}` : '/thuc-don';
   return (
     <main className="tools-reference budget-reference">
       <section className="tools-hero budget-hero">
         <div>
-          <p className="tools-eyebrow">MEAL COST CALCULATOR · QUẢN LÝ TÚI TIỀN</p>
-          <h1>Ước tính chi phí món ăn & Ngân sách</h1>
-          <p>Ăn ngon, chi tiêu chủ động. Lên kế hoạch bữa ăn vừa túi tiền mỗi ngày.</p>
+          <p className="tools-eyebrow">COOKORA AI · QUẢN LÝ TÚI TIỀN</p>
+          <h1>Ngân sách của bạn, thực đơn AI lo</h1>
+          <p>Chọn mức chi tiêu, AI đề xuất món và danh sách đi chợ cho từng bữa.</p>
         </div>
         <img src="/images/budget-hero.webp" alt="Giỏ rau củ, máy tính và đồng xu" />
       </section>
@@ -244,128 +238,134 @@ export function MealCost() {
           </div>
         </div>
       </section>
-      <section className="budget-recipes">
-        <div className="tools-section-head">
-          <div>
-            <h2>
-              <span className="tools-icon">
-                <Leaf />
-              </span>
-              Món ngon vừa túi tiền
-            </h2>
-            <p>
-              Hạn mức hiện tại: <b>{result ? money(result.perMeal) : '—'} / bữa / người</b>.
-            </p>
-          </div>
-          <Link to="/cong-thuc">
-            Xem tất cả công thức <ArrowRight size={15} />
-          </Link>
-        </div>
-        {query.isPending ? (
-          <Loading />
-        ) : query.isError ? (
-          <ErrorState error={query.error} retry={() => void query.refetch()} />
-        ) : (
-          <>
-            <div className="budget-price-notice">
-              <CircleHelp size={19} />
-              <div>
-                <b>
-                  {suitable.length
-                    ? `${suitable.length} món có đủ giá và nằm trong hạn mức`
-                    : 'Chưa thể gợi ý theo giá'}
-                </b>
-                <p>
-                  {unknown.length
-                    ? `${unknown.length} công thức chưa đủ giá hoặc định lượng. Các món bên dưới để bạn khám phá; chưa xác nhận phù hợp ngân sách.`
-                    : 'Giá được tính từ định lượng công thức và bảng giá bạn nhập, không phải giá thị trường trực tiếp.'}
-                </p>
-              </div>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={onlyPriced}
-                  onChange={(e) => setOnlyPriced(e.target.checked)}
-                />
-                Chỉ món đủ giá
-              </label>
+      <BudgetAssistant
+        input={{ amount: Number(amounts[mode]), mode, days, people, mealsPerDay: meals }}
+        valid={!!result && Number(amounts[mode]) >= 1000}
+      />
+      <details className="budget-manual">
+        <summary>Tùy chọn: tự nhập giá để tính chi phí chi tiết</summary>
+        <section className="budget-recipes">
+          <div className="tools-section-head">
+            <div>
+              <h2>
+                <span className="tools-icon">
+                  <Leaf />
+                </span>
+                Món ngon vừa túi tiền
+              </h2>
+              <p>
+                Hạn mức hiện tại: <b>{result ? money(result.perMeal) : '—'} / bữa / người</b>.
+              </p>
             </div>
-            {visible.length ? (
-              <div className="budget-recipe-grid">
-                {visible.map(({ recipe: r, cost }) => {
-                  const media = matcherMedia(r);
-                  return (
-                    <article className="budget-recipe tools-card" key={r.id}>
-                      <div className="budget-recipe-photo">
-                        <Link to={`/cong-thuc/${r.slug}`}>
-                          <img src={media.src} alt={r.title} loading="lazy" />
-                        </Link>
-                        <span className="budget-recipe-badge">
-                          <Leaf size={12} />
-                          {cost.complete ? 'Trong hạn mức' : 'Khám phá món'}
-                        </span>
-                        <FavoriteButton recipe={r} overlay />
-                      </div>
-                      <div className="budget-recipe-body">
-                        <Link to={`/cong-thuc/${r.slug}`}>
-                          <h3>{r.title}</h3>
-                        </Link>
-                        <p>{r.summary}</p>
-                        <div className="budget-recipe-meta">
-                          <span>
-                            <Clock3 size={13} />
-                            {r.totalMinutes === null
-                              ? 'Chưa rõ thời gian'
-                              : `${r.timingStatus === 'ESTIMATED' ? '~ ' : ''}${r.totalMinutes} phút`}
-                          </span>
-                          <span>
-                            <Coins size={13} />
-                            {cost.perPerson === null
-                              ? 'Chưa có giá tham khảo'
-                              : `~ ${money(cost.perPerson)} / người`}
-                          </span>
-                        </div>
-                        <div className="budget-recipe-price">
-                          <span>
-                            {cost.known}/{cost.lines.length} nguyên liệu có giá
-                          </span>
-                          <button onClick={() => setEditing(r)}>
-                            Cập nhật giá <ArrowRight size={13} />
-                          </button>
-                        </div>
-                        {cost.complete && (
-                          <p className="budget-purchase">
-                            Dùng thực tế: {money(cost.usedTotal)} · Mua tròn gói: {money(cost.purchaseTotal)}{' '}
-                            / {people} người
-                          </p>
-                        )}
-                      </div>
-                    </article>
-                  );
-                })}
+            <Link to="/cong-thuc">
+              Xem tất cả công thức <ArrowRight size={15} />
+            </Link>
+          </div>
+          {query.isPending ? (
+            <Loading />
+          ) : query.isError ? (
+            <ErrorState error={query.error} retry={() => void query.refetch()} />
+          ) : (
+            <>
+              <div className="budget-price-notice">
+                <CircleHelp size={19} />
+                <div>
+                  <b>
+                    {suitable.length
+                      ? `${suitable.length} món có đủ giá và nằm trong hạn mức`
+                      : 'Chưa thể gợi ý theo giá'}
+                  </b>
+                  <p>
+                    {unknown.length
+                      ? `${unknown.length} công thức chưa đủ giá hoặc định lượng. Các món bên dưới để bạn khám phá; chưa xác nhận phù hợp ngân sách.`
+                      : 'Giá được tính từ định lượng công thức và bảng giá bạn nhập, không phải giá thị trường trực tiếp.'}
+                  </p>
+                </div>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={onlyPriced}
+                    onChange={(e) => setOnlyPriced(e.target.checked)}
+                  />
+                  Chỉ món đủ giá
+                </label>
               </div>
-            ) : (
-              <div className="tools-empty">
-                <ShoppingBag />
-                <h3>Chưa có món đủ dữ liệu trong hạn mức</h3>
-                <p>Tắt bộ lọc để nhập giá nguyên liệu, hoặc tiếp tục khám phá công thức.</p>
-                <Link to="/cong-thuc" className="tools-primary">
-                  Khám phá công thức <ArrowRight size={15} />
-                </Link>
-              </div>
-            )}
-            {(!onlyPriced ? suitable.length + unknown.length : suitable.length) > 4 && (
-              <button className="tools-more" onClick={() => setMore((v) => !v)}>
-                {more ? 'Thu gọn' : 'Xem thêm món'}
-              </button>
-            )}
-          </>
-        )}
-        <p className="tools-footnote">
-          Giá tham khảo do bạn nhập · Không tính nguyên liệu tùy chọn. {prices.scope} Ảnh món ăn có thể là ảnh
-          minh họa AI.
-        </p>
-      </section>
+              {visible.length ? (
+                <div className="budget-recipe-grid">
+                  {visible.map(({ recipe: r, cost }) => {
+                    const media = matcherMedia(r);
+                    return (
+                      <article className="budget-recipe tools-card" key={r.id}>
+                        <div className="budget-recipe-photo">
+                          <Link to={`/cong-thuc/${r.slug}`}>
+                            <img src={media.src} alt={r.title} loading="lazy" />
+                          </Link>
+                          <span className="budget-recipe-badge">
+                            <Leaf size={12} />
+                            {cost.complete ? 'Trong hạn mức' : 'Khám phá món'}
+                          </span>
+                          <FavoriteButton recipe={r} overlay />
+                        </div>
+                        <div className="budget-recipe-body">
+                          <Link to={`/cong-thuc/${r.slug}`}>
+                            <h3>{r.title}</h3>
+                          </Link>
+                          {recipeSummary(r) && <p>{recipeSummary(r)}</p>}
+                          <div className="budget-recipe-meta">
+                            <span>
+                              <Clock3 size={13} />
+                              {r.totalMinutes === null
+                                ? 'Chưa rõ thời gian'
+                                : `${r.timingStatus === 'ESTIMATED' ? '~ ' : ''}${r.totalMinutes} phút`}
+                            </span>
+                            <span>
+                              <Coins size={13} />
+                              {cost.perPerson === null
+                                ? 'Chưa có giá tham khảo'
+                                : `~ ${money(cost.perPerson)} / người`}
+                            </span>
+                          </div>
+                          <div className="budget-recipe-price">
+                            <span>
+                              {cost.known}/{cost.lines.length} nguyên liệu có giá
+                            </span>
+                            <button onClick={() => setEditing(r)}>
+                              Cập nhật giá <ArrowRight size={13} />
+                            </button>
+                          </div>
+                          {cost.complete && (
+                            <p className="budget-purchase">
+                              Dùng thực tế: {money(cost.usedTotal)} · Mua tròn gói:{' '}
+                              {money(cost.purchaseTotal)} / {people} người
+                            </p>
+                          )}
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="tools-empty">
+                  <ShoppingBag />
+                  <h3>Chưa có món đủ dữ liệu trong hạn mức</h3>
+                  <p>Tắt bộ lọc để nhập giá nguyên liệu, hoặc tiếp tục khám phá công thức.</p>
+                  <Link to="/cong-thuc" className="tools-primary">
+                    Khám phá công thức <ArrowRight size={15} />
+                  </Link>
+                </div>
+              )}
+              {(!onlyPriced ? suitable.length + unknown.length : suitable.length) > 4 && (
+                <button className="tools-more" onClick={() => setMore((v) => !v)}>
+                  {more ? 'Thu gọn' : 'Xem thêm món'}
+                </button>
+              )}
+            </>
+          )}
+          <p className="tools-footnote">
+            Giá tham khảo do bạn nhập · Không tính nguyên liệu tùy chọn. {prices.scope}
+          </p>
+        </section>
+      </details>
       {editing && (
         <RecipePriceEditor
           key={editing.id}

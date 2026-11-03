@@ -25,7 +25,10 @@ import {
   Wheat,
   X,
 } from 'lucide-react';
-import meals from '../eatfit-meals.json';
+import { useQuery } from '@tanstack/react-query';
+import { loadRecipeCatalog } from '../recipe-catalog';
+import { RECIPE_PLACEHOLDER } from '../recipe-media';
+import { ErrorState, Loading } from '../shared';
 import { calculateNutrition, mealBudgets, type Goal } from '../eatfit-calculations';
 import '../eatfit-reference.css';
 const fmt = (n: number) => n.toLocaleString('vi-VN');
@@ -36,8 +39,24 @@ const goals = [
 ] as const;
 const names = ['Sáng', 'Trưa', 'Tối', 'Bữa phụ'];
 const icons = [Sun, Sun, Moon, Apple];
-const ideas = ['Cháo yến mạch rau củ', 'Salad quinoa ức gà', 'Salad cá hồi nướng', 'Trái cây theo mùa'];
 export function EatFit() {
+  const catalog = useQuery({
+    queryKey: ['recipes', 'catalog', 'sql-v1'],
+    queryFn: () => loadRecipeCatalog(),
+    staleTime: 30000,
+  });
+  const meals = (catalog.data || [])
+    .filter((r) => r.sourceName === 'Menu món.docx')
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+    .slice(0, 6)
+    .map((recipe) => ({
+      number: Number(recipe.slug.match(/^doc-menu-(\d+)/)?.[1]),
+      slug: recipe.slug,
+      title: recipe.title,
+      image: recipe.image || RECIPE_PLACEHOLDER,
+      ingredients: recipe.ingredients.map((item) => item.note || item.name).join('; '),
+      recipeContext: recipe.steps.map((step) => 'Bước ' + step.order + '. ' + step.instruction).join('\n\n'),
+    }));
   const [gender, setGender] = useState<'female' | 'male'>('female');
   const [age, setAge] = useState('22'),
     [height, setHeight] = useState('160'),
@@ -47,9 +66,9 @@ export function EatFit() {
   const [selected, setSelected] = useState<(typeof meals)[number] | null>(null);
   const [favorites, setFavorites] = useState<number[]>(() => {
     try {
-      const v: unknown = JSON.parse(localStorage.getItem('cookora.eatfit.saved.v1') || '[]');
+      const v: unknown = JSON.parse(localStorage.getItem('cookora.eatfit.document-saved.v2') || '[]');
       return Array.isArray(v)
-        ? v.filter((n): n is number => typeof n === 'number' && meals.some((m) => m.number === n))
+        ? v.filter((n): n is number => typeof n === 'number' && Number.isInteger(n) && n >= 1 && n <= 50)
         : [];
     } catch {
       return [];
@@ -63,7 +82,7 @@ export function EatFit() {
   function save(id: number) {
     const next = favorites.includes(id) ? favorites.filter((n) => n !== id) : [...favorites, id];
     try {
-      localStorage.setItem('cookora.eatfit.saved.v1', JSON.stringify(next));
+      localStorage.setItem('cookora.eatfit.document-saved.v2', JSON.stringify(next));
       setFavorites(next);
       setSaveError(false);
     } catch {
@@ -274,6 +293,8 @@ export function EatFit() {
           </Link>
         </div>
         <div className="ef-recipe-grid">
+          {catalog.isPending && <Loading />}
+          {catalog.isError && <ErrorState error={catalog.error} retry={() => void catalog.refetch()} />}
           {meals.map((m, i) => (
             <article className="ef-recipe" key={m.number}>
               <div className="ef-recipe-photo">
@@ -311,8 +332,7 @@ export function EatFit() {
           ))}
         </div>
         <p className="ef-catalog-note">
-          Ảnh minh họa bằng AI · Chưa có dữ liệu dinh dưỡng xác thực cho từng công thức. Món đã lưu được giữ
-          trên thiết bị này.
+          Chưa có dữ liệu dinh dưỡng xác thực cho từng công thức. Món đã lưu được giữ trên thiết bị này.
           {saveError && (
             <span role="alert"> Không thể lưu trên thiết bị. Kiểm tra quyền lưu trữ của trình duyệt.</span>
           )}
@@ -335,7 +355,7 @@ export function EatFit() {
             return (
               <div className="ef-day-meal" key={title}>
                 {i < 3 ? (
-                  <img src={meals[[5, 4, 2][i]].image} alt="" />
+                  <img src={meals[[5, 4, 2][i]]?.image || RECIPE_PLACEHOLDER} alt="" />
                 ) : (
                   <div className="ef-fruit">
                     <Apple size={35} />
@@ -349,7 +369,9 @@ export function EatFit() {
                   <strong>
                     {result ? fmt(budgets[i]) : '—'} kcal <small>({[25, 40, 25, 10][i]}%)</small>
                   </strong>
-                  <p>{ideas[i]}</p>
+                  <p>
+                    {i < 3 ? meals[[5, 4, 2][i]]?.title || 'Chọn món từ danh mục' : 'Bữa phụ theo nhu cầu'}
+                  </p>
                 </div>
                 {i < 3 && <ArrowRight className="ef-day-arrow" size={17} />}
               </div>
@@ -423,7 +445,6 @@ export function EatFit() {
               <p className="ef-instructions">
                 {selected.recipeContext.split('Công thức:')[1]?.trim() || selected.recipeContext}
               </p>
-              <small>Ảnh minh họa bằng AI. Công thức từ tài liệu menu Cookora.</small>
             </div>
           </>
         )}

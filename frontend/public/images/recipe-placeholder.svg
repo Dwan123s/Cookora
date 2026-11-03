@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="675" viewBox="0 0 900 675">
+  <rect width="900" height="675" fill="#edf2eb"/>
+  <circle cx="450" cy="300" r="130" fill="#fffdf7"/>
+  <g fill="none" stroke="#78917d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M375 305h150c0 50-30 85-75 85s-75-35-75-85Z"/>
+    <path d="M360 305h180M420 265c-25-25 25-30 0-55M460 265c-25-25 25-30 0-55M500 265c-25-25 25-30 0-55"/>
+  </g>
+  <text x="450" y="490" text-anchor="middle" fill="#56735d" font-family="Arial,sans-serif" font-size="30">Chưa có ảnh món ăn</text>
+</svg>

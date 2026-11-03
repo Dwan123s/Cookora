@@ -1,0 +1,38 @@
+# External Neon Free PostgreSQL is provisioned separately. No paid datastore/job/disk.
+services:
+  - type: web
+    name: cookora
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./docker/Dockerfile.render
+    dockerContext: .
+    healthCheckPath: /api/v1/health/live
+    autoDeployTrigger: 'off'
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BIND_HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: '10000'
+      - key: SERVE_FRONTEND
+        value: 'true'
+      - key: TRUST_PROXY_HOPS
+        value: '1'
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=256
+      - key: APP_ORIGIN
+        sync: false
+      - key: DATABASE_PROVIDER
+        value: postgresql
+      - key: DATABASE_URL
+        sync: false
+      - key: SEED_DEMO
+        value: 'false'
+      - key: CSRF_SECRET
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false

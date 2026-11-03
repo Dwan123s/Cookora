@@ -1,0 +1,328 @@
+.budget-ai {
+  margin: 28px 0;
+}
+.budget-ai-form,
+.budget-ai-overview,
+.budget-ai-shopping,
+.budget-ai-tips {
+  padding: 24px;
+}
+.budget-ai-heading {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.budget-ai-heading p:last-child {
+  color: #66746b;
+  font-size: 13px;
+  margin-top: 6px;
+  max-width: 720px;
+}
+.budget-ai-heading .tools-eyebrow {
+  margin: 0 0 4px;
+}
+.budget-ai-inputs {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 18px;
+  margin-top: 24px;
+}
+.budget-ai-inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 500;
+}
+.budget-ai-inputs label > span {
+  font-weight: 400;
+}
+.budget-ai-inputs textarea {
+  width: 100%;
+  min-height: 84px;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid #dfe5dd;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 13px;
+  background: #fffefd;
+  color: #273d32;
+}
+.budget-ai-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+.budget-ai-actions p {
+  color: #66746b;
+  font-size: 13px;
+}
+.budget-ai-actions .tools-primary {
+  min-height: 46px;
+  padding: 12px 22px;
+  font-size: 14px;
+}
+.budget-ai-status,
+.budget-ai-stale {
+  background: #f5f6e9;
+  border: 1px solid #e4e8ca;
+  color: #55623d;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 16px !important;
+  font-size: 13px;
+}
+.budget-ai-error {
+  color: #9e392e;
+  background: #fff1ec;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 14px !important;
+  font-size: 13px;
+}
+.budget-ai-results {
+  display: grid;
+  gap: 20px;
+  margin-top: 24px;
+}
+.budget-ai-overview > p {
+  margin-top: 16px;
+  line-height: 1.8;
+}
+.budget-ai-overview .tools-section-head {
+  margin: 0;
+}
+.budget-ai-overview .tools-section-head > span {
+  color: #66746b;
+  font-size: 12px;
+}
+.budget-ai-totals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 22px 0 14px;
+}
+.budget-ai-totals > div {
+  background: #f5f7f2;
+  border-radius: 14px;
+  padding: 16px;
+}
+.budget-ai-totals span {
+  display: block;
+  color: #66746b;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.budget-ai-totals strong {
+  font-size: 22px;
+  font-weight: 600;
+}
+.budget-ai-totals .is-within {
+  background: #e8f1e9;
+  color: #39634a;
+}
+.budget-ai-totals .is-over {
+  background: #fff1ec;
+  color: #9e392e;
+}
+.budget-ai-price-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #66746b;
+  font-size: 12px;
+}
+.budget-ai-price-note svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.budget-ai-days {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.budget-ai-day {
+  overflow: hidden;
+}
+.budget-ai-day > h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: #edf3eb;
+  padding: 16px 20px;
+  font-size: 17px;
+}
+.budget-ai-day > h3 span {
+  font-size: 14px;
+  font-weight: 500;
+}
+.budget-ai-meal {
+  padding: 18px 20px;
+  border-top: 1px solid #e6e8e1;
+}
+.budget-ai-meal-heading {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+.budget-ai-meal-heading > span {
+  color: #66746b;
+  font-size: 12px;
+}
+.budget-ai-dish {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+.budget-ai-dish > a {
+  flex: 0 0 76px;
+}
+.budget-ai-dish img {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.budget-ai-dish > div {
+  min-width: 0;
+  flex: 1;
+}
+.budget-ai-dish h4 {
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.budget-ai-dish p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #66746b;
+}
+.budget-ai-dish div > span {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  margin-top: 6px;
+  color: #47735b;
+}
+.budget-ai-dish div > span a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.budget-ai-shopping summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 17px;
+}
+.budget-ai-shopping summary span {
+  margin-left: auto;
+  font-size: 12px;
+  color: #66746b;
+  font-weight: 400;
+}
+.budget-ai-shopping > p {
+  margin-top: 12px;
+  color: #66746b;
+  font-size: 12px;
+}
+.budget-ai-shopping-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
+  margin-top: 16px;
+}
+.budget-ai-shopping-grid label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e6e8e1;
+}
+.budget-ai-shopping-grid input {
+  margin-top: 5px;
+  accent-color: #47735b;
+}
+.budget-ai-shopping-grid label > span {
+  flex: 1;
+}
+.budget-ai-shopping-grid small {
+  display: block;
+  color: #7b847e;
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+.budget-ai-shopping-grid strong {
+  font-size: 12px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.budget-ai-shopping-grid .is-checked > span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.budget-ai-tips h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.budget-ai-tips ul {
+  padding-left: 22px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #66746b;
+}
+.budget-manual {
+  border-top: 1px solid #e2e8e0;
+  padding-top: 20px;
+  margin-top: 32px;
+}
+.budget-manual > summary {
+  cursor: pointer;
+  color: #5c7065;
+  font-size: 14px;
+  padding: 12px 0;
+}
+@media (max-width: 760px) {
+  .budget-ai-inputs,
+  .budget-ai-days,
+  .budget-ai-shopping-grid {
+    grid-template-columns: 1fr;
+  }
+  .budget-ai-form,
+  .budget-ai-overview,
+  .budget-ai-shopping,
+  .budget-ai-tips {
+    padding: 18px;
+  }
+  .budget-ai-heading h2 {
+    font-size: 21px;
+  }
+  .budget-ai-totals {
+    grid-template-columns: 1fr;
+  }
+  .budget-ai-actions .tools-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  .budget-ai-overview .tools-section-head {
+    display: block;
+  }
+  .budget-ai-meal {
+    padding: 16px;
+  }
+}

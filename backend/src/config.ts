@@ -3,6 +3,9 @@ import { resolve } from 'node:path';
 config({ path: resolve(__dirname, '../../.env'), quiet: true });
 config({ quiet: true });
 export const production = process.env.NODE_ENV === 'production';
+export const databaseProvider = process.env.DATABASE_PROVIDER || 'sqlserver';
+if (!['sqlserver', 'postgresql'].includes(databaseProvider)) throw new Error('Unsupported DATABASE_PROVIDER');
+export const databaseLabel = databaseProvider === 'postgresql' ? 'PostgreSQL' : 'SQL Server';
 export function required(name: string): string {
   const v = process.env[name];
   if (!v || v === 'CHANGE_ME') throw new Error(`Missing configuration: ${name}`);

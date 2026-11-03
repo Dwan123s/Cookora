@@ -186,9 +186,6 @@ export function Header() {
           <Link to="/ngan-sach" className="block py-2 text-stone-700 hover:text-[#EA580C]">
             Ước tính chi phí
           </Link>
-          <Link to="/bao-quan" className="block py-2 text-stone-700 hover:text-[#EA580C]">
-            Bảo quản thực phẩm
-          </Link>
           <Link to="/dinh-duong" className="block py-2 text-stone-700 hover:text-[#EA580C]">
             Tra cứu Calo & Dinh dưỡng
           </Link>
@@ -214,7 +211,6 @@ export function Footer() {
           <Link to="/thuc-don" className="hover:text-stone-900">Thực đơn tuần</Link>
           <Link to="/eat-fit" className="hover:text-stone-900">Eat Fit</Link>
           <Link to="/ngan-sach" className="hover:text-stone-900">Ước tính chi phí</Link>
-          <Link to="/bao-quan" className="hover:text-stone-900">Bảo quản thực phẩm</Link>
         </div>
         <span>© 2026 Cookora. Nấu ngon hơn, dễ hơn mỗi ngày.</span>
       </div>

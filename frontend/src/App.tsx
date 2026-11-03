@@ -19,9 +19,9 @@ import { Editor } from './pages/Editor';
 import { Roadmap } from './pages/Roadmap';
 import { EatFit } from './pages/EatFit';
 import { MealCost } from './pages/MealCost';
-import { FoodStorage } from './pages/FoodStorage';
 import { Nutrition } from './pages/Nutrition';
 import { PortionAdjust } from './pages/PortionAdjust';
+import { CookingAssistant } from './components/CookingAssistant';
 
 export function App() {
   const location = useLocation();
@@ -47,7 +47,6 @@ export function App() {
       '/thuc-don': 'Thực đơn tuần',
       '/eat-fit': 'Eat Fit · Dinh dưỡng cá nhân hóa',
       '/ngan-sach': 'Ngân sách ăn uống',
-      '/bao-quan': 'Bảo quản thực phẩm',
       '/yeu-thich': 'Món đã lưu',
       '/dang-nhap': 'Bếp của tôi',
       '/bien-tap': 'Không gian biên tập',
@@ -85,7 +84,6 @@ export function App() {
             <Route path="/thuc-don" element={auth.isPending ? <Loading /> : <Planner />} />
             <Route path="/eat-fit" element={<EatFit />} />
             <Route path="/ngan-sach" element={<MealCost />} />
-            <Route path="/bao-quan" element={<FoodStorage />} />
             <Route path="/dinh-duong" element={<Nutrition />} />
             <Route path="/di-cho/:planId" element={auth.isPending ? <Loading /> : <Shopping />} />
             <Route path="/yeu-thich" element={auth.isPending ? <Loading /> : <Favorites />} />
@@ -107,6 +105,7 @@ export function App() {
           </Routes>
         </m.div>
         {!isAuthPage && <Footer />}
+        <CookingAssistant hidden={isAuthPage} />
         {notice && (
           <div className="toast" role="status">
             <CheckCircle2 size={18} />

@@ -2,6 +2,7 @@ import { ArgumentsHost, Catch, ExceptionFilter, HttpException, BadRequestExcepti
 import type { Request, Response } from 'express';
 import { ZodError, type ZodType } from 'zod';
 import { randomUUID } from 'node:crypto';
+import { databaseErrorCode, databaseFailure } from './database-errors';
 export function parse<T>(schema: ZodType<T>, value: unknown): T {
   try {
     return schema.parse(value);
@@ -24,15 +25,20 @@ export class ApiErrors implements ExceptionFilter {
     const ctx = host.switchToHttp(),
       res = ctx.getResponse<Response>(),
       req = ctx.getRequest<Request>();
-    const status = error instanceof HttpException ? error.getStatus() : 500;
+    const databaseError = error instanceof HttpException ? error.cause : error;
+    const failure = databaseFailure(databaseError);
+    const status = error instanceof HttpException ? error.getStatus() : failure ? 503 : 500;
     const body = error instanceof HttpException ? error.getResponse() : null;
-    const details = typeof body === 'object' && body !== null ? (body as Record<string, unknown>) : {};
+    const details: Record<string, unknown> =
+      typeof body === 'object' && body !== null ? (body as Record<string, unknown>) : failure || {};
     if (status >= 500)
       console.error(
         JSON.stringify({
           level: 'error',
           requestId: req.headers['x-request-id'],
           type: error instanceof Error ? error.constructor.name : 'Unknown',
+          code: details.code || 'INTERNAL_ERROR',
+          databaseCode: databaseErrorCode(databaseError),
         }),
       );
     res.status(status).json({

@@ -1,28 +1,17 @@
 import type { Recipe } from '@cookora/contracts';
 
-// Original illustrative assets for the seven unchanged development fixtures only.
-// Approved or edited recipes always retain their server-provided image and credit.
-const demoImages: Record<string, string> = {
-  'dau-hu-sot-ca-chua': 'cookora-tofu-1200',
-  'com-kimchi': 'kimchi',
-  'oyakodon-com-ga-trung': 'oyakodon',
-  'trung-xao-ca-chua': 'eggs-tomato',
-  'ga-gai-yang-ap-chao': 'gai-yang',
-  'spaghetti-aglio-e-olio': 'aglio-olio',
-  'ratatouille-rau-ham': 'ratatouille',
-};
+export const RECIPE_PLACEHOLDER = '/images/recipe-placeholder.svg';
+const documentReference = /\.docx?\b|tài liệu/i;
+
+export function recipeSummary(recipe: Pick<Recipe, 'summary'>) {
+  const summary = recipe.summary?.trim() || '';
+  return documentReference.test(summary) ? '' : summary;
+}
+
 export function recipeMedia(recipe: Recipe) {
-  const demo =
-    recipe.contentStatus === 'DRAFT' &&
-    recipe.revision === 1 &&
-    recipe.imageCredit === 'Unsplash · ảnh minh họa, không phải mẻ nấu thử'
-      ? demoImages[recipe.slug]
-      : undefined;
-  return demo
-    ? {
-        src: `/images/${demo}.webp`,
-        credit: 'Ảnh minh họa tạo bằng AI · Cookora · Không phải mẻ nấu thử',
-        label: 'Ảnh AI minh họa',
-      }
-    : { src: recipe.image, credit: recipe.imageCredit, label: 'Ảnh minh họa' };
+  return {
+    src: recipe.image || RECIPE_PLACEHOLDER,
+    credit: documentReference.test(recipe.imageCredit) ? '' : recipe.imageCredit,
+    label: recipe.image ? 'Ảnh món ăn' : 'Chưa có ảnh',
+  };
 }

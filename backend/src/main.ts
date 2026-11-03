@@ -7,15 +7,20 @@ import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import type { Request, Response, NextFunction } from 'express';
 import { randomUUID } from 'node:crypto';
+import { resolve } from 'node:path';
+import type { NestExpressApplication } from '@nestjs/platform-express';
+import { mountFrontend } from './frontend-hosting';
 import { Database } from './db';
 import { Catalog, CatalogController } from './catalog';
 import { AuthController } from './auth';
+import { GoogleAuth, GoogleAuthController } from './google-auth';
 import { PlannerController } from './planner';
 import { EditorController } from './editor';
 import { AiController, AiChefService } from './ai';
+import { BudgetAiController, BudgetAiService } from './budget-ai';
 import { AuthGuard, EditorGuard, Sessions, checkCsrf } from './security';
 import { ApiErrors, ok } from './http';
-import { demoEnabled, production, required, sqlConfig } from './config';
+import { databaseLabel, databaseProvider, demoEnabled, production, required, sqlConfig } from './config';
 @Controller('health')
 class HealthController {
   constructor(@Inject(Database) private readonly db: Database) {}
@@ -25,25 +30,28 @@ class HealthController {
   @Get('ready') async ready(@Req() req: Request) {
     try {
       await this.db.$queryRaw`SELECT 1 AS ok`;
-      return ok(req, { status: 'ready', database: 'SQL Server' });
-    } catch {
-      throw new ServiceUnavailableException({
-        code: 'DATABASE_UNAVAILABLE',
-        message: 'Database chưa sẵn sàng.',
-      });
+      return ok(req, { status: 'ready', database: databaseLabel });
+    } catch (error) {
+      throw new ServiceUnavailableException(
+        { code: 'DATABASE_UNAVAILABLE', message: 'Database chưa sẵn sàng.' },
+        { cause: error },
+      );
     }
   }
 }
 @Module({
-  controllers: [HealthController, AuthController, CatalogController, PlannerController, EditorController, AiController],
-  providers: [Database, Catalog, Sessions, AuthGuard, EditorGuard, AiChefService],
+  controllers: [HealthController, AuthController, GoogleAuthController, CatalogController, PlannerController, EditorController, AiController, BudgetAiController],
+  providers: [Database, Catalog, Sessions, AuthGuard, EditorGuard, AiChefService, GoogleAuth, BudgetAiService],
 })
 class AppModule {}
 async function bootstrap() {
   if (required('CSRF_SECRET').length < 32) throw new Error('CSRF_SECRET too short');
-  if (production && sqlConfig().options.trustServerCertificate)
-    throw new Error('Production requires verified SQL TLS certificate');
-  const app = await NestFactory.create(AppModule, { bodyParser: true, logger: ['error', 'warn', 'log'] });
+  if (production && databaseProvider === 'sqlserver' && (!sqlConfig().options.encrypt || sqlConfig().options.trustServerCertificate))
+    throw new Error('Production requires encrypted SQL with a verified TLS certificate');
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, { bodyParser: true, logger: ['error', 'warn', 'log'] });
+  const proxyHops = process.env.TRUST_PROXY_HOPS || '0';
+  if (!/^[0-3]$/.test(proxyHops)) throw new Error('Invalid TRUST_PROXY_HOPS');
+  app.set('trust proxy', Number(proxyHops));
   app.enableShutdownHooks();
   app.setGlobalPrefix('api/v1');
   app.use(helmet());
@@ -58,7 +66,7 @@ async function bootstrap() {
     req.headers['x-request-id'] = randomUUID();
     res.setHeader('X-Request-Id', req.headers['x-request-id']);
     res.setHeader('Cache-Control', 'no-store');
-    const auth = /\/auth\/(login|register)/.test(req.path),
+    const auth = /\/auth\/(login|register|google)(\/|$)/.test(req.path),
       key = `${req.ip}:${auth ? 'auth' : 'general'}`,
       now = Date.now();
     const bucket = buckets.get(key);
@@ -94,6 +102,8 @@ async function bootstrap() {
     .addCookieAuth('cookora_session')
     .build();
   if (!production) SwaggerModule.setup('api/docs', app, SwaggerModule.createDocument(app, swagger));
+  if (process.env.SERVE_FRONTEND === 'true')
+    mountFrontend(app, resolve(__dirname, '../../frontend/dist'));
   await app.listen(Number(process.env.PORT || 3000), process.env.BIND_HOST || '127.0.0.1');
   console.log('Cookora API: http://localhost:3000/api/v1/health/ready');
 }

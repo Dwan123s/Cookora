@@ -8,12 +8,19 @@ model User {
   id String @id @default(uuid()) @db.UniqueIdentifier
   email String @unique @db.NVarChar(254)
   displayName String @db.NVarChar(100)
-  passwordHash String @db.VarChar(255)
+  passwordHash String? @db.VarChar(255)
   role String @default("USER") @db.VarChar(12)
   createdAt DateTime @default(now())
   sessions Session[]
   favorites Favorite[]
   plans MealPlan[]
+  googleIdentity GoogleIdentity?
+}
+model GoogleIdentity {
+  subject String @id @db.VarChar(255)
+  userId String @unique @db.UniqueIdentifier
+  user User @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdAt DateTime @default(now())
 }
 model Session {
   id String @id @default(uuid()) @db.UniqueIdentifier

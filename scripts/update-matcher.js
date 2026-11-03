@@ -200,7 +200,7 @@ export function Matcher() {
               activeTab === 'ai' ? 'bg-[#c85233] text-white' : 'bg-stone-100 text-stone-700'
             }\`}
           >
-            <Sparkles size={13} /> Trợ lý AI (Groq)
+            <Sparkles size={13} /> Trợ lý AI
           </button>
           <span className="hidden md:inline-block px-3 py-1 bg-stone-100 rounded-full text-[11px] font-medium text-stone-600">
             Bản demo minh họa
@@ -433,7 +433,7 @@ export function Matcher() {
         <div className="bg-white rounded-3xl p-6 md:p-8 border border-stone-200/80 shadow-xs max-w-4xl mx-auto">
           <div className="max-w-2xl mb-6">
             <h2 className="text-xl font-bold text-stone-900 mb-1">
-              Trợ lý bếp trưởng AI (Groq Speed)
+              Trợ lý bếp trưởng AI
             </h2>
             <p className="text-xs sm:text-sm text-stone-600">
               Nhập tự nhiên danh sách nguyên liệu bạn có trong tủ lạnh (kể cả số lạng, mớ, quả). Trợ lý sẽ tự động phân tích và tạo công thức chi tiết.

@@ -26,7 +26,7 @@ import {
 import type { MealPlan, Recipe, ScaledRecipe } from '@cookora/contracts';
 import { request } from '../api';
 import { dateKey, weekOf } from '../date';
-import { recipeMedia } from '../recipe-media';
+import { recipeMedia, recipeSummary } from '../recipe-media';
 import {
   cuisineFor,
   useNotice,
@@ -131,8 +131,6 @@ export function Detail() {
   const [showAdd, setAdd] = useState(false);
   const [activeTab, setActiveTab] = useState<'steps' | 'ingredients' | 'nutrition' | 'cost'>('steps');
   const [checkedIngredients, setCheckedIngredients] = useState<Record<string, boolean>>({});
-  const [activeTimerStep, setActiveTimerStep] = useState<number | null>(null);
-  const [timerSeconds, setTimerSeconds] = useState<number>(0);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
@@ -150,36 +148,10 @@ export function Detail() {
 
   const scaled = useQuery({
     queryKey: ['recipe-scaled', recipe?.id, count],
-    queryFn: () => request<ScaledRecipe>(`/recipes/${recipe!.id}/scale?servings=${count}`),
+    queryFn: () =>
+      request<ScaledRecipe>(`/recipes/${recipe!.id}/scale`, { method: 'POST', body: { servings: count } }),
     enabled: !!recipe,
   });
-
-  // Timer countdown effect
-  useEffect(() => {
-    if (activeTimerStep === null || timerSeconds <= 0) return;
-    const interval = setInterval(() => {
-      setTimerSeconds((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          notice(`Hết giờ cho Bước ${activeTimerStep + 1}!`);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [activeTimerStep, timerSeconds, notice]);
-
-  const startTimer = (stepIdx: number, minutes: number) => {
-    if (activeTimerStep === stepIdx && timerSeconds > 0) {
-      setActiveTimerStep(null);
-      setTimerSeconds(0);
-    } else {
-      setActiveTimerStep(stepIdx);
-      setTimerSeconds(minutes * 60);
-      notice(`Bắt đầu hẹn giờ: ${minutes} phút`);
-    }
-  };
 
   // TTS voice guide
   const toggleSpeech = () => {
@@ -227,16 +199,9 @@ export function Detail() {
 
   const c = cuisineFor(recipe.cuisine);
   const media = recipeMedia(recipe);
-  const steps = recipe.steps && recipe.steps.length > 0 ? recipe.steps : [
-    { id: '1', order: 1, title: 'Sơ chế nguyên liệu', instruction: 'Rửa sạch rau củ, thái miếng vừa ăn và để ráo.' },
-    { id: '2', order: 2, title: 'Làm nóng chảo và xào thơm', instruction: 'Phi thơm tỏi ớt, cho nguyên liệu chính vào xào săn.' },
-    { id: '3', order: 3, title: 'Nấu sốt và hoàn thiện', instruction: 'Nêm nếm gia vị vừa miệng, đun nhỏ lửa đến khi sánh lại.' },
-  ];
+  const steps = recipe.steps || [];
 
-  const ingredientLines = scaled.data?.data?.lines || [
-    { id: '1', name: 'Nguyên liệu chính', exactQuantity: 300, unit: 'g', note: 'sơ chế sạch' },
-    { id: '2', name: 'Gia vị cơ bản', exactQuantity: null, unit: '', note: 'vừa đủ' },
-  ];
+  const ingredientLines = scaled.data?.data?.lines || [];
 
   return (
     <main className="container max-w-6xl mx-auto px-4 py-8">
@@ -263,10 +228,6 @@ export function Detail() {
               alt={recipe.title}
               className="w-full h-full object-cover group-hover:scale-102 transition duration-500"
             />
-            {/* Pill badge */}
-            <span className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-xs text-[11px] font-medium text-stone-700 px-3 py-1 rounded-full shadow-xs">
-              Ảnh AI minh họa
-            </span>
             {/* Heart button */}
             <button
               onClick={() => notice('Đã thêm vào công thức yêu thích!')}
@@ -286,21 +247,31 @@ export function Detail() {
           <h1 className="text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight mb-3">
             {recipe.title}
           </h1>
-          <p className="text-stone-600 text-sm md:text-base leading-relaxed mb-6">
-            {recipe.summary || 'Món ngon đậm đà hương vị gia đình, dễ nấu và cân bằng dinh dưỡng cho bữa cơm ấm cúng.'}
-          </p>
+          {recipeSummary(recipe) && (
+            <p className="text-stone-600 text-sm md:text-base leading-relaxed mb-6">
+              {recipeSummary(recipe)}
+            </p>
+          )}
 
           {/* Meta Pills */}
           <div className="flex flex-wrap gap-2.5 mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 rounded-full text-xs font-semibold text-stone-700">
-              <Clock3 size={14} className="text-stone-500" /> {recipe.totalMinutes || 25} phút
+              <Clock3 size={14} className="text-stone-500" />{' '}
+              {recipe.totalMinutes === null ? 'Chưa rõ thời gian' : `~${recipe.totalMinutes} phút`}
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 rounded-full text-xs font-semibold text-stone-700">
               <Users size={14} className="text-stone-500" /> {count} phần
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 rounded-full text-xs font-semibold text-stone-700">
-              Mức độ: {recipe.difficulty === 'EASY' ? 'Dễ' : recipe.difficulty === 'HARD' ? 'Khó' : 'Trung bình'}
-            </span>
+            {recipe.difficulty && !recipe.difficulty.toLowerCase().startsWith('chưa') && (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-100 rounded-full text-xs font-semibold text-stone-700">
+                Mức độ:{' '}
+                {recipe.difficulty === 'EASY'
+                  ? 'Dễ'
+                  : recipe.difficulty === 'HARD'
+                    ? 'Khó'
+                    : recipe.difficulty}
+              </span>
+            )}
           </div>
 
           {/* Action Buttons */}
@@ -324,10 +295,6 @@ export function Detail() {
               <Share2 size={15} className="text-stone-500" /> Chia sẻ
             </button>
           </div>
-
-          <p className="text-[11px] text-stone-400 mt-4 italic">
-            Ảnh và nội dung công thức chỉ để minh họa giao diện.
-          </p>
         </div>
       </div>
 
@@ -390,6 +357,8 @@ export function Detail() {
           </div>
 
           <div className="space-y-3 mb-6">
+            {scaled.isPending && <Loading />}
+            {scaled.isError && <ErrorState error={scaled.error} retry={() => void scaled.refetch()} />}
             {ingredientLines.map((line) => {
               const checked = !!checkedIngredients[line.name];
               return (
@@ -414,10 +383,15 @@ export function Detail() {
                       }`}
                     >
                       {line.name}
+                      {line.note && (
+                        <small className="block text-xs font-normal text-stone-500">{line.note}</small>
+                      )}
                     </span>
                   </div>
                   <span className="text-xs font-semibold text-stone-600">
-                    {line.exactQuantity ? `${line.exactQuantity} ${line.unit}` : line.unit || 'Vừa đủ'}
+                    {line.exactQuantity
+                      ? `${line.exactQuantity} ${line.unit === 'piece' ? 'đơn vị' : line.unit}`
+                      : 'Chưa rõ lượng'}
                   </span>
                 </div>
               );
@@ -436,9 +410,7 @@ export function Detail() {
               <h2 className="text-xl md:text-2xl font-bold text-stone-900 mb-1">
                 Nấu từng bước, không bỏ sót
               </h2>
-              <p className="text-xs md:text-sm text-stone-500">
-                Bật hướng dẫn bằng giọng đọc khi đang nấu.
-              </p>
+              <p className="text-xs md:text-sm text-stone-500">Bật hướng dẫn bằng giọng đọc khi đang nấu.</p>
             </div>
             <button
               onClick={toggleSpeech}
@@ -449,7 +421,7 @@ export function Detail() {
               }`}
             >
               {isSpeaking ? <Pause size={15} /> : <Play size={15} fill="currentColor" />}
-              {isSpeaking ? 'Dừng hướng dẫn' : 'Nghe hướng dẫn AI'}
+              {isSpeaking ? 'Dừng hướng dẫn' : 'Nghe hướng dẫn'}
             </button>
           </div>
 
@@ -460,14 +432,18 @@ export function Detail() {
                 onClick={toggleSpeech}
                 className="w-12 h-12 rounded-full bg-[#47735B] text-white flex items-center justify-center hover:scale-105 transition shadow-xs shrink-0"
               >
-                {isSpeaking ? <Pause size={20} /> : <Play size={20} className="translate-x-0.5" fill="currentColor" />}
+                {isSpeaking ? (
+                  <Pause size={20} />
+                ) : (
+                  <Play size={20} className="translate-x-0.5" fill="currentColor" />
+                )}
               </button>
               <div>
                 <p className="text-sm font-bold text-stone-900">
                   Giọng hướng dẫn • Bước {currentStepIndex + 1}
                 </p>
                 <p className="text-xs text-stone-500">
-                  {isSpeaking ? 'Đang phát...' : '00:32 / 02:40'} • Tốc độ 1x
+                  {isSpeaking ? 'Đang đọc hướng dẫn' : 'Sẵn sàng đọc hướng dẫn'} • Tốc độ 1x
                 </p>
               </div>
             </div>
@@ -490,7 +466,9 @@ export function Detail() {
           <div className="mb-6">
             <div className="flex justify-between text-xs font-semibold text-stone-600 mb-2">
               <span>Tiến trình công thức</span>
-              <span>{currentStepIndex + 1} / {steps.length} bước</span>
+              <span>
+                {currentStepIndex + 1} / {steps.length} bước
+              </span>
             </div>
             <div className="w-full bg-stone-100 rounded-full h-1.5 overflow-hidden">
               <div
@@ -503,8 +481,6 @@ export function Detail() {
           {/* Steps List */}
           <div className="space-y-4">
             {steps.map((step, idx) => {
-              const minutes = idx === 0 ? 2 : idx === 1 ? 5 : 8;
-              const isRunning = activeTimerStep === idx && timerSeconds > 0;
               const isDone = currentStepIndex > idx;
 
               return (
@@ -522,8 +498,8 @@ export function Detail() {
                         isDone
                           ? 'bg-[#47735B] text-white'
                           : currentStepIndex === idx
-                          ? 'bg-[#47735B] text-white'
-                          : 'bg-stone-200 text-stone-700'
+                            ? 'bg-[#47735B] text-white'
+                            : 'bg-stone-200 text-stone-700'
                       }`}
                     >
                       {step.order || idx + 1}
@@ -532,23 +508,8 @@ export function Detail() {
                     <div className="grow">
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-1.5">
                         <h3 className="text-base font-bold text-stone-900">{step.title}</h3>
-                        <button
-                          onClick={() => startTimer(idx, minutes)}
-                          className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition self-start sm:self-auto ${
-                            isRunning
-                              ? 'bg-amber-100 text-amber-800 border border-amber-300 animate-pulse'
-                              : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
-                          }`}
-                        >
-                          <Clock3 size={13} />
-                          {isRunning
-                            ? `${Math.floor(timerSeconds / 60)}:${String(timerSeconds % 60).padStart(2, '0')}`
-                            : `▷ ${minutes} phút`}
-                        </button>
                       </div>
-                      <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                        {step.instruction}
-                      </p>
+                      <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">{step.instruction}</p>
                     </div>
                   </div>
                 </div>
@@ -578,7 +539,10 @@ export function Cooking() {
     <main className="container max-w-3xl mx-auto py-12 px-4">
       <div className="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm">
         <div className="flex justify-between items-center mb-6">
-          <Link to={`/cong-thuc/${slug}`} className="text-sm font-semibold text-stone-500 hover:text-stone-900">
+          <Link
+            to={`/cong-thuc/${slug}`}
+            className="text-sm font-semibold text-stone-500 hover:text-stone-900"
+          >
             ← Quay lại công thức
           </Link>
           <span className="text-xs font-bold bg-stone-100 px-3 py-1 rounded-full text-stone-700">

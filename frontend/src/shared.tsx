@@ -16,7 +16,7 @@ import {
 import type { Cuisine, Recipe, User } from '@cookora/contracts';
 import { request } from './api';
 import { m } from 'motion/react';
-import { recipeMedia } from './recipe-media';
+import { recipeMedia, recipeSummary } from './recipe-media';
 
 export const cuisines: Cuisine[] = [
   { code: 'VN', name: 'Việt Nam', flag: '🇻🇳' },
@@ -79,10 +79,14 @@ export function Modal({
   title,
   onClose,
   children,
+  className = '',
+  eyebrow,
 }: {
   title: string;
   onClose: () => void;
   children: ReactNode;
+  className?: string;
+  eyebrow?: ReactNode;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
@@ -91,7 +95,7 @@ export function Modal({
   }, []);
   return (
     <dialog
-      className="modal"
+      className={`modal ${className}`.trim()}
       ref={ref}
       aria-labelledby={titleId}
       onCancel={onClose}
@@ -100,7 +104,14 @@ export function Modal({
       }}
     >
       <div className="modal-head">
-        <h2 id={titleId}>{title}</h2>
+        {eyebrow ? (
+          <div className="modal-title-group">
+            <p className="modal-eyebrow">{eyebrow}</p>
+            <h2 id={titleId}>{title}</h2>
+          </div>
+        ) : (
+          <h2 id={titleId}>{title}</h2>
+        )}
         <button className="icon-btn" onClick={onClose} aria-label="Đóng">
           <X />
         </button>
@@ -203,7 +214,6 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
             style={{ viewTransitionName: `recipe-${recipe.id}` }}
           />
         </Link>
-        <span className="image-label">{media.label}</span>
         <FavoriteButton recipe={recipe} overlay />
       </div>
       <div className="recipe-card-body">
@@ -216,7 +226,7 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
             {recipe.title}
           </Link>
         </h3>
-        <p>{recipe.summary}</p>
+        {recipeSummary(recipe) && <p>{recipeSummary(recipe)}</p>}
         <div className="card-meta">
           <span>
             <Clock3 size={14} />

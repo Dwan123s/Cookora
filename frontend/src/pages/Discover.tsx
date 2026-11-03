@@ -1,7 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { request } from '../api';
-import type { Recipe } from '@cookora/contracts';
 import { Link, useSearchParams } from 'react-router-dom';
 import {
   Search,
@@ -11,10 +9,13 @@ import {
   ArrowRight,
   ChevronDown,
   ChefHat,
+  CookingPot,
   SlidersHorizontal,
   RotateCcw,
 } from 'lucide-react';
-import { ALL_RECIPES_57, type RecipeItem } from '../data/recipes-57';
+import { discoveryRecipe, loadRecipeCatalog } from '../recipe-catalog';
+import { ErrorState, Loading } from '../shared';
+import { RECIPE_PLACEHOLDER } from '../recipe-media';
 
 const CUISINE_TABS = [
   { label: 'Tất cả', code: '' },
@@ -55,53 +56,32 @@ export function Discover() {
   const [params, setParams] = useSearchParams();
   const [draft, setDraft] = useState(params.get('q') || '');
   const [selectedTime, setSelectedTime] = useState<string>('');
-  const [selectedDiff, setSelectedDiff] = useState<string>('');
+  const requestedDifficulty = params.get('difficulty') || '';
+  const selectedDiff = DIFFICULTY_FILTERS.includes(requestedDifficulty) ? requestedDifficulty : '';
   const [selectedServing, setSelectedServing] = useState<string>('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
-    params.get('category') ? [params.get('category')!] : []
+    params.get('category') ? [params.get('category')!] : [],
   );
   const [sortBy, setSortBy] = useState<'popular' | 'time' | 'servings'>('popular');
   const [favorites, setFavorites] = useState<Record<string, boolean>>({});
   const [visibleCount, setVisibleCount] = useState<number>(24);
 
-  // Query live from SQL Server database via backend API with optimal 5-min caching
+  // SQL/API is the only catalog source; never substitute a static list while loading or on errors.
   const recipesQuery = useQuery({
-    queryKey: ['recipes', 'all'],
-    queryFn: () => request<Recipe[]>('/recipes?pageSize=100'),
-    staleTime: 5 * 60 * 1000, // 5 minutes cache
-    refetchOnWindowFocus: false, // Don't refetch on window focus
+    queryKey: ['recipes', 'catalog', 'sql-v1'],
+    queryFn: () => loadRecipeCatalog(),
+    staleTime: 30000,
+    refetchOnWindowFocus: false,
   });
 
-  // Convert SQL Server recipes dynamically
-  const allRecipes: RecipeItem[] = useMemo(() => {
-    if (recipesQuery.data?.data && recipesQuery.data.data.length > 0) {
-      return recipesQuery.data.data.map((r: any) => ({
-        id: r.id,
-        slug: r.slug,
-        title: r.title,
-        category: r.category || 'Món ngon',
-        cuisine: r.cuisine,
-        cuisineName:
-          r.cuisine === 'VN' ? 'Món Việt' :
-          r.cuisine === 'KR' ? 'Hàn Quốc' :
-          r.cuisine === 'JP' ? 'Nhật Bản' :
-          r.cuisine === 'CN' ? 'Trung Quốc' :
-          r.cuisine === 'TH' ? 'Thái Lan' :
-          r.cuisine === 'IT' ? 'Ý' :
-          r.cuisine === 'WE' ? 'Âu & Mỹ' :
-          r.cuisine === 'FR' ? 'Pháp' : (r.cuisine || 'Món ngon'),
-        image: r.image || r.imageUrl || '/images/hero/hero.jpg',
-        time: r.totalMinutes || 25,
-        servings: r.baseServings || 2,
-        difficulty: r.difficulty || 'Dễ',
-        summary: r.summary || '',
-      }));
-    }
-    return ALL_RECIPES_57;
-  }, [recipesQuery.data]);
+  const allRecipes = useMemo(() => (recipesQuery.data || []).map(discoveryRecipe), [recipesQuery.data]);
+  const recommendation = allRecipes.find((recipe) => recipe.image) || allRecipes[0];
 
   const currentCuisine = params.get('cuisine') || '';
   const currentSearch = params.get('q') || '';
+  useEffect(() => {
+    setVisibleCount(24);
+  }, [currentCuisine, currentSearch, selectedCategories, selectedTime, selectedDiff, selectedServing]);
 
   const toggleFav = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -122,6 +102,13 @@ export function Discover() {
     setParams(p);
   };
 
+  const setDifficulty = (difficulty: string) => {
+    const next = new URLSearchParams(params);
+    if (difficulty) next.set('difficulty', difficulty);
+    else next.delete('difficulty');
+    setParams(next);
+  };
+
   const toggleCategory = (cat: string) => {
     setSelectedCategories((prev) => {
       const next = prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat];
@@ -138,7 +125,6 @@ export function Discover() {
 
   const resetFilters = () => {
     setSelectedTime('');
-    setSelectedDiff('');
     setSelectedServing('');
     setSelectedCategories([]);
     setParams({});
@@ -148,53 +134,76 @@ export function Discover() {
 
   // Filter & Sort Recipes
   const filteredRecipes = useMemo(() => {
-    return allRecipes.filter((recipe) => {
-      // 1. Search Query
-      if (currentSearch) {
-        const q = currentSearch.toLowerCase();
-        const matchTitle = recipe.title.toLowerCase().includes(q);
-        const matchSummary = recipe.summary.toLowerCase().includes(q);
-        const matchCat = recipe.category.toLowerCase().includes(q);
-        const matchCuisine = recipe.cuisineName.toLowerCase().includes(q);
-        if (!matchTitle && !matchSummary && !matchCat && !matchCuisine) return false;
-      }
+    return allRecipes
+      .filter((recipe) => {
+        // 1. Search Query
+        if (currentSearch) {
+          const q = currentSearch.toLowerCase();
+          const matchTitle = recipe.title.toLowerCase().includes(q);
+          const matchSummary = recipe.summary.toLowerCase().includes(q);
+          const matchCat = recipe.category.toLowerCase().includes(q);
+          const matchCuisine = recipe.cuisineName.toLowerCase().includes(q);
+          if (!matchTitle && !matchSummary && !matchCat && !matchCuisine) return false;
+        }
 
-      // 2. Cuisine Filter
-      if (currentCuisine && recipe.cuisine !== currentCuisine) {
-        return false;
-      }
+        // 2. Cuisine Filter
+        if (currentCuisine && recipe.cuisine !== currentCuisine) {
+          return false;
+        }
 
-      // 3. Category Filter
-      if (selectedCategories.length > 0 && !selectedCategories.includes(recipe.category)) {
-        return false;
-      }
+        // 3. Category Filter
+        if (selectedCategories.length > 0 && !selectedCategories.includes(recipe.category)) {
+          return false;
+        }
 
-      // 4. Time Filter
-      if (selectedTime) {
-        const timeRule = TIME_FILTERS.find((t) => t.id === selectedTime);
-        if (timeRule && !timeRule.check(recipe.time)) return false;
-      }
+        // 4. Time Filter
+        if (selectedTime) {
+          const timeRule = TIME_FILTERS.find((t) => t.id === selectedTime);
+          if (timeRule && (recipe.time === null || !timeRule.check(recipe.time))) return false;
+        }
 
-      // 5. Difficulty Filter
-      if (selectedDiff && recipe.difficulty !== selectedDiff) {
-        return false;
-      }
+        // 5. Difficulty Filter
+        if (selectedDiff && recipe.difficulty !== selectedDiff) {
+          return false;
+        }
 
-      // 6. Servings Filter
-      if (selectedServing) {
-        const servRule = SERVINGS_FILTERS.find((s) => s.id === selectedServing);
-        if (servRule && !servRule.check(recipe.servings)) return false;
-      }
+        // 6. Servings Filter
+        if (selectedServing) {
+          const servRule = SERVINGS_FILTERS.find((s) => s.id === selectedServing);
+          if (servRule && !servRule.check(recipe.servings)) return false;
+        }
 
-      return true;
-    }).sort((a, b) => {
-      if (sortBy === 'time') return a.time - b.time;
-      if (sortBy === 'servings') return a.servings - b.servings;
-      return 0; // Default: popular/order
-    });
-  }, [currentSearch, currentCuisine, selectedCategories, selectedTime, selectedDiff, selectedServing, sortBy]);
+        return true;
+      })
+      .sort((a, b) => {
+        if (sortBy === 'time') return (a.time ?? Infinity) - (b.time ?? Infinity);
+        if (sortBy === 'servings') return a.servings - b.servings;
+        return 0; // Default: popular/order
+      });
+  }, [
+    allRecipes,
+    currentSearch,
+    currentCuisine,
+    selectedCategories,
+    selectedTime,
+    selectedDiff,
+    selectedServing,
+    sortBy,
+  ]);
 
   const displayedRecipes = filteredRecipes.slice(0, visibleCount);
+  if (recipesQuery.isPending)
+    return (
+      <main className="container">
+        <Loading />
+      </main>
+    );
+  if (recipesQuery.isError)
+    return (
+      <main className="container">
+        <ErrorState error={recipesQuery.error} retry={() => void recipesQuery.refetch()} />
+      </main>
+    );
 
   return (
     <main className="min-h-screen bg-[#FAF9F6] text-[#273D32] pb-24 font-sans relative overflow-x-hidden">
@@ -216,7 +225,8 @@ export function Discover() {
                 Khám phá công thức
               </h1>
               <p className="text-sm sm:text-[15px] text-[#5C7065] leading-relaxed max-w-xl">
-                Tìm kiếm công thức nấu ăn theo món ăn, nguyên liệu, phong cách ẩm thực hoặc thời gian chuẩn bị.
+                Tìm kiếm công thức nấu ăn theo món ăn, nguyên liệu, phong cách ẩm thực hoặc thời gian chuẩn
+                bị.
               </p>
 
               {/* Rounded-full Pill Search Bar matching Image */}
@@ -247,8 +257,8 @@ export function Discover() {
             <div className="lg:col-span-4 hidden lg:flex justify-end relative">
               <div className="w-[320px] xl:w-[350px] aspect-square rounded-full overflow-hidden shadow-xl border-4 border-white/80 bg-stone-100 relative group">
                 <img
-                  src="/images/aglio-olio.webp"
-                  alt="Món mì Ý tỏi & dầu ô liu"
+                  src={allRecipes.find((r) => r.image)?.image || RECIPE_PLACEHOLDER}
+                  alt={recommendation?.title || 'Danh mục công thức'}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -264,12 +274,8 @@ export function Discover() {
               <ChefHat size={22} strokeWidth={2} />
             </div>
             <div>
-              <h3 className="font-bold text-[#273D32] text-base sm:text-lg leading-tight">
-                Gợi ý hôm nay
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5C7065] mt-0.5">
-                Một món ngon, dễ nấu và được cộng đồng Cookora yêu thích.
-              </p>
+              <h3 className="font-bold text-[#273D32] text-base sm:text-lg leading-tight">Gợi ý hôm nay</h3>
+              <p className="text-xs sm:text-sm text-[#5C7065] mt-0.5">Thêm cảm hứng cho bữa ăn hôm nay.</p>
             </div>
           </div>
 
@@ -277,25 +283,26 @@ export function Discover() {
           <div className="flex items-center gap-3.5 w-full md:w-auto bg-white/70 backdrop-blur-xs px-3.5 py-2 rounded-2xl border border-[#EADBCC]/80">
             <div className="w-16 h-12 sm:w-20 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-[#DFE5DD]">
               <img
-                src="/images/hero/tomatoegg.jpg"
-                alt="Trứng xào cà chua"
+                src={recommendation?.image || RECIPE_PLACEHOLDER}
+                alt={recommendation?.title || 'Chưa có ảnh'}
                 className="w-full h-full object-cover"
               />
             </div>
             <div>
               <h4 className="font-bold text-[#273D32] text-xs sm:text-sm leading-tight">
-                Trứng xào cà chua
+                {recommendation?.title || 'Chưa có công thức'}
               </h4>
               <div className="flex items-center gap-2.5 text-[11px] text-[#5C7065] mt-1">
                 <span className="flex items-center gap-1 font-medium">
-                  <Clock size={12} /> 18 phút
+                  <Clock size={12} />{' '}
+                  {recommendation?.time ? `~${recommendation.time} phút` : 'Chưa rõ thời gian'}
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1 font-medium">
-                  <Users size={12} /> 2 phần
+                  <Users size={12} /> {recommendation?.servings || '—'} phần
                 </span>
                 <span className="bg-[#E8F1E9] text-[#47735B] px-2 py-0.5 rounded-md font-semibold text-[10px]">
-                  Dễ
+                  Bản thảo
                 </span>
               </div>
             </div>
@@ -303,7 +310,7 @@ export function Discover() {
 
           {/* Right: CTA Button */}
           <Link
-            to="/cong-thuc/trung-xao-ca-chua"
+            to={recommendation ? `/cong-thuc/${recommendation.slug}` : '/cong-thuc'}
             className="w-full md:w-auto justify-center bg-[#E8F1E9] hover:bg-[#D8E6DA] text-[#273D32] px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition flex items-center gap-1.5 shadow-2xs shrink-0"
           >
             Xem công thức <ArrowRight size={14} />
@@ -343,7 +350,10 @@ export function Discover() {
                 <option value="time">Thời gian nấu: Nhanh nhất</option>
                 <option value="servings">Khẩu phần: Tăng dần</option>
               </select>
-              <ChevronDown size={14} className="text-[#5C7065] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown
+                size={14}
+                className="text-[#5C7065] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+              />
             </div>
           </div>
 
@@ -388,9 +398,7 @@ export function Discover() {
 
             {/* Filter 1: Thời gian nấu */}
             <div className="space-y-2.5">
-              <h4 className="text-xs font-bold text-[#273D32] uppercase tracking-wider">
-                Thời gian nấu
-              </h4>
+              <h4 className="text-xs font-bold text-[#273D32] uppercase tracking-wider">Thời gian nấu</h4>
               <div className="space-y-2 text-xs sm:text-[13px] text-[#5C7065]">
                 {TIME_FILTERS.map((t) => (
                   <label key={t.id} className="flex items-center gap-2.5 cursor-pointer group">
@@ -409,17 +417,26 @@ export function Discover() {
 
             {/* Filter 2: Độ khó */}
             <div className="space-y-2.5 border-t border-[#DFE5DD]/70 pt-4">
-              <h4 className="text-xs font-bold text-[#273D32] uppercase tracking-wider">
-                Độ khó
-              </h4>
+              <h4 className="text-xs font-bold text-[#273D32] uppercase tracking-wider">Độ khó</h4>
+              <p className="text-[11px] text-[#5C7065]">Tham khảo theo kỹ thuật và công đoạn.</p>
               <div className="space-y-2 text-xs sm:text-[13px] text-[#5C7065]">
+                <label className="flex items-center gap-2.5 cursor-pointer group">
+                  <input
+                    type="radio"
+                    name="difficulty"
+                    checked={!selectedDiff}
+                    onChange={() => setDifficulty('')}
+                    className="accent-[#47735B] cursor-pointer"
+                  />
+                  <span>Tất cả độ khó</span>
+                </label>
                 {DIFFICULTY_FILTERS.map((d) => (
                   <label key={d} className="flex items-center gap-2.5 cursor-pointer group">
                     <input
                       type="radio"
                       name="difficulty"
                       checked={selectedDiff === d}
-                      onChange={() => setSelectedDiff(selectedDiff === d ? '' : d)}
+                      onChange={() => setDifficulty(d)}
                       className="accent-[#47735B] cursor-pointer"
                     />
                     <span className="group-hover:text-[#273D32] transition">{d}</span>
@@ -430,9 +447,7 @@ export function Discover() {
 
             {/* Filter 3: Loại món (Checkboxes) */}
             <div className="space-y-2.5 border-t border-[#DFE5DD]/70 pt-4">
-              <h4 className="text-xs font-bold text-[#273D32] uppercase tracking-wider">
-                Loại món
-              </h4>
+              <h4 className="text-xs font-bold text-[#273D32] uppercase tracking-wider">Loại món</h4>
               <div className="space-y-2 text-xs sm:text-[13px] text-[#5C7065]">
                 {CATEGORY_TABS.map((cat) => (
                   <label key={cat.label} className="flex items-center gap-2.5 cursor-pointer group">
@@ -450,9 +465,7 @@ export function Discover() {
 
             {/* Filter 4: Khẩu phần */}
             <div className="space-y-2.5 border-t border-[#DFE5DD]/70 pt-4">
-              <h4 className="text-xs font-bold text-[#273D32] uppercase tracking-wider">
-                Khẩu phần
-              </h4>
+              <h4 className="text-xs font-bold text-[#273D32] uppercase tracking-wider">Khẩu phần</h4>
               <div className="space-y-2 text-xs sm:text-[13px] text-[#5C7065]">
                 {SERVINGS_FILTERS.map((s) => (
                   <label key={s.id} className="flex items-center gap-2.5 cursor-pointer group">
@@ -496,15 +509,24 @@ export function Discover() {
                       to={`/cong-thuc/${dish.slug}`}
                       className="block relative aspect-4/3 overflow-hidden bg-stone-100"
                     >
-                      <img
-                        src={dish.image}
-                        alt={dish.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        onError={(e) => {
-                          e.currentTarget.src = '/images/hero/hero.jpg';
-                        }}
-                      />
+                      <div
+                        aria-hidden={!!dish.image}
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-[#8a9b80]"
+                      >
+                        <CookingPot size={34} aria-hidden="true" />
+                        <span className="text-xs">Chưa có ảnh món ăn</span>
+                      </div>
+                      {
+                        <img
+                          src={dish.image || RECIPE_PLACEHOLDER}
+                          alt={dish.title}
+                          className="relative w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                      }
 
                       {/* Top-left Cuisine Badge */}
                       <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-md bg-white/95 backdrop-blur-xs text-[11px] font-semibold text-[#273D32] shadow-2xs">
@@ -518,26 +540,21 @@ export function Discover() {
                         className="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center text-[#5C7065] hover:text-[#B25D65] shadow-2xs transition hover:scale-105 cursor-pointer"
                         title="Lưu món"
                       >
-                        <Heart
-                          size={15}
-                          className={isFav ? 'fill-[#B25D65] text-[#B25D65]' : ''}
-                        />
+                        <Heart size={15} className={isFav ? 'fill-[#B25D65] text-[#B25D65]' : ''} />
                       </button>
                     </Link>
 
                     {/* Card Content */}
                     <div className="p-3.5 sm:p-4 flex flex-col justify-between flex-1">
                       <h3 className="font-bold text-[#273D32] text-sm sm:text-[14.5px] leading-snug line-clamp-1 mb-3 group-hover:text-[#47735B] transition">
-                        <Link to={`/cong-thuc/${dish.slug}`}>
-                          {dish.title}
-                        </Link>
+                        <Link to={`/cong-thuc/${dish.slug}`}>{dish.title}</Link>
                       </h3>
 
                       {/* Bottom Meta Row */}
                       <div className="flex items-center justify-between text-xs text-[#5C7065] font-medium pt-1 border-t border-[#DFE5DD]/50">
                         <div className="flex items-center gap-2 text-[11.5px]">
                           <span className="flex items-center gap-1">
-                            <Clock size={12} className="text-[#5C7065]" /> {dish.time} phút
+                            <Clock size={12} className="text-[#5C7065]" /> {dish.time ?? '—'} phút
                           </span>
                           <span>•</span>
                           <span className="flex items-center gap-1">
@@ -546,15 +563,25 @@ export function Discover() {
                         </div>
 
                         {/* Difficulty Badge */}
-                        <span
-                          className={`text-[10.5px] font-semibold px-2 py-0.5 rounded-md ${
-                            dish.difficulty === 'Dễ'
-                              ? 'bg-[#E8F1E9] text-[#47735B]'
-                              : 'bg-[#F8F4EC] text-[#8C6D3B]'
-                          }`}
-                        >
-                          {dish.difficulty}
-                        </span>
+                        {dish.difficulty && !dish.difficulty.toLowerCase().startsWith('chưa') && (
+                          <span
+                            className={`text-[10.5px] font-semibold px-2 py-0.5 rounded-md ${
+                              dish.difficulty === 'Dễ'
+                                ? 'bg-[#E8F1E9] text-[#47735B]'
+                                : 'bg-[#F8F4EC] text-[#8C6D3B]'
+                            }`}
+                          >
+                            <span
+                              title={
+                                dish.difficultyBasis === 'ESTIMATED'
+                                  ? 'Độ khó tham khảo theo kỹ thuật và công đoạn'
+                                  : undefined
+                              }
+                            >
+                              {dish.difficulty}
+                            </span>
+                          </span>
+                        )}
                       </div>
                     </div>
                   </article>
