@@ -1,44 +1,78 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, ChevronDown, Coins, LoaderCircle, RefreshCw, ShoppingBasket } from 'lucide-react';
+import {
+  ArrowRight,
+  Check,
+  ChevronDown,
+  Coins,
+  History,
+  Info,
+  LoaderCircle,
+  RefreshCw,
+  RotateCcw,
+  ShoppingBasket,
+} from 'lucide-react';
 import type { BudgetSuggestionInput, BudgetSuggestionResponse } from '@cookora/contracts';
 import { request } from '../api';
 import { errorText } from '../shared';
 import { money } from '../tool-data';
 import { recipeMedia } from '../recipe-media';
+import {
+  addBudgetResult,
+  budgetSignature,
+  checkBudgetItem,
+  newBudgetDraft,
+  restoreBudgetEntry,
+  type BudgetHistoryState,
+} from '../budget-history';
 import '../budget-assistant.css';
 
 export function BudgetAssistant({
   input,
   valid,
   renderSettings,
+  history,
 }: {
   input: Omit<BudgetSuggestionInput, 'preferences' | 'region'>;
   valid: boolean;
   renderSettings: (pending: boolean) => ReactNode;
+  history: {
+    state: BudgetHistoryState;
+    saved: boolean;
+    update: (change: (state: BudgetHistoryState) => BudgetHistoryState) => void;
+  };
 }) {
-  const [region, setRegion] = useState('Việt Nam');
-  const [preferences, setPreferences] = useState('');
+  const { state, saved, update } = history;
+  const { region, preferences } = state.draft;
+  const selected = state.history.find((entry) => entry.id === state.selectedId);
   const current = { ...input, region: region.trim(), preferences: preferences.trim() };
-  const signature = JSON.stringify(current);
+  const signature = budgetSignature(current);
   const ai = useMutation({
     mutationFn: (body: BudgetSuggestionInput) =>
       request<BudgetSuggestionResponse>('/ai/suggest-budget', { method: 'POST', body }),
+    onSuccess: (result) => {
+      update((previous) => addBudgetResult(previous, result.data, crypto.randomUUID()));
+    },
   });
-  const response = ai.data?.data;
+  const response = selected?.response;
+  const scrollToResult = useRef(false);
   const resultsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (!response) return;
+    if (!response || !scrollToResult.current) return;
+    scrollToResult.current = false;
     resultsRef.current?.scrollIntoView({
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
       block: 'start',
     });
-  }, [response]);
-  const stale = !!response && JSON.stringify(response.input) !== signature;
+  }, [selected?.id, response]);
+  const stale = !!response && budgetSignature(response.input) !== signature;
   function submit(event: React.FormEvent) {
     event.preventDefault();
-    if (valid && !ai.isPending) ai.mutate(current);
+    if (valid && !ai.isPending) {
+      scrollToResult.current = true;
+      ai.mutate(current);
+    }
   }
   return (
     <section className="budget-ai budget-ai-workflow" aria-label="Gợi ý món theo ngân sách">
@@ -61,7 +95,10 @@ export function BudgetAssistant({
                 value={region}
                 maxLength={120}
                 placeholder="Ví dụ: TP.HCM, chợ dân sinh"
-                onChange={(e) => setRegion(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  update((previous) => ({ ...previous, draft: { ...previous.draft, region: value } }));
+                }}
               />
             </label>
             <label htmlFor="budget-preferences">
@@ -72,7 +109,10 @@ export function BudgetAssistant({
                 maxLength={1200}
                 value={preferences}
                 placeholder="Ví dụ: thích món Việt, ít cay, đã có gạo và trứng, tránh thịt bò…"
-                onChange={(e) => setPreferences(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  update((previous) => ({ ...previous, draft: { ...previous.draft, preferences: value } }));
+                }}
               />
             </label>
           </div>
@@ -108,13 +148,85 @@ export function BudgetAssistant({
         )}
       </form>
 
+      <section className="budget-history tools-card" aria-label="Lịch sử ước tính chi phí">
+        <div className="budget-history-heading">
+          <div>
+            <h2>
+              <History size={20} />
+              Lịch sử ước tính
+            </h2>
+            <p role="status">
+              {saved
+                ? 'Tự lưu trên trình duyệt này, riêng theo tài khoản · tối đa 10 kết quả gần nhất.'
+                : 'Chưa lưu được trên trình duyệt. Hãy giữ trang này để không mất kết quả.'}
+            </p>
+          </div>
+          <button
+            type="button"
+            className="budget-history-new"
+            disabled={ai.isPending}
+            onClick={() => {
+              ai.reset();
+              update(newBudgetDraft);
+            }}
+          >
+            <RotateCcw size={15} />
+            Bắt đầu mới
+          </button>
+        </div>
+        {state.history.length ? (
+          <details className="budget-history-list">
+            <summary>Xem {state.history.length} bản ước tính đã lưu</summary>
+            <ul>
+              {state.history.map((entry) => (
+                <li key={entry.id}>
+                  <button
+                    type="button"
+                    disabled={ai.isPending}
+                    aria-pressed={entry.id === state.selectedId}
+                    onClick={() => {
+                      ai.reset();
+                      scrollToResult.current = true;
+                      update((previous) => restoreBudgetEntry(previous, entry.id));
+                    }}
+                  >
+                    <span className="budget-history-title">
+                      {money(entry.response.budget)} · {entry.response.input.people} người ·{' '}
+                      {entry.response.input.days} ngày
+                    </span>
+                    <span>
+                      Ước tính {money(entry.response.estimatedTotal)} · {entry.response.meals.length} bữa
+                    </span>
+                    <small>
+                      {new Date(entry.savedAt).toLocaleString('vi-VN')}
+                      {entry.id === state.selectedId ? ' · Đang xem' : ''}
+                    </small>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ) : (
+          <p className="budget-history-empty">
+            Kết quả sẽ tự lưu sau khi AI gợi ý thành công. Thiết lập ngân sách đang nhập cũng được giữ lại.
+          </p>
+        )}
+        {!saved && (
+          <p className="budget-ai-error">
+            <Info size={15} /> Không thể lưu bền vững khi trình duyệt chặn lưu trữ hoặc hết dung lượng.
+          </p>
+        )}
+      </section>
+
       <div ref={resultsRef} className="budget-ai-result-anchor">
-        {response && (
+        {response && selected && (
           <BudgetPlanResult
-            key={response.generatedAt}
+            key={selected.id}
             response={response}
             stale={stale}
             busy={ai.isPending}
+            checked={selected.checked}
+            onCheck={(key, value) => update((previous) => checkBudgetItem(previous, selected.id, key, value))}
           />
         )}
       </div>
@@ -126,12 +238,15 @@ export function BudgetPlanResult({
   response,
   stale = false,
   busy = false,
+  checked,
+  onCheck,
 }: {
   response: BudgetSuggestionResponse;
   stale?: boolean;
   busy?: boolean;
+  checked: Record<string, boolean>;
+  onCheck: (key: string, checked: boolean) => void;
 }) {
-  const [checked, setChecked] = useState<Record<string, boolean>>({});
   const days = Array.from({ length: response.input.days }, (_, i) => i + 1);
   return (
     <div className="budget-ai-results" aria-live="polite" aria-busy={busy}>
@@ -238,7 +353,7 @@ export function BudgetPlanResult({
                 <input
                   type="checkbox"
                   checked={!!checked[key]}
-                  onChange={(e) => setChecked((old) => ({ ...old, [key]: e.target.checked }))}
+                  onChange={(e) => onCheck(key, e.target.checked)}
                 />
                 <span>
                   {item.name}

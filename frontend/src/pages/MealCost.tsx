@@ -18,22 +18,34 @@ import {
   Users,
   Wallet,
 } from 'lucide-react';
-import { FavoriteButton, Loading, ErrorState } from '../shared';
+import { FavoriteButton, Loading, ErrorState, useUser } from '../shared';
 import { matcherMedia } from '../matcher-media';
 import { recipeSummary } from '../recipe-media';
 import { money, toolRecipes, useToolStorage } from '../tool-data';
 import { budgetResult, isPriceBook, recipeCost, type PriceBook } from '../meal-cost';
 import { RecipePriceEditor } from '../components/RecipePriceEditor';
 import { BudgetAssistant } from '../components/BudgetAssistant';
+import { useBudgetHistory } from '../use-budget-history';
+import type { BudgetDraft } from '../budget-history';
 import type { Recipe } from '@cookora/contracts';
 import '../tools-reference.css';
 const emptyPrices: PriceBook = [];
 export function MealCost() {
-  const [mode, setMode] = useState<'week' | 'day'>('week');
-  const [amounts, setAmounts] = useState({ week: '300000', day: '50000' });
-  const [days, setDays] = useState(7),
-    [people, setPeople] = useState(1),
-    [meals, setMeals] = useState(2);
+  const user = useUser();
+  return <MealCostWorkspace key={user?.id || 'guest'} accountId={user?.id || null} />;
+}
+function MealCostWorkspace({ accountId }: { accountId: string | null }) {
+  const history = useBudgetHistory(accountId);
+  const { mode, amounts, days, people, mealsPerDay: meals } = history.state.draft;
+  const setDraft = (patch: Partial<BudgetDraft>) =>
+    history.update((previous) => ({
+      ...previous,
+      draft: { ...previous.draft, ...patch },
+    }));
+  const setMode = (mode: BudgetDraft['mode']) => setDraft({ mode });
+  const setDays = (days: number) => setDraft({ days });
+  const setPeople = (people: number) => setDraft({ people });
+  const setMeals = (mealsPerDay: number) => setDraft({ mealsPerDay });
   const [onlyPriced, setOnlyPriced] = useState(false),
     [more, setMore] = useState(false),
     [editing, setEditing] = useState<Recipe | null>(null);
@@ -42,7 +54,11 @@ export function MealCost() {
   const result = budgetResult(Number(amounts[mode]), mode, days, people, meals);
   const min = mode === 'week' ? 150000 : 30000,
     max = mode === 'week' ? 1000000 : 200000;
-  const setAmount = (value: string) => setAmounts((v) => ({ ...v, [mode]: value }));
+  const setAmount = (value: string) =>
+    history.update((previous) => ({
+      ...previous,
+      draft: { ...previous.draft, amounts: { ...previous.draft.amounts, [mode]: value } },
+    }));
   const all = useMemo(
     () => (query.data || []).map((recipe) => ({ recipe, cost: recipeCost(recipe, people, prices.value) })),
     [query.data, people, prices.value],
@@ -65,6 +81,7 @@ export function MealCost() {
         <img src="/images/budget-hero.webp" alt="Giỏ rau củ, máy tính và đồng xu" />
       </section>
       <BudgetAssistant
+        history={history}
         input={{ amount: Number(amounts[mode]), mode, days, people, mealsPerDay: meals }}
         valid={validBudget}
         renderSettings={(pending) => (

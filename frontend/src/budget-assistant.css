@@ -1,6 +1,111 @@
 .budget-ai {
   margin: 28px 0;
 }
+.budget-history {
+  margin: 20px 0;
+  padding: 22px 24px;
+}
+.budget-history-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.budget-history-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  font-size: 19px;
+  color: #34583f;
+}
+.budget-history-heading p,
+.budget-history-empty {
+  margin: 9px 0 0;
+  font-size: 12px;
+  color: #66746b;
+  line-height: 1.7;
+}
+.budget-history-new {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #d6dfd2;
+  border-radius: 10px;
+  padding: 10px 13px;
+  background: #fffefa;
+  color: #34583f;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.budget-history-list {
+  margin-top: 18px;
+  border-top: 1px solid #e5e9df;
+  padding-top: 16px;
+}
+.budget-history-list summary {
+  cursor: pointer;
+  color: #34583f;
+  font-size: 14px;
+  font-weight: 600;
+}
+.budget-history-list ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  max-height: 340px;
+  overflow: auto;
+}
+.budget-history-list li button {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  padding: 13px;
+  border: 1px solid #dfe5dd;
+  border-radius: 12px;
+  color: #34583f;
+  background: #fffefa;
+  cursor: pointer;
+  font: inherit;
+}
+.budget-history-list li button[aria-pressed='true'] {
+  border-color: #739466;
+  background: #eff5e9;
+}
+.budget-history-list span {
+  font-size: 12px;
+}
+.budget-history-list .budget-history-title {
+  font-weight: 650;
+  font-size: 13px;
+}
+.budget-history-list small {
+  color: #66746b;
+  font-size: 11px;
+}
+.budget-history button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+@media (max-width: 760px) {
+  .budget-history {
+    padding: 18px;
+  }
+  .budget-history-heading {
+    flex-wrap: wrap;
+  }
+  .budget-history-list ul {
+    grid-template-columns: 1fr;
+  }
+}
 .budget-ai-workflow > .budget-ai-form {
   padding: 0;
 }

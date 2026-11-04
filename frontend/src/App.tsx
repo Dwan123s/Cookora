@@ -99,7 +99,7 @@ export function App() {
                   <Route path="/co-gi-nau-nay" element={<Matcher />} />
                   <Route path="/thuc-don" element={auth.isPending ? <Loading /> : <Planner />} />
                   <Route path="/eat-fit" element={<EatFit />} />
-                  <Route path="/ngan-sach" element={<MealCost />} />
+                  <Route path="/ngan-sach" element={auth.isPending ? <Loading /> : <MealCost />} />
                   <Route path="/dinh-duong" element={<Nutrition />} />
                   <Route path="/di-cho/:planId" element={auth.isPending ? <Loading /> : <Shopping />} />
                   <Route path="/yeu-thich" element={auth.isPending ? <Loading /> : <Favorites />} />
