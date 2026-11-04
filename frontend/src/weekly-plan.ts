@@ -1,6 +1,7 @@
 import type { MealEntry, MealPlan, Recipe } from '@cookora/contracts';
 import { request } from './api';
 import { weekOf } from './date';
+import { guestWeekStorageKey, mealSlotEntries, readGuestWeeks } from './meal-plan-slots';
 
 export type GroceryRow = {
   id: string;
@@ -200,9 +201,9 @@ export async function syncEatFitDayToMealPlan(
   ];
 
   if (!user) {
-    const storageKey = 'cookora.guest-week-plans.document-v2';
+    const storageKey = guestWeekStorageKey;
     try {
-      const data = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      const data = readGuestWeeks(localStorage);
       const weekData = data[week] || { entries: [], checked: {} };
       let entries = Array.isArray(weekData.entries) ? [...weekData.entries] : [];
 
@@ -211,7 +212,7 @@ export async function syncEatFitDayToMealPlan(
         const recipe = recipeList.find((r) => r.slug === meal.slug || r.title === meal.title);
         if (!recipe) continue;
 
-        entries = entries.filter((e) => !(e.date === date && e.mealType === type));
+        if (mealSlotEntries(entries, date, type).some((e) => e.recipeId === recipe.id)) continue;
         entries.push({
           id: crypto.randomUUID(),
           date,
@@ -242,17 +243,8 @@ export async function syncEatFitDayToMealPlan(
       const recipe = recipeList.find((r) => r.slug === meal.slug || r.title === meal.title);
       if (!recipe) continue;
 
-      const existing = currentPlan.entries.find((e) => e.date === date && e.mealType === type);
-
-      if (existing) {
-        if (existing.recipe.id !== recipe.id) {
-          const res = await request<MealPlan>(`/meal-plans/${currentPlan.id}/entries/${existing.id}`, {
-            method: 'PATCH',
-            body: { recipeId: recipe.id, servings: 2, version: currentPlan.version },
-          });
-          currentPlan = res.data;
-        }
-      } else {
+      const exists = mealSlotEntries(currentPlan.entries, date, type).some((e) => e.recipe.id === recipe.id);
+      if (!exists) {
         const res = await request<MealPlan>(`/meal-plans/${currentPlan.id}/entries`, {
           method: 'POST',
           body: {

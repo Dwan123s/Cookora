@@ -7,11 +7,9 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  CookingPot,
   Leaf,
   LoaderCircle,
   Moon,
-  Plus,
   Search,
   ShoppingCart,
   Shuffle,
@@ -25,55 +23,30 @@ import type { Envelope, MealEntry, MealPlan, Recipe, ShoppingList } from '@cooko
 import { request } from '../api';
 import { addDays, weekOf } from '../date';
 import { errorText, Modal, useNotice, useUser } from '../shared';
-import { matcherMedia } from '../matcher-media';
+import { resolveCategory } from '../recipe-catalog';
+import { MealImage, shortMealTitle as shortTitle, WeeklyMealSlot } from '../components/WeeklyMealSlot';
+import {
+  fillEmptyMealSlots,
+  guestWeekStorageKey as storageKey,
+  mealSlotEntries,
+  readGuestWeeks,
+  saveLocalDishes,
+  type LocalEntry,
+} from '../meal-plan-slots';
 import { loadEatFitDays } from '../eatfit-storage';
 import { groceryAmount, syncEatFitDayToMealPlan, weeklyGroceries, type GroceryRow } from '../weekly-plan';
 import { WeeklyBudgetCard } from '../components/WeeklyBudgetCard';
 import '../planner-reference.css';
 
 type MealType = MealEntry['mealType'];
-type LocalEntry = Omit<MealEntry, 'recipe'> & { recipeId: string };
-type LocalWeek = { entries: LocalEntry[]; checked: Record<string, boolean> };
 const dayLabel = (value: string) => `${value.slice(8, 10)}/${value.slice(5, 7)}`;
-const storageKey = 'cookora.guest-week-plans.document-v2';
 const rows: { type: MealType; label: string; Icon: typeof Sun }[] = [
   { type: 'BREAKFAST', label: 'Bữa sáng', Icon: Sun },
   { type: 'LUNCH', label: 'Bữa trưa', Icon: Soup },
   { type: 'DINNER', label: 'Bữa tối', Icon: Moon },
 ];
 const weekdays = ['THỨ 2', 'THỨ 3', 'THỨ 4', 'THỨ 5', 'THỨ 6', 'THỨ 7', 'CN'];
-const shortTitle = (title: string) => title.match(/\(([^()]+)\)\s*$/)?.[1] || title.replace(' · ', ' ');
-function readLocalWeeks(): Record<string, LocalWeek> {
-  try {
-    const data = JSON.parse(localStorage.getItem(storageKey) || '{}');
-    const valid: Record<string, LocalWeek> = {};
-    for (const [week, value] of Object.entries(data)) {
-      const item = value as LocalWeek;
-      if (/^\d{4}-\d{2}-\d{2}$/.test(week) && Array.isArray(item.entries)) {
-        valid[week] = {
-          entries: item.entries
-            .filter(
-              (e) =>
-                typeof e.id === 'string' &&
-                typeof e.recipeId === 'string' &&
-                typeof e.date === 'string' &&
-                e.date >= week &&
-                e.date <= addDays(week, 6) &&
-                rows.some((r) => r.type === e.mealType) &&
-                Number.isInteger(e.servings) &&
-                e.servings >= 1 &&
-                e.servings <= 20,
-            )
-            .slice(0, 100),
-          checked: item.checked && typeof item.checked === 'object' ? item.checked : {},
-        };
-      }
-    }
-    return valid;
-  } catch {
-    return {};
-  }
-}
+const readLocalWeeks = () => readGuestWeeks(localStorage);
 function initialEntries(week: string, pool: Recipe[], shift = 0, servings = 2): LocalEntry[] {
   return rows.flatMap((row, rowIndex) =>
     weekdays.map((_, day) => ({
@@ -95,24 +68,6 @@ async function allRecipes() {
   );
   return [...first.data, ...remaining.flatMap((page) => page.data)];
 }
-function MealImage({ recipe }: { recipe: Recipe }) {
-  const media = matcherMedia(recipe);
-  return (
-    <span className="weekly-meal-thumb">
-      <CookingPot aria-hidden="true" />
-      {media.src && (
-        <img
-          src={media.src}
-          alt={`${media.label}: ${recipe.title}`}
-          loading="lazy"
-          onError={(event) => {
-            event.currentTarget.style.display = 'none';
-          }}
-        />
-      )}
-    </span>
-  );
-}
 export function Planner() {
   const [parameters] = useSearchParams();
   const incomingBudget = Number(parameters.get('budget'));
@@ -129,9 +84,11 @@ export function Planner() {
   const [week, setWeek] = useState(currentWeek);
   const [localWeeks, setLocalWeeks] = useState(readLocalWeeks);
   const [slot, setSlot] = useState<{ date: string; type: MealType; entryId?: string } | null>(null);
-  const [selectedRecipe, setSelectedRecipe] = useState('');
+  const [selectedRecipes, setSelectedRecipes] = useState<string[]>([]);
   const [selectedServings, setSelectedServings] = useState(preferredServings);
   const [recipeSearch, setRecipeSearch] = useState('');
+  const [recipeFilter, setRecipeFilter] = useState('all');
+  const pendingKeys = useRef(new Map<string, string>());
   const [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const [budget, setBudget] = useState(
@@ -188,7 +145,7 @@ export function Planner() {
       ? shopping.data.data.items
       : derivedGroceries.map((row) => ({
           ...row,
-          purchased: !!localWeek.checked[`${row.id}:${row.quantity}`],
+          purchased: !user && !!localWeek.checked[`${row.id}:${row.quantity}`],
         }));
   const checkedCount = groceries.filter((row) => row.purchased).length;
   const setPlanCache = (value: Envelope<MealPlan>) => {
@@ -209,7 +166,9 @@ export function Planner() {
       return [0, 1, 2].some((idx) => {
         const meal = d.meals[idx];
         if (!meal) return false;
-        return !entries.some((e) => e.date === d.date && e.mealType === mealTypes[idx]);
+        return !mealSlotEntries(entries, d.date, mealTypes[idx]).some(
+          (e) => e.recipe.slug === meal.slug || e.recipe.title === meal.title,
+        );
       });
     });
     if (!unsyncedDays.length) return;
@@ -248,56 +207,68 @@ export function Planner() {
     }
   };
   const openSlot = (date: string, type: MealType, entry?: MealEntry) => {
+    pendingKeys.current.clear();
     setSlot({ date, type, entryId: entry?.id });
-    setSelectedRecipe(entry?.recipe.id || '');
-    setSelectedServings(entry?.servings || 2);
+    setSelectedRecipes(entry ? [entry.recipe.id] : []);
+    setSelectedServings(
+      entry?.servings || mealSlotEntries(entries, date, type)[0]?.servings || preferredServings,
+    );
     setRecipeSearch('');
+    setRecipeFilter('all');
     setError('');
   };
   const saveSlot = () =>
     run(async () => {
-      if (!slot || !selectedRecipe) return;
+      if (!slot || !selectedRecipes.length) return;
       if (!user) {
         setLocalWeeks((previous) => {
           const existing = previous[week] || { entries: [], checked: {} };
-          const next: LocalEntry = {
+          const additions: LocalEntry[] = selectedRecipes.map((recipeId) => ({
             id: slot.entryId || crypto.randomUUID(),
             date: slot.date,
             mealType: slot.type,
             servings: selectedServings,
-            recipeId: selectedRecipe,
-          };
+            recipeId,
+          }));
           return {
             ...previous,
             [week]: {
               ...existing,
-              entries: slot.entryId
-                ? existing.entries.map((entry) => (entry.id === slot.entryId ? next : entry))
-                : [...existing.entries, next],
+              entries: saveLocalDishes(existing.entries, additions, slot.entryId),
             },
           };
         });
       } else {
         let current: MealPlan =
+          qc.getQueryData<Envelope<MealPlan>>(planKey)?.data ??
           planData ??
           (await request<MealPlan>('/meal-plans', { method: 'POST', body: { weekStart: week } })).data;
-        const result = slot.entryId
-          ? await request<MealPlan>(`/meal-plans/${current.id}/entries/${slot.entryId}`, {
-              method: 'PATCH',
-              body: { recipeId: selectedRecipe, servings: selectedServings, version: current.version },
-            })
-          : await request<MealPlan>(`/meal-plans/${current.id}/entries`, {
-              method: 'POST',
-              body: {
-                date: slot.date,
-                mealType: slot.type,
-                recipeId: selectedRecipe,
-                servings: selectedServings,
-                version: current.version,
-                clientKey: crypto.randomUUID(),
-              },
-            });
-        setPlanCache(result);
+        for (const recipeId of selectedRecipes) {
+          const mutationKey = JSON.stringify([recipeId, selectedServings]);
+          const clientKey = pendingKeys.current.get(mutationKey) || crypto.randomUUID();
+          pendingKeys.current.set(mutationKey, clientKey);
+          const result = slot.entryId
+            ? await request<MealPlan>(`/meal-plans/${current.id}/entries/${slot.entryId}`, {
+                method: 'PATCH',
+                body: { recipeId, servings: selectedServings, version: current.version },
+              })
+            : await request<MealPlan>(`/meal-plans/${current.id}/entries`, {
+                method: 'POST',
+                body: {
+                  date: slot.date,
+                  mealType: slot.type,
+                  recipeId,
+                  servings: selectedServings,
+                  version: current.version,
+                  clientKey,
+                },
+              });
+          current = result.data;
+          setPlanCache(result);
+          // Retrying after a partial failure only saves dishes not saved yet.
+          setSelectedRecipes((previous) => previous.filter((id) => id !== recipeId));
+          pendingKeys.current.delete(mutationKey);
+        }
       }
       setSlot(null);
       notice('Đã cập nhật món trong thực đơn.');
@@ -336,10 +307,14 @@ export function Planner() {
       if (!user)
         setLocalWeeks((previous) => ({
           ...previous,
-          [week]: { entries: proposals, checked: previous[week]?.checked || {} },
+          [week]: {
+            entries: fillEmptyMealSlots(previous[week]?.entries || [], proposals),
+            checked: previous[week]?.checked || {},
+          },
         }));
       else {
         let current: MealPlan =
+          qc.getQueryData<Envelope<MealPlan>>(planKey)?.data ??
           planData ??
           (await request<MealPlan>('/meal-plans', { method: 'POST', body: { weekStart: week } })).data;
         for (const proposal of proposals) {
@@ -365,7 +340,7 @@ export function Planner() {
         }
         void qc.invalidateQueries({ queryKey: ['shopping', user?.id, current.id] });
       }
-      notice(user ? 'Đã xếp món vào các bữa còn trống.' : 'Đã tạo một gợi ý thực đơn mới cho tuần này.');
+      notice('Đã xếp món vào các bữa còn trống. Các món đã chọn được giữ nguyên.');
     });
   const generateShopping = async () => {
     if (!planData) return null;
@@ -429,9 +404,15 @@ export function Planner() {
     });
   const dateCaption = `${dayLabel(week)} – ${dayLabel(addDays(week, 6))}/${addDays(week, 6).slice(0, 4)}`;
   const currentEntry = entries.find((entry) => entry.id === slot?.entryId);
-  const filteredRecipes = recipeList.filter((recipe) =>
-    recipe.title.toLocaleLowerCase('vi').includes(recipeSearch.toLocaleLowerCase('vi')),
-  );
+  const slotMeals = slot ? mealSlotEntries(entries, slot.date, slot.type) : [];
+  const filteredRecipes = recipeList.filter((recipe) => {
+    const category = resolveCategory(recipe.title, recipe.category);
+    return (
+      recipe.title.toLocaleLowerCase('vi').includes(recipeSearch.toLocaleLowerCase('vi')) &&
+      (recipeFilter === 'all' ||
+        (recipeFilter === 'soup' ? /canh|súp/i.test(category) : category === 'Rau củ'))
+    );
+  });
   return (
     <main className="weekly-reference">
       <section className="weekly-hero">
@@ -535,36 +516,17 @@ export function Planner() {
                     </th>
                     {weekdays.map((_, index) => {
                       const date = addDays(week, index);
-                      const meals = entries.filter((entry) => entry.date === date && entry.mealType === type);
-                      const meal = meals[0];
+                      const meals = mealSlotEntries(entries, date, type);
                       return (
                         <td key={date}>
-                          <button
-                            type="button"
-                            className={`weekly-meal${!meal ? ' is-empty' : ''}`}
-                            onClick={() => openSlot(date, type, meal)}
+                          <WeeklyMealSlot
+                            meals={meals}
+                            label={label + ', ' + dayLabel(date)}
                             disabled={busy || recipes.isPending || (!!user && plan.isPending)}
-                            aria-label={`${label}, ${dayLabel(date)}${meal ? ': ' + meal.recipe.title : ': Thêm món'}`}
-                          >
-                            {meal ? (
-                              <>
-                                <MealImage recipe={meal.recipe} />
-                                <span className="weekly-meal-title">{shortTitle(meal.recipe.title)}</span>
-                                {meals.length > 1 && <small>+{meals.length - 1} món khác</small>}
-                              </>
-                            ) : (
-                              <>
-                                <span className="weekly-empty-thumb">
-                                  {recipes.isPending || (!!user && plan.isPending) ? (
-                                    <LoaderCircle className="spin" size={21} />
-                                  ) : (
-                                    <Plus size={23} />
-                                  )}
-                                </span>
-                                <span>Thêm món</span>
-                              </>
-                            )}
-                          </button>
+                            loading={recipes.isPending || (!!user && plan.isPending)}
+                            onEdit={(meal) => openSlot(date, type, meal)}
+                            onAdd={() => openSlot(date, type)}
+                          />
                         </td>
                       );
                     })}
@@ -581,7 +543,7 @@ export function Planner() {
               <strong>
                 {new Set(entries.map((entry) => `${entry.date}:${entry.mealType}`)).size} bữa ăn trong tuần
               </strong>
-              <p>Nhấn một ô để thay món hoặc đổi khẩu phần.</p>
+              <p>{entries.length} món · Mỗi bữa có thể thêm món chính, canh và rau.</p>
             </div>
             <button
               className="weekly-auto"
@@ -709,27 +671,49 @@ export function Planner() {
                 </div>
               </div>
             )}
-            {entries.filter((entry) => entry.date === slot.date && entry.mealType === slot.type).length >
-              1 && (
-              <label className="weekly-slot-label">
-                Món cần chỉnh
-                <select
-                  value={slot.entryId || ''}
-                  onChange={(event) => {
-                    const entry = entries.find((entry) => entry.id === event.target.value);
-                    if (entry) openSlot(slot.date, slot.type, entry);
-                  }}
+            <div className="weekly-slot-mode" aria-label="Các món trong bữa">
+              {slotMeals.map((entry) => (
+                <button
+                  type="button"
+                  key={entry.id}
+                  disabled={busy}
+                  aria-pressed={slot.entryId === entry.id}
+                  onClick={() => openSlot(slot.date, slot.type, entry)}
                 >
-                  {entries
-                    .filter((entry) => entry.date === slot.date && entry.mealType === slot.type)
-                    .map((entry) => (
-                      <option key={entry.id} value={entry.id}>
-                        {entry.recipe.title}
-                      </option>
-                    ))}
-                </select>
-              </label>
-            )}
+                  {shortTitle(entry.recipe.title)}
+                </button>
+              ))}
+              <button
+                type="button"
+                disabled={busy}
+                aria-pressed={!slot.entryId}
+                onClick={() => openSlot(slot.date, slot.type)}
+              >
+                + Thêm món
+              </button>
+            </div>
+            <p className="weekly-slot-hint">
+              {slot.entryId
+                ? 'Chỉnh riêng món này. Các món còn lại được giữ nguyên.'
+                : 'Chọn một hoặc nhiều món để thêm vào bữa: món chính, canh, rau…'}
+            </p>
+            <div className="weekly-recipe-filters" aria-label="Lọc món ăn">
+              {[
+                ['all', 'Tất cả'],
+                ['soup', 'Canh & súp'],
+                ['vegetables', 'Rau củ'],
+              ].map(([value, label]) => (
+                <button
+                  type="button"
+                  key={value}
+                  disabled={busy}
+                  aria-pressed={recipeFilter === value}
+                  onClick={() => setRecipeFilter(value)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
             <label className="weekly-recipe-search">
               <Search size={18} />
               <input
@@ -740,24 +724,54 @@ export function Planner() {
                 disabled={busy}
               />
             </label>
+            {!slot.entryId && selectedRecipes.length > 0 && (
+              <div className="weekly-selected-dishes" aria-label="Món đã chọn để thêm">
+                <strong>Đã chọn {selectedRecipes.length} món</strong>
+                {selectedRecipes.map((id) => (
+                  <button
+                    type="button"
+                    key={id}
+                    disabled={busy}
+                    onClick={() => setSelectedRecipes((previous) => previous.filter((value) => value !== id))}
+                    aria-label={`Bỏ chọn ${recipeMap.get(id)?.title}`}
+                  >
+                    {shortTitle(recipeMap.get(id)?.title || '')} ×
+                  </button>
+                ))}
+              </div>
+            )}
             <div className="weekly-recipe-options">
               {filteredRecipes.map((recipe) => (
                 <button
                   type="button"
                   key={recipe.id}
-                  aria-pressed={selectedRecipe === recipe.id}
-                  disabled={busy}
-                  onClick={() => setSelectedRecipe(recipe.id)}
+                  aria-pressed={selectedRecipes.includes(recipe.id)}
+                  disabled={
+                    busy ||
+                    slotMeals.some((entry) => entry.id !== slot.entryId && entry.recipe.id === recipe.id)
+                  }
+                  onClick={() =>
+                    setSelectedRecipes((previous) =>
+                      slot.entryId
+                        ? [recipe.id]
+                        : previous.includes(recipe.id)
+                          ? previous.filter((id) => id !== recipe.id)
+                          : [...previous, recipe.id],
+                    )
+                  }
                 >
                   <MealImage recipe={recipe} />
                   <span>{shortTitle(recipe.title)}</span>
-                  {selectedRecipe === recipe.id && <Check size={18} />}
+                  {slotMeals.some((entry) => entry.id !== slot.entryId && entry.recipe.id === recipe.id) && (
+                    <small>Đã có</small>
+                  )}
+                  {selectedRecipes.includes(recipe.id) && <Check size={18} />}
                 </button>
               ))}
               {!filteredRecipes.length && <p>Chưa tìm thấy món. Hãy thử tên khác.</p>}
             </div>
             <label className="weekly-slot-label">
-              Khẩu phần
+              {slot.entryId ? 'Khẩu phần' : 'Khẩu phần mỗi món'}
               <select
                 aria-label="Khẩu phần"
                 value={selectedServings}
@@ -787,9 +801,10 @@ export function Planner() {
                 type="button"
                 className="weekly-export"
                 onClick={saveSlot}
-                disabled={busy || !selectedRecipe}
+                disabled={busy || !selectedRecipes.length}
               >
-                {busy ? <LoaderCircle size={18} className="spin" /> : <Check size={18} />}Lưu bữa ăn
+                {busy ? <LoaderCircle size={18} className="spin" /> : <Check size={18} />}
+                {slot.entryId ? 'Lưu thay đổi' : 'Thêm ' + (selectedRecipes.length || '') + ' món vào bữa'}
               </button>
             </div>
           </div>
