@@ -12,7 +12,9 @@ Repo chung: https://github.com/Dwan123s/Cookora. Nhánh production: `main`. Proj
 
 ## Kết nối Git lần đầu
 
-Kiểm tra Vercel ngày 04/11 cho thấy project chưa có `link`. API kết nối trả về `400 bad_request`: cần cấp quyền GitHub integration cho repo này. Dashboard đã thấy các repo khác của tài khoản `Dwan123s`, nhưng tìm `Cookora` trả về **No Results Found** và nút **Configure GitHub App**. Vì vậy, push Git hiện chưa đủ để tự deploy cho tới khi hoàn tất bước tài khoản sau:
+Đã kết nối ngày 04/11/2026 sau khi người dùng cấp quyền Vercel GitHub App cho repo. API xác nhận `type=github`, `org=Dwan123s`, `repo=Cookora`, repository ID `1441928285`, production branch `main`.
+
+Bản hợp nhất `421afdd` đã push trước thời điểm kết nối và GitHub Actions đạt toàn bộ checks. Commit ghi nhận kết nối này được push sau đó để kích hoạt lần phát hành đầu tiên qua Git Integration. Quy trình kết nối khi cần thiết lập lại:
 
 1. Mở https://vercel.com/dwans-projects-53613816/cookora/settings/git bằng tài khoản quản lý project hiện tại.
 2. Trong **Configure GitHub App**, thêm `Dwan123s/Cookora` vào danh sách repo được cấp quyền của Vercel; giữ nguyên quyền các repo đang dùng.
