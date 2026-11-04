@@ -7,7 +7,6 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  Coins,
   CookingPot,
   Leaf,
   LoaderCircle,
@@ -28,7 +27,8 @@ import { addDays, weekOf } from '../date';
 import { errorText, Modal, useNotice, useUser } from '../shared';
 import { matcherMedia } from '../matcher-media';
 import { loadEatFitDays } from '../eatfit-storage';
-import { groceryAmount, syncEatFitDayToMealPlan, weeklyEstimate, weeklyGroceries, type GroceryRow } from '../weekly-plan';
+import { groceryAmount, syncEatFitDayToMealPlan, weeklyGroceries, type GroceryRow } from '../weekly-plan';
+import { WeeklyBudgetCard } from '../components/WeeklyBudgetCard';
 import '../planner-reference.css';
 
 type MealType = MealEntry['mealType'];
@@ -191,8 +191,6 @@ export function Planner() {
           purchased: !!localWeek.checked[`${row.id}:${row.quantity}`],
         }));
   const checkedCount = groceries.filter((row) => row.purchased).length;
-  const estimate = weeklyEstimate(derivedGroceries);
-  const money = (amount: number) => new Intl.NumberFormat('vi-VN').format(amount) + ' đ';
   const setPlanCache = (value: Envelope<MealPlan>) => {
     qc.setQueryData(planKey, value);
     void qc.invalidateQueries({ queryKey: ['shopping', user?.id, value.data.id] });
@@ -202,9 +200,7 @@ export function Planner() {
     if (!recipeList.length) return;
     if (user && (plan.isPending || plan.isError)) return;
     const savedEatFitDays = loadEatFitDays();
-    const daysInWeek = savedEatFitDays.filter(
-      (d) => d.date >= week && d.date <= addDays(week, 6),
-    );
+    const daysInWeek = savedEatFitDays.filter((d) => d.date >= week && d.date <= addDays(week, 6));
     if (!daysInWeek.length) return;
     const mealTypes: MealType[] = ['BREAKFAST', 'LUNCH', 'DINNER'];
     const unsyncedDays = daysInWeek.filter((d) => {
@@ -213,9 +209,7 @@ export function Planner() {
       return [0, 1, 2].some((idx) => {
         const meal = d.meals[idx];
         if (!meal) return false;
-        return !entries.some(
-          (e) => e.date === d.date && e.mealType === mealTypes[idx],
-        );
+        return !entries.some((e) => e.date === d.date && e.mealType === mealTypes[idx]);
       });
     });
     if (!unsyncedDays.length) return;
@@ -672,33 +666,16 @@ export function Planner() {
               </div>
             )}
           </div>
-          <section className="weekly-budget" aria-label="Ngân sách dự kiến">
-            <div>
-              <Coins size={25} />
-              <strong>Ngân sách dự kiến</strong>
-              <b>{estimate.known ? '~ ' + money(estimate.total) : 'Chưa có giá'}</b>
-            </div>
-            <div className="weekly-budget-track">
-              <span style={{ width: `${budget ? Math.min(100, (estimate.total / budget) * 100) : 0}%` }} />
-            </div>
-            <label>
-              Ngân sách tuần
-              <input
-                type="number"
-                aria-label="Ngân sách tuần"
-                min={0}
-                max={100000000}
-                step={50000}
-                value={budget}
-                onChange={(event) => setBudget(Math.max(0, Number(event.target.value)))}
-              />
-              <span>đ</span>
-            </label>
-            <p>
-              Giá minh họa cho {estimate.known}/{derivedGroceries.length} nguyên liệu.{' '}
-              {estimate.missing ? 'Một số nguyên liệu chưa có giá.' : 'Có thể cập nhật theo nơi mua.'}
-            </p>
-          </section>
+          <WeeklyBudgetCard
+            entries={entries}
+            week={week}
+            userId={user?.id}
+            budget={budget}
+            onBudgetChange={setBudget}
+            disabled={
+              busy || recipes.isPending || recipes.isError || (!!user && (plan.isPending || plan.isError))
+            }
+          />
           <button
             className="weekly-export"
             type="button"

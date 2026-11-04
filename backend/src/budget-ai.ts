@@ -8,13 +8,13 @@ import {
   BadRequestException,
   ServiceUnavailableException,
 } from '@nestjs/common';
-import { VertexAI } from '@google-cloud/vertexai';
 import Decimal from 'decimal.js';
 import { z } from 'zod';
 import type { Request } from 'express';
 import type { BudgetSuggestionInput, BudgetSuggestionResponse, Recipe } from '@cookora/contracts';
 import { Catalog } from './catalog';
 import { ok, parse } from './http';
+import { BudgetProviderError, budgetProviderConfig, generateBudgetJson } from './budget-provider';
 
 export const BudgetInputSchema = z
   .object({
@@ -178,26 +178,16 @@ export function buildBudgetPlan(
   };
 }
 
-class ProviderError extends Error {
-  constructor(readonly status: number) {
-    super('Budget AI provider failed');
-  }
-}
-
 @Injectable()
 export class BudgetAiService {
   constructor(@Inject(Catalog) private readonly catalog: Catalog) {}
 
   async suggest(input: BudgetSuggestionInput): Promise<BudgetSuggestionResponse> {
-    const project = process.env.VERTEX_PROJECT_ID?.trim() || process.env.GOOGLE_CLOUD_PROJECT?.trim();
-    const apiKey = process.env.VERTEX_API_KEY?.trim();
-    if (!project && !apiKey)
-      throw new BadRequestException({ code: 'AI_NOT_CONFIGURED', message: 'Chưa cấu hình dịch vụ AI.' });
+    budgetProviderConfig();
     // Preserve SQL errors as database errors, not AI failures.
     const candidates = budgetCandidates(await this.catalog.all());
     if (!candidates.length)
       throw new BadRequestException({ code: 'CATALOG_EMPTY', message: 'Chưa có công thức để lập thực đơn.' });
-    const model = process.env.VERTEX_MODEL?.trim() || 'gemini-3.7-flash';
     const totalBudget = input.mode === 'day' ? input.amount * input.days : input.amount;
     const userText = JSON.stringify({
       ...input,
@@ -216,65 +206,10 @@ export class BudgetAiService {
       })),
     });
     try {
-      let text = '';
-      if (apiKey) {
-        const response = await fetch(
-          `https://aiplatform.googleapis.com/v1/publishers/google/models/${encodeURIComponent(model)}:generateContent`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-            signal: AbortSignal.timeout(90000),
-            body: JSON.stringify({
-              systemInstruction: { parts: [{ text: SYSTEM }] },
-              contents: [{ role: 'user', parts: [{ text: userText }] }],
-              generationConfig: { responseMimeType: 'application/json', maxOutputTokens: 12000 },
-            }),
-          },
-        );
-        if (!response.ok) {
-          await response.body?.cancel();
-          throw new ProviderError(response.status);
-        }
-        const data = await response.json();
-        text = (data.candidates?.[0]?.content?.parts || [])
-          .filter(
-            (part: { text?: string; thought?: boolean }) => !part.thought && typeof part.text === 'string',
-          )
-          .map((part: { text: string }) => part.text)
-          .join('');
-      } else {
-        const location = process.env.VERTEX_LOCATION?.trim() || 'global';
-        const client = new VertexAI({
-          project: project!,
-          location,
-          apiEndpoint: location === 'global' ? 'aiplatform.googleapis.com' : undefined,
-          googleAuthOptions: process.env.GOOGLE_APPLICATION_CREDENTIALS
-            ? { keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS }
-            : undefined,
-        });
-        const result = await client
-          .getGenerativeModel(
-            {
-              model,
-              systemInstruction: { role: 'system', parts: [{ text: SYSTEM }] },
-              generationConfig: { responseMimeType: 'application/json', maxOutputTokens: 12000 },
-            },
-            { timeout: 90000 },
-          )
-          .generateContent({ contents: [{ role: 'user', parts: [{ text: userText }] }] });
-        text = (result.response.candidates?.[0]?.content?.parts || [])
-          .map((part) => part.text || '')
-          .join('');
-      }
-      const parsed: unknown = JSON.parse(
-        text
-          .trim()
-          .replace(/^```(?:json)?\s*/i, '')
-          .replace(/```\s*$/, ''),
-      );
+      const parsed = await generateBudgetJson(SYSTEM, userText);
       return buildBudgetPlan(input, parsed, candidates);
     } catch (error) {
-      const status = error instanceof ProviderError ? error.status : undefined;
+      const status = error instanceof BudgetProviderError ? error.status : undefined;
       console.error(JSON.stringify({ event: 'BUDGET_AI_ERROR', status }));
       throw new ServiceUnavailableException({
         code: 'BUDGET_AI_ERROR',

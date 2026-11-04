@@ -18,6 +18,7 @@ import { PlannerController } from './planner';
 import { EditorController } from './editor';
 import { AiController, AiChefService } from './ai';
 import { BudgetAiController, BudgetAiService } from './budget-ai';
+import { WeeklyBudgetController, WeeklyBudgetService } from './weekly-budget';
 import { AuthGuard, EditorGuard, Sessions, checkCsrf } from './security';
 import { ApiErrors, ok } from './http';
 import { databaseLabel, databaseProvider, demoEnabled, production, required, sqlConfig } from './config';
@@ -49,6 +50,7 @@ class HealthController {
     EditorController,
     AiController,
     BudgetAiController,
+    WeeklyBudgetController,
   ],
   providers: [
     Database,
@@ -59,6 +61,7 @@ class HealthController {
     AiChefService,
     GoogleAuth,
     BudgetAiService,
+    WeeklyBudgetService,
   ],
 })
 class AppModule {}

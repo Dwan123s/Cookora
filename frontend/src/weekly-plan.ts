@@ -116,10 +116,7 @@ export function estimateStandardQuantity(
 }
 
 export function weeklyGroceries(entries: MealEntry[]): GroceryRow[] {
-  const rows = new Map<
-    string,
-    GroceryRow & { amount: number; unknown: boolean; priority: number }
-  >();
+  const rows = new Map<string, GroceryRow & { amount: number; unknown: boolean; priority: number }>();
   for (const entry of entries) {
     for (const line of entry.recipe.ingredients.filter((item) => !item.optional)) {
       const parsed = parseIngredientName(line.name);
@@ -141,19 +138,16 @@ export function weeklyGroceries(entries: MealEntry[]): GroceryRow[] {
       };
       const amount = line.quantity === null ? NaN : Number(line.quantity);
       if (Number.isFinite(amount)) {
-        row.amount += Math.round(
-          ((amount * multiplier * entry.servings) / entry.recipe.baseServings) * 1000,
-        );
+        row.amount += Math.round(((amount * multiplier * entry.servings) / entry.recipe.baseServings) * 1000);
       } else {
         row.unknown = true;
         if (!row.displayQuantity) {
-          row.displayQuantity =
-            estimateStandardQuantity(
-              name,
-              line.role,
-              entry.servings,
-              entry.recipe.baseServings,
-            );
+          row.displayQuantity = estimateStandardQuantity(
+            name,
+            line.role,
+            entry.servings,
+            entry.recipe.baseServings,
+          );
         }
       }
       rows.set(key, row);
@@ -185,37 +179,6 @@ export function groceryAmount(
   }
   if (unit === 'piece') unit = /trứng|cà chua|chanh/i.test(row.name) ? 'quả' : 'cái';
   return `${new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 2 }).format(amount)} ${unit}`;
-}
-
-// Illustrative local unit prices, not live market quotations. Missing prices stay unknown.
-const samplePrices: Record<string, { unit: string; price: number }> = {
-  egg: { unit: 'piece', price: 3500 },
-  tomato: { unit: 'g', price: 25 },
-  'tofu-firm': { unit: 'g', price: 35 },
-  'chicken-thigh': { unit: 'g', price: 100 },
-  'cooked-rice': { unit: 'g', price: 20 },
-  scallion: { unit: 'g', price: 45 },
-  garlic: { unit: 'g', price: 60 },
-  onion: { unit: 'g', price: 25 },
-  kimchi: { unit: 'g', price: 70 },
-  spaghetti: { unit: 'g', price: 60 },
-  oil: { unit: 'ml', price: 45 },
-  'soy-sauce': { unit: 'ml', price: 35 },
-  sugar: { unit: 'g', price: 25 },
-  salt: { unit: 'g', price: 10 },
-  water: { unit: 'ml', price: 0 },
-};
-export function weeklyEstimate(rows: GroceryRow[]) {
-  let total = 0,
-    known = 0;
-  for (const row of rows) {
-    const price = samplePrices[row.ingredientId];
-    if (price && price.unit === row.unit && row.quantity !== null) {
-      total += Number(row.quantity) * price.price;
-      known++;
-    }
-  }
-  return { total: Math.round(total), known, missing: rows.length - known };
 }
 
 export type EatFitSyncSlot = {
@@ -279,19 +242,14 @@ export async function syncEatFitDayToMealPlan(
       const recipe = recipeList.find((r) => r.slug === meal.slug || r.title === meal.title);
       if (!recipe) continue;
 
-      const existing = currentPlan.entries.find(
-        (e) => e.date === date && e.mealType === type,
-      );
+      const existing = currentPlan.entries.find((e) => e.date === date && e.mealType === type);
 
       if (existing) {
         if (existing.recipe.id !== recipe.id) {
-          const res = await request<MealPlan>(
-            `/meal-plans/${currentPlan.id}/entries/${existing.id}`,
-            {
-              method: 'PATCH',
-              body: { recipeId: recipe.id, servings: 2, version: currentPlan.version },
-            },
-          );
+          const res = await request<MealPlan>(`/meal-plans/${currentPlan.id}/entries/${existing.id}`, {
+            method: 'PATCH',
+            body: { recipeId: recipe.id, servings: 2, version: currentPlan.version },
+          });
           currentPlan = res.data;
         }
       } else {

@@ -166,3 +166,22 @@ export type BudgetSuggestionResponse = {
 };
 
 export type Envelope<T> = { data: T; meta: { requestId: string; [key: string]: unknown } };
+
+export type WeeklyBudgetEstimateInput = {
+  entries: { recipeId: string; servings: number }[];
+  region: string;
+};
+export type WeeklyBudgetEstimate = {
+  estimatedTotal: number;
+  dishes: {
+    recipeId: string;
+    servings: number;
+    occurrences: number;
+    estimatedCost: number;
+    subtotal: number;
+  }[];
+  explanation: string;
+  tips: string[];
+  priceNote: string;
+  generatedAt: string;
+};
