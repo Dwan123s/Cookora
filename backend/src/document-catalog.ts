@@ -2,6 +2,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { Prisma } from '@prisma/client';
 import { z } from 'zod';
 import type { Database } from './db';
+import adjustments from './catalog-adjustments.json';
 
 const sourceKey = z.enum(['viet', 'han', 'nhat', 'trung', 'thai', 'menu']);
 const sha256 = z.string().regex(/^[a-f0-9]{64}$/);
@@ -138,6 +139,24 @@ export const DocumentCatalogSchema = z
   });
 
 export type DocumentCatalog = z.infer<typeof DocumentCatalogSchema>;
+// Keep document provenance intact while applying the user's catalog changes to stored rows.
+export function activeDocumentRecipes(catalog: DocumentCatalog) {
+  const removed = new Set(adjustments.removedRecipeSlugs);
+  const timings: Record<string, { totalMinutes: number; note: string }> = adjustments.timings;
+  return catalog.recipes
+    .filter((recipe) => !removed.has(recipe.slug))
+    .map((recipe) => {
+      const timing = timings[recipe.slug];
+      if (!timing || (recipe.totalMinutes !== null && recipe.totalMinutes > 0)) return recipe;
+      return {
+        ...recipe,
+        totalMinutes: timing.totalMinutes,
+        preconditions: `${recipe.preconditions.replace('Nguồn chưa ghi thời gian. ', '')} ${timing.note}`
+          .trim()
+          .slice(0, 500),
+      };
+    });
+}
 type Tx = Prisma.TransactionClient;
 const normalize = (value: string) =>
   value
@@ -154,7 +173,7 @@ export function catalogRows(input: unknown) {
   const lines: Prisma.RecipeLineCreateManyInput[] = [];
   const steps: Prisma.RecipeStepCreateManyInput[] = [];
   const recipes: Prisma.RecipeCreateManyInput[] = [];
-  for (const recipe of catalog.recipes) {
+  for (const recipe of activeDocumentRecipes(catalog)) {
     const id = randomUUID();
     recipes.push({
       id,
@@ -283,13 +302,14 @@ export async function replaceDocumentCatalog(
 // Repeated seeds only add missing document recipes; never reintroduce legacy fixtures.
 export async function seedDocumentCatalog(db: Database, input: unknown) {
   const catalog = DocumentCatalogSchema.parse(input);
+  const active = activeDocumentRecipes(catalog);
   return db.$transaction(
     async (tx) => {
       const existing = new Set(
         (await tx.recipe.findMany({ select: { slug: true } })).map((recipe) => recipe.slug),
       );
-      const missing = catalog.recipes.filter((recipe) => !existing.has(recipe.slug));
-      if (!missing.length) return { created: 0, preserved: catalog.recipes.length };
+      const missing = active.filter((recipe) => !existing.has(recipe.slug));
+      if (!missing.length) return { created: 0, preserved: active.length };
       const rows = catalogRows(catalog);
       const wanted = new Set(missing.map((recipe) => recipe.slug));
       rows.recipes = rows.recipes.filter((recipe) => wanted.has(recipe.slug));
@@ -304,7 +324,7 @@ export async function seedDocumentCatalog(db: Database, input: unknown) {
         (item) => ingredientIds.has(item.id) && !present.has(item.id),
       );
       await insertRows(tx, rows);
-      return { created: missing.length, preserved: catalog.recipes.length - missing.length };
+      return { created: missing.length, preserved: active.length - missing.length };
     },
     { isolationLevel: 'Serializable', timeout: 180000, maxWait: 15000 },
   );

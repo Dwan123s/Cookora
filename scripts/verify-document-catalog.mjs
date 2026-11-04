@@ -6,6 +6,13 @@ import { resolve } from 'node:path';
 const origin = process.argv[2] || 'http://127.0.0.1:8080';
 const imageOrigin = process.argv[3] || origin;
 const source = JSON.parse(readFileSync('database/seeds/document-recipes.json', 'utf8'));
+const adjustments = JSON.parse(readFileSync('backend/src/catalog-adjustments.json', 'utf8'));
+const active = source.recipes
+  .filter((recipe) => !adjustments.removedRecipeSlugs.includes(recipe.slug))
+  .map((recipe) => ({
+    ...recipe,
+    totalMinutes: recipe.totalMinutes ?? adjustments.timings[recipe.slug]?.totalMinutes,
+  }));
 const request = async (path) => {
   const response = await fetch(`${origin}/api/v1${path}`, { signal: AbortSignal.timeout(20000) });
   assert.equal(response.status, 200, path);
@@ -16,13 +23,13 @@ const pages = first.meta.pagination.totalPages;
 const records = [...first.data];
 for (let page = 2; page <= pages; page++)
   records.push(...(await request(`/recipes?pageSize=50&page=${page}`)).data);
-assert.equal(records.length, 419);
+assert.equal(records.length, active.length);
 assert.equal(first.meta.pagination.total, records.length);
 assert.equal(new Set(records.map((recipe) => recipe.id)).size, records.length);
 assert.ok(records.every((recipe) => recipe.slug.startsWith('doc-')));
 const bySlug = new Map(records.map((recipe) => [recipe.slug, recipe]));
 const nameKey = (text) => text.normalize('NFC').toLowerCase().replace(/\s+/g, ' ').trim();
-for (const recipe of source.recipes) {
+for (const recipe of active) {
   const actual = bySlug.get(recipe.slug);
   assert.ok(actual, recipe.slug);
   for (const field of [
@@ -50,7 +57,7 @@ for (const recipe of source.recipes) {
     recipe.ingredients.map((item) => ({ ...item, name: nameKey(item.name) })),
   );
 }
-const images = source.recipes.flatMap((recipe) => recipe.images);
+const images = active.flatMap((recipe) => recipe.images);
 for (let offset = 0; offset < images.length; offset += 8)
   await Promise.all(
     images.slice(offset, offset + 8).map(async (image) => {
@@ -68,10 +75,7 @@ for (let offset = 0; offset < images.length; offset += 8)
   );
 for (const cuisine of ['VN', 'KR', 'JP', 'CN', 'TH', 'WE', 'IT']) {
   const filtered = await request(`/recipes?cuisine=${cuisine}&pageSize=1`);
-  assert.equal(
-    filtered.meta.pagination.total,
-    source.recipes.filter((recipe) => recipe.cuisine === cuisine).length,
-  );
+  assert.equal(filtered.meta.pagination.total, active.filter((recipe) => recipe.cuisine === cuisine).length);
 }
 const old = await fetch(`${origin}/api/v1/recipes/dau-hu-sot-ca-chua`);
 assert.equal(old.status, 404);

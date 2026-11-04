@@ -4,7 +4,12 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { Database } from '../src/db';
-import { DocumentCatalogSchema, replaceDocumentCatalog, snapshotCatalog } from '../src/document-catalog';
+import {
+  activeDocumentRecipes,
+  DocumentCatalogSchema,
+  replaceDocumentCatalog,
+  snapshotCatalog,
+} from '../src/document-catalog';
 import { recipeInclude } from '../src/catalog';
 
 async function run() {
@@ -13,7 +18,8 @@ async function run() {
   const root = resolve(__dirname, '../..');
   const manifestBytes = readFileSync(resolve(root, 'database/seeds/document-recipes.json'));
   const source = DocumentCatalogSchema.parse(JSON.parse(manifestBytes.toString('utf8')));
-  for (const recipe of source.recipes)
+  const active = activeDocumentRecipes(source);
+  for (const recipe of active)
     for (const image of recipe.images) {
       const imageFile = resolve(root, 'frontend/public', `.${image.path}`);
       assert.ok(existsSync(imageFile), `Missing image: ${image.path}`);
@@ -27,7 +33,7 @@ async function run() {
       JSON.stringify({
         mode: apply ? 'replace' : 'preview',
         oldRecipes: before.recipes.length,
-        newRecipes: source.recipes.length,
+        newRecipes: active.length,
         sources: source.sources.map((s) => ({
           name: s.name,
           recipes: s.recipeCount,
@@ -64,9 +70,9 @@ async function run() {
       });
     });
     const actual = await db.recipe.findMany({ include: recipeInclude });
-    assert.equal(actual.length, source.recipes.length);
+    assert.equal(actual.length, active.length);
     const bySlug = new Map(actual.map((recipe) => [recipe.slug, recipe]));
-    for (const recipe of source.recipes) {
+    for (const recipe of active) {
       const stored = bySlug.get(recipe.slug)!;
       assert.ok(stored, recipe.slug);
       assert.equal(stored.title, recipe.title);
@@ -98,7 +104,7 @@ async function run() {
       backup,
       accountsPreserved: usersBefore,
       verified: true,
-      withImages: source.recipes.filter((recipe) => recipe.image).length,
+      withImages: active.filter((recipe) => recipe.image).length,
       verifiedAt: new Date().toISOString(),
     };
     writeFileSync(

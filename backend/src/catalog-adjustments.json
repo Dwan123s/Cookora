@@ -1,0 +1,301 @@
+{
+  "removedRecipeSlugs": ["doc-han-036-jumeokbap-com-nam-han-quoc"],
+  "timings": {
+    "doc-thai-001-pad-krapow-gai-ga-xao-hung-que-thanh": {
+      "totalMinutes": 20,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-002-gai-pad-med-mamuang-ga-xao-hat-dieu": {
+      "totalMinutes": 25,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-003-gai-yang-ga-nuong-kieu-thai": {
+      "totalMinutes": 190,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm ít nhất 2 giờ ướp lạnh, làm nóng lò, nướng và nghỉ thịt."
+    },
+    "doc-thai-004-moo-ping-thit-heo-xien-nuong": {
+      "totalMinutes": 280,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Tính theo 4 giờ ướp; ngâm que tre trong lúc ướp."
+    },
+    "doc-thai-005-kor-moo-yang-nac-nong-heo-nuong": {
+      "totalMinutes": 170,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm 2 giờ ướp, nướng và nghỉ thịt."
+    },
+    "doc-thai-006-moo-satay-thit-heo-xien-sot-dau-phong": {
+      "totalMinutes": 100,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm 1 giờ ướp; ngâm que tre trong lúc ướp."
+    },
+    "doc-thai-007-gai-tod-hat-yai-ga-chien-kieu-hat-yai": {
+      "totalMinutes": 170,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm 2 giờ ướp và thời gian chiên."
+    },
+    "doc-thai-008-pla-neung-manao-ca-hap-chanh-toi": {
+      "totalMinutes": 30,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-009-pla-rad-prik-ca-chien-sot-ot": {
+      "totalMinutes": 35,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-010-goong-ob-woon-sen-tom-mien-om-noi-dat": {
+      "totalMinutes": 35,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-011-tom-yum-goong-canh-tom-chua-cay": {
+      "totalMinutes": 30,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-012-tom-kha-gai-canh-ga-nuoc-cot-dua": {
+      "totalMinutes": 30,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-013-gaeng-keow-wan-gai-ca-ri-xanh-ga": {
+      "totalMinutes": 40,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-014-gaeng-phed-gai-ca-ri-do-ga": {
+      "totalMinutes": 35,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Dùng măng đã luộc kỹ như tài liệu."
+    },
+    "doc-thai-015-gaeng-massaman-nuea-ca-ri-massaman-bo": {
+      "totalMinutes": 170,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Tính theo cận trên 120 phút hầm bò và 25 phút hầm khoai."
+    },
+    "doc-thai-016-panang-moo-ca-ri-panang-heo": {
+      "totalMinutes": 30,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-017-gaeng-kari-gai-ca-ri-vang-ga": {
+      "totalMinutes": 50,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-018-gaeng-som-goong-canh-ca-ri-chua-tom": {
+      "totalMinutes": 35,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Dùng phần cá đã nấu chín như tài liệu."
+    },
+    "doc-thai-019-gaeng-jued-tao-hoo-moo-sab-canh-dau-hu-thit-bam": {
+      "totalMinutes": 30,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-020-jim-jum-lau-thao-moc-kieu-isan": {
+      "totalMinutes": 40,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-021-pad-thai-goong-hu-tieu-xao-tom": {
+      "totalMinutes": 40,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-022-pad-see-ew-hu-tieu-xao-nuoc-tuong": {
+      "totalMinutes": 25,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-023-pad-kee-mao-hu-tieu-xao-cay-hung-que": {
+      "totalMinutes": 25,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-024-khao-pad-sapparot-com-chien-dua": {
+      "totalMinutes": 20,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Dùng cơm đã nấu và làm lạnh như tài liệu; chưa tính nấu cơm."
+    },
+    "doc-thai-025-khao-pad-pu-com-chien-cua": {
+      "totalMinutes": 20,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Dùng cơm lạnh và cua đã nấu chín như tài liệu; chưa tính nấu cơm, cua."
+    },
+    "doc-thai-026-khao-man-gai-com-ga-kieu-thai": {
+      "totalMinutes": 80,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm luộc gà, nấu cơm và ủ cơm 10 phút."
+    },
+    "doc-thai-027-khao-soi-gai-mi-ca-ri-ga-mien-bac": {
+      "totalMinutes": 55,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-028-rad-na-hu-tieu-sot-sanh": {
+      "totalMinutes": 25,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-029-pad-woon-sen-mien-xao-kieu-thai": {
+      "totalMinutes": 35,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-030-khanom-jeen-nam-ya-bun-ca-ri-ca": {
+      "totalMinutes": 45,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-031-som-tam-thai-goi-du-du-kieu-thai": {
+      "totalMinutes": 25,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-032-yam-woon-sen-goi-mien-tom-thit": {
+      "totalMinutes": 35,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-033-larb-gai-goi-ga-bam-thinh-gao": {
+      "totalMinutes": 25,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Dùng thính đã rang sẵn."
+    },
+    "doc-thai-034-nam-tok-moo-goi-thit-heo-nuong": {
+      "totalMinutes": 70,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm 30 phút ướp, nướng và nghỉ thịt."
+    },
+    "doc-thai-035-yam-nua-goi-bo-kieu-thai": {
+      "totalMinutes": 30,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-036-yam-mamuang-goi-xoai-xanh": {
+      "totalMinutes": 25,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-037-tod-man-pla-cha-ca-ca-ri-do": {
+      "totalMinutes": 30,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-038-poh-pia-tod-cha-gio-kieu-thai": {
+      "totalMinutes": 70,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm ngâm miến/nấm, làm nguội nhân và chiên các mẻ."
+    },
+    "doc-thai-039-pak-boong-fai-daeng-rau-muong-xao-kieu-thai": {
+      "totalMinutes": 15,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-040-khai-jiao-trung-chien-phong-kieu-thai": {
+      "totalMinutes": 15,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-041-khao-niao-mamuang-xoi-xoai": {
+      "totalMinutes": 425,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm 6 giờ ngâm nếp, 35 phút hấp và 20 phút ủ cốt dừa."
+    },
+    "doc-thai-042-tub-tim-grob-che-cu-nang-hat-luu": {
+      "totalMinutes": 45,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-043-kluay-buat-chi-chuoi-nau-nuoc-cot-dua": {
+      "totalMinutes": 20,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-044-bua-loy-che-vien-bot-nep-nuoc-dua": {
+      "totalMinutes": 35,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Thời gian tùy thiết bị và thao tác."
+    },
+    "doc-thai-045-khanom-krok-banh-dua-khuon-lom": {
+      "totalMinutes": 45,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm 20 phút nghỉ bột."
+    },
+    "doc-thai-046-khanom-chan-banh-hap-nhieu-lop": {
+      "totalMinutes": 130,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm khoảng 50 phút hấp các lớp và ít nhất 1 giờ làm nguội."
+    },
+    "doc-thai-047-sangkaya-fak-thong-bi-do-hap-nhan-trung-dua": {
+      "totalMinutes": 75,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm tối đa 40 phút hấp và thời gian làm nguội trước khi cắt."
+    },
+    "doc-thai-048-woon-kati-thach-rau-cau-dua": {
+      "totalMinutes": 165,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm ngâm agar, nấu, làm nguội và 2 giờ giữ lạnh."
+    },
+    "doc-thai-049-kluay-tod-chuoi-chien-kieu-thai": {
+      "totalMinutes": 35,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm nghỉ bột và chiên các mẻ."
+    },
+    "doc-thai-050-khao-tom-mat-banh-nep-chuoi-goi-la": {
+      "totalMinutes": 500,
+      "note": "Ước tính từ các bước trong tài liệu, gồm sơ chế và nấu. Gồm 6 giờ ngâm nếp và tối đa 90 phút hấp; dùng đậu đen đã nấu chín như tài liệu."
+    },
+    "doc-menu-011-chao-yen-mach-thit-bam-rau-cu": {
+      "totalMinutes": 30,
+      "note": "Ước tính 30 phút cho sơ chế và nấu; tài liệu chưa ghi tổng thời gian, chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-022-bun-bo-hue": {
+      "totalMinutes": 110,
+      "note": "Theo thời gian ghi trong tài liệu: Chuẩn bị: 15 phút · Nấu: 75–95 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-024-bun-rieu-cua": {
+      "totalMinutes": 60,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 45-60 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-025-bun-thit-nuong": {
+      "totalMinutes": 60,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 60 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-026-bun-ca-ca-chua": {
+      "totalMinutes": 30,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 30 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-027-bun-mam-mien-tay": {
+      "totalMinutes": 60,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 60 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-028-bun-ga-nuong-sa": {
+      "totalMinutes": 45,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu:45 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-029-bun-moc-nam": {
+      "totalMinutes": 60,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 45-60 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-030-bun-tom-hai-phong": {
+      "totalMinutes": 30,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 30 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-031-bun-dau-mam-tom": {
+      "totalMinutes": 45,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 40-45 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-032-pho-bo-tai": {
+      "totalMinutes": 25,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 25 phút với nước dùng có sẵn. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-033-pho-ga-xe": {
+      "totalMinutes": 40,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 35-40 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-034-pho-ga-tron": {
+      "totalMinutes": 40,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 35- 40 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-035-pho-cuon-thit-bo": {
+      "totalMinutes": 30,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 30 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-036-pho-ap-chao-bo-nam": {
+      "totalMinutes": 25,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 25 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-037-pho-chay-nam-dau-hu": {
+      "totalMinutes": 45,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 45 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-038-pho-ga-nam-huong": {
+      "totalMinutes": 45,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 40–45 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-039-mi-ramen-ga-trung": {
+      "totalMinutes": 35,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 30-35 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-040-mi-bo-kimchi-han-quoc": {
+      "totalMinutes": 30,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 25-30 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-041-mi-xao-bo-rau-cai": {
+      "totalMinutes": 25,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 25 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-042-mi-y-sot-bo-bam": {
+      "totalMinutes": 35,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 35 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-043-mi-y-sot-kem-ga-nam": {
+      "totalMinutes": 30,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 30 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-044-mi-udon-xao-tom-rau-cu": {
+      "totalMinutes": 25,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 20-25 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    },
+    "doc-menu-045-mi-hoanh-thanh-tom-thit": {
+      "totalMinutes": 45,
+      "note": "Theo thời gian ghi trong tài liệu: Nấu: 45 phút. Khoảng thời gian được lấy cận trên; chưa kiểm chứng qua nấu thử."
+    }
+  }
+}

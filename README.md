@@ -2,7 +2,7 @@
 
 Ứng dụng bằng **React 19 + TypeScript + Tailwind CSS + NestJS + Prisma 7**. Bản public chạy trên **Vercel + Neon PostgreSQL**; SQL Server 2022 + Docker vẫn được hỗ trợ cho local. Đây là bản MVP, chưa phải toàn bộ hệ thống trong Master Plan.
 
-**Web public: https://cookora-rose.vercel.app** — đã xuất bản đủ 419 công thức theo yêu cầu ngày 03/11/2026, không gắn nhãn bản nháp. Xem [kết quả triển khai và kiểm tra thực tế](docs/Vercel-Deployment-Result.md).
+**Web public: https://cookora-rose.vercel.app** — hiện có 418 công thức đang phục vụ, không gắn nhãn bản nháp. Ngày 04/11/2026 đã xóa món cơm nắm và bổ sung thời gian cho 74 món theo yêu cầu; xem [điều chỉnh danh mục](docs/Catalog-Corrections.md) và [kết quả triển khai](docs/Vercel-Deployment-Result.md).
 
 AI trên public đã kết nối Vertex AI bằng key backend, kiểm tra thành công cả gợi ý món và thực đơn ngân sách. [Cấu hình và bằng chứng AI](docs/AI-Vercel-Setup.md).
 

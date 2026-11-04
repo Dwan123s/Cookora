@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { Database } from '../src/db';
 import { databaseProvider } from '../src/config';
-import { DocumentCatalogSchema } from '../src/document-catalog';
+import { activeDocumentRecipes, DocumentCatalogSchema } from '../src/document-catalog';
 
 // Explicit release of the user's complete document catalog; does not alter recipe facts or user data.
 async function main() {
@@ -21,17 +21,18 @@ async function main() {
     JSON.parse(readFileSync(resolve(root, 'database/seeds/document-recipes.json'), 'utf8')),
   );
   if (source.recipes.length !== 419) throw new Error('Unexpected document catalog size.');
+  const active = activeDocumentRecipes(source);
   const db = new Database();
   try {
     const outcome = await db.$transaction(
       async (tx) => {
         const rows = await tx.recipe.findMany({
-          where: { slug: { in: source.recipes.map((r) => r.slug) } },
+          where: { slug: { in: active.map((r) => r.slug) } },
           select: { id: true, slug: true, sourceName: true, contentStatus: true },
         });
-        if (rows.length !== source.recipes.length || new Set(rows.map((r) => r.slug)).size !== 419)
+        if (rows.length !== active.length || new Set(rows.map((r) => r.slug)).size !== active.length)
           throw new Error('Cloud catalog does not match the complete source.');
-        const bySlug = new Map(source.recipes.map((r) => [r.slug, r]));
+        const bySlug = new Map(active.map((r) => [r.slug, r]));
         if (rows.some((r) => r.sourceName !== bySlug.get(r.slug)!.sourceName))
           throw new Error('Source metadata mismatch; publication stopped.');
         const review = resolve(root, '.review');
@@ -56,13 +57,17 @@ async function main() {
         const published = await tx.recipe.count({
           where: { id: { in: rows.map((r) => r.id) }, contentStatus: 'APPROVED' },
         });
-        if (published !== 419) throw new Error('Incomplete publication; transaction rolled back.');
+        if (published !== active.length) throw new Error('Incomplete publication; transaction rolled back.');
         return { changed: updated.count, published };
       },
       { isolationLevel: 'Serializable', timeout: 30000 },
     );
     console.log(
-      JSON.stringify({ ...outcome, scope: '419 source-document recipes', factsAndTimingUnchanged: true }),
+      JSON.stringify({
+        ...outcome,
+        scope: `${active.length} active source-document recipes`,
+        factsAndTimingUnchanged: true,
+      }),
     );
   } finally {
     await db.$disconnect();
