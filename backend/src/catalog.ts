@@ -32,9 +32,27 @@ export const recipeInclude = {
   lines: { include: { ingredient: true }, orderBy: { sortOrder: 'asc' as const } },
   steps: { orderBy: { order: 'asc' as const } },
 };
+export function resolveCategory(title: string, category: string): string {
+  if (category === 'Thịt & hải sản' || category === 'Gỏi & món ăn nhẹ') {
+    const isVeg =
+      /rau|su su|đọt bí|đậu bắp|cà tím|nấm|khổ qua|đậu que|đậu cô ve|đậu cove|bắp cải|măng|súp lơ|bông cải|rau muống|cải ngọt|cải thìa|cải xanh|cải thảo|mồng tơi|rau dền|rau ngót|bầu|mướp|bí đao|bí đỏ|su hào|củ cải|khoai tây|khoai lang|khoai môn|dưa leo|dưa chuột|bắp nướng|ngô|đậu phụ|đậu hũ|tàu hũ|cà chua|kimchi|kim chi|giá đỗ|rong biển/i.test(
+        title.replace(/nấm đùi gà/gi, 'nấm'),
+      );
+    const hasMeat =
+      /thịt|sườn|bò|heo|lợn|gà|vịt|cá|tôm|mực|bạch tuộc|nghêu|sò|ốc|hến|cua|ghẹ|chả|chân giò|giò heo|giò lụa|giò thủ|chả giò|giò sống|nem|lạp xưởng|xúc xích|chim|ếch|lươn|ba chỉ|ba rọi|pate|bì lợn|hàu|sủi cảo|tiểu long bao|hồ lô/i.test(
+        title.replace(/nấm đùi gà/gi, 'nấm'),
+      );
+    if (isVeg && !hasMeat) {
+      return 'Rau củ';
+    }
+  }
+  return category;
+}
+
 export function recipeDto(r: any): Recipe {
   return {
     ...r,
+    category: resolveCategory(r.title, r.category),
     ...recipeDifficulty(r),
     ingredients: r.lines.map((l: any) => ({
       id: l.id,
@@ -59,27 +77,41 @@ export const quantitySchema = z
 export class Catalog {
   private cacheAll: { time: number; data: Recipe[] } | null = null;
   private cacheIngredients: { time: number; data: Ingredient[] } | null = null;
+  private inflightAll: Promise<Recipe[]> | null = null;
+  private inflightIngredients: Promise<Ingredient[]> | null = null;
 
   constructor(@Inject(Database) private readonly db: Database) {}
 
   clearCache() {
     this.cacheAll = null;
     this.cacheIngredients = null;
+    this.inflightAll = null;
+    this.inflightIngredients = null;
   }
   async all(): Promise<Recipe[]> {
     const now = Date.now();
     if (this.cacheAll && now - this.cacheAll.time < 30000) {
       return this.cacheAll.data;
     }
-    const recipes = (
-      await this.db.recipe.findMany({
-        where: visibleWhere(),
-        include: recipeInclude,
-        orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
-      })
-    ).map(recipeDto);
-    this.cacheAll = { time: now, data: recipes };
-    return recipes;
+    if (this.inflightAll) {
+      return this.inflightAll;
+    }
+    this.inflightAll = (async () => {
+      try {
+        const recipes = (
+          await this.db.recipe.findMany({
+            where: visibleWhere(),
+            include: recipeInclude,
+            orderBy: [{ createdAt: 'asc' }, { id: 'asc' }],
+          })
+        ).map(recipeDto);
+        this.cacheAll = { time: Date.now(), data: recipes };
+        return recipes;
+      } finally {
+        this.inflightAll = null;
+      }
+    })();
+    return this.inflightAll;
   }
   async find(ref: string) {
     const recipe = await this.db.recipe.findFirst({
@@ -93,10 +125,26 @@ export class Catalog {
     return recipeDto(recipe);
   }
   async ingredients(): Promise<Ingredient[]> {
-    return (await this.db.ingredient.findMany({ orderBy: { name: 'asc' } })).map((r) => ({
-      ...r,
-      aliases: JSON.parse(r.aliasesText),
-    }));
+    const now = Date.now();
+    if (this.cacheIngredients && now - this.cacheIngredients.time < 30000) {
+      return this.cacheIngredients.data;
+    }
+    if (this.inflightIngredients) {
+      return this.inflightIngredients;
+    }
+    this.inflightIngredients = (async () => {
+      try {
+        const items = (await this.db.ingredient.findMany({ orderBy: { name: 'asc' } })).map((r) => ({
+          ...r,
+          aliases: JSON.parse(r.aliasesText),
+        }));
+        this.cacheIngredients = { time: Date.now(), data: items };
+        return items;
+      } finally {
+        this.inflightIngredients = null;
+      }
+    })();
+    return this.inflightIngredients;
   }
 }
 @ApiTags('Recipes & Ingredients')

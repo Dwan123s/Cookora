@@ -3,10 +3,6 @@
   display: none;
 }
 
-.cookora-header {
-  padding-top: env(safe-area-inset-top, 0px);
-}
-
 .cookora-mobile-menu {
   max-height: calc(100dvh - 72px - env(safe-area-inset-top, 0px));
   overflow-y: auto;

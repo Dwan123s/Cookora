@@ -181,7 +181,8 @@
   position: relative;
   width: 100%;
   max-width: 560px;
-  min-height: 528px;
+  /* Reserve the taller registration form so the shared heading/tabs stay anchored. */
+  min-height: 624px;
   padding: 22px clamp(26px, 3.2vw, 46px) 76px;
   border: 1px solid #ecece3;
   border-radius: 25px;
@@ -470,7 +471,7 @@
   .login-card {
     padding-top: 38px;
     padding-bottom: 100px;
-    min-height: 650px;
+    min-height: 764px;
   }
   .login-switch {
     height: 43px;
@@ -589,7 +590,7 @@
   .login-card {
     max-width: 430px;
     padding: 28px 25px 85px;
-    min-height: 520px;
+    min-height: 672px;
   }
   .login-card-heading .login-brand strong {
     font-size: 29px;

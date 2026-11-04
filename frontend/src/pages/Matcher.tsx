@@ -18,6 +18,7 @@ import {
   History,
   RotateCcw,
   Check,
+  Search,
 } from 'lucide-react';
 import type { AiChefSuggestionResponse, AiSuggestedDish, Recipe } from '@cookora/contracts';
 import { ApiError, request } from '../api';
@@ -29,6 +30,21 @@ import { useMatcherHistory } from '../use-matcher-history';
 import '../matcher-reference.css';
 
 type SuggestionInput = { prompt: string; servings: number };
+
+// Reuse the artwork in the supplied reference, keeping the page controls as live UI.
+function ReferenceArt({ viewBox, className }: { viewBox: string; className: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox={viewBox}
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <image href="/images/matcher-reference-art.png" width="1672" height="941" />
+    </svg>
+  );
+}
 
 function DishPhoto({ recipe }: { recipe?: Recipe }) {
   return (
@@ -87,11 +103,17 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
       ? 'Trợ lý AI chưa sẵn sàng. Vui lòng thử lại sau.'
       : errorText(ai.error);
   return (
-    <main className="pantry-reference pantry-with-floating-assistant">
+    <main className="pantry-reference pantry-with-floating-assistant pantry-photo-match">
+      <div className="pantry-page-decoration" aria-hidden="true">
+        <ReferenceArt className="pantry-corner-cloth" viewBox="0 62 132 190" />
+        <ReferenceArt className="pantry-corner-leaves" viewBox="1535 62 137 125" />
+        <ReferenceArt className="pantry-bottom-leaves" viewBox="0 650 98 160" />
+        <span className="pantry-bottom-cloth" />
+      </div>
       <section className="pantry-hero" aria-labelledby="pantry-title">
         <div className="pantry-hero-copy">
-          <p className="pantry-eyebrow">— CÓ GÌ NẤU NẤY</p>
           <div className="pantry-title-row">
+            <ChefHat className="pantry-title-hat" strokeWidth={1.5} aria-hidden="true" />
             <h1 id="pantry-title">Có gì nấu nấy</h1>
             <span className="pantry-rays" aria-hidden="true">
               <i />
@@ -100,30 +122,25 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
             </span>
           </div>
           <p>
-            Nhập nguyên liệu bạn đang có. AI ưu tiên món trong kho Cookora
-            <br className="pantry-wide-break" /> và gợi ý thêm món mới phù hợp để bạn lựa chọn.
+            Nhập nguyên liệu bạn đang có. Cookora sẽ gợi ý món ngon,
+            <br className="pantry-wide-break" /> đơn giản và phù hợp nhất cho bạn.
           </p>
         </div>
-        <img
-          className="pantry-board"
-          src="/images/matcher-ingredients-board.webp"
-          alt="Thớt nguyên liệu với cá hồi, trứng và rau củ tươi"
-        />
+        <ReferenceArt className="pantry-board" viewBox="785 65 395 184" />
         <aside className="pantry-note">
-          <ChefHat size={32} aria-hidden="true" />
           <p>
             Biến nguyên liệu sẵn có
             <br /> thành bữa ăn ngon,
             <br /> đơn giản và phù hợp.
           </p>
         </aside>
-        <Leaf className="pantry-hero-leaf" aria-hidden="true" />
       </section>
       <div className="pantry-workspace">
         <section className="pantry-input-card pantry-surface" aria-labelledby="pantry-input-title">
           <h2 id="pantry-input-title">
-            <Zap aria-hidden="true" />
+            <Leaf aria-hidden="true" />
             Bạn đang có nguyên liệu gì?
+            <ReferenceArt className="pantry-input-garnish" viewBox="684 265 121 47" />
           </h2>
           <form
             onSubmit={(event) => {
@@ -161,13 +178,13 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
                 </div>
                 <ArrowRight className="pantry-step-arrow" />
                 <div>
-                  <Sparkles />
+                  <Search />
                   <span>
                     <strong>2. AI phân tích</strong>
                     <small>
-                      Ưu tiên công thức trong kho
+                      Ưu tiên công thức đơn giản,
                       <br />
-                      và gợi ý thêm món mới
+                      phù hợp nguyên liệu
                     </small>
                   </span>
                 </div>
@@ -177,9 +194,9 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
                   <span>
                     <strong>3. Chọn món phù hợp</strong>
                     <small>
-                      Xem món trong kho
+                      Xem công thức từ AI đề
                       <br />
-                      cùng gợi ý mới từ AI
+                      xuất ngay!
                     </small>
                   </span>
                 </div>
@@ -289,7 +306,9 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
               <Utensils />
               Gợi ý món cho bạn
             </h2>
-            <span>AI gợi ý</span>
+            <span>
+              <Sparkles size={15} aria-hidden="true" /> AI gợi ý
+            </span>
           </div>
           {selected && (
             <p className="pantry-results-note pantry-saved-context">
@@ -398,9 +417,21 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
               </div>
             </>
           ) : (
-            <div className="pantry-result-status">
-              <CookingPot />
-              <p>Nhập nguyên liệu và nhấn “Đề xuất món với AI” để nhận cả món trong kho và gợi ý mới.</p>
+            <div className="pantry-result-status pantry-empty-state">
+              <ReferenceArt className="pantry-empty-pot" viewBox="1040 370 330 177" />
+              <div className="pantry-empty-copy">
+                <h3>Chưa có gợi ý món ăn</h3>
+                <span className="pantry-rays" aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+                <p>
+                  Hãy nhập nguyên liệu bạn đang có ở bên trái,
+                  <br className="pantry-wide-break" /> Cookora sẽ gợi ý món ngon phù hợp cho bạn nhé!
+                </p>
+                <ReferenceArt className="pantry-empty-arrow" viewBox="951 603 86 36" />
+              </div>
             </div>
           )}
         </section>

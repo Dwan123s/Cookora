@@ -11,8 +11,12 @@ import '@fontsource/be-vietnam-pro/700.css';
 import './styles.css';
 import './redesign.css';
 import './home-reference.css';
+import './cookora-tokens.css';
+import './matcher-photo.css';
+import './discover-reference.css';
+import './home-alignment.css';
+import './island-header.css';
 import './mobile.css';
-import './header.css';
 import './mobile-navigation.css';
 const loadMotion = () => import('./motion-features').then((module) => module.default);
 const client = new QueryClient({

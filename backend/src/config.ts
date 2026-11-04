@@ -23,9 +23,9 @@ export function sqlConfig(admin = false) {
       encrypt: process.env.DB_ENCRYPT !== 'false',
       trustServerCertificate: process.env.DB_TRUST_CERT === 'true',
     },
-    pool: { min: 0, max: 10 },
-    connectionTimeout: 15000,
-    requestTimeout: 15000,
+    pool: { min: 2, max: 20 },
+    connectionTimeout: 30000,
+    requestTimeout: 60000,
   };
 }
 export const appOrigin = process.env.APP_ORIGIN || 'http://localhost:5173';

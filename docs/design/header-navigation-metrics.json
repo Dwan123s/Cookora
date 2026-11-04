@@ -1,0 +1,1567 @@
+{
+  "date": "2026-11-03",
+  "actualAppDesktop": [
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "route": "/",
+      "scrolled": "false",
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 88,
+          "x": 450.5
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 88,
+          "x": 542.5
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 128,
+          "x": 634.5
+        },
+        {
+          "href": "/thuc-don",
+          "width": 128,
+          "x": 766.5
+        },
+        {
+          "href": "/eat-fit",
+          "width": 72,
+          "x": 898.5
+        }
+      ],
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/cong-thuc",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "route": "/cong-thuc",
+      "scrolled": "false",
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 88,
+          "x": 450.5
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 88,
+          "x": 542.5
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 128,
+          "x": 634.5
+        },
+        {
+          "href": "/thuc-don",
+          "width": 128,
+          "x": 766.5
+        },
+        {
+          "href": "/eat-fit",
+          "width": 72,
+          "x": 898.5
+        }
+      ],
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/co-gi-nau-nay",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "route": "/co-gi-nau-nay",
+      "scrolled": "false",
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 88,
+          "x": 450.5
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 88,
+          "x": 542.5
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 128,
+          "x": 634.5
+        },
+        {
+          "href": "/thuc-don",
+          "width": 128,
+          "x": 766.5
+        },
+        {
+          "href": "/eat-fit",
+          "width": 72,
+          "x": 898.5
+        }
+      ],
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/thuc-don",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "route": "/thuc-don",
+      "scrolled": "false",
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 88,
+          "x": 450.5
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 88,
+          "x": 542.5
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 128,
+          "x": 634.5
+        },
+        {
+          "href": "/thuc-don",
+          "width": 128,
+          "x": 766.5
+        },
+        {
+          "href": "/eat-fit",
+          "width": 72,
+          "x": 898.5
+        }
+      ],
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/eat-fit",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "route": "/eat-fit",
+      "scrolled": "false",
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 88,
+          "x": 450.5
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 88,
+          "x": 542.5
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 128,
+          "x": 634.5
+        },
+        {
+          "href": "/thuc-don",
+          "width": 128,
+          "x": 766.5
+        },
+        {
+          "href": "/eat-fit",
+          "width": 72,
+          "x": 898.5
+        }
+      ],
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "route": "/",
+      "scrolled": "false",
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 88,
+          "x": 450.5
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 88,
+          "x": 542.5
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 128,
+          "x": 634.5
+        },
+        {
+          "href": "/thuc-don",
+          "width": 128,
+          "x": 766.5
+        },
+        {
+          "href": "/eat-fit",
+          "width": 72,
+          "x": 898.5
+        }
+      ],
+      "viewport": 1536
+    }
+  ],
+  "actualAppMobile": [
+    {
+      "account": {
+        "height": 38,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "active": "/",
+      "favorites": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "header": {
+        "height": 68,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "nav": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "notifications": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "route": "/",
+      "scrolled": "false",
+      "search": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/thuc-don",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/eat-fit",
+          "width": 0,
+          "x": 0
+        }
+      ],
+      "viewport": 390
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "active": "/cong-thuc",
+      "favorites": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "header": {
+        "height": 68,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "nav": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "notifications": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "route": "/cong-thuc",
+      "scrolled": "false",
+      "search": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/thuc-don",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/eat-fit",
+          "width": 0,
+          "x": 0
+        }
+      ],
+      "viewport": 390
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "active": "/co-gi-nau-nay",
+      "favorites": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "header": {
+        "height": 68,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "nav": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "notifications": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "route": "/co-gi-nau-nay",
+      "scrolled": "false",
+      "search": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/thuc-don",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/eat-fit",
+          "width": 0,
+          "x": 0
+        }
+      ],
+      "viewport": 390
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "active": "/thuc-don",
+      "favorites": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "header": {
+        "height": 68,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "nav": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "notifications": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "route": "/thuc-don",
+      "scrolled": "false",
+      "search": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/thuc-don",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/eat-fit",
+          "width": 0,
+          "x": 0
+        }
+      ],
+      "viewport": 390
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "active": "/eat-fit",
+      "favorites": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "header": {
+        "height": 68,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "nav": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "notifications": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "route": "/eat-fit",
+      "scrolled": "false",
+      "search": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/thuc-don",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/eat-fit",
+          "width": 0,
+          "x": 0
+        }
+      ],
+      "viewport": 390
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "active": "/",
+      "favorites": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "header": {
+        "height": 68,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "instance": "_r_0_",
+      "logo": {
+        "height": 44,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "nav": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "notifications": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "route": "/",
+      "scrolled": "false",
+      "search": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "tabs": [
+        {
+          "href": "/",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/cong-thuc",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/co-gi-nau-nay",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/thuc-don",
+          "width": 0,
+          "x": 0
+        },
+        {
+          "href": "/eat-fit",
+          "width": 0,
+          "x": 0
+        }
+      ],
+      "viewport": 390
+    }
+  ],
+  "actualAppScrolled": {
+    "account": {
+      "height": 38,
+      "width": 112,
+      "x": 1268.5,
+      "y": 27
+    },
+    "active": "/co-gi-nau-nay",
+    "favorites": {
+      "height": 36,
+      "width": 32,
+      "x": 1188.5,
+      "y": 28
+    },
+    "header": {
+      "height": 68,
+      "width": 1280,
+      "x": 120.5,
+      "y": 12
+    },
+    "instance": "_r_0_",
+    "logo": {
+      "height": 44,
+      "width": 154,
+      "x": 140.5,
+      "y": 24
+    },
+    "nav": {
+      "height": 42,
+      "width": 620,
+      "x": 450.5,
+      "y": 25
+    },
+    "notifications": {
+      "height": 36,
+      "width": 32,
+      "x": 1226.5,
+      "y": 28
+    },
+    "route": "/co-gi-nau-nay",
+    "scrolled": "true",
+    "search": {
+      "height": 36,
+      "width": 32,
+      "x": 1150.5,
+      "y": 28
+    },
+    "tabs": [
+      {
+        "href": "/",
+        "width": 88,
+        "x": 450.5
+      },
+      {
+        "href": "/cong-thuc",
+        "width": 88,
+        "x": 542.5
+      },
+      {
+        "href": "/co-gi-nau-nay",
+        "width": 128,
+        "x": 634.5
+      },
+      {
+        "href": "/thuc-don",
+        "width": 128,
+        "x": 766.5
+      },
+      {
+        "href": "/eat-fit",
+        "width": 72,
+        "x": 898.5
+      }
+    ],
+    "viewport": 1536
+  },
+  "isolatedHeaderAccountStates": [
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "signedIn": false,
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "signedIn": true,
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/cong-thuc",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "signedIn": true,
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/co-gi-nau-nay",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "signedIn": true,
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/thuc-don",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "signedIn": true,
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/eat-fit",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "signedIn": true,
+      "viewport": 1536
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 112,
+        "x": 1268.5,
+        "y": 31
+      },
+      "active": "/",
+      "favorites": {
+        "height": 36,
+        "width": 32,
+        "x": 1188.5,
+        "y": 32
+      },
+      "header": {
+        "height": 68,
+        "width": 1280,
+        "x": 120.5,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "width": 154,
+        "x": 140.5,
+        "y": 28
+      },
+      "nav": {
+        "height": 42,
+        "width": 620,
+        "x": 450.5,
+        "y": 29
+      },
+      "notifications": {
+        "height": 36,
+        "width": 32,
+        "x": 1226.5,
+        "y": 32
+      },
+      "search": {
+        "height": 36,
+        "width": 32,
+        "x": 1150.5,
+        "y": 32
+      },
+      "signedIn": true,
+      "viewport": 1536
+    }
+  ],
+  "isolatedHeaderMobileAccountStates": [
+    {
+      "account": {
+        "height": 38,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "active": "/",
+      "favorites": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "header": {
+        "height": 68,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "logo": {
+        "height": 44,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "nav": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "notifications": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "search": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "signedIn": true,
+      "viewport": 390
+    },
+    {
+      "account": {
+        "height": 38,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "active": "/",
+      "favorites": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "header": {
+        "height": 68,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "logo": {
+        "height": 44,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "nav": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "notifications": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "search": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      },
+      "signedIn": false,
+      "viewport": 390
+    }
+  ],
+  "homeSqlSnapshotResponsive": [
+    {
+      "account": {
+        "height": 38,
+        "right": 1229,
+        "width": 112,
+        "x": 1117,
+        "y": 31
+      },
+      "clientWidth": 1265,
+      "containerOverflow": 0,
+      "header": {
+        "height": 68,
+        "right": 1249,
+        "width": 1233,
+        "x": 16,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "right": 190,
+        "width": 154,
+        "x": 36,
+        "y": 28
+      },
+      "pageWidth": 1265,
+      "quickLinks": 7,
+      "recipeColumns": "269.625px 269.625px 269.625px 269.625px",
+      "reelCards": 32,
+      "sections": 9,
+      "viewport": 1280
+    },
+    {
+      "account": {
+        "height": 38,
+        "right": 679,
+        "width": 112,
+        "x": 567,
+        "y": 31
+      },
+      "clientWidth": 753,
+      "containerOverflow": 0,
+      "header": {
+        "height": 68,
+        "right": 737,
+        "width": 721,
+        "x": 16,
+        "y": 16
+      },
+      "logo": {
+        "height": 44,
+        "right": 190,
+        "width": 154,
+        "x": 36,
+        "y": 28
+      },
+      "pageWidth": 753,
+      "quickLinks": 7,
+      "recipeColumns": "346.5px 346.5px",
+      "reelCards": 32,
+      "sections": 9,
+      "viewport": 768
+    },
+    {
+      "account": {
+        "height": 38,
+        "right": 317,
+        "width": 94,
+        "x": 223,
+        "y": 27
+      },
+      "clientWidth": 375,
+      "containerOverflow": 0,
+      "header": {
+        "height": 68,
+        "right": 363,
+        "width": 351,
+        "x": 12,
+        "y": 12
+      },
+      "logo": {
+        "height": 44,
+        "right": 152,
+        "width": 129,
+        "x": 23,
+        "y": 24
+      },
+      "pageWidth": 375,
+      "quickLinks": 7,
+      "recipeColumns": "165px 165px",
+      "reelCards": 32,
+      "sections": 9,
+      "viewport": 390
+    },
+    {
+      "account": {
+        "height": 38,
+        "right": 247,
+        "width": 90,
+        "x": 157,
+        "y": 27
+      },
+      "clientWidth": 305,
+      "containerOverflow": 0,
+      "header": {
+        "height": 68,
+        "right": 293,
+        "width": 281,
+        "x": 12,
+        "y": 12
+      },
+      "logo": {
+        "height": 44,
+        "right": 143,
+        "width": 120,
+        "x": 23,
+        "y": 24
+      },
+      "pageWidth": 305,
+      "quickLinks": 7,
+      "recipeColumns": "130px 130px",
+      "reelCards": 32,
+      "sections": 9,
+      "viewport": 320
+    }
+  ],
+  "notes": [
+    "Actual route cycle: / → /cong-thuc → /co-gi-nau-nay → /thuc-don → /eat-fit → /.",
+    "Authentication layouts tested in isolated component fixture; real session and authentication unchanged.",
+    "Initial visual QA used read-only real SQL catalog snapshot during API timeout. Final fresh reload loaded actual API catalog successfully; screenshots are from actual app. SQL load remains slow. Temporary fixture removed."
+  ],
+  "finalActualHome": {
+    "date": "2026-11-04",
+    "url": "http://127.0.0.1:5173/",
+    "freshReloadCatalogLoaded": true,
+    "viewports": [
+      1536,
+      768,
+      320
+    ],
+    "sections": 9,
+    "failedImages": 0,
+    "horizontalOverflow": false,
+    "screenshots": "Final Home screenshots replaced with actual app captures; initial isolated fixture removed."
+  }
+}

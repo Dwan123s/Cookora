@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState, type RefObject } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { ArrowUpRight, ChefHat, LoaderCircle, MessageCircle, Minus, Send, Sparkles, X } from 'lucide-react';
+import { ArrowUpRight, Calendar, ChefHat, Dumbbell, Leaf, Lightbulb, LoaderCircle, MessageCircle, Minus, Send, Sparkles, X } from 'lucide-react';
 import type { AiChatMessage, AiChefSuggestionResponse, AiSuggestedDish } from '@cookora/contracts';
 import { ApiError, request } from '../api';
 import { errorText } from '../shared';
@@ -124,6 +124,10 @@ export function CookingAssistant({
       history: assistantHistory(exchanges.filter((item) => item.id < exchange.id)),
     });
   };
+  const choosePrompt = (prompt: string) => {
+    setDraft(prompt);
+    input.current?.focus({ preventScroll: true });
+  };
   return (
     <div className="cooking-assistant" hidden={hidden}>
       {open && (
@@ -182,6 +186,20 @@ export function CookingAssistant({
                 kho và gợi ý thêm món mới phù hợp.
               </p>
               <small>Bạn có thể hỏi tiếp về cách nấu hoặc điều chỉnh món ăn.</small>
+            </div>
+            <div className="cooking-chat-shortcuts" aria-label="Gợi ý trò chuyện">
+              <button type="button" onClick={() => choosePrompt('Mình đang có các nguyên liệu: ')}>
+                <Leaf size={18} /> Gợi ý món từ nguyên liệu
+              </button>
+              <button type="button" onClick={() => choosePrompt('Gợi ý thực đơn tuần cân bằng, dễ nấu cho mình.')}>
+                <Calendar size={18} /> Lên thực đơn tuần
+              </button>
+              <button type="button" onClick={() => choosePrompt('Gợi ý món Eat Fit lành mạnh và cân bằng dinh dưỡng.')}>
+                <Dumbbell size={18} /> Món Eat Fit
+              </button>
+              <button type="button" onClick={() => choosePrompt('Chia sẻ cho mình vài mẹo vào bếp hữu ích.')}>
+                <Lightbulb size={18} /> Mẹo vào bếp
+              </button>
             </div>
             {exchanges.map((exchange) => (
               <div className="cooking-chat-exchange" key={exchange.id}>
@@ -282,7 +300,7 @@ export function CookingAssistant({
                 value={draft}
                 onChange={(event) => setDraft(event.target.value)}
                 placeholder="Nhập nguyên liệu hoặc hỏi mình về món ăn…"
-                rows={2}
+                rows={1}
                 maxLength={1000}
                 minLength={2}
                 required
@@ -301,7 +319,7 @@ export function CookingAssistant({
                 <Send size={19} />
               </button>
             </div>
-            <p>Enter để gửi · Shift + Enter để xuống dòng</p>
+            <p className="cooking-chat-sr-only">Enter để gửi · Shift + Enter để xuống dòng</p>
           </form>
         </section>
       )}
@@ -309,7 +327,9 @@ export function CookingAssistant({
         ref={launcher}
         type="button"
         className={`cooking-chat-launcher${open ? ' is-open' : ''}`}
+        tabIndex={open ? -1 : 0}
         onClick={() => (open ? close() : onOpenChange(true))}
+
         aria-label={open ? 'Thu gọn trợ lý AI Cookora' : 'Mở trợ lý AI Cookora'}
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}

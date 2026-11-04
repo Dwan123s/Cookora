@@ -1,0 +1,55 @@
+/* Values taken from the approved Discovery and Pantry pages. */
+:root {
+  --cookora-content-max: 1280px;
+  --cookora-content-gutter: 32px;
+  --cookora-container-max: calc(var(--cookora-content-max) + 2 * var(--cookora-content-gutter));
+  --cookora-forest: #174e25;
+  --cookora-forest-hover: #214f29;
+  --cookora-sage: #eaf1d8;
+  --cookora-cream: #fcf8f3;
+  --cookora-surface: #fffdfb;
+  --cookora-ink: #161d17;
+  --cookora-muted: #425246;
+  --cookora-border: #dfdcd6;
+  --cookora-orange: #ff9c09;
+  --cookora-font: 'Be Vietnam Pro', sans-serif;
+  --cookora-display: 'Be Vietnam Pro Display', 'Be Vietnam Pro', sans-serif;
+  --cookora-radius-card: 15px;
+  --cookora-radius-panel: 24px;
+  --cookora-shadow-card: 0 2px 4px #45371e13;
+  --cookora-primary-background: linear-gradient(#306435, #24542c);
+}
+
+@media (max-width: 1199px) {
+  :root {
+    --cookora-content-gutter: 24px;
+  }
+}
+@media (max-width: 639px) {
+  :root {
+    --cookora-content-gutter: 16px;
+  }
+}
+
+/* Existing page wrappers share one content axis, without changing their grids. */
+:where(
+  .cookora-content-container,
+  .wrap,
+  .container,
+  .section,
+  .home-aligned .home-container,
+  .discover-container,
+  .pantry-reference,
+  .pantry-reference.pantry-photo-match,
+  .weekly-reference,
+  .eatfit-reference,
+  .tools-reference
+),
+#page-content + footer > div:first-child {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--cookora-container-max);
+  min-width: 0;
+  margin-inline: auto;
+  padding-inline: var(--cookora-content-gutter);
+}

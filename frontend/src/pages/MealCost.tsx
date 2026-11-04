@@ -90,7 +90,7 @@ export function MealCost() {
                 >
                   <Icon size={18} />
                   {label}
-                  {mode === value && <Check size={14} />}
+                  <Check size={14} aria-hidden="true" style={{ visibility: mode === value ? 'visible' : 'hidden' }} />
                 </button>
               ))}
             </div>

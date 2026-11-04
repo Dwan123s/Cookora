@@ -1,0 +1,1155 @@
+/* Matches the user's discovery-page reference; cards and filters use the live catalog. */
+body:has(:is(.discover-reference, .home-aligned)) {
+  background: #fcf8f3;
+}
+.discover-reference {
+  --discover-green: #174e25;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: calc(100svh - 55px);
+  padding-bottom: 30px;
+  background: radial-gradient(ellipse at 50% 35%, #fffdf9 0%, #fcf8f3 85%);
+  color: #161d17;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  line-height: 1.5;
+}
+.discover-reference *,
+.discover-reference *::before,
+.discover-reference *::after {
+  box-sizing: border-box;
+}
+.discover-reference button,
+.discover-reference input,
+.discover-reference select {
+  font: inherit;
+}
+.discover-reference button,
+.discover-reference a,
+.discover-reference summary,
+.discover-reference select {
+  -webkit-tap-highlight-color: transparent;
+}
+.discover-reference button,
+.discover-reference summary,
+.discover-reference select {
+  cursor: pointer;
+}
+.discover-reference :focus-visible {
+  outline: 3px solid #7da65b;
+  outline-offset: 3px;
+}
+.discover-container {
+  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+.discover-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.discover-decorations > * {
+  position: absolute;
+}
+.discover-top-leaf {
+  left: 0;
+  top: -33px;
+  width: 105px;
+  height: 156px;
+}
+.discover-right-leaf {
+  right: 0;
+  top: 156px;
+  width: 115px;
+  height: 123px;
+}
+.discover-bottom-art {
+  bottom: 24px;
+  left: 0;
+  width: 88px;
+  height: 252px;
+}
+.discover-bottom-wave {
+  width: 100%;
+  height: 70px;
+  left: 0;
+  bottom: 0;
+}
+.discover-reference .discover-hero {
+  position: relative;
+  min-height: 230px;
+  padding-block: 22px 30px;
+  padding-inline: 0;
+}
+.discover-hero-copy {
+  position: relative;
+  z-index: 1;
+  width: 680px;
+  max-width: 57%;
+}
+.discover-reference .discover-eyebrow {
+  font-size: 16px;
+  font-weight: 600;
+  color: #234c2c;
+  margin: 0 0 1px;
+  line-height: 1.5;
+}
+.discover-title-row {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  gap: 7px;
+}
+.discover-reference h1 {
+  font:
+    900 46px/1.22 'Be Vietnam Pro Display',
+    'Be Vietnam Pro',
+    sans-serif;
+  color: #17502a;
+  letter-spacing: -1.7px;
+  margin: 0;
+  white-space: nowrap;
+}
+.discover-rays {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 40px;
+  flex: none;
+  align-self: flex-start;
+  margin-top: -8px;
+}
+.discover-rays i {
+  position: absolute;
+  height: 4px;
+  width: 19px;
+  border-radius: 4px;
+  background: #ff9c09;
+  bottom: 0;
+  right: 0;
+}
+.discover-rays i:nth-child(2) {
+  transform: rotate(-31deg);
+  bottom: 14px;
+  right: 0;
+}
+.discover-rays i:nth-child(3) {
+  transform: rotate(-62deg);
+  bottom: 28px;
+  right: 10px;
+}
+.discover-reference .discover-description {
+  margin: 3px 0 10px;
+  font-size: 13px;
+  color: #222722;
+  line-height: 1.7;
+}
+.discover-search {
+  height: 47px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 680px;
+  max-width: 100%;
+  background: #fff;
+  border: 1px solid #bdc9bc;
+  border-radius: 30px;
+  padding: 5px 5px 5px 17px;
+  box-shadow: 0 2px 4px #38402b16;
+}
+.discover-search > svg {
+  flex: none;
+  color: #4f892e;
+}
+.discover-reference .discover-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  height: 30px;
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  background: transparent;
+  font-size: 13px;
+  color: #242d24;
+  box-shadow: none;
+}
+.discover-search input::placeholder {
+  color: #41483d;
+  opacity: 1;
+}
+.discover-search button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex: none;
+  height: 37px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 26px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(#276a32, #165124);
+  box-shadow: 0 2px 5px #1a542526;
+}
+.discover-hero-art {
+  position: absolute;
+  right: calc((1380px - 100vw) / 2);
+  top: 0;
+  height: 230px;
+  width: 634px;
+  mix-blend-mode: multiply;
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 98%, transparent);
+}
+.discover-today {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 94px;
+  border: 1px solid #ead9bd;
+  border-radius: 26px;
+  padding: 11px 18px 11px 25px;
+  background: linear-gradient(100deg, #fbf6ebcc, #fbf8efcc);
+  box-shadow:
+    0 2px 5px #79532217,
+    inset 0 0 0 2px #fffcf7;
+}
+.discover-today-intro {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  flex: none;
+}
+.discover-today-intro > svg {
+  color: #18562a;
+  fill: #fffdf9;
+  transform: rotate(-13deg);
+  filter: drop-shadow(0 3px 4px #637c3830);
+}
+.discover-reference .discover-today-intro h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #164822;
+  letter-spacing: -0.7px;
+}
+.discover-reference .discover-today-intro p {
+  font-size: 12px;
+  margin: 5px 0 0;
+  color: #425246;
+}
+.discover-today-dishes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+.discover-today-dish {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  min-height: 67px;
+  padding: 7px 11px;
+  border: 1px solid #e9dfd2;
+  border-radius: 14px;
+  background: #fffcfae6;
+  box-shadow: 0 2px 3px #67481c12;
+}
+.discover-today-dish > img {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex: none;
+}
+.discover-today-dish > div {
+  min-width: 0;
+}
+.discover-reference .discover-today-dish h3 {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0 0 8px;
+  color: #141914;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.discover-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 23px;
+  background: #ebf0cd;
+  border: 1px solid #e1e9bf;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #172d19;
+  white-space: nowrap;
+}
+.discover-filters {
+  margin-top: 24px;
+  margin-bottom: 6px;
+}
+.discover-cuisine-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 174px;
+  align-items: center;
+  gap: 16px;
+}
+.discover-cuisines {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 0;
+}
+.discover-reference .discover-cuisines button,
+.discover-reference .discover-categories button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 6px 10px;
+  border: 1px solid #deded3;
+  border-radius: 999px;
+  background: #fffdfb;
+  color: #344337;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px #3f35210b;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.discover-reference .discover-cuisines button:first-child {
+  font-weight: 600;
+}
+.discover-reference .discover-cuisines button:hover:not(.is-active),
+.discover-reference .discover-categories button:hover:not(.is-active) {
+  background: #f0f5e7;
+  border-color: #aabb99;
+  box-shadow: 0 2px 5px #254c2410;
+}
+.discover-reference .discover-cuisines button.is-active,
+.discover-reference .discover-categories button.is-active {
+  background: #245f31;
+  color: #fff;
+  border-color: #215b2c;
+}
+.discover-cuisine-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  font-size: 20px;
+  line-height: 1;
+}
+/* Crop only the circular flags; keep the utensils icon intact. */
+.discover-cuisines button:not(:last-child) .discover-cuisine-icon {
+  border-radius: 50%;
+  overflow: hidden;
+  clip-path: circle(50% at 50% 50%);
+}
+.discover-reference .discover-cuisine-row select {
+  width: 174px;
+  max-width: 100%;
+  height: 42px;
+  min-width: 0;
+  font-size: 12px;
+  padding: 10px 12px;
+  border: 1px solid #dfdcd6;
+  border-radius: 12px;
+  background: #fffcfa;
+  box-shadow: 0 2px 4px #3f35210b;
+  color: #272c26;
+}
+.discover-categories {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.discover-reference .discover-categories button {
+  height: 40px;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+.discover-categories button > span {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  font-size: 20px;
+  line-height: 1;
+}
+.discover-content {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+  margin-left: 0;
+}
+.discover-sidebar {
+  align-self: start;
+  padding: 10px 19px 14px;
+  border: 1px solid #e2ddd5;
+  border-radius: 18px;
+  background: #fffdfbd9;
+  box-shadow: 0 3px 5px #53432812;
+}
+.discover-sidebar-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddcd5;
+}
+.discover-reference .discover-sidebar-heading h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #174525;
+  margin: 0;
+  letter-spacing: -0.8px;
+}
+.discover-sidebar-heading h2 svg {
+  color: #285e2c;
+}
+.discover-sidebar-heading button {
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0;
+  color: #275e2b;
+  font-size: 11px;
+}
+.discover-sidebar fieldset {
+  padding: 9px 0 10px;
+  margin: 0;
+  min-width: 0;
+  border: 0;
+  border-bottom: 1px solid #e1ded7;
+}
+.discover-sidebar fieldset legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #2a4932;
+  letter-spacing: -0.3px;
+}
+.discover-sidebar label {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #1c271e;
+  cursor: pointer;
+  clear: both;
+}
+.discover-sidebar input {
+  appearance: auto;
+  width: 15px;
+  height: 15px;
+  min-height: 0;
+  margin: 0 1px;
+  padding: 0;
+  accent-color: #296a36;
+  flex: none;
+  box-shadow: none;
+}
+.discover-serving-filter {
+  margin-top: 9px;
+}
+.discover-serving-filter summary {
+  font-size: 12px;
+  color: #355c3b;
+}
+.discover-serving-filter fieldset {
+  border: 0;
+  padding-bottom: 0;
+}
+.discover-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.discover-results {
+  position: relative;
+  min-width: 0;
+  scroll-margin-top: 70px;
+}
+.discover-reference .discover-results > h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #184c25;
+  letter-spacing: -0.7px;
+  margin: 0 0 14px;
+  line-height: 26px;
+}
+.discover-recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px 22px;
+}
+.discover-recipe-card {
+  border: 1px solid var(--cookora-border);
+  border-radius: var(--cookora-radius-card);
+  background: var(--cookora-surface);
+  overflow: hidden;
+  box-shadow: var(--cookora-shadow-card);
+  transition:
+    box-shadow 0.18s,
+    transform 0.18s;
+  min-width: 0;
+}
+.discover-recipe-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px #45371e1a;
+}
+.discover-recipe-photo {
+  position: relative;
+  aspect-ratio: 2.04;
+  overflow: hidden;
+  background: #edf0e4;
+}
+.discover-recipe-photo > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.discover-recipe-photo img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.discover-recipe-card:hover .discover-recipe-photo img {
+  transform: scale(1.03);
+}
+.discover-photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  color: #889b7a;
+  font-size: 11px;
+}
+.discover-cuisine-badge {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-size: 10px;
+  color: #1d251c;
+  background: #fffffff0;
+  padding: 4px 12px;
+  border-radius: 15px;
+  pointer-events: none;
+}
+.discover-reference .discover-recipe-photo .favorite-btn {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  width: 33px;
+  height: 33px;
+  padding: 0;
+  border: 1px solid #dddcd7;
+  border-radius: 50%;
+  background: #fffffff2;
+  color: #303a2d;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 1px 3px #00000018;
+}
+.discover-reference .discover-recipe-photo .favorite-btn.saved {
+  color: #ad5055;
+}
+.discover-recipe-body {
+  padding: 7px 15px 8px;
+}
+.discover-reference .discover-recipe-body {
+  min-height: 64px;
+}
+.discover-reference .discover-recipe-body h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.45px;
+  color: #151b15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.discover-recipe-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+}
+.discover-dish-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #303830;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.discover-dish-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.discover-dish-meta svg {
+  flex: none;
+  stroke-width: 1.6;
+}
+.discover-difficulty {
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 3px 11px;
+  color: #975116;
+  border-radius: 6px;
+  background: #fbefdf;
+  white-space: nowrap;
+}
+.discover-difficulty.is-easy {
+  color: #225b2b;
+  background: #eaf4e3;
+}
+.discover-pagination {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  align-items: center;
+  gap: 15px;
+  width: min(100%, 471px);
+  margin-inline: auto;
+  margin-top: 26px;
+}
+.discover-pagination-slot {
+  display: flow-root;
+  min-height: 65px;
+}
+.discover-recipe-space {
+  visibility: hidden;
+  pointer-events: none;
+}
+.discover-pagination > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
+.discover-pagination button {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  width: 100%;
+  height: 39px;
+  border: 1px solid #deded5;
+  border-radius: 50%;
+  background: #fffdfb;
+  color: #214a2c;
+  font-size: 14px;
+  padding: 0 8px;
+}
+.discover-pagination button[aria-current='page'] {
+  background: #3e7b46;
+  border-color: #356e3d;
+  color: #fff;
+}
+.discover-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.discover-page-gap {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  height: 39px;
+  padding-inline: 2px;
+}
+.discover-empty {
+  position: absolute;
+  inset: 40px 0 65px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 45px 20px;
+  background: #fffdfb;
+  border: 1px solid #e1dfd5;
+  border-radius: 18px;
+}
+.discover-empty > svg {
+  color: #709061;
+  margin-bottom: 15px;
+}
+.discover-empty h3 {
+  font-size: 20px;
+}
+.discover-empty p {
+  font-size: 14px;
+}
+.discover-empty button {
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #286033;
+  color: white;
+  margin-top: 15px;
+  font-size: 13px;
+}
+@media (min-width: 1537px) {
+  .discover-hero-art {
+    right: calc((var(--cookora-content-max) - 100vw) / 2);
+  }
+}
+@media (max-width: 1535px) {
+  .discover-hero-art {
+    right: -5.56%;
+  }
+}
+@media (max-width: 1390px) {
+  .discover-hero-copy {
+    max-width: 59%;
+  }
+  .discover-hero-art {
+    right: -3.2%;
+    width: 47%;
+  }
+  .discover-today {
+    gap: 18px;
+    padding-inline: 18px;
+  }
+  .discover-today-intro {
+    gap: 13px;
+  }
+  .discover-today-intro p {
+    max-width: 190px;
+  }
+  .discover-today-dish {
+    gap: 9px;
+    padding-inline: 8px;
+  }
+  .discover-today-dish > img {
+    width: 60px;
+  }
+  .discover-more {
+    padding-inline: 17px;
+  }
+  .discover-content {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 25px;
+    margin-left: 0;
+  }
+  .discover-recipe-grid {
+    gap: 18px;
+  }
+  .discover-recipe-body {
+    padding-inline: 10px;
+  }
+  .discover-dish-meta {
+    gap: 8px;
+    font-size: 11px;
+  }
+  .discover-difficulty {
+    padding-inline: 7px;
+    font-size: 10px;
+  }
+  .discover-recipe-body h3 {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1100px) {
+  .discover-reference h1 {
+    font-size: 38px;
+  }
+  .discover-description {
+    max-width: 85%;
+  }
+  .discover-desktop-break {
+    display: none;
+  }
+  .discover-search button {
+    padding-inline: 16px;
+    font-size: 12px;
+  }
+  .discover-reference .discover-search input {
+    font-size: 12px;
+  }
+  .discover-today {
+    flex-wrap: wrap;
+  }
+  .discover-today-intro {
+    flex: 1;
+  }
+  .discover-today-dishes {
+    flex: 0 0 100%;
+    order: 3;
+  }
+  .discover-today-intro p {
+    max-width: none;
+  }
+  .discover-today-dish > img {
+    width: 70px;
+  }
+  .discover-cuisine-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .discover-cuisines {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .discover-reference .discover-cuisine-row select {
+    justify-self: end;
+  }
+  .discover-categories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .discover-content {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 20px;
+  }
+  .discover-recipe-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+  }
+  .discover-reference .discover-recipe-body {
+    min-height: 88px;
+  }
+  .discover-recipe-bottom {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+}
+@media (max-width: 760px) {
+  .discover-reference .discover-hero {
+    min-height: 270px;
+    padding-block: 25px 24px;
+  }
+  .discover-hero-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+  .discover-reference .discover-eyebrow {
+    font-size: 13px;
+  }
+  .discover-reference h1 {
+    font-size: clamp(29px, 5.7vw, 40px);
+    letter-spacing: -1.5px;
+  }
+  .discover-title-row {
+    gap: 2px;
+  }
+  .discover-rays {
+    transform: scale(0.75);
+    transform-origin: left center;
+    width: 23px;
+  }
+  .discover-reference .discover-description {
+    max-width: 63%;
+    font-size: 12px;
+    margin: 12px 0 18px;
+    min-height: 65px;
+  }
+  .discover-hero-art {
+    top: 93px;
+    right: -28px;
+    width: 46%;
+    height: auto;
+    aspect-ratio: 2.75;
+    transform: scale(1.25);
+    mask-image: linear-gradient(to right, transparent, #000 12%);
+  }
+  .discover-search {
+    width: 100%;
+    height: 45px;
+    gap: 8px;
+    padding-left: 12px;
+  }
+  .discover-search > svg {
+    width: 18px;
+  }
+  .discover-search button {
+    padding-inline: 13px;
+    height: 34px;
+    font-size: 11px;
+    gap: 6px;
+  }
+  .discover-reference .discover-search input {
+    font-size: 11px;
+  }
+  .discover-today {
+    gap: 12px;
+    padding: 13px;
+    border-radius: 20px;
+  }
+  .discover-today-intro {
+    gap: 10px;
+  }
+  .discover-today-intro > svg {
+    width: 38px;
+    height: 38px;
+  }
+  .discover-reference .discover-today-intro h2 {
+    font-size: 17px;
+  }
+  .discover-reference .discover-today-intro p {
+    font-size: 10px;
+  }
+  .discover-more {
+    padding: 8px 11px;
+    gap: 5px;
+    font-size: 11px;
+  }
+  .discover-today-dishes {
+    gap: 8px;
+    overflow-x: auto;
+    grid-template-columns: repeat(3, minmax(205px, 1fr));
+    padding-bottom: 4px;
+  }
+  .discover-today-dish {
+    min-height: 61px;
+    gap: 8px;
+  }
+  .discover-today-dish > img {
+    width: 62px;
+    height: 45px;
+  }
+  .discover-reference .discover-today-dish h3 {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+  .discover-today-dish .discover-dish-meta {
+    font-size: 10px;
+    gap: 8px;
+  }
+  .discover-filters {
+    margin-top: 19px;
+  }
+  .discover-cuisines {
+    gap: 8px;
+  }
+  .discover-reference .discover-cuisines button,
+  .discover-reference .discover-cuisines button:first-child {
+    height: 40px;
+    font-size: 12px;
+    padding: 5px 8px;
+    gap: 7px;
+  }
+  .discover-cuisine-icon {
+    width: 21px;
+    height: 21px;
+    font-size: 18px;
+  }
+  .discover-reference .discover-cuisine-row select {
+    width: 174px;
+    height: 40px;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .discover-categories {
+    gap: 8px;
+  }
+  .discover-reference .discover-categories button {
+    height: 40px;
+    padding: 5px 8px;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .discover-categories button > span {
+    width: 21px;
+    height: 21px;
+    font-size: 17px;
+  }
+  .discover-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    margin-top: 18px;
+  }
+  .discover-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 15px;
+    padding: 13px 15px;
+  }
+  .discover-sidebar-heading {
+    grid-column: 1/-1;
+  }
+  .discover-sidebar label {
+    font-size: 11px;
+    gap: 7px;
+    line-height: 1.9;
+  }
+  .discover-sidebar fieldset legend {
+    font-size: 11px;
+  }
+  .discover-sidebar > fieldset:nth-of-type(3) {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 10px;
+  }
+  .discover-sidebar > fieldset:nth-of-type(3) legend {
+    grid-column: 1/-1;
+  }
+  .discover-serving-filter {
+    grid-column: 1/-1;
+  }
+  .discover-recipe-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+  .discover-reference .discover-results > h2 {
+    font-size: 19px;
+  }
+  .discover-recipe-photo {
+    aspect-ratio: 1.6;
+  }
+  .discover-recipe-body {
+    padding: 8px 9px;
+  }
+  .discover-reference .discover-recipe-body {
+    min-height: 80px;
+  }
+  .discover-reference .discover-recipe-body h3 {
+    font-size: 12px;
+    margin-bottom: 7px;
+  }
+  .discover-recipe-bottom {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+  .discover-dish-meta {
+    gap: 8px;
+    font-size: 10px;
+  }
+  .discover-dish-meta svg {
+    width: 12px;
+    height: 12px;
+  }
+  .discover-difficulty {
+    font-size: 9px;
+    padding: 2px 7px;
+  }
+  .discover-cuisine-badge {
+    left: 6px;
+    top: 6px;
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+  .discover-reference .discover-recipe-photo .favorite-btn {
+    right: 6px;
+    top: 5px;
+    width: 28px;
+    height: 28px;
+  }
+  .discover-recipe-photo .favorite-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  .discover-pagination,
+  .discover-pagination > span {
+    gap: 6px;
+  }
+  .discover-pagination button {
+    min-width: 0;
+    height: 33px;
+    font-size: 12px;
+  }
+  .discover-top-leaf {
+    width: 60px;
+    height: auto;
+    top: -15px;
+    opacity: 0.7;
+  }
+  .discover-right-leaf {
+    display: none;
+  }
+  .discover-bottom-art {
+    width: 60px;
+    height: auto;
+    opacity: 0.6;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .discover-reference * {
+    transition: none !important;
+  }
+}
+@media (max-width: 680px) {
+  .discover-reference .discover-hero {
+    min-height: 250px;
+  }
+  .discover-reference .discover-description {
+    max-width: 60%;
+  }
+}
+
+/* Keep both filter rows aligned without changing dimensions on selection. */
+.discover-cuisines button > svg:not(.discover-cuisine-icon) {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+@media (max-width: 1240px) {
+  .discover-categories {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .discover-reference .discover-categories button {
+    white-space: normal;
+    line-height: 1.3;
+  }
+}
+@media (max-width: 520px) {
+  .discover-cuisines,
+  .discover-categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .discover-cuisines button:last-child {
+    grid-column: 1 / -1;
+  }
+  .discover-reference .discover-cuisine-row select {
+    width: 100%;
+    justify-self: stretch;
+  }
+  .discover-reference .discover-categories button {
+    height: 46px;
+    gap: 7px;
+  }
+}

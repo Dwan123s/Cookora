@@ -1,0 +1,4770 @@
+{
+  "checkedAt": "2026-11-03T17:30:05.904Z",
+  "origin": "http://127.0.0.1:5173",
+  "recipes": 476,
+  "uniqueImages": 426,
+  "passed": 476,
+  "failed": [],
+  "results": [
+    {
+      "id": "468db8ae-59af-48fd-9a8b-249ce7defcf6",
+      "slug": "bua-loy",
+      "title": "Bua Loy (Chè viên bột nếp nước dừa)",
+      "image": "/recipes/repaired/doc-thai-044-bua-loy-che-vien-bot-nep-nuoc-dua.webp",
+      "ok": true,
+      "width": 600,
+      "height": 398,
+      "bytes": 36078
+    },
+    {
+      "id": "88495903-0683-4bc0-9d3b-9d17b78f2c05",
+      "slug": "com-kimchi",
+      "title": "Cơm kimchi cho ngày bận rộn",
+      "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=1000&q=85",
+      "ok": true,
+      "width": 1000,
+      "height": 666,
+      "bytes": 151223
+    },
+    {
+      "id": "86ca1e74-ad40-4df9-abf9-fbefd2c1dcca",
+      "slug": "dau-hu-sot-ca-chua",
+      "title": "Đậu hũ sốt cà chua",
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1000&q=85",
+      "ok": true,
+      "width": 1000,
+      "height": 1000,
+      "bytes": 203893
+    },
+    {
+      "id": "3ed920e6-357d-49de-9110-a65a69faabd4",
+      "slug": "doc-han-001-bulgogi-thit-bo-xao-nuong-kieu-han",
+      "title": "Bulgogi (Thịt bò xào/nướng kiểu Hàn)",
+      "image": "/recipes/documents/doc-han-001-bulgogi-thit-bo-xao-nuong-kieu-han-1.webp",
+      "ok": true,
+      "width": 452,
+      "height": 678,
+      "bytes": 65288
+    },
+    {
+      "id": "2a2c9623-9ac8-4a65-98a1-5d1604b157f7",
+      "slug": "doc-han-002-samgyeopsal-ba-chi-heo-nuong",
+      "title": "Samgyeopsal (Ba chỉ heo nướng)",
+      "image": "/recipes/documents/doc-han-002-samgyeopsal-ba-chi-heo-nuong-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 147172
+    },
+    {
+      "id": "ebbdf39d-91cd-43c4-9925-450716ad26f6",
+      "slug": "doc-han-003-galbi-suon-bo-nuong",
+      "title": "Galbi (Sườn bò nướng)",
+      "image": "/recipes/documents/doc-han-003-galbi-suon-bo-nuong-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 485,
+      "bytes": 61508
+    },
+    {
+      "id": "52673190-c7f2-4c3a-aebb-7044ef2a86e4",
+      "slug": "doc-han-004-dakgalbi-ga-xao-bap-cai-cay",
+      "title": "Dakgalbi (Gà xào bắp cải cay)",
+      "image": "/recipes/korea/004_dakgalbi_ga_xao_bap_cai_cay.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 349293
+    },
+    {
+      "id": "d3f1511e-9cb7-461a-97dd-0247419aa790",
+      "slug": "doc-han-005-jeyuk-bokkeum-thit-heo-xao-cay",
+      "title": "Jeyuk Bokkeum (Thịt heo xào cay)",
+      "image": "/recipes/documents/doc-han-005-jeyuk-bokkeum-thit-heo-xao-cay-1.webp",
+      "ok": true,
+      "width": 768,
+      "height": 768,
+      "bytes": 114066
+    },
+    {
+      "id": "4345a774-de55-4492-a092-c488df50667a",
+      "slug": "doc-han-006-bossam-thit-heo-luoc-cuon-rau",
+      "title": "Bossam (Thịt heo luộc cuốn rau)",
+      "image": "/recipes/documents/doc-han-006-bossam-thit-heo-luoc-cuon-rau-1.webp",
+      "ok": true,
+      "width": 462,
+      "height": 663,
+      "bytes": 40242
+    },
+    {
+      "id": "b3ac6139-08e6-4d2f-ab0d-c7e756bf7fac",
+      "slug": "doc-han-007-jokbal-chan-gio-heo-ham-kieu-han",
+      "title": "Jokbal (Chân giò heo hầm kiểu Hàn)",
+      "image": "/recipes/korea/007_jokbal_chan_gio_heo_ham_kieu_han.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 335651
+    },
+    {
+      "id": "2e69d177-9f14-485b-b9ea-d38eb3e6f792",
+      "slug": "doc-han-008-dakdoritang-ga-ham-cay",
+      "title": "Dakdoritang (Gà hầm cay)",
+      "image": "/recipes/documents/doc-han-008-dakdoritang-ga-ham-cay-1.webp",
+      "ok": true,
+      "width": 1050,
+      "height": 1400,
+      "bytes": 142242
+    },
+    {
+      "id": "fda6610c-8158-4fd5-8166-3dab18f7d841",
+      "slug": "doc-han-009-haemul-pajeon-banh-xeo-hai-san-hanh-la",
+      "title": "Haemul Pajeon (Bánh xèo hải sản hành lá)",
+      "image": "/recipes/documents/doc-han-009-haemul-pajeon-banh-xeo-hai-san-hanh-la-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 564,
+      "bytes": 76844
+    },
+    {
+      "id": "c28f1957-dbc2-49f0-ba92-5418b725deca",
+      "slug": "doc-han-010-kimchijeon-banh-xeo-kim-chi",
+      "title": "Kimchijeon (Bánh xèo kim chi)",
+      "image": "/recipes/documents/doc-han-010-kimchijeon-banh-xeo-kim-chi-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 66262
+    },
+    {
+      "id": "69457205-f65f-4b42-96f3-713f95567203",
+      "slug": "doc-han-011-kimchi-jjigae-canh-kim-chi-dau-hu-thit-heo",
+      "title": "Kimchi Jjigae (Canh kim chi đậu hũ thịt heo)",
+      "image": "/recipes/documents/doc-han-011-kimchi-jjigae-canh-kim-chi-dau-hu-thit-heo-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 402,
+      "bytes": 52110
+    },
+    {
+      "id": "744e79e0-ec6a-42e2-90f8-579ebb43d610",
+      "slug": "doc-han-012-doenjang-jjigae-canh-tuong-dau-han-quoc",
+      "title": "Doenjang Jjigae (Canh tương đậu Hàn Quốc)",
+      "image": "/recipes/documents/doc-han-012-doenjang-jjigae-canh-tuong-dau-han-quoc-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 510,
+      "bytes": 69838
+    },
+    {
+      "id": "2fca1824-6857-405a-9cce-2edc90531b9b",
+      "slug": "doc-han-013-sundubu-jjigae-canh-dau-hu-non-cay",
+      "title": "Sundubu Jjigae (Canh đậu hũ non cay)",
+      "image": "/recipes/documents/doc-han-013-sundubu-jjigae-canh-dau-hu-non-cay-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 63974
+    },
+    {
+      "id": "39bbb819-8eb9-41ee-90b0-80d5d28a842e",
+      "slug": "doc-han-014-budae-jjigae-lau-quan-doi-mini",
+      "title": "Budae Jjigae (Lẩu quân đội mini)",
+      "image": "/recipes/documents/doc-han-014-budae-jjigae-lau-quan-doi-mini-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 480,
+      "bytes": 54404
+    },
+    {
+      "id": "63a2afd5-db2f-4d6f-9278-95c6c09cd3b8",
+      "slug": "doc-han-015-samgyetang-canh-ga-ham-sam-phan-nho",
+      "title": "Samgyetang (Canh gà hầm sâm phần nhỏ)",
+      "image": "/recipes/documents/doc-han-015-samgyetang-canh-ga-ham-sam-phan-nho-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 85570
+    },
+    {
+      "id": "41dd8409-1550-4617-90c6-1356d545f55f",
+      "slug": "doc-han-016-seolleongtan-canh-xuong-bo-ham-trang",
+      "title": "Seolleongtan (Canh xương bò hầm trắng)",
+      "image": "/recipes/documents/doc-han-016-seolleongtan-canh-xuong-bo-ham-trang-1.webp",
+      "ok": true,
+      "width": 453,
+      "height": 677,
+      "bytes": 38694
+    },
+    {
+      "id": "b3f044a2-8913-4cb0-a61b-933e67d230d4",
+      "slug": "doc-han-017-galbitang-canh-suon-bo",
+      "title": "Galbitang (Canh sườn bò)",
+      "image": "/recipes/documents/doc-han-017-galbitang-canh-suon-bo-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 631,
+      "bytes": 92570
+    },
+    {
+      "id": "c1420f1c-3fcd-41fa-88c3-5ba88e20dc66",
+      "slug": "doc-han-018-yukgaejang-canh-thit-bo-cay-xe-soi",
+      "title": "Yukgaejang (Canh thịt bò cay xé sợi)",
+      "image": "/recipes/documents/doc-han-018-yukgaejang-canh-thit-bo-cay-xe-soi-1.webp",
+      "ok": true,
+      "width": 411,
+      "height": 480,
+      "bytes": 52600
+    },
+    {
+      "id": "d83621bf-cad6-4e45-878f-85bd51d33390",
+      "slug": "doc-han-019-miyeokguk-canh-rong-bien",
+      "title": "Miyeokguk (Canh rong biển)",
+      "image": "/recipes/documents/doc-han-019-miyeokguk-canh-rong-bien-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 280,
+      "bytes": 25166
+    },
+    {
+      "id": "60624835-f854-4acd-879f-c82a9fd3864f",
+      "slug": "doc-han-020-gamjatang-canh-xuong-heo-khoai-tay",
+      "title": "Gamjatang (Canh xương heo khoai tây)",
+      "image": "/recipes/documents/doc-han-020-gamjatang-canh-xuong-heo-khoai-tay-1.webp",
+      "ok": true,
+      "width": 1150,
+      "height": 820,
+      "bytes": 107216
+    },
+    {
+      "id": "ac0f0ced-64ac-4f1b-ba50-9b84774ef298",
+      "slug": "doc-han-021-tteokbokki-banh-gao-cay-truyen-thong",
+      "title": "Tteokbokki (Bánh gạo cay truyền thống)",
+      "image": "/recipes/documents/doc-han-021-tteokbokki-banh-gao-cay-truyen-thong-1.webp",
+      "ok": true,
+      "width": 375,
+      "height": 273,
+      "bytes": 33540
+    },
+    {
+      "id": "4bf35172-568e-4dfa-b996-77a137ddc4be",
+      "slug": "doc-han-022-rabokki-banh-gao-ket-hop-mi-goi",
+      "title": "Rabokki (Bánh gạo kết hợp mì gói)",
+      "image": "/recipes/documents/doc-han-022-rabokki-banh-gao-ket-hop-mi-goi-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 99116
+    },
+    {
+      "id": "c1fce1ac-7696-4274-91b1-26c88237962f",
+      "slug": "doc-han-023-jajangmyeon-mi-tuong-den",
+      "title": "Jajangmyeon (Mì tương đen)",
+      "image": "/recipes/documents/doc-han-023-jajangmyeon-mi-tuong-den-1.webp",
+      "ok": true,
+      "width": 960,
+      "height": 692,
+      "bytes": 150916
+    },
+    {
+      "id": "3feba8fc-ab51-4021-a22c-800f9985a456",
+      "slug": "doc-han-024-jjamppong-mi-hai-san-cay",
+      "title": "Jjamppong (Mì hải sản cay)",
+      "image": "/recipes/documents/doc-han-024-jjamppong-mi-hai-san-cay-1.webp",
+      "ok": true,
+      "width": 660,
+      "height": 440,
+      "bytes": 65472
+    },
+    {
+      "id": "bdab58e1-f691-4dd5-9246-2885158c13db",
+      "slug": "doc-han-025-naengmyeon-mi-lanh",
+      "title": "Naengmyeon (Mì lạnh)",
+      "image": "/recipes/documents/doc-han-025-naengmyeon-mi-lanh-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 800,
+      "bytes": 90516
+    },
+    {
+      "id": "07e848e0-c2d0-48f7-92a4-2d442b719b0f",
+      "slug": "doc-han-026-bibim-naengmyeon-mi-lanh-tron-cay",
+      "title": "Bibim Naengmyeon (Mì lạnh trộn cay)",
+      "image": "/recipes/documents/doc-han-026-bibim-naengmyeon-mi-lanh-tron-cay-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 537,
+      "bytes": 48558
+    },
+    {
+      "id": "04fb059d-6909-4bee-b054-ea566129fd52",
+      "slug": "doc-han-027-japchae-mien-tron-han-quoc",
+      "title": "Japchae (Miến trộn Hàn Quốc)",
+      "image": "/recipes/documents/doc-han-027-japchae-mien-tron-han-quoc-1.webp",
+      "ok": true,
+      "width": 750,
+      "height": 750,
+      "bytes": 165052
+    },
+    {
+      "id": "efd5bca2-6160-4548-b605-5109cf976b92",
+      "slug": "doc-han-028-kongguksu-mi-lanh-nuoc-dau-nanh",
+      "title": "Kongguksu (Mì lạnh nước đậu nành)",
+      "image": "/recipes/documents/doc-han-028-kongguksu-mi-lanh-nuoc-dau-nanh-1.webp",
+      "ok": true,
+      "width": 447,
+      "height": 447,
+      "bytes": 49454
+    },
+    {
+      "id": "8f35df4f-72de-4013-9cbe-f9bcb68a1b12",
+      "slug": "doc-han-029-kalguksu-mi-dao-cat-thu-cong",
+      "title": "Kalguksu (Mì dao cắt thủ công)",
+      "image": "/recipes/documents/doc-han-029-kalguksu-mi-dao-cat-thu-cong-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 38542
+    },
+    {
+      "id": "1457d0b8-e3f4-40f6-83bd-5d7da934dccf",
+      "slug": "doc-han-030-makguksu-mi-kieu-mach-tron-cay-vung-chuncheon",
+      "title": "Makguksu (Mì kiều mạch trộn cay vùng Chuncheon)",
+      "image": "/recipes/documents/doc-han-030-makguksu-mi-kieu-mach-tron-cay-vung-chuncheon-1.webp",
+      "ok": true,
+      "width": 547,
+      "height": 365,
+      "bytes": 29792
+    },
+    {
+      "id": "67d2c633-7045-412d-b8d3-04f5475c04b0",
+      "slug": "doc-han-031-gimbap-com-cuon-rong-bien-truyen-thong",
+      "title": "Gimbap (Cơm cuộn rong biển truyền thống)",
+      "image": "/recipes/documents/doc-han-031-gimbap-com-cuon-rong-bien-truyen-thong-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 61118
+    },
+    {
+      "id": "1031a60e-d301-4e13-9dc6-7657aefd51c1",
+      "slug": "doc-han-032-mayak-gimbap-com-cuon-mini-gay-nghien",
+      "title": "Mayak Gimbap (Cơm cuộn mini gây nghiện)",
+      "image": "/recipes/documents/doc-han-032-mayak-gimbap-com-cuon-mini-gay-nghien-1.webp",
+      "ok": true,
+      "width": 650,
+      "height": 971,
+      "bytes": 89106
+    },
+    {
+      "id": "c994b31c-8b48-47f2-9ddf-d795c0d8eca7",
+      "slug": "doc-han-033-bibimbap-com-tron-truyen-thong",
+      "title": "Bibimbap (Cơm trộn truyền thống)",
+      "image": "/recipes/documents/doc-han-033-bibimbap-com-tron-truyen-thong-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 768,
+      "bytes": 122484
+    },
+    {
+      "id": "5f770d44-140d-4421-ba3e-dce7246ddffd",
+      "slug": "doc-han-034-dolsot-bibimbap-com-tron-tho-da",
+      "title": "Dolsot Bibimbap (Cơm trộn thố đá)",
+      "image": "/recipes/documents/doc-han-034-dolsot-bibimbap-com-tron-tho-da-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 1024,
+      "bytes": 164710
+    },
+    {
+      "id": "a6ca9533-2c06-420a-8685-ea05df3db17d",
+      "slug": "doc-han-035-kimchi-bokkeumbap-com-chien-kim-chi",
+      "title": "Kimchi Bokkeumbap (Cơm chiên kim chi)",
+      "image": "/recipes/documents/doc-han-035-kimchi-bokkeumbap-com-chien-kim-chi-1.webp",
+      "ok": true,
+      "width": 320,
+      "height": 320,
+      "bytes": 20806
+    },
+    {
+      "id": "4b682e7f-bf04-4a55-86f1-328983f83efe",
+      "slug": "doc-han-036-jumeokbap-com-nam-han-quoc",
+      "title": "Jumeokbap (Cơm nắm Hàn Quốc)",
+      "image": "/recipes/documents/doc-han-036-jumeokbap-com-nam-han-quoc-1.webp",
+      "ok": true,
+      "width": 482,
+      "height": 636,
+      "bytes": 75308
+    },
+    {
+      "id": "db75a86d-9b10-4534-99e3-6ab6d2220962",
+      "slug": "doc-han-037-mandu-ha-cao-sui-cao-han-quoc",
+      "title": "Mandu (Há cảo/Sủi cảo Hàn Quốc)",
+      "image": "/recipes/documents/doc-han-037-mandu-ha-cao-sui-cao-han-quoc-1.webp",
+      "ok": true,
+      "width": 547,
+      "height": 561,
+      "bytes": 35434
+    },
+    {
+      "id": "62d77c11-3615-4451-b48a-b8bf8ded2bbe",
+      "slug": "doc-han-038-sundae-doi-lon-kieu-han",
+      "title": "Sundae (Dồi lợn kiểu Hàn)",
+      "image": "/recipes/documents/doc-han-038-sundae-doi-lon-kieu-han-1.webp",
+      "ok": true,
+      "width": 678,
+      "height": 452,
+      "bytes": 71948
+    },
+    {
+      "id": "55b833f0-2949-4aeb-a524-d04772a33709",
+      "slug": "doc-han-039-oduk-eomuk-cha-ca-xien",
+      "title": "Oduk/Eomuk (Chả cá xiên)",
+      "image": "/recipes/documents/doc-han-039-oduk-eomuk-cha-ca-xien-1.webp",
+      "ok": true,
+      "width": 376,
+      "height": 531,
+      "bytes": 26154
+    },
+    {
+      "id": "305d9dff-1493-4462-94f9-1fc363f4f8cc",
+      "slug": "doc-han-040-gyeran-jjim-trung-hap-tho-da-phong",
+      "title": "Gyeran Jjim (Trứng hấp thố đá phồng)",
+      "image": "/recipes/documents/doc-han-040-gyeran-jjim-trung-hap-tho-da-phong-1.webp",
+      "ok": true,
+      "width": 547,
+      "height": 365,
+      "bytes": 33504
+    },
+    {
+      "id": "3a3039ae-9725-4852-80ae-627c031d768d",
+      "slug": "doc-han-041-baechu-kimchi-kimchi-cai-thao-phan-nho",
+      "title": "Baechu Kimchi (Kimchi cải thảo phần nhỏ)",
+      "image": "/recipes/documents/doc-han-041-baechu-kimchi-kimchi-cai-thao-phan-nho-1.webp",
+      "ok": true,
+      "width": 750,
+      "height": 750,
+      "bytes": 120478
+    },
+    {
+      "id": "c156efaf-7084-437f-bc35-0c8b6145bbbb",
+      "slug": "doc-han-042-kkakdugi-kimchi-cu-cai-vuong",
+      "title": "Kkakdugi (Kimchi củ cải vuông)",
+      "image": "/recipes/documents/doc-han-042-kkakdugi-kimchi-cu-cai-vuong-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 682,
+      "bytes": 50964
+    },
+    {
+      "id": "8b245c8f-63a6-40f3-afd0-c01d70fb9fb2",
+      "slug": "doc-han-043-oi-sobagi-kimchi-dua-chuot-nhoi",
+      "title": "Oi Sobagi (Kimchi dưa chuột nhồi)",
+      "image": "/recipes/documents/doc-han-043-oi-sobagi-kimchi-dua-chuot-nhoi-1.webp",
+      "ok": true,
+      "width": 530,
+      "height": 353,
+      "bytes": 29124
+    },
+    {
+      "id": "c14eb564-2411-462e-b567-f71c7f937c7a",
+      "slug": "doc-han-044-kongnamul-muchim-gia-do-tron-dau-me",
+      "title": "Kongnamul Muchim (Giá đỗ trộn dầu mè)",
+      "image": "/recipes/documents/doc-han-044-kongnamul-muchim-gia-do-tron-dau-me-1.webp",
+      "ok": true,
+      "width": 596,
+      "height": 335,
+      "bytes": 23936
+    },
+    {
+      "id": "246e039b-1132-4db9-a4ba-c2bdbeef907c",
+      "slug": "doc-han-045-myeolchi-bokkeum-ca-com-kho-xao-ngot",
+      "title": "Myeolchi Bokkeum (Cá cơm khô xào ngọt)",
+      "image": "/recipes/documents/doc-han-045-myeolchi-bokkeum-ca-com-kho-xao-ngot-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 320,
+      "bytes": 22532
+    },
+    {
+      "id": "e8d74413-7ea5-49d4-80f0-77137512eedd",
+      "slug": "doc-han-046-gamja-jorim-khoai-tay-kho-tuong",
+      "title": "Gamja Jorim (Khoai tây kho tương)",
+      "image": "/recipes/documents/doc-han-046-gamja-jorim-khoai-tay-kho-tuong-1.webp",
+      "ok": true,
+      "width": 1254,
+      "height": 1254,
+      "bytes": 116354
+    },
+    {
+      "id": "80b701af-9897-4daf-a490-5c89c4eda7f9",
+      "slug": "doc-han-047-dubu-jorim-dau-hu-sot-tuong",
+      "title": "Dubu Jorim (Đậu hũ sốt tương)",
+      "image": "/recipes/documents/doc-han-047-dubu-jorim-dau-hu-sot-tuong-1.webp",
+      "ok": true,
+      "width": 245,
+      "height": 245,
+      "bytes": 14966
+    },
+    {
+      "id": "3122d374-6a31-4d99-b4b3-cdc9979c2211",
+      "slug": "doc-han-048-gyeran-mari-trung-cuon-kieu-han",
+      "title": "Gyeran Mari (Trứng cuộn kiểu Hàn)",
+      "image": "/recipes/documents/doc-han-048-gyeran-mari-trung-cuon-kieu-han-1.webp",
+      "ok": true,
+      "width": 495,
+      "height": 619,
+      "bytes": 55452
+    },
+    {
+      "id": "c24a01fe-cb61-429b-a485-32016dc072f3",
+      "slug": "doc-han-049-eomuk-bokkeum-cha-ca-xao-cay-ngot",
+      "title": "Eomuk Bokkeum (Chả cá xào cay ngọt)",
+      "image": "/recipes/documents/doc-han-049-eomuk-bokkeum-cha-ca-xao-cay-ngot-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 667,
+      "bytes": 98516
+    },
+    {
+      "id": "ef8b17a9-1ef3-46f7-9c11-cf46a7feb94f",
+      "slug": "doc-han-050-hotteok-banh-kep-ngot-nhan-duong-pho-phan-nho",
+      "title": "Hotteok (Bánh kếp ngọt nhân đường phố phần nhỏ)",
+      "image": "/recipes/documents/doc-han-050-hotteok-banh-kep-ngot-nhan-duong-pho-phan-nho-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 1000,
+      "bytes": 93942
+    },
+    {
+      "id": "82071b34-4189-4a13-9fa0-57313626268b",
+      "slug": "doc-menu-001-salad-uc-ga-va-bo",
+      "title": "Salad ức gà và bơ",
+      "image": "/recipes/documents/doc-menu-001-salad-uc-ga-va-bo-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 1024,
+      "bytes": 189310
+    },
+    {
+      "id": "fb2ff956-3fa0-48bb-884e-0e1534c8d953",
+      "slug": "doc-menu-002-salad-tom-xoai",
+      "title": "Salad tôm xoài",
+      "image": "/recipes/documents/doc-menu-002-salad-tom-xoai-1.webp",
+      "ok": true,
+      "width": 828,
+      "height": 828,
+      "bytes": 56376
+    },
+    {
+      "id": "ec7d4416-6264-4b3d-9664-9432de266e70",
+      "slug": "doc-menu-003-salad-ca-ngu-trung-luoc",
+      "title": "Salad cá ngừ trứng luộc",
+      "image": "/recipes/documents/doc-menu-003-salad-ca-ngu-trung-luoc-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1400,
+      "bytes": 237964
+    },
+    {
+      "id": "21602ce1-18a9-4d06-8922-ca086ac27384",
+      "slug": "doc-menu-004-salad-khoai-lang-trung",
+      "title": "Salad khoai lang trứng",
+      "image": "/recipes/documents/doc-menu-004-salad-khoai-lang-trung-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1400,
+      "bytes": 610504
+    },
+    {
+      "id": "520d10e2-e81f-432e-9318-7b6083d9675d",
+      "slug": "doc-menu-005-salad-dau-ga-kieu-dia-trung-hai",
+      "title": "Salad đậu gà kiểu Địa Trung Hải",
+      "image": "/recipes/documents/doc-menu-005-salad-dau-ga-kieu-dia-trung-hai-1.webp",
+      "ok": true,
+      "width": 768,
+      "height": 768,
+      "bytes": 158948
+    },
+    {
+      "id": "7f88111b-cd53-4719-ad0b-c8f320b78164",
+      "slug": "doc-menu-006-salad-ca-hoi-nuong",
+      "title": "Salad cá hồi nướng",
+      "image": "/recipes/documents/doc-menu-006-salad-ca-hoi-nuong-1.webp",
+      "ok": true,
+      "width": 736,
+      "height": 736,
+      "bytes": 130498
+    },
+    {
+      "id": "fd29c1e2-c179-481f-bde0-d8d9c3bd69bd",
+      "slug": "doc-menu-007-salad-dau-hu-bong-cai",
+      "title": "Salad đậu hũ bông cải",
+      "image": "/recipes/documents/doc-menu-007-salad-dau-hu-bong-cai-1.webp",
+      "ok": true,
+      "width": 712,
+      "height": 712,
+      "bytes": 152278
+    },
+    {
+      "id": "bebeb902-9672-4c56-a08c-ef9656c8da09",
+      "slug": "doc-menu-008-salad-bo-ap-chao-ot-chuong",
+      "title": "Salad bò áp chảo ớt chuông",
+      "image": "/recipes/documents/doc-menu-008-salad-bo-ap-chao-ot-chuong-1.webp",
+      "ok": true,
+      "width": 400,
+      "height": 400,
+      "bytes": 68824
+    },
+    {
+      "id": "dfb28e67-b0f2-443d-8bf3-f2cb4ab3ff2e",
+      "slug": "doc-menu-009-salad-quinoa-uc-ga",
+      "title": "Salad quinoa ức gà",
+      "image": "/recipes/documents/doc-menu-009-salad-quinoa-uc-ga-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 1024,
+      "bytes": 203166
+    },
+    {
+      "id": "8ee163a5-27d2-40e9-a4e1-dabccc48da87",
+      "slug": "doc-menu-010-salad-ga-bap-cai-kieu-viet",
+      "title": "Salad gà bắp cải kiểu Việt",
+      "image": "/recipes/documents/doc-menu-010-salad-ga-bap-cai-kieu-viet-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 1024,
+      "bytes": 168200
+    },
+    {
+      "id": "deed4e15-454a-4c26-bd2d-76cbb8a4b020",
+      "slug": "doc-menu-011-chao-yen-mach-thit-bam-rau-cu",
+      "title": "Cháo yến mạch thịt bằm rau củ",
+      "image": "/recipes/eat-fit/011_chao_yen_mach_thit_bam_rau_cu.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 239512
+    },
+    {
+      "id": "dc976a24-ed3a-43da-b792-b45b0b394afc",
+      "slug": "doc-menu-012-ca-hoi-nuong-mang-tay",
+      "title": "Cá hồi nướng măng tây",
+      "image": "/recipes/documents/doc-menu-012-ca-hoi-nuong-mang-tay-1.webp",
+      "ok": true,
+      "width": 960,
+      "height": 960,
+      "bytes": 101176
+    },
+    {
+      "id": "86a6df7b-e83f-47a2-a11c-fc540ed711e6",
+      "slug": "doc-menu-013-com-gao-luc-va-thit-bo-xao-sup-lo",
+      "title": "Cơm gạo lức và thịt bò xào súp lơ",
+      "image": "/recipes/documents/doc-menu-013-com-gao-luc-va-thit-bo-xao-sup-lo-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 546,
+      "bytes": 126410
+    },
+    {
+      "id": "24f5febd-8f13-4978-9958-6003c5f375cb",
+      "slug": "doc-menu-014-com-gao-lut-uc-ga-ap-chao",
+      "title": "Cơm gạo lứt ức gà áp chảo",
+      "image": "/recipes/documents/doc-menu-014-com-gao-lut-uc-ga-ap-chao-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 1000,
+      "bytes": 170054
+    },
+    {
+      "id": "3bcbd394-8ca4-42ce-ba82-7da76dae68da",
+      "slug": "doc-menu-015-com-bo-ap-chao-rau-cu",
+      "title": "Cơm bò áp chảo rau củ",
+      "image": "/recipes/documents/doc-menu-015-com-bo-ap-chao-rau-cu-1.webp",
+      "ok": true,
+      "width": 526,
+      "height": 636,
+      "bytes": 69432
+    },
+    {
+      "id": "43654688-abfc-4498-b9c2-1a282a1c0ed4",
+      "slug": "doc-menu-016-ca-hoi-ap-chao-khoai-lang",
+      "title": "Cá hồi áp chảo khoai lang",
+      "image": "/recipes/documents/doc-menu-016-ca-hoi-ap-chao-khoai-lang-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 800,
+      "bytes": 59620
+    },
+    {
+      "id": "82edcea0-621d-45a0-8a40-acb082a631df",
+      "slug": "doc-menu-017-mi-y-nguyen-cam-sot-ca-chua-uc-ga",
+      "title": "Mì Ý nguyên cám sốt cà chua ức gà",
+      "image": "/recipes/documents/doc-menu-017-mi-y-nguyen-cam-sot-ca-chua-uc-ga-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 800,
+      "bytes": 64814
+    },
+    {
+      "id": "2966ccc8-3c9a-4242-b0ea-de301891343c",
+      "slug": "doc-menu-018-dau-hu-sot-ca-chua-tom",
+      "title": "Đậu hũ sốt cà chua tôm",
+      "image": "/recipes/documents/doc-menu-018-dau-hu-sot-ca-chua-tom-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1400,
+      "bytes": 184190
+    },
+    {
+      "id": "2b9e158a-cb5f-47ab-b3e0-8dcd7714caf9",
+      "slug": "doc-menu-019-sandwich-trung-pho-mai-uc-ga",
+      "title": "Sandwich trứng phô mai ức gà",
+      "image": "/recipes/documents/doc-menu-019-sandwich-trung-pho-mai-uc-ga-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 800,
+      "bytes": 46068
+    },
+    {
+      "id": "38ea141e-1aa5-42f3-ba7f-98312e7507ce",
+      "slug": "doc-menu-020-com-thit-heo-nac-nuong-sa",
+      "title": "Cơm thịt heo nạc nướng sả",
+      "image": "/recipes/documents/doc-menu-020-com-thit-heo-nac-nuong-sa-1.webp",
+      "ok": true,
+      "width": 400,
+      "height": 400,
+      "bytes": 41840
+    },
+    {
+      "id": "5db6da91-c113-44fc-a576-637fc83c4abf",
+      "slug": "doc-menu-021-com-chien-tom-trung-rau-cu",
+      "title": "Cơm chiên tôm trứng rau củ",
+      "image": "/recipes/documents/doc-menu-021-com-chien-tom-trung-rau-cu-1.webp",
+      "ok": true,
+      "width": 736,
+      "height": 736,
+      "bytes": 62298
+    },
+    {
+      "id": "5b988243-d2dd-4279-887a-f6eacd52570d",
+      "slug": "doc-menu-022-bun-bo-hue",
+      "title": "Bún bò Huế",
+      "image": "/recipes/documents/doc-menu-022-bun-bo-hue-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1050,
+      "bytes": 229166
+    },
+    {
+      "id": "28060837-fc3a-44fd-8c9d-81e9138ec10d",
+      "slug": "doc-menu-023-bun-cha-ha-noi",
+      "title": "Bún chả Hà Nội",
+      "image": "/recipes/documents/doc-menu-023-bun-cha-ha-noi-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 934,
+      "bytes": 188600
+    },
+    {
+      "id": "9af91baf-eee8-49f0-9d48-67cfe9489768",
+      "slug": "doc-menu-024-bun-rieu-cua",
+      "title": "Bún riêu cua",
+      "image": "/recipes/documents/doc-menu-024-bun-rieu-cua-1.webp",
+      "ok": true,
+      "width": 780,
+      "height": 470,
+      "bytes": 75484
+    },
+    {
+      "id": "ab68296f-7dd9-4d96-8d52-8d8d7cbd7a05",
+      "slug": "doc-menu-025-bun-thit-nuong",
+      "title": "Bún thịt nướng",
+      "image": "/recipes/documents/doc-menu-025-bun-thit-nuong-1.webp",
+      "ok": true,
+      "width": 1144,
+      "height": 768,
+      "bytes": 136584
+    },
+    {
+      "id": "9a46bf11-7c79-4fb5-8a94-8ab9f6ff3174",
+      "slug": "doc-menu-026-bun-ca-ca-chua",
+      "title": "Bún cá cà chua",
+      "image": "/recipes/documents/doc-menu-026-bun-ca-ca-chua-1.webp",
+      "ok": true,
+      "width": 400,
+      "height": 400,
+      "bytes": 45214
+    },
+    {
+      "id": "5abb5435-906b-4e2a-9682-87ec2108bf87",
+      "slug": "doc-menu-027-bun-mam-mien-tay",
+      "title": "Bún mắm miền Tây",
+      "image": "/recipes/documents/doc-menu-027-bun-mam-mien-tay-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1400,
+      "bytes": 324082
+    },
+    {
+      "id": "e40ec4c7-e50b-49d1-b80a-5c9188035654",
+      "slug": "doc-menu-028-bun-ga-nuong-sa",
+      "title": "Bún gà nướng sả",
+      "image": "/recipes/documents/doc-menu-028-bun-ga-nuong-sa-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1050,
+      "bytes": 235042
+    },
+    {
+      "id": "c6ff6b8c-054a-45cb-a0ed-6fe4198d4a8a",
+      "slug": "doc-menu-029-bun-moc-nam",
+      "title": "Bún mọc nấm",
+      "image": "/recipes/documents/doc-menu-029-bun-moc-nam-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 152960
+    },
+    {
+      "id": "ceb21128-8283-4049-afab-7827ea67ad28",
+      "slug": "doc-menu-030-bun-tom-hai-phong",
+      "title": "Bún tôm Hải Phòng",
+      "image": "/recipes/documents/doc-menu-030-bun-tom-hai-phong-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 1000,
+      "bytes": 186100
+    },
+    {
+      "id": "036acb3c-5b32-400d-960b-c69a645b56de",
+      "slug": "doc-menu-031-bun-dau-mam-tom",
+      "title": "Bún đậu mắm tôm",
+      "image": "/recipes/documents/doc-menu-031-bun-dau-mam-tom-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 162240
+    },
+    {
+      "id": "9e6d30c4-dad7-42a1-9d95-01d86a4ba349",
+      "slug": "doc-menu-032-pho-bo-tai",
+      "title": "Phở bò tái",
+      "image": "/recipes/documents/doc-menu-032-pho-bo-tai-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1400,
+      "bytes": 473150
+    },
+    {
+      "id": "81209cfe-6bb7-403a-b633-d102dc62601f",
+      "slug": "doc-menu-033-pho-ga-xe",
+      "title": "Phở gà xé",
+      "image": "/recipes/documents/doc-menu-033-pho-ga-xe-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 303414
+    },
+    {
+      "id": "5b42a5ae-bdb9-48f0-ac33-185e9584fc72",
+      "slug": "doc-menu-034-pho-ga-tron",
+      "title": "Phở gà trộn",
+      "image": "/recipes/documents/doc-menu-034-pho-ga-tron-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 203142
+    },
+    {
+      "id": "7e244a28-513a-4589-bb00-95cf0ddc177f",
+      "slug": "doc-menu-035-pho-cuon-thit-bo",
+      "title": "Phở cuốn thịt bò",
+      "image": "/recipes/documents/doc-menu-035-pho-cuon-thit-bo-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1400,
+      "bytes": 238656
+    },
+    {
+      "id": "4a06c0a0-fad1-4f59-9442-7963de23ed5c",
+      "slug": "doc-menu-036-pho-ap-chao-bo-nam",
+      "title": "Phở áp chảo bò nấm",
+      "image": "/recipes/documents/doc-menu-036-pho-ap-chao-bo-nam-1.webp",
+      "ok": true,
+      "width": 500,
+      "height": 500,
+      "bytes": 37610
+    },
+    {
+      "id": "d6c4f237-b0a1-41c7-8455-73947ef2fa01",
+      "slug": "doc-menu-037-pho-chay-nam-dau-hu",
+      "title": "Phở chay nấm đậu hũ",
+      "image": "/recipes/documents/doc-menu-037-pho-chay-nam-dau-hu-1.webp",
+      "ok": true,
+      "width": 750,
+      "height": 750,
+      "bytes": 92870
+    },
+    {
+      "id": "7148d64e-77de-42a9-b323-1e213f277585",
+      "slug": "doc-menu-038-pho-ga-nam-huong",
+      "title": "Phở gà nấm hương",
+      "image": "/recipes/documents/doc-menu-038-pho-ga-nam-huong-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 788,
+      "bytes": 182288
+    },
+    {
+      "id": "6b67becf-8e40-4e78-a558-9358a4fc10be",
+      "slug": "doc-menu-039-mi-ramen-ga-trung",
+      "title": "Mì Ramen gà trứng",
+      "image": "/recipes/documents/doc-menu-039-mi-ramen-ga-trung-1.webp",
+      "ok": true,
+      "width": 960,
+      "height": 960,
+      "bytes": 126844
+    },
+    {
+      "id": "0921e941-cbae-4dff-9db5-9c8517864e71",
+      "slug": "doc-menu-040-mi-bo-kimchi-han-quoc",
+      "title": "Mì bò kimchi Hàn Quốc",
+      "image": "/recipes/documents/doc-menu-040-mi-bo-kimchi-han-quoc-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 600,
+      "bytes": 70620
+    },
+    {
+      "id": "b82ceb08-22be-40f5-bb34-a9b1cbe3b2b5",
+      "slug": "doc-menu-041-mi-xao-bo-rau-cai",
+      "title": "Mì xào bò rau cải",
+      "image": "/recipes/documents/doc-menu-041-mi-xao-bo-rau-cai-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 600,
+      "bytes": 116810
+    },
+    {
+      "id": "f5fc5ebd-b1fa-4c7a-b427-9224e5ef8a83",
+      "slug": "doc-menu-042-mi-y-sot-bo-bam",
+      "title": "Mì Ý sốt bò bằm",
+      "image": "/recipes/documents/doc-menu-042-mi-y-sot-bo-bam-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 800,
+      "bytes": 191658
+    },
+    {
+      "id": "e0cb0a0e-904d-42c3-8917-99d7f845e789",
+      "slug": "doc-menu-043-mi-y-sot-kem-ga-nam",
+      "title": "Mì Ý sốt kem gà nấm",
+      "image": "/recipes/documents/doc-menu-043-mi-y-sot-kem-ga-nam-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 800,
+      "bytes": 104624
+    },
+    {
+      "id": "06ec9a39-51ed-4233-b4aa-e21b4b40c0df",
+      "slug": "doc-menu-044-mi-udon-xao-tom-rau-cu",
+      "title": "Mì Udon xào tôm rau củ",
+      "image": "/recipes/documents/doc-menu-044-mi-udon-xao-tom-rau-cu-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1399,
+      "bytes": 172970
+    },
+    {
+      "id": "23a2a932-2ada-4387-b6c5-ad7c2859cb2d",
+      "slug": "doc-menu-045-mi-hoanh-thanh-tom-thit",
+      "title": "Mì hoành thánh tôm thịt",
+      "image": "/recipes/documents/doc-menu-045-mi-hoanh-thanh-tom-thit-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 800,
+      "bytes": 135618
+    },
+    {
+      "id": "211df8a9-3074-4f46-9a94-82dd42fb9f55",
+      "slug": "doc-menu-046-hu-tieu-kho-tom-thit",
+      "title": "Hủ tiếu khô tôm thịt",
+      "image": "/recipes/documents/doc-menu-046-hu-tieu-kho-tom-thit-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 1000,
+      "bytes": 107032
+    },
+    {
+      "id": "f480d795-e694-4226-9d1d-a9dcc7de661f",
+      "slug": "doc-menu-047-bun-tron-bo-nam-bo",
+      "title": "Bún trộn bò Nam Bộ",
+      "image": "/recipes/documents/doc-menu-047-bun-tron-bo-nam-bo-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 700,
+      "bytes": 97590
+    },
+    {
+      "id": "403ec18a-ac6f-40a4-92f4-ae4046378783",
+      "slug": "doc-menu-048-mien-tron-ga-xe-sot-me-rang",
+      "title": "Miến trộn gà xé sốt mè rang",
+      "image": "/recipes/documents/doc-menu-048-mien-tron-ga-xe-sot-me-rang-1.webp",
+      "ok": true,
+      "width": 900,
+      "height": 900,
+      "bytes": 110658
+    },
+    {
+      "id": "3691a7fc-8597-4b59-8d83-1f32d77a9b6d",
+      "slug": "doc-menu-049-mi-quang-tom-thit",
+      "title": "Mì Quảng tôm thịt",
+      "image": "/recipes/documents/doc-menu-049-mi-quang-tom-thit-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 1000,
+      "bytes": 194396
+    },
+    {
+      "id": "ce4badca-4889-41d5-88a7-5c4aee521590",
+      "slug": "doc-menu-050-cao-lau-thit-xa-xiu-hoi-an",
+      "title": "Cao lầu thịt xá xíu Hội An",
+      "image": "/recipes/documents/doc-menu-050-cao-lau-thit-xa-xiu-hoi-an-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 1024,
+      "bytes": 163238
+    },
+    {
+      "id": "39487ca1-30e6-4a97-b1e8-4143e65eafa3",
+      "slug": "doc-nhat-001-com-bo-nhat-ban-gyudon",
+      "title": "Cơm bò Nhật Bản (牛丼 – Gyūdon)",
+      "image": "/recipes/documents/doc-nhat-001-com-bo-nhat-ban-gyudon-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 600,
+      "bytes": 60216
+    },
+    {
+      "id": "2f0fcec5-250f-49d2-b50b-61c660f72285",
+      "slug": "doc-nhat-002-com-ga-trung-nhat-ban-oyakodon",
+      "title": "Cơm gà trứng Nhật Bản (親子丼 – Oyakodon)",
+      "image": "/recipes/documents/doc-nhat-002-com-ga-trung-nhat-ban-oyakodon-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 550,
+      "bytes": 34000
+    },
+    {
+      "id": "ae22355a-434a-40f6-8a8b-ed0869c09db1",
+      "slug": "doc-nhat-003-com-thit-heo-chien-trung-katsudon",
+      "title": "Cơm thịt heo chiên trứng (カツ丼 – Katsudon)",
+      "image": "/recipes/documents/doc-nhat-003-com-thit-heo-chien-trung-katsudon-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1050,
+      "bytes": 183368
+    },
+    {
+      "id": "88420980-292c-4bf6-adfc-b1c8e21d61b8",
+      "slug": "doc-nhat-004-com-ca-ri-nhat-ban-kare-raisu",
+      "title": "Cơm cà ri Nhật Bản (カレーライス – Karē Raisu)",
+      "image": "/recipes/documents/doc-nhat-004-com-ca-ri-nhat-ban-kare-raisu-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1050,
+      "bytes": 133040
+    },
+    {
+      "id": "1d53c87b-3752-4a5e-abba-d1a90342ff07",
+      "slug": "doc-nhat-005-com-luon-nhat-ban-unadon",
+      "title": "Cơm lươn Nhật Bản (鰻丼 – Unadon)",
+      "image": "/recipes/documents/doc-nhat-005-com-luon-nhat-ban-unadon-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 130386
+    },
+    {
+      "id": "653834de-fd37-47c4-ac81-4b775645bd04",
+      "slug": "doc-nhat-006-com-thit-bo-nuong-sot-yakiniku-yakiniku-don",
+      "title": "Cơm thịt bò nướng sốt yakiniku (焼肉丼 – Yakiniku Don)",
+      "image": "/recipes/documents/doc-nhat-006-com-thit-bo-nuong-sot-yakiniku-yakiniku-don-1.webp",
+      "ok": true,
+      "width": 934,
+      "height": 1400,
+      "bytes": 181536
+    },
+    {
+      "id": "df727cf1-2b4a-411d-99a4-644ca188e798",
+      "slug": "doc-nhat-007-com-ga-teriyaki-teriyaki-chicken-don",
+      "title": "Cơm gà teriyaki (照り焼きチキン丼 – Teriyaki Chicken Don)",
+      "image": "/recipes/documents/doc-nhat-007-com-ga-teriyaki-teriyaki-chicken-don-1.webp",
+      "ok": true,
+      "width": 1396,
+      "height": 1400,
+      "bytes": 331064
+    },
+    {
+      "id": "7db5cb4c-33eb-4111-b854-34582e8dac12",
+      "slug": "doc-nhat-008-com-thit-heo-chien-sot-tonkatsu-tonkatsu-teishoku",
+      "title": "Cơm thịt heo chiên sốt tonkatsu (とんかつ定食 – Tonkatsu Teishoku)",
+      "image": "/recipes/documents/doc-nhat-008-com-thit-heo-chien-sot-tonkatsu-tonkatsu-teishoku-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 273,
+      "bytes": 22854
+    },
+    {
+      "id": "9ac6dcb8-6bcd-406e-953c-e99ed980a46f",
+      "slug": "doc-nhat-009-com-ca-saba-nuong-saba-no-shioyaki",
+      "title": "Cơm cá saba nướng (鯖の塩焼き – Saba no Shioyaki)",
+      "image": "/recipes/documents/doc-nhat-009-com-ca-saba-nuong-saba-no-shioyaki-1.webp",
+      "ok": true,
+      "width": 678,
+      "height": 510,
+      "bytes": 48306
+    },
+    {
+      "id": "44da0cdc-d989-4864-8ac5-ddf9ea89b0af",
+      "slug": "doc-nhat-010-com-ca-hoi-teriyaki-sake-no-teriyaki",
+      "title": "Cơm cá hồi teriyaki (鮭の照り焼き – Sake no Teriyaki)",
+      "image": "/recipes/documents/doc-nhat-010-com-ca-hoi-teriyaki-sake-no-teriyaki-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 600,
+      "bytes": 69372
+    },
+    {
+      "id": "d5674866-33cb-440e-b972-fea2ee1aaad6",
+      "slug": "doc-nhat-011-com-thit-bo-trung-song-kieu-nhat-gyuniku-tamagokake-gohan",
+      "title": "Cơm thịt bò trứng sống kiểu Nhật (牛肉卵かけご飯 – Gyūniku Tamagokake Gohan)",
+      "image": "/recipes/documents/doc-nhat-011-com-thit-bo-trung-song-kieu-nhat-gyuniku-tamagokake-gohan-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1050,
+      "bytes": 212160
+    },
+    {
+      "id": "0c53adbe-1dd4-4fee-81f6-f99c04c319d8",
+      "slug": "doc-nhat-012-com-ca-ngu-sot-mayonnaise-tsunamayo-don",
+      "title": "Cơm cá ngừ sốt mayonnaise (ツナマヨ丼 – Tsunamayo Don)",
+      "image": "/recipes/documents/doc-nhat-012-com-ca-ngu-sot-mayonnaise-tsunamayo-don-1.webp",
+      "ok": true,
+      "width": 447,
+      "height": 447,
+      "bytes": 40478
+    },
+    {
+      "id": "72a26110-b333-461f-8377-044d682aebe6",
+      "slug": "doc-nhat-013-com-nam-nhat-ban-kinoko-gohan",
+      "title": "Cơm nấm Nhật Bản (きのこご飯 – Kinoko Gohan)",
+      "image": "/recipes/repaired/doc-nhat-013-com-nam-nhat-ban-kinoko-gohan.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 139344
+    },
+    {
+      "id": "02e3f2e5-c326-4ce8-b3f4-e4c528414012",
+      "slug": "doc-nhat-014-mi-ramen-shoyu-shoyu-ramen",
+      "title": "Mì ramen shoyu (醤油ラーメン – Shōyu Ramen)",
+      "image": "/recipes/documents/doc-nhat-014-mi-ramen-shoyu-shoyu-ramen-1.webp",
+      "ok": true,
+      "width": 595,
+      "height": 382,
+      "bytes": 42814
+    },
+    {
+      "id": "a18270ce-2ec9-4b35-8fa8-e0547b9b3598",
+      "slug": "doc-nhat-015-mi-soba-nong-kake-soba",
+      "title": "Mì soba nóng (かけそば – Kake Soba)",
+      "image": "/recipes/documents/doc-nhat-015-mi-soba-nong-kake-soba-1.webp",
+      "ok": true,
+      "width": 850,
+      "height": 850,
+      "bytes": 122382
+    },
+    {
+      "id": "c2eecd64-d6dc-4cd9-b8a5-d12a40ff74d0",
+      "slug": "doc-nhat-016-mi-somen-lanh-somen",
+      "title": "Mì somen lạnh (そうめん – Sōmen)",
+      "image": "/recipes/documents/doc-nhat-016-mi-somen-lanh-somen-1.webp",
+      "ok": true,
+      "width": 495,
+      "height": 619,
+      "bytes": 81854
+    },
+    {
+      "id": "14c2b5c5-5054-496c-8d87-a85b6ec746e2",
+      "slug": "doc-nhat-017-mi-udon-ca-ri-curry-udon",
+      "title": "Mì udon cà ri (カレーうどん – Curry Udon)",
+      "image": "/recipes/documents/doc-nhat-017-mi-udon-ca-ri-curry-udon-1.webp",
+      "ok": true,
+      "width": 415,
+      "height": 739,
+      "bytes": 36292
+    },
+    {
+      "id": "69f73ab1-1ded-4f3b-8e03-8357804ff034",
+      "slug": "doc-nhat-018-mi-yakisoba-hai-san-kaisen-yakisoba",
+      "title": "Mì yakisoba hải sản (海鮮焼きそば – Kaisen Yakisoba)",
+      "image": "/recipes/documents/doc-nhat-018-mi-yakisoba-hai-san-kaisen-yakisoba-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 47946
+    },
+    {
+      "id": "1a09620f-2503-4163-b154-bab3b3bfde4f",
+      "slug": "doc-nhat-019-mi-soba-xao-yaki-soba",
+      "title": "Mì soba xào (焼きそば – Yaki Soba)",
+      "image": "/recipes/documents/doc-nhat-019-mi-soba-xao-yaki-soba-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 627,
+      "bytes": 96760
+    },
+    {
+      "id": "1fe944fc-c888-453f-9b01-d66ccf97e17f",
+      "slug": "doc-nhat-020-mi-udon-bo-gyuniku-udon",
+      "title": "Mì udon bò (牛肉うどん – Gyūniku Udon)",
+      "image": "/recipes/documents/doc-nhat-020-mi-udon-bo-gyuniku-udon-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 74274
+    },
+    {
+      "id": "6afe5da2-8262-455b-9f82-b806c06ca691",
+      "slug": "doc-nhat-021-banh-khoai-lang-nhat-ban-daigaku-imo",
+      "title": "Bánh khoai lang Nhật Bản (大学芋 – Daigaku Imo)",
+      "image": "/recipes/documents/doc-nhat-021-banh-khoai-lang-nhat-ban-daigaku-imo-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 33292
+    },
+    {
+      "id": "d80a3641-3b65-4f6e-9339-f5eafed5573d",
+      "slug": "doc-nhat-022-banh-mochi-ap-chao-yaki-mochi",
+      "title": "Bánh mochi áp chảo (焼き餅 – Yaki Mochi)",
+      "image": "/recipes/documents/doc-nhat-022-banh-mochi-ap-chao-yaki-mochi-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 55354
+    },
+    {
+      "id": "66a991ff-0e47-4884-913c-c3985abeb3f3",
+      "slug": "doc-nhat-023-dau-phu-chien-gion-tofu-steak",
+      "title": "Đậu phụ chiên giòn (豆腐ステーキ – Tofu Steak)",
+      "image": "/recipes/documents/doc-nhat-023-dau-phu-chien-gion-tofu-steak-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 207734
+    },
+    {
+      "id": "2574bd6a-ec2f-430d-84f2-31915e339a72",
+      "slug": "doc-nhat-024-banh-hanh-nhat-ban-negiyaki",
+      "title": "Bánh hành Nhật Bản (ねぎ焼き – Negiyaki)",
+      "image": "/recipes/documents/doc-nhat-024-banh-hanh-nhat-ban-negiyaki-1.webp",
+      "ok": true,
+      "width": 640,
+      "height": 640,
+      "bytes": 101102
+    },
+    {
+      "id": "e13ca5c4-aad2-409d-b569-9a547eca1257",
+      "slug": "doc-nhat-025-banh-khoai-mon-chien-nhat-ban-satoimo-korokke",
+      "title": "Bánh khoai môn chiên Nhật Bản (里芋コロッケ – Satoimo Korokke)",
+      "image": "/recipes/documents/doc-nhat-025-banh-khoai-mon-chien-nhat-ban-satoimo-korokke-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 486,
+      "bytes": 47506
+    },
+    {
+      "id": "1af4bb4b-ffe5-4ee1-84b5-14a0c1aba9bd",
+      "slug": "doc-nhat-026-banh-bap-chien-nhat-ban-corn-kakiage",
+      "title": "Bánh bắp chiên Nhật Bản (コーンかき揚げ – Corn Kakiage)",
+      "image": "/recipes/documents/doc-nhat-026-banh-bap-chien-nhat-ban-corn-kakiage-1.webp",
+      "ok": true,
+      "width": 730,
+      "height": 362,
+      "bytes": 55856
+    },
+    {
+      "id": "d730339b-a3c2-4d1c-b41b-7336fd509437",
+      "slug": "doc-nhat-027-salad-rong-bien-nhat-ban-kaiso-salad",
+      "title": "Salad rong biển Nhật Bản (海藻サラダ – Kaisō Salad)",
+      "image": "/recipes/documents/doc-nhat-027-salad-rong-bien-nhat-ban-kaiso-salad-1.webp",
+      "ok": true,
+      "width": 727,
+      "height": 679,
+      "bytes": 70366
+    },
+    {
+      "id": "519ce520-04a1-4686-9cd0-6fff2ae1dded",
+      "slug": "doc-nhat-028-banh-mochi-dau-do-daifuku",
+      "title": "Bánh mochi đậu đỏ (大福 – Daifuku)",
+      "image": "/recipes/documents/doc-nhat-028-banh-mochi-dau-do-daifuku-1.webp",
+      "ok": true,
+      "width": 250,
+      "height": 156,
+      "bytes": 6832
+    },
+    {
+      "id": "0aaba81d-9c7f-45f0-95da-a9dba6b92268",
+      "slug": "doc-nhat-029-banh-dorayaki-dorayaki",
+      "title": "Bánh dorayaki (どら焼き – Dorayaki)",
+      "image": "/recipes/documents/doc-nhat-029-banh-dorayaki-dorayaki-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 533,
+      "bytes": 64086
+    },
+    {
+      "id": "8eb71382-7485-4bae-a3e6-bdae9817e038",
+      "slug": "doc-nhat-030-banh-pudding-nhat-ban-purin",
+      "title": "Bánh pudding Nhật Bản (プリン – Purin)",
+      "image": "/recipes/documents/doc-nhat-030-banh-pudding-nhat-ban-purin-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 788,
+      "bytes": 107540
+    },
+    {
+      "id": "b03adde9-6b59-43d4-a608-ea0439ebc076",
+      "slug": "doc-nhat-031-banh-matcha-matcha-cake",
+      "title": "Bánh matcha (抹茶ケーキ – Matcha Cake)",
+      "image": "/recipes/documents/doc-nhat-031-banh-matcha-matcha-cake-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 62022
+    },
+    {
+      "id": "55eae983-40f7-4129-901b-d90e2ea1ad94",
+      "slug": "doc-nhat-032-thach-matcha-nhat-ban-matcha-jelly",
+      "title": "Thạch matcha Nhật Bản (抹茶ゼリー – Matcha Jelly)",
+      "image": "/recipes/documents/doc-nhat-032-thach-matcha-nhat-ban-matcha-jelly-1.webp",
+      "ok": true,
+      "width": 335,
+      "height": 597,
+      "bytes": 17762
+    },
+    {
+      "id": "a68ce942-0097-4baa-9ded-1e4833acb357",
+      "slug": "doc-nhat-033-banh-castella-nhat-ban-kasutera",
+      "title": "Bánh castella Nhật Bản (カステラ – Kasutera)",
+      "image": "/recipes/documents/doc-nhat-033-banh-castella-nhat-ban-kasutera-1.webp",
+      "ok": true,
+      "width": 675,
+      "height": 675,
+      "bytes": 21336
+    },
+    {
+      "id": "0eb73bb6-3043-48db-ad86-1ef7222a40fb",
+      "slug": "doc-nhat-034-banh-cheesecake-nhat-ban-japanese-souffle-cheesecake",
+      "title": "Bánh cheesecake Nhật Bản (スフレチーズケーキ – Japanese Soufflé Cheesecake)",
+      "image": "/recipes/documents/doc-nhat-034-banh-cheesecake-nhat-ban-japanese-souffle-cheesecake-1.webp",
+      "ok": true,
+      "width": 1206,
+      "height": 1400,
+      "bytes": 65960
+    },
+    {
+      "id": "ce1cd5b3-8cb1-4587-876b-5ea566bf33b1",
+      "slug": "doc-nhat-035-kem-matcha-nhat-ban-matcha-ice-cream",
+      "title": "Kem matcha Nhật Bản (抹茶アイスクリーム – Matcha Ice Cream)",
+      "image": "/recipes/documents/doc-nhat-035-kem-matcha-nhat-ban-matcha-ice-cream-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 997,
+      "bytes": 63064
+    },
+    {
+      "id": "f6953ba7-450d-4afb-bc07-06217735980b",
+      "slug": "doc-nhat-036-banh-dango-nhat-ban-dango",
+      "title": "Bánh dango Nhật Bản (団子 – Dango)",
+      "image": "/recipes/documents/doc-nhat-036-banh-dango-nhat-ban-dango-1.webp",
+      "ok": true,
+      "width": 640,
+      "height": 439,
+      "bytes": 21140
+    },
+    {
+      "id": "3f9b2853-b2b4-42b3-925a-cea11b1617e7",
+      "slug": "doc-nhat-037-banh-chuoi-nhat-ban-banana-cake",
+      "title": "Bánh chuối Nhật Bản (バナナケーキ – Banana Cake)",
+      "image": "/recipes/documents/doc-nhat-037-banh-chuoi-nhat-ban-banana-cake-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1050,
+      "bytes": 261914
+    },
+    {
+      "id": "197d0bde-af00-4e04-a94d-f16e3c93c61c",
+      "slug": "doc-thai-001-pad-krapow-gai-ga-xao-hung-que-thanh",
+      "title": "Pad Krapow Gai (Gà xào húng quế thánh)",
+      "image": "/recipes/thai/001_pad_krapow_gai_ga_xao_hung_que_thanh.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 269565
+    },
+    {
+      "id": "7106a0e3-e540-477b-b883-6c575cffe397",
+      "slug": "doc-thai-002-gai-pad-med-mamuang-ga-xao-hat-dieu",
+      "title": "Gai Pad Med Mamuang (Gà xào hạt điều)",
+      "image": "/recipes/thai/002_gai_pad_med_mamuang_ga_xao_hat_dieu.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 299751
+    },
+    {
+      "id": "a55de404-7cc9-494d-af65-eee4e71059a5",
+      "slug": "doc-thai-003-gai-yang-ga-nuong-kieu-thai",
+      "title": "Gai Yang (Gà nướng kiểu Thái)",
+      "image": "/recipes/thai/003_gai_yang_ga_nuong_kieu_thai.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 283557
+    },
+    {
+      "id": "e2e01bda-bca0-46b9-b9a0-de6a149c0d39",
+      "slug": "doc-thai-004-moo-ping-thit-heo-xien-nuong",
+      "title": "Moo Ping (Thịt heo xiên nướng)",
+      "image": "/recipes/thai/004_moo_ping_thit_heo_xien_nuong.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 353220
+    },
+    {
+      "id": "16d3fb31-5939-4efd-b056-91808b444f1d",
+      "slug": "doc-thai-005-kor-moo-yang-nac-nong-heo-nuong",
+      "title": "Kor Moo Yang (Nạc nọng heo nướng)",
+      "image": "/recipes/thai/005_kor_moo_yang_nac_nong_heo_nuong.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 326630
+    },
+    {
+      "id": "184a9e25-1409-4844-86c4-2cb24b3a74a6",
+      "slug": "doc-thai-006-moo-satay-thit-heo-xien-sot-dau-phong",
+      "title": "Moo Satay (Thịt heo xiên sốt đậu phộng)",
+      "image": "/recipes/thai/006_moo_satay_thit_heo_xien_sot_dau_phong.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 322025
+    },
+    {
+      "id": "b2d310fb-1cef-4935-b7d2-558e1705829f",
+      "slug": "doc-thai-007-gai-tod-hat-yai-ga-chien-kieu-hat-yai",
+      "title": "Gai Tod Hat Yai (Gà chiên kiểu Hat Yai)",
+      "image": "/recipes/thai/007_gai_tod_hat_yai_ga_chien_kieu_hat_yai.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 333692
+    },
+    {
+      "id": "8c015210-a0d4-4869-9efe-ad0025eb7ec0",
+      "slug": "doc-thai-008-pla-neung-manao-ca-hap-chanh-toi",
+      "title": "Pla Neung Manao (Cá hấp chanh tỏi)",
+      "image": "/recipes/thai/008_pla_neung_manao_ca_hap_chanh_toi.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 309761
+    },
+    {
+      "id": "f8161541-b659-4341-86f5-975fcbc22428",
+      "slug": "doc-thai-009-pla-rad-prik-ca-chien-sot-ot",
+      "title": "Pla Rad Prik (Cá chiên sốt ớt)",
+      "image": "/recipes/thai/009_pla_rad_prik_ca_chien_sot_ot.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 309831
+    },
+    {
+      "id": "cd7d6119-91dc-44fa-bc4e-2a9e0dcea8c5",
+      "slug": "doc-thai-010-goong-ob-woon-sen-tom-mien-om-noi-dat",
+      "title": "Goong Ob Woon Sen (Tôm miến om nồi đất)",
+      "image": "/recipes/thai/010_goong_ob_woon_sen_tom_mien_om_noi_dat.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 313849
+    },
+    {
+      "id": "6b9f5779-eea5-4518-b6f1-3ebb009114f1",
+      "slug": "doc-thai-011-tom-yum-goong-canh-tom-chua-cay",
+      "title": "Tom Yum Goong (Canh tôm chua cay)",
+      "image": "/recipes/thai/011_tom_yum_goong_canh_tom_chua_cay.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 272634
+    },
+    {
+      "id": "d8495fe8-4ff0-4922-892d-b6cb742601cf",
+      "slug": "doc-thai-012-tom-kha-gai-canh-ga-nuoc-cot-dua",
+      "title": "Tom Kha Gai (Canh gà nước cốt dừa)",
+      "image": "/recipes/thai/012_tom_kha_gai_canh_ga_nuoc_cot_dua.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 236592
+    },
+    {
+      "id": "d0ea2178-5f3e-4c49-bfea-bd873b5031ef",
+      "slug": "doc-thai-013-gaeng-keow-wan-gai-ca-ri-xanh-ga",
+      "title": "Gaeng Keow Wan Gai (Cà ri xanh gà)",
+      "image": "/recipes/repaired/doc-thai-013-gaeng-keow-wan-gai-ca-ri-xanh-ga.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 803,
+      "bytes": 207444
+    },
+    {
+      "id": "ce86f195-18e7-43f6-8ef0-734b0e08f6e5",
+      "slug": "doc-thai-014-gaeng-phed-gai-ca-ri-do-ga",
+      "title": "Gaeng Phed Gai (Cà ri đỏ gà)",
+      "image": "/recipes/repaired/doc-thai-014-gaeng-phed-gai-ca-ri-do-ga.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 803,
+      "bytes": 235742
+    },
+    {
+      "id": "acb512fb-92b1-406a-9703-f159f7052acf",
+      "slug": "doc-thai-015-gaeng-massaman-nuea-ca-ri-massaman-bo",
+      "title": "Gaeng Massaman Nuea (Cà ri Massaman bò)",
+      "image": "/recipes/repaired/doc-thai-015-gaeng-massaman-nuea-ca-ri-massaman-bo.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 154742
+    },
+    {
+      "id": "8ff4b3bd-b76e-47f0-b4c8-feb036fd3d44",
+      "slug": "doc-thai-016-panang-moo-ca-ri-panang-heo",
+      "title": "Panang Moo (Cà ri Panang heo)",
+      "image": "/recipes/repaired/doc-thai-016-panang-moo-ca-ri-panang-heo.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 99798
+    },
+    {
+      "id": "e76a7d79-fcf3-4c8d-8ecc-affc61828e29",
+      "slug": "doc-thai-017-gaeng-kari-gai-ca-ri-vang-ga",
+      "title": "Gaeng Kari Gai (Cà ri vàng gà)",
+      "image": "/recipes/repaired/doc-thai-017-gaeng-kari-gai-ca-ri-vang-ga.webp",
+      "ok": true,
+      "width": 878,
+      "height": 1200,
+      "bytes": 62808
+    },
+    {
+      "id": "2c7e0b9d-86a1-4df0-a1ac-0b280e79203c",
+      "slug": "doc-thai-018-gaeng-som-goong-canh-ca-ri-chua-tom",
+      "title": "Gaeng Som Goong (Canh cà ri chua tôm)",
+      "image": "/recipes/repaired/doc-thai-018-gaeng-som-goong-canh-ca-ri-chua-tom.webp",
+      "ok": true,
+      "width": 1199,
+      "height": 1200,
+      "bytes": 281704
+    },
+    {
+      "id": "bac647ca-2367-42bb-af1c-0b4bd5d51e5e",
+      "slug": "doc-thai-019-gaeng-jued-tao-hoo-moo-sab-canh-dau-hu-thit-bam",
+      "title": "Gaeng Jued Tao Hoo Moo Sab (Canh đậu hũ thịt băm)",
+      "image": "/recipes/thai/019_gaeng_jued_tao_hoo_moo_sab_canh_dau_hu_thit_bam.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 271886
+    },
+    {
+      "id": "57053833-2e6a-49ed-adc6-dda1d99b1ef9",
+      "slug": "doc-thai-020-jim-jum-lau-thao-moc-kieu-isan",
+      "title": "Jim Jum (Lẩu thảo mộc kiểu Isan)",
+      "image": "/recipes/repaired/doc-thai-020-jim-jum-lau-thao-moc-kieu-isan.webp",
+      "ok": true,
+      "width": 902,
+      "height": 1200,
+      "bytes": 201952
+    },
+    {
+      "id": "98ad263a-b9b8-4786-b55f-6c01dacdc388",
+      "slug": "doc-thai-021-pad-thai-goong-hu-tieu-xao-tom",
+      "title": "Pad Thai Goong (Hủ tiếu xào tôm)",
+      "image": "/recipes/repaired/doc-thai-021-pad-thai-goong-hu-tieu-xao-tom.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 283182
+    },
+    {
+      "id": "5864ca0f-c242-4e03-8b20-6f36289665ef",
+      "slug": "doc-thai-022-pad-see-ew-hu-tieu-xao-nuoc-tuong",
+      "title": "Pad See Ew (Hủ tiếu xào nước tương)",
+      "image": "/recipes/repaired/doc-thai-022-pad-see-ew-hu-tieu-xao-nuoc-tuong.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 224684
+    },
+    {
+      "id": "e56d2427-4c5c-48c7-b98d-278a374c93fb",
+      "slug": "doc-thai-023-pad-kee-mao-hu-tieu-xao-cay-hung-que",
+      "title": "Pad Kee Mao (Hủ tiếu xào cay húng quế)",
+      "image": "/recipes/repaired/doc-thai-023-pad-kee-mao-hu-tieu-xao-cay-hung-que.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 960,
+      "bytes": 232542
+    },
+    {
+      "id": "abe05e89-3417-44b1-96c9-354817934550",
+      "slug": "doc-thai-024-khao-pad-sapparot-com-chien-dua",
+      "title": "Khao Pad Sapparot (Cơm chiên dứa)",
+      "image": "/recipes/repaired/doc-thai-024-khao-pad-sapparot-com-chien-dua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 151044
+    },
+    {
+      "id": "4c05a558-f78a-4793-8766-e4aa6baa7967",
+      "slug": "doc-thai-025-khao-pad-pu-com-chien-cua",
+      "title": "Khao Pad Pu (Cơm chiên cua)",
+      "image": "/recipes/repaired/doc-thai-025-khao-pad-pu-com-chien-cua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 910,
+      "bytes": 163696
+    },
+    {
+      "id": "9194014b-641c-4c66-97bb-ddf51a170e2c",
+      "slug": "doc-thai-026-khao-man-gai-com-ga-kieu-thai",
+      "title": "Khao Man Gai (Cơm gà kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-026-khao-man-gai-com-ga-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 116750
+    },
+    {
+      "id": "953b1013-96d5-4286-bff0-3fc528398708",
+      "slug": "doc-thai-027-khao-soi-gai-mi-ca-ri-ga-mien-bac",
+      "title": "Khao Soi Gai (Mì cà ri gà miền Bắc)",
+      "image": "/recipes/repaired/doc-thai-027-khao-soi-gai-mi-ca-ri-ga-mien-bac.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 960,
+      "bytes": 215790
+    },
+    {
+      "id": "56820135-6d62-45b8-9a12-0b8ea06344f6",
+      "slug": "doc-thai-028-rad-na-hu-tieu-sot-sanh",
+      "title": "Rad Na (Hủ tiếu sốt sánh)",
+      "image": "/recipes/repaired/doc-thai-028-rad-na-hu-tieu-sot-sanh.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 795,
+      "bytes": 126208
+    },
+    {
+      "id": "fcd1ae87-8d40-43d9-8806-98c5974b91b6",
+      "slug": "doc-thai-029-pad-woon-sen-mien-xao-kieu-thai",
+      "title": "Pad Woon Sen (Miến xào kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-029-pad-woon-sen-mien-xao-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 222342
+    },
+    {
+      "id": "66924a64-67f9-4513-a95e-41eccc1910ca",
+      "slug": "doc-thai-030-khanom-jeen-nam-ya-bun-ca-ri-ca",
+      "title": "Khanom Jeen Nam Ya (Bún cà ri cá)",
+      "image": "/recipes/repaired/doc-thai-030-khanom-jeen-nam-ya-bun-ca-ri-ca.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 227362
+    },
+    {
+      "id": "57a70263-20f8-45fd-ab08-ec3d354fd48d",
+      "slug": "doc-thai-031-som-tam-thai-goi-du-du-kieu-thai",
+      "title": "Som Tam Thai (Gỏi đu đủ kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-031-som-tam-thai-goi-du-du-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 803,
+      "bytes": 120178
+    },
+    {
+      "id": "4e0375ce-e6b2-4ad3-919a-b8e70844fdb2",
+      "slug": "doc-thai-032-yam-woon-sen-goi-mien-tom-thit",
+      "title": "Yam Woon Sen (Gỏi miến tôm thịt)",
+      "image": "/recipes/thai/032_yam_woon_sen_goi_mien_tom_thit.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 290042
+    },
+    {
+      "id": "c4008af5-8407-4c96-b917-22270afd2357",
+      "slug": "doc-thai-033-larb-gai-goi-ga-bam-thinh-gao",
+      "title": "Larb Gai (Gỏi gà băm thính gạo)",
+      "image": "/recipes/repaired/doc-thai-033-larb-gai-goi-ga-bam-thinh-gao.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 62602
+    },
+    {
+      "id": "14c8cf73-d243-4928-b052-0b597b8db91d",
+      "slug": "doc-thai-034-nam-tok-moo-goi-thit-heo-nuong",
+      "title": "Nam Tok Moo (Gỏi thịt heo nướng)",
+      "image": "/recipes/repaired/doc-thai-034-nam-tok-moo-goi-thit-heo-nuong.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 803,
+      "bytes": 250360
+    },
+    {
+      "id": "21d5c62b-5c37-42d3-8a83-020456ec445d",
+      "slug": "doc-thai-035-yam-nua-goi-bo-kieu-thai",
+      "title": "Yam Nua (Gỏi bò kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-035-yam-nua-goi-bo-kieu-thai.webp",
+      "ok": true,
+      "width": 803,
+      "height": 1200,
+      "bytes": 251104
+    },
+    {
+      "id": "2625f52b-ba24-4e02-80c4-60293e959f1e",
+      "slug": "doc-thai-036-yam-mamuang-goi-xoai-xanh",
+      "title": "Yam Mamuang (Gỏi xoài xanh)",
+      "image": "/recipes/repaired/doc-thai-036-yam-mamuang-goi-xoai-xanh.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 875,
+      "bytes": 147316
+    },
+    {
+      "id": "7e63b864-080c-46ad-b309-8aff68e710e2",
+      "slug": "doc-thai-037-tod-man-pla-cha-ca-ca-ri-do",
+      "title": "Tod Man Pla (Chả cá cà ri đỏ)",
+      "image": "/recipes/repaired/doc-thai-037-tod-man-pla-cha-ca-ca-ri-do.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 108428
+    },
+    {
+      "id": "32ce82d6-137f-4555-977a-6b63e713e428",
+      "slug": "doc-thai-038-poh-pia-tod-cha-gio-kieu-thai",
+      "title": "Poh Pia Tod (Chả giò kiểu Thái)",
+      "image": "/recipes/thai/038_poh_pia_tod_cha_gio_kieu_thai.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 284025
+    },
+    {
+      "id": "e95ed856-9683-413b-b629-3f01f6b3ecc9",
+      "slug": "doc-thai-039-pak-boong-fai-daeng-rau-muong-xao-kieu-thai",
+      "title": "Pak Boong Fai Daeng (Rau muống xào kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-039-pak-boong-fai-daeng-rau-muong-xao-kieu-thai.webp",
+      "ok": true,
+      "width": 900,
+      "height": 1200,
+      "bytes": 210386
+    },
+    {
+      "id": "c524a38e-3fde-4369-a4a3-aa1fbe53fe59",
+      "slug": "doc-thai-040-khai-jiao-trung-chien-phong-kieu-thai",
+      "title": "Khai Jiao (Trứng chiên phồng kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-040-khai-jiao-trung-chien-phong-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 138770
+    },
+    {
+      "id": "a22fa40b-993d-4cf2-8575-1bfab4241d58",
+      "slug": "doc-thai-041-khao-niao-mamuang-xoi-xoai",
+      "title": "Khao Niao Mamuang (Xôi xoài)",
+      "image": "/recipes/repaired/doc-thai-041-khao-niao-mamuang-xoi-xoai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 89862
+    },
+    {
+      "id": "6abd7be1-5c13-49b7-803d-85bf88bb1831",
+      "slug": "doc-thai-042-tub-tim-grob-che-cu-nang-hat-luu",
+      "title": "Tub Tim Grob (Chè củ năng hạt lựu)",
+      "image": "/recipes/repaired/doc-thai-042-tub-tim-grob-che-cu-nang-hat-luu.webp",
+      "ok": true,
+      "width": 640,
+      "height": 480,
+      "bytes": 45722
+    },
+    {
+      "id": "c181dd3f-5231-4606-b5f2-92512b1ddd85",
+      "slug": "doc-thai-043-kluay-buat-chi-chuoi-nau-nuoc-cot-dua",
+      "title": "Kluay Buat Chi (Chuối nấu nước cốt dừa)",
+      "image": "/recipes/repaired/doc-thai-043-kluay-buat-chi-chuoi-nau-nuoc-cot-dua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1031,
+      "bytes": 162562
+    },
+    {
+      "id": "f99c57fe-f1d1-47f1-bfdb-c2b00b24d0ce",
+      "slug": "doc-thai-044-bua-loy-che-vien-bot-nep-nuoc-dua",
+      "title": "Bua Loy (Chè viên bột nếp nước dừa)",
+      "image": "/recipes/repaired/doc-thai-044-bua-loy-che-vien-bot-nep-nuoc-dua.webp",
+      "ok": true,
+      "width": 600,
+      "height": 398,
+      "bytes": 36078
+    },
+    {
+      "id": "fa278c4e-6183-40e9-a885-d564a2bdf5ff",
+      "slug": "doc-thai-045-khanom-krok-banh-dua-khuon-lom",
+      "title": "Khanom Krok (Bánh dừa khuôn lõm)",
+      "image": "/recipes/repaired/doc-thai-045-khanom-krok-banh-dua-khuon-lom.webp",
+      "ok": true,
+      "width": 900,
+      "height": 1200,
+      "bytes": 266718
+    },
+    {
+      "id": "741dfb00-b13f-43a6-9fd2-8fba3812f88e",
+      "slug": "doc-thai-046-khanom-chan-banh-hap-nhieu-lop",
+      "title": "Khanom Chan (Bánh hấp nhiều lớp)",
+      "image": "/recipes/repaired/doc-thai-046-khanom-chan-banh-hap-nhieu-lop.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 176814
+    },
+    {
+      "id": "cdcb85f5-0698-4bf9-871e-5cacee1a44bd",
+      "slug": "doc-thai-047-sangkaya-fak-thong-bi-do-hap-nhan-trung-dua",
+      "title": "Sangkaya Fak Thong (Bí đỏ hấp nhân trứng dừa)",
+      "image": "/recipes/repaired/doc-thai-047-sangkaya-fak-thong-bi-do-hap-nhan-trung-dua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 135176
+    },
+    {
+      "id": "376790d4-4adb-4cf1-93cc-79ae458cfc1e",
+      "slug": "doc-thai-048-woon-kati-thach-rau-cau-dua",
+      "title": "Woon Kati (Thạch rau câu dừa)",
+      "image": "/recipes/repaired/doc-thai-048-woon-kati-thach-rau-cau-dua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1028,
+      "bytes": 358668
+    },
+    {
+      "id": "3dd61dfd-5569-4a0e-9179-f12405327661",
+      "slug": "doc-thai-049-kluay-tod-chuoi-chien-kieu-thai",
+      "title": "Kluay Tod (Chuối chiên kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-049-kluay-tod-chuoi-chien-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 197902
+    },
+    {
+      "id": "32216143-4601-41e1-8957-3e7a67999c1d",
+      "slug": "doc-thai-050-khao-tom-mat-banh-nep-chuoi-goi-la",
+      "title": "Khao Tom Mat (Bánh nếp chuối gói lá)",
+      "image": "/recipes/repaired/doc-thai-050-khao-tom-mat-banh-nep-chuoi-goi-la.webp",
+      "ok": true,
+      "width": 952,
+      "height": 824,
+      "bytes": 71132
+    },
+    {
+      "id": "e51b9b8c-8ffc-4342-a9f0-f7ea8ee4e7de",
+      "slug": "doc-trung-001-thit-heo-chua-ngot-tangcu-liji",
+      "title": "Thịt heo chua ngọt (糖醋里脊 – Tángcù lǐjǐ)",
+      "image": "/recipes/documents/doc-trung-001-thit-heo-chua-ngot-tangcu-liji-1.webp",
+      "ok": true,
+      "width": 767,
+      "height": 639,
+      "bytes": 88552
+    },
+    {
+      "id": "a1885fdb-7cab-4dc9-93ef-22b9e6cf564f",
+      "slug": "doc-trung-002-ga-cung-bao-gongbao-jiding",
+      "title": "Gà Cung Bảo (宫保鸡丁 – Gōngbǎo jīdīng)",
+      "image": "/recipes/documents/doc-trung-002-ga-cung-bao-gongbao-jiding-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 192276
+    },
+    {
+      "id": "4a88794c-8f47-4852-9fca-b49ff99ebb49",
+      "slug": "doc-trung-003-dau-phu-ma-ba-mapo-doufu",
+      "title": "Đậu phụ Ma Bà (麻婆豆腐 – Mápó dòufu)",
+      "image": "/recipes/documents/doc-trung-003-dau-phu-ma-ba-mapo-doufu-1.webp",
+      "ok": true,
+      "width": 720,
+      "height": 480,
+      "bytes": 119746
+    },
+    {
+      "id": "e4d3b521-6d36-4c6f-864d-70de4df49a0b",
+      "slug": "doc-trung-004-thit-kho-dong-pha-dongpo-rou",
+      "title": "Thịt kho Đông Pha (东坡肉 – Dōngpō ròu)",
+      "image": "/recipes/documents/doc-trung-004-thit-kho-dong-pha-dongpo-rou-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 408,
+      "bytes": 47418
+    },
+    {
+      "id": "7f72bae9-fc96-4837-853a-49f712487c3a",
+      "slug": "doc-trung-005-bo-xao-bong-cai-xilanhua-chao-niurou",
+      "title": "Bò xào bông cải (西兰花炒牛肉 – Xīlánhuā chǎo niúròu)",
+      "image": "/recipes/documents/doc-trung-005-bo-xao-bong-cai-xilanhua-chao-niurou-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 1024,
+      "bytes": 260114
+    },
+    {
+      "id": "8bb5a15c-9a99-4fdb-a8b1-0eb81049fde6",
+      "slug": "doc-trung-006-ca-hap-xi-dau-qingzheng-yu",
+      "title": "Cá hấp xì dầu (清蒸鱼 – Qīngzhēng yú)",
+      "image": "/recipes/documents/doc-trung-006-ca-hap-xi-dau-qingzheng-yu-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 337674
+    },
+    {
+      "id": "6001ea87-0cc9-4b87-8f16-7ddf6a776cff",
+      "slug": "doc-trung-007-ca-chua-xao-trung-xihongshi-chao-jidan",
+      "title": "Cà chua xào trứng (西红柿炒鸡蛋 – Xīhóngshì chǎo jīdàn)",
+      "image": "/recipes/documents/doc-trung-007-ca-chua-xao-trung-xihongshi-chao-jidan-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 167666
+    },
+    {
+      "id": "a10704fc-66c7-464d-8cb8-719fff55ba93",
+      "slug": "doc-trung-008-thit-heo-xao-hai-lan-huiguo-rou",
+      "title": "Thịt heo xào hai lần (回锅肉 – Huíguō ròu)",
+      "image": "/recipes/documents/doc-trung-008-thit-heo-xao-hai-lan-huiguo-rou-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 55944
+    },
+    {
+      "id": "45cde0ce-5375-409f-ba20-83de17c651b4",
+      "slug": "doc-trung-009-ca-tim-sot-toi-yuxiang-qiezi",
+      "title": "Cà tím sốt tỏi (鱼香茄子 – Yúxiāng qiézi)",
+      "image": "/recipes/documents/doc-trung-009-ca-tim-sot-toi-yuxiang-qiezi-1.webp",
+      "ok": true,
+      "width": 365,
+      "height": 547,
+      "bytes": 40028
+    },
+    {
+      "id": "0bde8b46-2c35-47c4-befb-b74f112548c4",
+      "slug": "doc-trung-010-tom-xao-toi-suanrong-xia",
+      "title": "Tôm xào tỏi (蒜蓉虾 – Suànróng xiā)",
+      "image": "/recipes/documents/doc-trung-010-tom-xao-toi-suanrong-xia-1.webp",
+      "ok": true,
+      "width": 618,
+      "height": 495,
+      "bytes": 93576
+    },
+    {
+      "id": "3ecfa4e7-a8b8-4b1a-b2d1-3363a6e3e3fa",
+      "slug": "doc-trung-011-com-chien-duong-chau-yangzhou-chaofan",
+      "title": "Cơm chiên Dương Châu (扬州炒饭 – Yángzhōu chǎofàn)",
+      "image": "/recipes/documents/doc-trung-011-com-chien-duong-chau-yangzhou-chaofan-1.webp",
+      "ok": true,
+      "width": 440,
+      "height": 698,
+      "bytes": 62518
+    },
+    {
+      "id": "5a98fe4b-1e85-46be-8a78-f1cb31921a01",
+      "slug": "doc-trung-012-mi-xao-bo-niurou-chaomian",
+      "title": "Mì xào bò (牛肉炒面 – Niúròu chǎomiàn)",
+      "image": "/recipes/documents/doc-trung-012-mi-xao-bo-niurou-chaomian-1.webp",
+      "ok": true,
+      "width": 400,
+      "height": 400,
+      "bytes": 45414
+    },
+    {
+      "id": "b69fdc07-766a-4384-8241-ceaedad55ade",
+      "slug": "doc-trung-013-mi-dan-dan-dandan-mian",
+      "title": "Mì Đan Đan (担担面 – Dàndàn miàn)",
+      "image": "/recipes/documents/doc-trung-013-mi-dan-dan-dandan-mian-1.webp",
+      "ok": true,
+      "width": 714,
+      "height": 430,
+      "bytes": 46076
+    },
+    {
+      "id": "794cc73d-61f8-4b65-888c-580527b367bf",
+      "slug": "doc-trung-014-mi-hoanh-thanh-yuntun-mian",
+      "title": "Mì hoành thánh (云吞面 – Yúntūn miàn)",
+      "image": "/recipes/documents/doc-trung-014-mi-hoanh-thanh-yuntun-mian-1.webp",
+      "ok": true,
+      "width": 547,
+      "height": 365,
+      "bytes": 20774
+    },
+    {
+      "id": "8ca77048-2667-4a6e-aee2-ed7d2311f2ab",
+      "slug": "doc-trung-015-mi-tuong-den-bac-kinh-zhajiang-mian",
+      "title": "Mì tương đen Bắc Kinh (炸酱面 – Zhájiàng miàn)",
+      "image": "/recipes/documents/doc-trung-015-mi-tuong-den-bac-kinh-zhajiang-mian-1.webp",
+      "ok": true,
+      "width": 597,
+      "height": 335,
+      "bytes": 57642
+    },
+    {
+      "id": "04f58c3d-cdf8-4be7-9798-540bcc9c2de0",
+      "slug": "doc-trung-016-chao-thit-bam-trung-bac-thao-pidan-shourou-zhou",
+      "title": "Cháo thịt bằm trứng bắc thảo (皮蛋瘦肉粥 – Pídàn shòuròu zhōu)",
+      "image": "/recipes/documents/doc-trung-016-chao-thit-bam-trung-bac-thao-pidan-shourou-zhou-1.webp",
+      "ok": true,
+      "width": 452,
+      "height": 678,
+      "bytes": 18176
+    },
+    {
+      "id": "adca6880-396a-4535-b9a4-760390efb229",
+      "slug": "doc-trung-017-mi-dau-hanh-congyou-banmian",
+      "title": "Mì dầu hành (葱油拌面 – Cōngyóu bànmiàn)",
+      "image": "/recipes/documents/doc-trung-017-mi-dau-hanh-congyou-banmian-1.webp",
+      "ok": true,
+      "width": 478,
+      "height": 641,
+      "bytes": 66570
+    },
+    {
+      "id": "1d317c88-7c6f-49cf-aaa1-4c0f5472e06d",
+      "slug": "doc-trung-018-banh-bao-nhan-thit-rou-baozi",
+      "title": "Bánh bao nhân thịt (肉包子 – Ròu bāozi)",
+      "image": "/recipes/documents/doc-trung-018-banh-bao-nhan-thit-rou-baozi-1.webp",
+      "ok": true,
+      "width": 639,
+      "height": 478,
+      "bytes": 56316
+    },
+    {
+      "id": "8a23dda9-c66f-4f80-9f3e-b8085991da2e",
+      "slug": "doc-trung-019-sui-cao-jiaozi",
+      "title": "Sủi cảo (饺子 – Jiǎozi)",
+      "image": "/recipes/documents/doc-trung-019-sui-cao-jiaozi-1.webp",
+      "ok": true,
+      "width": 452,
+      "height": 678,
+      "bytes": 31108
+    },
+    {
+      "id": "bc02a413-6ff9-4979-ad4e-46ae402e9f84",
+      "slug": "doc-trung-020-banh-hanh-trung-quoc-congyou-bing",
+      "title": "Bánh hành Trung Quốc (葱油饼 – Cōngyóu bǐng)",
+      "image": "/recipes/documents/doc-trung-020-banh-hanh-trung-quoc-congyou-bing-1.webp",
+      "ok": true,
+      "width": 515,
+      "height": 388,
+      "bytes": 42676
+    },
+    {
+      "id": "342d2c89-ab95-4fe5-96eb-07f262c0f999",
+      "slug": "doc-trung-021-canh-chua-cay-suanla-tang",
+      "title": "Canh chua cay (酸辣汤 – Suānlà tāng)",
+      "image": "/recipes/documents/doc-trung-021-canh-chua-cay-suanla-tang-1.webp",
+      "ok": true,
+      "width": 452,
+      "height": 678,
+      "bytes": 57820
+    },
+    {
+      "id": "5f8fcdc4-5096-45ff-9d05-3ec24b131030",
+      "slug": "doc-trung-022-canh-hoanh-thanh-huntun-tang",
+      "title": "Canh hoành thánh (馄饨汤 – Húntún tāng)",
+      "image": "/recipes/documents/doc-trung-022-canh-hoanh-thanh-huntun-tang-1.webp",
+      "ok": true,
+      "width": 678,
+      "height": 452,
+      "bytes": 36720
+    },
+    {
+      "id": "68337eb5-0075-4053-911f-3865c0aeb657",
+      "slug": "doc-trung-023-canh-trung-danhua-tang",
+      "title": "Canh trứng (蛋花汤 – Dànhuā tāng)",
+      "image": "/recipes/documents/doc-trung-023-canh-trung-danhua-tang-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 21528
+    },
+    {
+      "id": "9a7c8d73-577f-4394-85b9-85ed95155890",
+      "slug": "doc-trung-024-canh-bi-dao-suon-heo-donggua-paigu-tang",
+      "title": "Canh bí đao sườn heo (冬瓜排骨汤 – Dōngguā páigǔ tāng)",
+      "image": "/recipes/documents/doc-trung-024-canh-bi-dao-suon-heo-donggua-paigu-tang-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 640,
+      "bytes": 45758
+    },
+    {
+      "id": "12f9481c-d914-42de-a0c0-420586af45a7",
+      "slug": "doc-trung-025-canh-cu-sen-suon-heo-lian-ou-paigu-tang",
+      "title": "Canh củ sen sườn heo (莲藕排骨汤 – Lián'ǒu páigǔ tāng)",
+      "image": "/recipes/documents/doc-trung-025-canh-cu-sen-suon-heo-lian-ou-paigu-tang-1.webp",
+      "ok": true,
+      "width": 479,
+      "height": 640,
+      "bytes": 47906
+    },
+    {
+      "id": "2de54f2d-0134-44a0-9435-8f62abb14063",
+      "slug": "doc-trung-026-lau-cay-tu-xuyen-sichuan-huoguo",
+      "title": "Lẩu cay Tứ Xuyên (四川火锅 – Sìchuān huǒguō)",
+      "image": "/recipes/documents/doc-trung-026-lau-cay-tu-xuyen-sichuan-huoguo-1.webp",
+      "ok": true,
+      "width": 499,
+      "height": 400,
+      "bytes": 79334
+    },
+    {
+      "id": "15b0deca-14ab-4fc1-95a1-9137ec20adec",
+      "slug": "doc-trung-027-lau-ca-chua-fanqie-huoguo",
+      "title": "Lẩu cà chua (番茄火锅 – Fānqié huǒguō)",
+      "image": "/recipes/documents/doc-trung-027-lau-ca-chua-fanqie-huoguo-1.webp",
+      "ok": true,
+      "width": 372,
+      "height": 537,
+      "bytes": 51690
+    },
+    {
+      "id": "185f5889-c796-45ac-806b-184ac4c3ae3e",
+      "slug": "doc-trung-028-canh-ca-dau-phu-yutou-doufu-tang",
+      "title": "Canh cá đậu phụ (鱼头豆腐汤 – Yútóu dòufu tāng)",
+      "image": "/recipes/documents/doc-trung-028-canh-ca-dau-phu-yutou-doufu-tang-1.webp",
+      "ok": true,
+      "width": 496,
+      "height": 403,
+      "bytes": 42740
+    },
+    {
+      "id": "c14735a9-136c-414e-9e4f-a59a3c310a9c",
+      "slug": "doc-trung-029-canh-rong-bien-trung-zicai-dan-tang",
+      "title": "Canh rong biển trứng (紫菜蛋汤 – Zǐcài dàn tāng)",
+      "image": "/recipes/documents/doc-trung-029-canh-rong-bien-trung-zicai-dan-tang-1.webp",
+      "ok": true,
+      "width": 335,
+      "height": 597,
+      "bytes": 29912
+    },
+    {
+      "id": "c8256978-2429-40be-94ee-1ea03cd3af38",
+      "slug": "doc-trung-030-canh-ga-nam-xianggu-ji-tang",
+      "title": "Canh gà nấm (香菇鸡汤 – Xiānggū jī tāng)",
+      "image": "/recipes/documents/doc-trung-030-canh-ga-nam-xianggu-ji-tang-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 66250
+    },
+    {
+      "id": "4d982e39-92ce-41cb-9dd2-78ed9887da3e",
+      "slug": "doc-trung-031-nem-ran-trung-quoc-chunjuan",
+      "title": "Nem rán Trung Quốc (春卷 – Chūnjuǎn)",
+      "image": "/recipes/documents/doc-trung-031-nem-ran-trung-quoc-chunjuan-1.webp",
+      "ok": true,
+      "width": 399,
+      "height": 501,
+      "bytes": 46464
+    },
+    {
+      "id": "5e1099b8-ca82-4e44-96fc-e0923aa49817",
+      "slug": "doc-trung-032-tieu-long-bao-xiaolongbao",
+      "title": "Tiểu long bao (小笼包 – Xiǎolóngbāo)",
+      "image": "/recipes/documents/doc-trung-032-tieu-long-bao-xiaolongbao-1.webp",
+      "ok": true,
+      "width": 515,
+      "height": 388,
+      "bytes": 23358
+    },
+    {
+      "id": "ce978925-8cb0-404d-9eae-7bb175260390",
+      "slug": "doc-trung-033-sui-cao-ap-chao-guotie",
+      "title": "Sủi cảo áp chảo (锅贴 – Guōtiē)",
+      "image": "/recipes/documents/doc-trung-033-sui-cao-ap-chao-guotie-1.webp",
+      "ok": true,
+      "width": 495,
+      "height": 620,
+      "bytes": 59500
+    },
+    {
+      "id": "f393b902-1488-4e25-bb5c-8998a23a0d3d",
+      "slug": "doc-trung-034-banh-kep-jianbing-jianbing-guozi",
+      "title": "Bánh kếp Jianbing (煎饼果子 – Jiānbing guǒzi)",
+      "image": "/recipes/documents/doc-trung-034-banh-kep-jianbing-jianbing-guozi-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 640,
+      "bytes": 60970
+    },
+    {
+      "id": "27ff8c92-25a7-4759-b6b7-b1c14de074e9",
+      "slug": "doc-trung-035-trung-tra-chaye-dan",
+      "title": "Trứng trà (茶叶蛋 – Cháyè dàn)",
+      "image": "/recipes/documents/doc-trung-035-trung-tra-chaye-dan-1.webp",
+      "ok": true,
+      "width": 547,
+      "height": 365,
+      "bytes": 25344
+    },
+    {
+      "id": "6855134b-2c3d-4241-8212-d61018a02bbd",
+      "slug": "doc-trung-036-dua-leo-dap-dap-pai-huanggua",
+      "title": "Dưa leo đập dập (拍黄瓜 – Pāi huángguā)",
+      "image": "/recipes/documents/doc-trung-036-dua-leo-dap-dap-pai-huanggua-1.webp",
+      "ok": true,
+      "width": 416,
+      "height": 737,
+      "bytes": 44790
+    },
+    {
+      "id": "bff585b6-f5e7-47dc-b49a-1d23e0021429",
+      "slug": "doc-trung-037-dau-phu-tron-cay-liangban-doufu",
+      "title": "Đậu phụ trộn cay (凉拌豆腐 – Liángbàn dòufu)",
+      "image": "/recipes/documents/doc-trung-037-dau-phu-tron-cay-liangban-doufu-1.webp",
+      "ok": true,
+      "width": 447,
+      "height": 447,
+      "bytes": 59508
+    },
+    {
+      "id": "fc40ad80-b421-4eac-afb3-4975530b6b52",
+      "slug": "doc-trung-038-banh-me-chien-jiandui",
+      "title": "Bánh mè chiên (煎堆 – Jiānduī)",
+      "image": "/recipes/documents/doc-trung-038-banh-me-chien-jiandui-1.webp",
+      "ok": true,
+      "width": 547,
+      "height": 365,
+      "bytes": 40798
+    },
+    {
+      "id": "b5c31406-de09-4a0b-933e-518670f47ad8",
+      "slug": "doc-trung-039-dau-phu-chien-gion-zha-doufu",
+      "title": "Đậu phụ chiên giòn (炸豆腐 – Zhà dòufu)",
+      "image": "/recipes/documents/doc-trung-039-dau-phu-chien-gion-zha-doufu-1.webp",
+      "ok": true,
+      "width": 638,
+      "height": 480,
+      "bytes": 47686
+    },
+    {
+      "id": "56e8ec95-608f-433f-b9cd-ef6dfdbe3181",
+      "slug": "doc-trung-040-chan-ga-hap-tau-xi-chizhi-zheng-fengzhua",
+      "title": "Chân gà hấp tàu xì (豉汁蒸凤爪 – Chǐzhī zhēng fèngzhuǎ)",
+      "image": "/recipes/documents/doc-trung-040-chan-ga-hap-tau-xi-chizhi-zheng-fengzhua-1.webp",
+      "ok": true,
+      "width": 259,
+      "height": 194,
+      "bytes": 14454
+    },
+    {
+      "id": "c1ceb408-7dfb-4dfa-b483-7909d1ba3d67",
+      "slug": "doc-trung-041-che-troi-nuoc-trung-quoc-tangyuan",
+      "title": "Chè trôi nước Trung Quốc (汤圆 – Tāngyuán)",
+      "image": "/recipes/documents/doc-trung-041-che-troi-nuoc-trung-quoc-tangyuan-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 30486
+    },
+    {
+      "id": "e9056144-d1b6-4e07-b1be-34af2e30e86e",
+      "slug": "doc-trung-042-che-dau-do-hongdou-tang",
+      "title": "Chè đậu đỏ (红豆汤 – Hóngdòu tāng)",
+      "image": "/recipes/documents/doc-trung-042-che-dau-do-hongdou-tang-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 640,
+      "bytes": 50208
+    },
+    {
+      "id": "4ef4c4a3-def2-4646-a874-4f04a6c43026",
+      "slug": "doc-trung-043-che-xoai-buoi-sago-yangzhi-ganlu",
+      "title": "Chè xoài bưởi sago (杨枝甘露 – Yángzhī gānlù)",
+      "image": "/recipes/documents/doc-trung-043-che-xoai-buoi-sago-yangzhi-ganlu-1.webp",
+      "ok": true,
+      "width": 225,
+      "height": 225,
+      "bytes": 11608
+    },
+    {
+      "id": "74c3a086-6381-4402-8b93-50ab260cf112",
+      "slug": "doc-trung-044-banh-trung-thu-dau-do-hongdou-yuebing",
+      "title": "Bánh trung thu đậu đỏ (红豆月饼 – Hóngdòu yuèbǐng)",
+      "image": "/recipes/documents/doc-trung-044-banh-trung-thu-dau-do-hongdou-yuebing-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 61860
+    },
+    {
+      "id": "d6e70a66-d76b-4cd9-a618-a1b4daf11087",
+      "slug": "doc-trung-045-banh-tart-trung-hong-kong-danta",
+      "title": "Bánh tart trứng Hong Kong (蛋挞 – Dàntà)",
+      "image": "/recipes/documents/doc-trung-045-banh-tart-trung-hong-kong-danta-1.webp",
+      "ok": true,
+      "width": 447,
+      "height": 447,
+      "bytes": 38250
+    },
+    {
+      "id": "230f451e-fd6f-4807-bf63-206c29faf5db",
+      "slug": "doc-trung-046-thach-hanh-nhan-xingren-doufu",
+      "title": "Thạch hạnh nhân (杏仁豆腐 – Xìngrén dòufu)",
+      "image": "/recipes/documents/doc-trung-046-thach-hanh-nhan-xingren-doufu-1.webp",
+      "ok": true,
+      "width": 335,
+      "height": 597,
+      "bytes": 13624
+    },
+    {
+      "id": "8827b6cf-9964-4e44-aa80-8c522639d0b2",
+      "slug": "doc-trung-047-che-ruou-nep-hoa-que-jiuniang-yuanzi",
+      "title": "Chè rượu nếp hoa quế (酒酿圆子 – Jiǔniàng yuánzi)",
+      "image": "/recipes/documents/doc-trung-047-che-ruou-nep-hoa-que-jiuniang-yuanzi-1.webp",
+      "ok": true,
+      "width": 660,
+      "height": 464,
+      "bytes": 37584
+    },
+    {
+      "id": "8bbfef95-8d2f-4a87-bff2-ab9f097a8e67",
+      "slug": "doc-trung-048-sua-dau-nanh-trung-quoc-doujiang",
+      "title": "Sữa đậu nành Trung Quốc (豆浆 – Dòujiāng)",
+      "image": "/recipes/documents/doc-trung-048-sua-dau-nanh-trung-quoc-doujiang-1.webp",
+      "ok": true,
+      "width": 515,
+      "height": 388,
+      "bytes": 22480
+    },
+    {
+      "id": "9f00b3b5-a95c-4c8b-8f68-071bc481bb65",
+      "slug": "doc-trung-049-mi-biang-biang-youpo-mian",
+      "title": "Mì Biang Biang (油泼面 – Yóupō miàn)",
+      "image": "/recipes/documents/doc-trung-049-mi-biang-biang-youpo-mian-1.webp",
+      "ok": true,
+      "width": 638,
+      "height": 480,
+      "bytes": 52670
+    },
+    {
+      "id": "aa0ac178-f6dd-4cf4-912a-b5aa63a78b87",
+      "slug": "doc-trung-050-com-thit-kho-dai-loan-lurou-fan",
+      "title": "Cơm thịt kho Đài Loan (卤肉饭 – Lǔròu fàn)",
+      "image": "/recipes/documents/doc-trung-050-com-thit-kho-dai-loan-lurou-fan-1.webp",
+      "ok": true,
+      "width": 452,
+      "height": 678,
+      "bytes": 72624
+    },
+    {
+      "id": "1ff953f4-bf4f-4486-907c-185dfd692ea2",
+      "slug": "doc-trung-051-mi-kho-nong-vu-han-regan-mian",
+      "title": "Mì khô nóng Vũ Hán (热干面 – Règān miàn)",
+      "image": "/recipes/documents/doc-trung-051-mi-kho-nong-vu-han-regan-mian-1.webp",
+      "ok": true,
+      "width": 678,
+      "height": 452,
+      "bytes": 62416
+    },
+    {
+      "id": "310a7132-38b5-40e3-bf8a-4f41b663a6a8",
+      "slug": "doc-trung-052-mi-bo-lan-chau-lanzhou-niurou-mian",
+      "title": "Mì bò Lan Châu (兰州牛肉面 – Lánzhōu niúròu miàn)",
+      "image": "/recipes/documents/doc-trung-052-mi-bo-lan-chau-lanzhou-niurou-mian-1.webp",
+      "ok": true,
+      "width": 411,
+      "height": 486,
+      "bytes": 19652
+    },
+    {
+      "id": "d6171999-17cc-449a-9440-fb089a15ff49",
+      "slug": "doc-trung-053-bun-que-lam-guilin-mifen",
+      "title": "Bún Quế Lâm (桂林米粉 – Guìlín mǐfěn)",
+      "image": "/recipes/documents/doc-trung-053-bun-que-lam-guilin-mifen-1.webp",
+      "ok": true,
+      "width": 638,
+      "height": 480,
+      "bytes": 115404
+    },
+    {
+      "id": "52a35c76-4442-4119-b304-b0042297e7b7",
+      "slug": "doc-trung-054-lau-cuu-bac-kinh-shuan-yangrou",
+      "title": "Lẩu cừu Bắc Kinh (涮羊肉 – Shuàn yángròu)",
+      "image": "/recipes/documents/doc-trung-054-lau-cuu-bac-kinh-shuan-yangrou-1.webp",
+      "ok": true,
+      "width": 638,
+      "height": 480,
+      "bytes": 60900
+    },
+    {
+      "id": "25d359e1-6a91-48c9-b0c8-1aea07a35165",
+      "slug": "doc-trung-055-lau-nam-trung-quoc-jungu-huoguo",
+      "title": "Lẩu nấm Trung Quốc (菌菇火锅 – Jūngū huǒguō)",
+      "image": "/recipes/documents/doc-trung-055-lau-nam-trung-quoc-jungu-huoguo-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 638,
+      "bytes": 88476
+    },
+    {
+      "id": "0d64bae1-51b8-48a9-934a-f0f9fa3a0df0",
+      "slug": "doc-trung-056-canh-mi-ca-chua-trung-fanqie-jidan-miantang",
+      "title": "Canh mì cà chua trứng (番茄鸡蛋面汤 – Fānqié jīdàn miàntāng)",
+      "image": "/recipes/documents/doc-trung-056-canh-mi-ca-chua-trung-fanqie-jidan-miantang-1.webp",
+      "ok": true,
+      "width": 267,
+      "height": 188,
+      "bytes": 12870
+    },
+    {
+      "id": "67cf3fa4-dade-4250-a484-a9e10ef10eef",
+      "slug": "doc-trung-057-canh-suon-rong-bien-haidai-paigu-tang",
+      "title": "Canh sườn rong biển (海带排骨汤 – Hǎidài páigǔ tāng)",
+      "image": "/recipes/documents/doc-trung-057-canh-suon-rong-bien-haidai-paigu-tang-1.webp",
+      "ok": true,
+      "width": 495,
+      "height": 619,
+      "bytes": 46452
+    },
+    {
+      "id": "df169a47-4185-4782-9cd7-ebb6183c3549",
+      "slug": "doc-trung-058-thit-cuu-xao-thi-la-ziran-yangrou",
+      "title": "Thịt cừu xào thì là (孜然羊肉 – Zīrán yángròu)",
+      "image": "/recipes/documents/doc-trung-058-thit-cuu-xao-thi-la-ziran-yangrou-1.webp",
+      "ok": true,
+      "width": 547,
+      "height": 365,
+      "bytes": 36150
+    },
+    {
+      "id": "527e44aa-8a19-4349-996c-4263a7646463",
+      "slug": "doc-trung-059-ga-om-nam-xianggu-men-ji",
+      "title": "Gà om nấm (香菇焖鸡 – Xiānggū mèn jī)",
+      "image": "/recipes/documents/doc-trung-059-ga-om-nam-xianggu-men-ji-1.webp",
+      "ok": true,
+      "width": 387,
+      "height": 516,
+      "bytes": 57844
+    },
+    {
+      "id": "f847315f-df44-464a-9016-bd98a5ffe414",
+      "slug": "doc-trung-060-trung-hap-kieu-trung-quoc-zheng-jidan-geng",
+      "title": "Trứng hấp kiểu Trung Quốc (蒸鸡蛋羹 – Zhēng jīdàn gēng)",
+      "image": "/recipes/documents/doc-trung-060-trung-hap-kieu-trung-quoc-zheng-jidan-geng-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 640,
+      "bytes": 51582
+    },
+    {
+      "id": "2a9ed518-d52c-44a6-8d52-2a9d658bb8ab",
+      "slug": "doc-trung-061-che-sago-nuoc-cot-dua-yezhi-ximilu",
+      "title": "Chè sago nước cốt dừa (椰汁西米露 – Yēzhī xīmǐlù)",
+      "image": "/recipes/documents/doc-trung-061-che-sago-nuoc-cot-dua-yezhi-ximilu-1.webp",
+      "ok": true,
+      "width": 228,
+      "height": 221,
+      "bytes": 6434
+    },
+    {
+      "id": "50ec53e5-9633-4856-a637-d17a0faf42e1",
+      "slug": "doc-trung-062-chan-gio-ham-nuoc-tuong-hongshao-zhuti",
+      "title": "Chân giò hầm nước tương (红烧猪蹄 – Hóngshāo zhūtí)",
+      "image": "/recipes/documents/doc-trung-062-chan-gio-ham-nuoc-tuong-hongshao-zhuti-1.webp",
+      "ok": true,
+      "width": 395,
+      "height": 506,
+      "bytes": 42200
+    },
+    {
+      "id": "bf316134-f686-4822-ba9a-49f960e532d3",
+      "slug": "doc-trung-063-ca-kho-nuoc-tuong-hongshao-yu",
+      "title": "Cá kho nước tương (红烧鱼 – Hóngshāo yú)",
+      "image": "/recipes/documents/doc-trung-063-ca-kho-nuoc-tuong-hongshao-yu-1.webp",
+      "ok": true,
+      "width": 451,
+      "height": 679,
+      "bytes": 82838
+    },
+    {
+      "id": "9709e8e1-52d9-4d48-af23-ffe3f059bed7",
+      "slug": "doc-viet-001-ba-roi-ba-chi-chien-sa-ot",
+      "title": "Ba rọi (ba chỉ) chiên sả ớt",
+      "image": "/recipes/documents/doc-viet-001-ba-roi-ba-chi-chien-sa-ot-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 301400
+    },
+    {
+      "id": "e6c95093-2b58-49fa-b285-cc9e93812a68",
+      "slug": "doc-viet-002-cha-la-lot",
+      "title": "Chả lá lốt",
+      "image": "/recipes/documents/doc-viet-002-cha-la-lot-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 55522
+    },
+    {
+      "id": "bbfee239-8b11-4d07-b6cd-6c7aa3ca9864",
+      "slug": "doc-viet-003-dau-phu-tam-hanh",
+      "title": "Đậu phụ tẩm hành",
+      "image": "/recipes/documents/doc-viet-003-dau-phu-tam-hanh-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 79622
+    },
+    {
+      "id": "b434cb78-2a34-4377-8cd7-87736e7557be",
+      "slug": "doc-viet-004-tom-rim-man-ngot",
+      "title": "Tôm rim mặn ngọt",
+      "image": "/recipes/documents/doc-viet-004-tom-rim-man-ngot-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 65400
+    },
+    {
+      "id": "4e533bff-fb78-446c-9314-617b1a1b2267",
+      "slug": "doc-viet-005-trung-sot-ca-chua",
+      "title": "Trứng sốt cà chua",
+      "image": "/recipes/documents/doc-viet-005-trung-sot-ca-chua-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 55474
+    },
+    {
+      "id": "866a0a67-52c5-4678-989d-73f12780fd6b",
+      "slug": "doc-viet-006-bo-xao-hanh-tay",
+      "title": "Bò xào hành tây",
+      "image": "/recipes/documents/doc-viet-006-bo-xao-hanh-tay-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 55240
+    },
+    {
+      "id": "bc71a1c3-82e0-496b-846e-b8982ec92054",
+      "slug": "doc-viet-007-ga-kho-gung",
+      "title": "Gà kho gừng",
+      "image": "/recipes/documents/doc-viet-007-ga-kho-gung-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 788,
+      "bytes": 120860
+    },
+    {
+      "id": "5f6a7a09-0002-4c10-b02b-6833c311538f",
+      "slug": "doc-viet-008-dau-phu-sot-ca-chua",
+      "title": "Đậu phụ sốt cà chua",
+      "image": "/recipes/documents/doc-viet-008-dau-phu-sot-ca-chua-1.webp",
+      "ok": true,
+      "width": 565,
+      "height": 353,
+      "bytes": 28176
+    },
+    {
+      "id": "13661b58-7c5a-40b2-9849-34b9c016366a",
+      "slug": "doc-viet-009-ca-thu-sot-ca-chua",
+      "title": "Cá thu sốt cà chua",
+      "image": "/recipes/documents/doc-viet-009-ca-thu-sot-ca-chua-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 442,
+      "bytes": 83212
+    },
+    {
+      "id": "a6103555-f320-4da7-b072-06777f913e90",
+      "slug": "doc-viet-010-muc-xao-dua-thom",
+      "title": "Mực xào dứa (thơm)",
+      "image": "/recipes/documents/doc-viet-010-muc-xao-dua-thom-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 88794
+    },
+    {
+      "id": "97cc555f-36ff-401f-b69c-5f53dde43b9b",
+      "slug": "doc-viet-011-rau-muong-xao-toi",
+      "title": "Rau muống xào tỏi",
+      "image": "/recipes/documents/doc-viet-011-rau-muong-xao-toi-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 141594
+    },
+    {
+      "id": "6713d4cb-aa2f-47fb-a0b0-ad1bf825b66a",
+      "slug": "doc-viet-012-trung-duc-thit-bam",
+      "title": "Trứng đúc thịt bằm",
+      "image": "/recipes/documents/doc-viet-012-trung-duc-thit-bam-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 169908
+    },
+    {
+      "id": "861aab2f-9897-46fe-b382-3653f1f052a0",
+      "slug": "doc-viet-013-thit-kho-quet",
+      "title": "Thịt kho quẹt",
+      "image": "/recipes/documents/doc-viet-013-thit-kho-quet-1.webp",
+      "ok": true,
+      "width": 1080,
+      "height": 675,
+      "bytes": 88508
+    },
+    {
+      "id": "73a1ab62-54f5-4ed0-8dc0-d88761bcb627",
+      "slug": "doc-viet-014-ca-loc-kho-to",
+      "title": "Cá lóc kho tộ",
+      "image": "/recipes/documents/doc-viet-014-ca-loc-kho-to-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 60942
+    },
+    {
+      "id": "6bf921ae-3017-4591-980f-934a0aaff2d1",
+      "slug": "doc-viet-015-kho-qua-xao-trung",
+      "title": "Khổ qua xào trứng",
+      "image": "/recipes/documents/doc-viet-015-kho-qua-xao-trung-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 600,
+      "bytes": 47990
+    },
+    {
+      "id": "f84ba8b9-6423-48fc-bde4-c17264343a50",
+      "slug": "doc-viet-016-ga-kho-sa-ot",
+      "title": "Gà kho sả ớt",
+      "image": "/recipes/documents/doc-viet-016-ga-kho-sa-ot-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 800,
+      "bytes": 112940
+    },
+    {
+      "id": "c4617345-6927-42b3-8c96-87d1c07a2139",
+      "slug": "doc-viet-017-nam-rom-kho-tieu-xanh",
+      "title": "Nấm rơm kho tiêu xanh",
+      "image": "/recipes/documents/doc-viet-017-nam-rom-kho-tieu-xanh-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 132932
+    },
+    {
+      "id": "05fb0f73-1ac0-4654-914b-0379f842ccc7",
+      "slug": "doc-viet-018-dau-co-ve-xao-thit-bo",
+      "title": "Đậu cô ve xào thịt bò",
+      "image": "/recipes/documents/doc-viet-018-dau-co-ve-xao-thit-bo-1.webp",
+      "ok": true,
+      "width": 751,
+      "height": 532,
+      "bytes": 38594
+    },
+    {
+      "id": "ed3083ea-3e0c-44f5-a581-75e6897ddca4",
+      "slug": "doc-viet-019-trung-chien-hau-sua",
+      "title": "Trứng chiên hàu sữa",
+      "image": "/recipes/documents/doc-viet-019-trung-chien-hau-sua-1.webp",
+      "ok": true,
+      "width": 1390,
+      "height": 926,
+      "bytes": 148214
+    },
+    {
+      "id": "c2cb49b4-1b56-4754-aeb4-d7e388166164",
+      "slug": "doc-viet-020-dot-bi-xao-toi",
+      "title": "Đọt bí xào tỏi",
+      "image": "/recipes/documents/doc-viet-020-dot-bi-xao-toi-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 88374
+    },
+    {
+      "id": "9b51f95d-f23d-4930-b48f-56e6f6d919fe",
+      "slug": "doc-viet-021-gia-do-xao-tom-tuoi",
+      "title": "Giá đỗ xào tôm tươi",
+      "image": "/recipes/documents/doc-viet-021-gia-do-xao-tom-tuoi-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 199278
+    },
+    {
+      "id": "59f2ec74-3e8c-46d4-bd1b-c33108e68b6f",
+      "slug": "doc-viet-022-cha-trung-hap",
+      "title": "Chả trứng hấp",
+      "image": "/recipes/documents/doc-viet-022-cha-trung-hap-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 39000
+    },
+    {
+      "id": "0f4e37e7-9184-4306-946c-62fdac7043db",
+      "slug": "doc-viet-023-muc-chien-nuoc-mam-toi-ot",
+      "title": "Mực chiên nước mắm tỏi ớt",
+      "image": "/recipes/documents/doc-viet-023-muc-chien-nuoc-mam-toi-ot-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 143450
+    },
+    {
+      "id": "687885bf-a224-4eb1-84e6-62c5b677546e",
+      "slug": "doc-viet-024-dau-bap-xao-toi",
+      "title": "Đậu bắp xào tỏi",
+      "image": "/recipes/documents/doc-viet-024-dau-bap-xao-toi-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 130054
+    },
+    {
+      "id": "a0d78f37-5b79-470c-9776-1775a0d120e3",
+      "slug": "doc-viet-025-ca-tim-mo-hanh",
+      "title": "Cà tím mỡ hành",
+      "image": "/recipes/documents/doc-viet-025-ca-tim-mo-hanh-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 138290
+    },
+    {
+      "id": "1ea21072-e3fe-45f9-a2c8-92405efa6f67",
+      "slug": "doc-viet-026-bong-cai-xao-long-me-vit",
+      "title": "Bông cải xào lòng mề vịt",
+      "image": "/recipes/documents/doc-viet-026-bong-cai-xao-long-me-vit-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 89752
+    },
+    {
+      "id": "8e5638e1-8889-4ead-9aad-85b9c0fa5b0a",
+      "slug": "doc-viet-027-ca-loc-kho-rieng",
+      "title": "Cá lóc kho riềng",
+      "image": "/recipes/documents/doc-viet-027-ca-loc-kho-rieng-1.webp",
+      "ok": true,
+      "width": 750,
+      "height": 500,
+      "bytes": 86360
+    },
+    {
+      "id": "d40cb06b-9d0a-4c7b-b0f5-e71bce13fadc",
+      "slug": "doc-viet-028-bao-tu-ca-ba-sa-xao-hanh-tay",
+      "title": "Bao tử cá ba sa xào hành tây",
+      "image": "/recipes/documents/doc-viet-028-bao-tu-ca-ba-sa-xao-hanh-tay-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 442,
+      "bytes": 70900
+    },
+    {
+      "id": "ab162991-8ada-4843-828e-e66ef170452e",
+      "slug": "doc-viet-029-oc-mong-tay-xao-rau-muong",
+      "title": "Ốc móng tay xào rau muống",
+      "image": "/recipes/documents/doc-viet-029-oc-mong-tay-xao-rau-muong-1.webp",
+      "ok": true,
+      "width": 750,
+      "height": 500,
+      "bytes": 72512
+    },
+    {
+      "id": "858a9af1-b820-47f9-a47a-b4d898f5824b",
+      "slug": "doc-viet-030-ca-nuc-sot-ca-chua-hanh-tay",
+      "title": "Cá nục sốt cà chua hành tây",
+      "image": "/recipes/documents/doc-viet-030-ca-nuc-sot-ca-chua-hanh-tay-1.webp",
+      "ok": true,
+      "width": 794,
+      "height": 596,
+      "bytes": 86614
+    },
+    {
+      "id": "efc07cf2-5e71-4c62-9d4e-a2b83c8ab350",
+      "slug": "doc-viet-031-ba-chi-cuon-nam-kim-cham",
+      "title": "Ba chỉ cuộn nấm kim châm",
+      "image": "/recipes/documents/doc-viet-031-ba-chi-cuon-nam-kim-cham-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 130204
+    },
+    {
+      "id": "6d4351cb-0ccb-4bc7-9cb9-c29e842ac238",
+      "slug": "doc-viet-032-ga-sot-tieu-den",
+      "title": "Gà sốt tiêu đen",
+      "image": "/recipes/documents/doc-viet-032-ga-sot-tieu-den-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 367,
+      "bytes": 48552
+    },
+    {
+      "id": "67ddd97f-b583-4af6-b930-ac35dbc15742",
+      "slug": "doc-viet-033-ngon-su-su-xao-toi-dau-hao",
+      "title": "Ngọn su su xào tỏi dầu hào",
+      "image": "/recipes/documents/doc-viet-033-ngon-su-su-xao-toi-dau-hao-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 465,
+      "bytes": 54444
+    },
+    {
+      "id": "0b7e8ac6-b0f9-4e3a-8d31-87c2efb4bd0e",
+      "slug": "doc-viet-034-gia-do-xao-huyet-heo",
+      "title": "Giá đỗ xào huyết heo",
+      "image": "/recipes/documents/doc-viet-034-gia-do-xao-huyet-heo-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 274316
+    },
+    {
+      "id": "ee7dc56e-85c6-441b-bac2-20470cbf91a3",
+      "slug": "doc-viet-035-canh-ga-chien-nuoc-mam",
+      "title": "Cánh gà chiên nước mắm",
+      "image": "/recipes/documents/doc-viet-035-canh-ga-chien-nuoc-mam-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 600,
+      "bytes": 87702
+    },
+    {
+      "id": "6338d343-b16f-438f-992c-6deab8a22ea4",
+      "slug": "doc-viet-036-thit-ba-chi-kho-dua-cai-chua",
+      "title": "Thịt ba chỉ kho dưa cải chua",
+      "image": "/recipes/documents/doc-viet-036-thit-ba-chi-kho-dua-cai-chua-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 600,
+      "bytes": 94256
+    },
+    {
+      "id": "373e2f48-e5fb-4f48-b95b-1a82642f070e",
+      "slug": "doc-viet-037-muc-xao-hanh-tay-toi-tay",
+      "title": "Mực xào hành tây tỏi tây",
+      "image": "/recipes/documents/doc-viet-037-muc-xao-hanh-tay-toi-tay-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1000,
+      "bytes": 218146
+    },
+    {
+      "id": "55b008c5-3b7a-484c-b4f7-4a85a08845c4",
+      "slug": "doc-viet-038-ba-chi-chay-canh",
+      "title": "Ba chỉ cháy cạnh",
+      "image": "/recipes/documents/doc-viet-038-ba-chi-chay-canh-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 700,
+      "bytes": 228962
+    },
+    {
+      "id": "7bbc820e-69ff-4c89-bd36-554f58dbb97d",
+      "slug": "doc-viet-039-thit-chung-mam-tep",
+      "title": "Thịt chưng mắm tép",
+      "image": "/recipes/documents/doc-viet-039-thit-chung-mam-tep-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 260316
+    },
+    {
+      "id": "cbe61cc2-80f8-4540-a23d-e560b00fe1aa",
+      "slug": "doc-viet-040-thit-kho-mam-quet-mam-quet-thit-bam",
+      "title": "Thịt kho mắm quẹt (Mắm quẹt thịt băm)",
+      "image": "/recipes/documents/doc-viet-040-thit-kho-mam-quet-mam-quet-thit-bam-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 50356
+    },
+    {
+      "id": "e8c1c068-6ee5-4b75-8bea-1a1be14543ff",
+      "slug": "doc-viet-041-suon-xao-chua-ngot-kieu-bac",
+      "title": "Sườn xào chua ngọt kiểu Bắc",
+      "image": "/recipes/documents/doc-viet-041-suon-xao-chua-ngot-kieu-bac-1.webp",
+      "ok": true,
+      "width": 660,
+      "height": 400,
+      "bytes": 48408
+    },
+    {
+      "id": "53f54f41-688c-4286-8bf4-aa5fa5a63571",
+      "slug": "doc-viet-042-suon-rim-man-ngot",
+      "title": "Sườn rim mặn ngọt",
+      "image": "/recipes/documents/doc-viet-042-suon-rim-man-ngot-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 172226
+    },
+    {
+      "id": "b964d42c-7401-472c-9966-a97d852873b8",
+      "slug": "doc-viet-043-tom-sot-bo-toi",
+      "title": "Tôm sốt bơ tỏi",
+      "image": "/recipes/documents/doc-viet-043-tom-sot-bo-toi-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 250776
+    },
+    {
+      "id": "6a463644-ceee-4ef8-a882-5c7d86babc12",
+      "slug": "doc-viet-044-tom-ram-tiec-tom-ram-man",
+      "title": "Tôm ram tiệc (Tôm ram mặn)",
+      "image": "/recipes/documents/doc-viet-044-tom-ram-tiec-tom-ram-man-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 253756
+    },
+    {
+      "id": "40b7ac2f-48cd-43ac-9808-7e5e6692326e",
+      "slug": "doc-viet-045-ca-bong-kho-tieu",
+      "title": "Cá bống kho tiêu",
+      "image": "/recipes/documents/doc-viet-045-ca-bong-kho-tieu-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 109184
+    },
+    {
+      "id": "03077f40-dc80-4e8d-824d-aff787f3d5fd",
+      "slug": "doc-viet-046-ca-hu-kho-to",
+      "title": "Cá hú kho tộ",
+      "image": "/recipes/documents/doc-viet-046-ca-hu-kho-to-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 176778
+    },
+    {
+      "id": "f293dec7-690d-4fb2-ac96-9100786a055e",
+      "slug": "doc-viet-047-ca-dieu-hong-chien-xu-sot-mam-xoai",
+      "title": "Cá diêu hồng chiên xù sốt mắm xoài",
+      "image": "/recipes/documents/doc-viet-047-ca-dieu-hong-chien-xu-sot-mam-xoai-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 262310
+    },
+    {
+      "id": "60c6fbd4-8fbc-4ac1-8298-464907e54219",
+      "slug": "doc-viet-048-muc-xao-sa-te",
+      "title": "Mực xào sa tế",
+      "image": "/recipes/documents/doc-viet-048-muc-xao-sa-te-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 131650
+    },
+    {
+      "id": "df0d6a1e-f919-45ac-9eb0-b44ee3fbc442",
+      "slug": "doc-viet-049-muc-sot-me",
+      "title": "Mực sốt me",
+      "image": "/recipes/documents/doc-viet-049-muc-sot-me-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1050,
+      "bytes": 260056
+    },
+    {
+      "id": "17febc26-60d9-4fb2-aaa5-dfb3773f7e4c",
+      "slug": "doc-viet-050-bach-tuoc-xao-sa-te",
+      "title": "Bạch tuộc xào sa tế",
+      "image": "/recipes/documents/doc-viet-050-bach-tuoc-xao-sa-te-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 176142
+    },
+    {
+      "id": "8bd151ba-04d2-4962-8c4f-fb64b742dc35",
+      "slug": "doc-viet-051-ngheu-hap-sa-ot",
+      "title": "Nghêu hấp sả ớt",
+      "image": "/recipes/documents/doc-viet-051-ngheu-hap-sa-ot-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 36292
+    },
+    {
+      "id": "d8c61a29-8e2c-4ccd-8de2-def8f72176ba",
+      "slug": "doc-viet-052-hen-xao-xuc-banh-da",
+      "title": "Hến xào xúc bánh đa",
+      "image": "/recipes/documents/doc-viet-052-hen-xao-xuc-banh-da-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 41904
+    },
+    {
+      "id": "07436988-d0e2-4a1f-a04f-e3b5e44cf54b",
+      "slug": "doc-viet-053-bo-luc-lac",
+      "title": "Bò lúc lắc",
+      "image": "/recipes/documents/doc-viet-053-bo-luc-lac-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 56454
+    },
+    {
+      "id": "81528c97-9d13-4de1-ae32-3a415b185337",
+      "slug": "doc-viet-054-bo-cuon-cai-mam",
+      "title": "Bò cuộn cải mầm",
+      "image": "/recipes/documents/doc-viet-054-bo-cuon-cai-mam-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 277418
+    },
+    {
+      "id": "027faf5e-ca99-4b64-9ac9-9d90e0584848",
+      "slug": "doc-viet-055-ga-sot-chua-ngot",
+      "title": "Gà sốt chua ngọt",
+      "image": "/recipes/documents/doc-viet-055-ga-sot-chua-ngot-1.webp",
+      "ok": true,
+      "width": 842,
+      "height": 561,
+      "bytes": 68102
+    },
+    {
+      "id": "addf4a6b-f21d-4a83-8bdf-03c51d8b693a",
+      "slug": "doc-viet-056-uc-ga-ap-chao-sot-mat-ong",
+      "title": "Ức gà áp chảo sốt mật ong",
+      "image": "/recipes/documents/doc-viet-056-uc-ga-ap-chao-sot-mat-ong-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 45938
+    },
+    {
+      "id": "59f926d8-5794-4ef3-be77-30a0fed79d55",
+      "slug": "doc-viet-057-nam-kim-cham-xao-toi-dau-hao",
+      "title": "Nấm kim châm xào tỏi dầu hào",
+      "image": "/recipes/documents/doc-viet-057-nam-kim-cham-xao-toi-dau-hao-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 118778
+    },
+    {
+      "id": "f8ccf0a0-4365-42b0-bb5c-cda5e90961d3",
+      "slug": "doc-viet-058-can-tay-xao-thit-bo",
+      "title": "Cần tây xào thịt bò",
+      "image": "/recipes/documents/doc-viet-058-can-tay-xao-thit-bo-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 525,
+      "bytes": 65744
+    },
+    {
+      "id": "06d7dd07-74a2-4ec7-bda1-d54234547aed",
+      "slug": "doc-viet-059-muop-dang-kho-qua-xao-thit-bo",
+      "title": "Mướp đắng (khổ qua) xào thịt bò",
+      "image": "/recipes/documents/doc-viet-059-muop-dang-kho-qua-xao-thit-bo-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 152050
+    },
+    {
+      "id": "6fdb9e84-7683-4425-94f6-efb913d5073a",
+      "slug": "doc-viet-060-ca-tim-xao-thit-bam",
+      "title": "Cà tím xào thịt băm",
+      "image": "/recipes/documents/doc-viet-060-ca-tim-xao-thit-bam-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 525,
+      "bytes": 101262
+    },
+    {
+      "id": "5af9e642-e10d-4d44-87a7-852dd18e429c",
+      "slug": "doc-viet-061-dau-hu-sot-tu-xuyen-kieu-viet",
+      "title": "Đậu hũ sốt Tứ Xuyên kiểu Việt",
+      "image": "/recipes/documents/doc-viet-061-dau-hu-sot-tu-xuyen-kieu-viet-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1000,
+      "bytes": 171666
+    },
+    {
+      "id": "56ad235d-21eb-4e74-8cc8-4e9529ae998a",
+      "slug": "doc-viet-062-dau-hu-nhoi-thit",
+      "title": "Đậu hũ nhồi thịt",
+      "image": "/recipes/documents/doc-viet-062-dau-hu-nhoi-thit-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 70074
+    },
+    {
+      "id": "96626712-5a29-44bd-b050-8857a8306d0b",
+      "slug": "doc-viet-063-thit-heo-luoc-cuon-banh-trang",
+      "title": "Thịt heo luộc cuốn bánh tráng",
+      "image": "/recipes/documents/doc-viet-063-thit-heo-luoc-cuon-banh-trang-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 636,
+      "bytes": 149224
+    },
+    {
+      "id": "d5e903f8-0a2e-47d1-a57a-1a24d1bfc12c",
+      "slug": "doc-viet-064-thit-vien-sot-nuoc-mam",
+      "title": "Thịt viên sốt nước mắm",
+      "image": "/recipes/documents/doc-viet-064-thit-vien-sot-nuoc-mam-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 467,
+      "bytes": 82798
+    },
+    {
+      "id": "dc778b3c-a39c-42ea-8899-33abb27d72c9",
+      "slug": "doc-viet-065-thit-heo-xao-mam-ruoc",
+      "title": "Thịt heo xào mắm ruốc",
+      "image": "/recipes/documents/doc-viet-065-thit-heo-xao-mam-ruoc-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 146786
+    },
+    {
+      "id": "47f59178-22c4-4256-b66e-92b424ad2dd7",
+      "slug": "doc-viet-066-thit-heo-hap-sa",
+      "title": "Thịt heo hấp sả",
+      "image": "/recipes/documents/doc-viet-066-thit-heo-hap-sa-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 700,
+      "bytes": 99652
+    },
+    {
+      "id": "838c5b37-ee65-4464-bf46-53d1d5f012ff",
+      "slug": "doc-viet-067-thit-nac-rim-nuoc-dua",
+      "title": "Thịt nạc rim nước dừa",
+      "image": "/recipes/documents/doc-viet-067-thit-nac-rim-nuoc-dua-1.webp",
+      "ok": true,
+      "width": 655,
+      "height": 468,
+      "bytes": 54536
+    },
+    {
+      "id": "6502183c-557d-41a3-a720-a7572bc406ff",
+      "slug": "doc-viet-068-nem-nuong-chao",
+      "title": "Nem nướng chảo",
+      "image": "/recipes/documents/doc-viet-068-nem-nuong-chao-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 78412
+    },
+    {
+      "id": "8e394b9c-8f48-4169-931b-5fc236d5c5ad",
+      "slug": "doc-viet-069-thit-heo-boc-trung-cut",
+      "title": "Thịt heo bọc trứng cút",
+      "image": "/recipes/documents/doc-viet-069-thit-heo-boc-trung-cut-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 116392
+    },
+    {
+      "id": "9086012f-a1d1-4cde-a47a-f7b3f001603b",
+      "slug": "doc-viet-070-dau-hu-chien-sa-ot",
+      "title": "Đậu hủ chiên sả ớt",
+      "image": "/recipes/documents/doc-viet-070-dau-hu-chien-sa-ot-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 700,
+      "bytes": 134142
+    },
+    {
+      "id": "08d707b1-cfe7-4c7b-b15a-b1fcaa653c5d",
+      "slug": "doc-viet-071-thit-heo-sot-cam",
+      "title": "Thịt heo sốt cam",
+      "image": "/recipes/documents/doc-viet-071-thit-heo-sot-cam-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 96082
+    },
+    {
+      "id": "b58524c5-971b-44bf-81e2-7eb30e8635c5",
+      "slug": "doc-viet-072-thit-heo-xao-dau-phong",
+      "title": "Thịt heo xào đậu phộng",
+      "image": "/recipes/documents/doc-viet-072-thit-heo-xao-dau-phong-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 442,
+      "bytes": 32302
+    },
+    {
+      "id": "cf92365a-50fc-4dc0-90b3-a9f610b12af3",
+      "slug": "doc-viet-073-cai-be-xanh-nhoi-thit",
+      "title": "Cải bẹ xanh nhồi thịt",
+      "image": "/recipes/documents/doc-viet-073-cai-be-xanh-nhoi-thit-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 71292
+    },
+    {
+      "id": "8f52b4c0-39a2-495e-abe2-b3d48c1c7a26",
+      "slug": "doc-viet-074-thit-heo-xao-cu-cai-trang",
+      "title": "Thịt heo xào củ cải trắng",
+      "image": "/recipes/documents/doc-viet-074-thit-heo-xao-cu-cai-trang-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 525,
+      "bytes": 51864
+    },
+    {
+      "id": "68ee1d17-771c-44ae-a7f9-0aff2088a26c",
+      "slug": "doc-viet-075-thit-heo-nuong-rieng-me",
+      "title": "Thịt heo nướng riềng mẻ",
+      "image": "/recipes/documents/doc-viet-075-thit-heo-nuong-rieng-me-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 700,
+      "bytes": 203922
+    },
+    {
+      "id": "6d2e4444-4d41-4e19-adc1-23c52b625507",
+      "slug": "doc-viet-076-thit-heo-xao-dau-ha-lan",
+      "title": "Thịt heo xào đậu Hà Lan",
+      "image": "/recipes/documents/doc-viet-076-thit-heo-xao-dau-ha-lan-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 93916
+    },
+    {
+      "id": "c679b17d-4132-4e03-86ab-8c76a12a4da1",
+      "slug": "doc-viet-077-thit-heo-vien-sot-nam-dong-co",
+      "title": "Thịt heo viên sốt nấm đông cô",
+      "image": "/recipes/documents/doc-viet-077-thit-heo-vien-sot-nam-dong-co-1.webp",
+      "ok": true,
+      "width": 480,
+      "height": 640,
+      "bytes": 61720
+    },
+    {
+      "id": "7f3ebb04-4ef5-475e-bf8b-e586e87dbd39",
+      "slug": "doc-viet-078-thit-heo-xao-dua-leo",
+      "title": "Thịt heo xào dưa leo",
+      "image": "/recipes/documents/doc-viet-078-thit-heo-xao-dua-leo-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 600,
+      "bytes": 52954
+    },
+    {
+      "id": "64ba7b12-5967-4d17-bc49-f5aedb04205a",
+      "slug": "doc-viet-079-thit-heo-hap-hanh-gung",
+      "title": "Thịt heo hấp hành gừng",
+      "image": "/recipes/documents/doc-viet-079-thit-heo-hap-hanh-gung-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1050,
+      "bytes": 261776
+    },
+    {
+      "id": "9a3c771d-1063-488d-bb92-28c5aecb9ca0",
+      "slug": "doc-viet-080-thit-heo-xao-cai-thia",
+      "title": "Thịt heo xào cải thìa",
+      "image": "/recipes/documents/doc-viet-080-thit-heo-xao-cai-thia-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 351,
+      "bytes": 34512
+    },
+    {
+      "id": "80f5f39c-e696-434e-b909-05bd86768153",
+      "slug": "doc-viet-081-thit-heo-chien-com",
+      "title": "Thịt heo chiên cốm",
+      "image": "/recipes/documents/doc-viet-081-thit-heo-chien-com-1.webp",
+      "ok": true,
+      "width": 550,
+      "height": 365,
+      "bytes": 31012
+    },
+    {
+      "id": "d89fe7be-346c-4996-942e-608409e3e486",
+      "slug": "doc-viet-082-ga-hap-nam-huong",
+      "title": "Gà hấp nấm hương",
+      "image": "/recipes/documents/doc-viet-082-ga-hap-nam-huong-1.webp",
+      "ok": true,
+      "width": 640,
+      "height": 421,
+      "bytes": 35736
+    },
+    {
+      "id": "efb0a4d1-bf67-4886-a2c7-d41a183dfb60",
+      "slug": "doc-viet-083-ga-xe-phay-hanh-tay",
+      "title": "Gà xé phay hành tây",
+      "image": "/recipes/documents/doc-viet-083-ga-xe-phay-hanh-tay-1.webp",
+      "ok": true,
+      "width": 750,
+      "height": 410,
+      "bytes": 42228
+    },
+    {
+      "id": "9db5e8b5-0732-4010-8125-bdd928ca9667",
+      "slug": "doc-viet-084-ga-nau-nam-dong-co",
+      "title": "Gà nấu nấm đông cô",
+      "image": "/recipes/documents/doc-viet-084-ga-nau-nam-dong-co-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 72282
+    },
+    {
+      "id": "965dd767-cadc-41a4-8c61-f3f11d9cde95",
+      "slug": "doc-viet-085-bo-cuon-mang-tay",
+      "title": "Bò cuốn măng tây",
+      "image": "/recipes/documents/doc-viet-085-bo-cuon-mang-tay-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 442,
+      "bytes": 74634
+    },
+    {
+      "id": "63966175-74a8-4c46-a33b-4567d1af18d4",
+      "slug": "doc-viet-086-bo-nau-lagu",
+      "title": "Bò nấu lagu",
+      "image": "/recipes/documents/doc-viet-086-bo-nau-lagu-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 700,
+      "bytes": 148700
+    },
+    {
+      "id": "d6610b3e-341f-4612-8566-6dc0e0a576ec",
+      "slug": "doc-viet-087-bo-hap-bia-sa",
+      "title": "Bò hấp bia sả",
+      "image": "/recipes/documents/doc-viet-087-bo-hap-bia-sa-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 150378
+    },
+    {
+      "id": "46a78af6-5c48-4cc3-a7f3-433b48338da4",
+      "slug": "doc-viet-088-bo-nau-sot-vang",
+      "title": "Bò nấu sốt vang",
+      "image": "/recipes/documents/doc-viet-088-bo-nau-sot-vang-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 63226
+    },
+    {
+      "id": "4cc4f987-0898-4fd7-bf9b-fea60b200e26",
+      "slug": "doc-viet-089-bo-xao-dau-bap",
+      "title": "Bò xào đậu bắp",
+      "image": "/recipes/documents/doc-viet-089-bo-xao-dau-bap-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 101062
+    },
+    {
+      "id": "b355942e-69aa-4301-8ac3-370d8ae34e14",
+      "slug": "doc-viet-090-ga-cuon-pho-mai",
+      "title": "Gà cuộn phô mai",
+      "image": "/recipes/documents/doc-viet-090-ga-cuon-pho-mai-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 91048
+    },
+    {
+      "id": "60a1ffe2-4bcd-4223-9a1c-9d8deb8c9470",
+      "slug": "doc-viet-091-ga-nau-dau-phong",
+      "title": "Gà nấu đậu phộng",
+      "image": "/recipes/documents/doc-viet-091-ga-nau-dau-phong-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 149776
+    },
+    {
+      "id": "72f48e2e-466d-4a0c-ae3e-6d61bb4dcb91",
+      "slug": "doc-viet-092-ca-hap-bau",
+      "title": "Cá hấp bầu",
+      "image": "/recipes/documents/doc-viet-092-ca-hap-bau-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 193402
+    },
+    {
+      "id": "8fb5d212-24bb-4ee4-ab76-ab663089238b",
+      "slug": "doc-viet-093-ca-nuong-giay-bac",
+      "title": "Cá nướng giấy bạc",
+      "image": "/recipes/documents/doc-viet-093-ca-nuong-giay-bac-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 125646
+    },
+    {
+      "id": "8ab72ffc-9ea3-4d29-ad62-43ab16f79099",
+      "slug": "doc-viet-094-ca-vien-sot-trung-muoi",
+      "title": "Cá viên sốt trứng muối",
+      "image": "/recipes/documents/doc-viet-094-ca-vien-sot-trung-muoi-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 600,
+      "bytes": 80210
+    },
+    {
+      "id": "388bf591-6440-4bea-81b5-13030c72a845",
+      "slug": "doc-viet-095-tom-cuon-khoai-tay",
+      "title": "Tôm cuộn khoai tây",
+      "image": "/recipes/documents/doc-viet-095-tom-cuon-khoai-tay-1.webp",
+      "ok": true,
+      "width": 399,
+      "height": 208,
+      "bytes": 16318
+    },
+    {
+      "id": "2d0d6730-101a-48b1-b3f0-644269171744",
+      "slug": "doc-viet-096-tom-nuong-pho-mai",
+      "title": "Tôm nướng phô mai",
+      "image": "/recipes/documents/doc-viet-096-tom-nuong-pho-mai-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 675,
+      "bytes": 134064
+    },
+    {
+      "id": "dbb39642-dd7e-49c9-be2a-3bce97ba2cf0",
+      "slug": "doc-viet-097-muc-hap-gung-hanh",
+      "title": "Mực hấp gừng hành",
+      "image": "/recipes/documents/doc-viet-097-muc-hap-gung-hanh-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 81672
+    },
+    {
+      "id": "cd39f25f-7a47-40c6-9869-99418db81b45",
+      "slug": "doc-viet-098-ca-basa-kho-thom",
+      "title": "Cá basa kho thơm",
+      "image": "/recipes/documents/doc-viet-098-ca-basa-kho-thom-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 98822
+    },
+    {
+      "id": "a89da6cf-d917-4478-8d77-d8ace3d0225c",
+      "slug": "doc-viet-099-tom-xao-bap-non",
+      "title": "Tôm xào bắp non",
+      "image": "/recipes/documents/doc-viet-099-tom-xao-bap-non-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 1049,
+      "bytes": 177564
+    },
+    {
+      "id": "c69a75ca-cc10-4a41-a988-016f50dfcb1e",
+      "slug": "doc-viet-100-cha-muc-chien",
+      "title": "Chả mực chiên",
+      "image": "/recipes/documents/doc-viet-100-cha-muc-chien-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 600,
+      "bytes": 93576
+    },
+    {
+      "id": "0408ddc8-9e5c-437b-8728-a14a7512027c",
+      "slug": "doc-viet-101-ca-nuong-rieng-me",
+      "title": "Cá nướng riềng mẻ",
+      "image": "/recipes/documents/doc-viet-101-ca-nuong-rieng-me-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 167016
+    },
+    {
+      "id": "c68e0811-82d2-4a01-a0ab-c644cd6d515c",
+      "slug": "doc-viet-102-khoai-tay-xao-ca-rot",
+      "title": "Khoai tây xào cà rốt",
+      "image": "/recipes/documents/doc-viet-102-khoai-tay-xao-ca-rot-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 461,
+      "bytes": 37340
+    },
+    {
+      "id": "be19860f-15a9-4c80-93a9-47fef25b19b7",
+      "slug": "doc-viet-103-dau-hu-hap-trung",
+      "title": "Đậu hũ hấp trứng",
+      "image": "/recipes/documents/doc-viet-103-dau-hu-hap-trung-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 18002
+    },
+    {
+      "id": "f8de7ece-992d-48c2-be85-2dc6bca7d0d3",
+      "slug": "doc-viet-104-nam-bao-ngu-chien-gion",
+      "title": "Nấm bào ngư chiên giòn",
+      "image": "/recipes/documents/doc-viet-104-nam-bao-ngu-chien-gion-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 1000,
+      "bytes": 182052
+    },
+    {
+      "id": "ebbd7317-e0d0-40f1-b44e-e41193f1f416",
+      "slug": "doc-viet-105-thit-kho-trung-cut",
+      "title": "Thịt kho trứng cút",
+      "image": "/recipes/documents/doc-viet-105-thit-kho-trung-cut-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 137052
+    },
+    {
+      "id": "0cfc3007-cce3-4c3c-a2aa-1a8c7eb6ee9e",
+      "slug": "doc-viet-106-dau-que-xao-trung",
+      "title": "Đậu que xào trứng",
+      "image": "/recipes/documents/doc-viet-106-dau-que-xao-trung-1.webp",
+      "ok": true,
+      "width": 554,
+      "height": 554,
+      "bytes": 53174
+    },
+    {
+      "id": "86887b94-089a-4ee4-bcf4-78efe7da89dd",
+      "slug": "doc-viet-107-bap-cai-tim-tron-dau-giam",
+      "title": "Bắp cải tím trộn dầu giấm",
+      "image": "/recipes/documents/doc-viet-107-bap-cai-tim-tron-dau-giam-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 615,
+      "bytes": 110252
+    },
+    {
+      "id": "351099a0-866c-4c82-9a1f-4f92bd7762a3",
+      "slug": "doc-viet-108-com-chien-ca-man",
+      "title": "Cơm chiên cá mặn",
+      "image": "/recipes/documents/doc-viet-108-com-chien-ca-man-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 36080
+    },
+    {
+      "id": "21d6bc7b-a3d9-4fbb-b654-281dfac79583",
+      "slug": "doc-viet-109-banh-duc-man",
+      "title": "Bánh đúc mặn",
+      "image": "/recipes/documents/doc-viet-109-banh-duc-man-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 367,
+      "bytes": 42612
+    },
+    {
+      "id": "c29f1351-5867-4bd8-9f9c-5299eb156e1d",
+      "slug": "doc-viet-110-nui-xao-bo-kieu-viet",
+      "title": "Nui xào bò kiểu Việt",
+      "image": "/recipes/documents/doc-viet-110-nui-xao-bo-kieu-viet-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 124032
+    },
+    {
+      "id": "43eb3cad-c1ee-4fad-ab17-d75aa63a19cc",
+      "slug": "doc-viet-111-chao-suon-dau-xanh",
+      "title": "Cháo sườn đậu xanh",
+      "image": "/recipes/documents/doc-viet-111-chao-suon-dau-xanh-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 47430
+    },
+    {
+      "id": "79b46028-8fe0-4680-addf-fdb436c4c0ff",
+      "slug": "doc-viet-112-thit-bo-xao-la-lot",
+      "title": "Thịt bò xào lá lốt",
+      "image": "/recipes/documents/doc-viet-112-thit-bo-xao-la-lot-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 124962
+    },
+    {
+      "id": "86910987-4971-4609-a90b-187a84701d7d",
+      "slug": "doc-viet-113-canh-chua-ngheu",
+      "title": "Canh chua nghêu",
+      "image": "/recipes/documents/doc-viet-113-canh-chua-ngheu-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 234200
+    },
+    {
+      "id": "0934494b-ba51-4ea4-aa69-a8b91e109cdd",
+      "slug": "doc-viet-114-canh-ca-nau-ngot",
+      "title": "Canh cá nấu ngót",
+      "image": "/recipes/documents/doc-viet-114-canh-ca-nau-ngot-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 61040
+    },
+    {
+      "id": "fa229951-cfb9-4bdd-895d-271f591faa13",
+      "slug": "doc-viet-115-canh-suon-nau-chua-sau-me",
+      "title": "Canh sườn nấu chua (Sấu/Me)",
+      "image": "/recipes/documents/doc-viet-115-canh-suon-nau-chua-sau-me-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 64390
+    },
+    {
+      "id": "fb2e9894-8944-4a18-8a54-0e5d317a6fa4",
+      "slug": "doc-viet-116-canh-rau-den-nau-thit-bam",
+      "title": "Canh rau dền nấu thịt bằm",
+      "image": "/recipes/documents/doc-viet-116-canh-rau-den-nau-thit-bam-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 110480
+    },
+    {
+      "id": "bac9b5f6-c4d0-4c15-9a7f-c3503d338a86",
+      "slug": "doc-viet-117-canh-cai-cuc-tan-o-nau-thit-bam",
+      "title": "Canh cải cúc (tần ô) nấu thịt bằm",
+      "image": "/recipes/documents/doc-viet-117-canh-cai-cuc-tan-o-nau-thit-bam-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 191836
+    },
+    {
+      "id": "b4e118eb-4da9-4dfe-8a5e-c0f533fb3fa1",
+      "slug": "doc-viet-118-canh-mong-nau-tom-tuoi",
+      "title": "Canh mồng nấu tôm tươi",
+      "image": "/recipes/documents/doc-viet-118-canh-mong-nau-tom-tuoi-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 63616
+    },
+    {
+      "id": "dd3f3fdd-faaf-432f-bf92-1a0767d86050",
+      "slug": "doc-viet-119-canh-cua-dong",
+      "title": "Canh cua đồng",
+      "image": "/recipes/documents/doc-viet-119-canh-cua-dong-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 74696
+    },
+    {
+      "id": "3082a01d-722e-45a6-a5ef-2af384767572",
+      "slug": "doc-viet-120-canh-muop-dang-kho-qua-nhoi-thit",
+      "title": "Canh mướp đắng (khổ qua) nhồi thịt",
+      "image": "/recipes/documents/doc-viet-120-canh-muop-dang-kho-qua-nhoi-thit-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 442,
+      "bytes": 81552
+    },
+    {
+      "id": "65211457-d38e-4259-aaf4-95440d9905f0",
+      "slug": "doc-viet-121-canh-khoai-mon-nau-suon",
+      "title": "Canh khoai môn nấu sườn",
+      "image": "/recipes/documents/doc-viet-121-canh-khoai-mon-nau-suon-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 104908
+    },
+    {
+      "id": "61657228-5566-4d69-97d3-fa83475eb173",
+      "slug": "doc-viet-122-canh-bap-cai-cuon-thit",
+      "title": "Canh bắp cải cuốn thịt",
+      "image": "/recipes/documents/doc-viet-122-canh-bap-cai-cuon-thit-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 99496
+    },
+    {
+      "id": "3aaa1047-7fd1-49d8-bd33-4df1cf2587c3",
+      "slug": "doc-viet-123-canh-nam-ngu-sac-canh-nam-chay-man",
+      "title": "Canh nấm ngũ sắc (Canh nấm chay/mặn)",
+      "image": "/recipes/documents/doc-viet-123-canh-nam-ngu-sac-canh-nam-chay-man-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 31716
+    },
+    {
+      "id": "2b32d69f-7da4-44d5-b4e3-7e95a95ec9ef",
+      "slug": "doc-viet-124-canh-kho-qua-bao-nau-tom",
+      "title": "Canh khổ qua bào nấu tôm",
+      "image": "/recipes/documents/doc-viet-124-canh-kho-qua-bao-nau-tom-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 566,
+      "bytes": 77614
+    },
+    {
+      "id": "c26d81bb-2c31-4f8b-bc73-d7a08c373c3e",
+      "slug": "doc-viet-125-canh-dua-chua-nau-thit-dai-ba-chi",
+      "title": "Canh dưa chua nấu thịt dải/ba chỉ",
+      "image": "/recipes/documents/doc-viet-125-canh-dua-chua-nau-thit-dai-ba-chi-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 425,
+      "bytes": 60130
+    },
+    {
+      "id": "63b1723a-8c01-4e90-a5c6-6e3785b79488",
+      "slug": "doc-viet-126-canh-rong-bien-thit-bam-kieu-viet",
+      "title": "Canh rong biển thịt bằm kiểu Việt",
+      "image": "/recipes/documents/doc-viet-126-canh-rong-bien-thit-bam-kieu-viet-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 700,
+      "bytes": 96800
+    },
+    {
+      "id": "d74086ec-af33-4582-9631-f6f67010659b",
+      "slug": "doc-viet-127-canh-dau-hu-ca-chua-he",
+      "title": "Canh đậu hũ cà chua Hẹ",
+      "image": "/recipes/documents/doc-viet-127-canh-dau-hu-ca-chua-he-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 41158
+    },
+    {
+      "id": "afe12f8d-21af-4f89-8c25-0e95676b773d",
+      "slug": "doc-viet-128-canh-xa-lach-xoong-nau-thit-bam",
+      "title": "Canh xà lách xoong nấu thịt bằm",
+      "image": "/recipes/documents/doc-viet-128-canh-xa-lach-xoong-nau-thit-bam-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 106998
+    },
+    {
+      "id": "c3cf47ec-1c76-4311-8ded-1ed980252c1d",
+      "slug": "doc-viet-129-canh-bi-do-nau-tom-thit",
+      "title": "Canh bí đỏ nấu tôm thịt",
+      "image": "/recipes/documents/doc-viet-129-canh-bi-do-nau-tom-thit-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 68722
+    },
+    {
+      "id": "b1077a1c-e421-470a-987b-987443431a75",
+      "slug": "doc-viet-130-canh-ca-chua-trung",
+      "title": "Canh cà chua trứng",
+      "image": "/recipes/documents/doc-viet-130-canh-ca-chua-trung-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 69022
+    },
+    {
+      "id": "f178a641-ade2-4893-8076-28d3577b913e",
+      "slug": "doc-viet-131-canh-rau-ngot-thit-bam",
+      "title": "Canh rau ngót thịt bằm",
+      "image": "/recipes/documents/doc-viet-131-canh-rau-ngot-thit-bam-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 235402
+    },
+    {
+      "id": "53147c9e-6ad7-4a1d-9dee-6ad17b8d42c5",
+      "slug": "doc-viet-132-canh-chua-ca-loc",
+      "title": "Canh chua cá lóc",
+      "image": "/recipes/documents/doc-viet-132-canh-chua-ca-loc-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 146414
+    },
+    {
+      "id": "70f37cf8-1f4e-4673-89b1-d6c1ad7a2e6c",
+      "slug": "doc-viet-133-canh-he-nau-dau-hu-non-thit-bam",
+      "title": "Canh hẹ nấu đậu hũ non thịt bằm",
+      "image": "/recipes/documents/doc-viet-133-canh-he-nau-dau-hu-non-thit-bam-1.webp",
+      "ok": true,
+      "width": 640,
+      "height": 480,
+      "bytes": 47624
+    },
+    {
+      "id": "923912de-1ae8-4b93-a2a3-861b3d1cd950",
+      "slug": "doc-viet-134-canh-khoai-mo-thit-bam",
+      "title": "Canh khoai mỡ thịt bằm",
+      "image": "/recipes/documents/doc-viet-134-canh-khoai-mo-thit-bam-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 45416
+    },
+    {
+      "id": "dd22db22-7eb9-4044-a672-3cf3621478ea",
+      "slug": "doc-viet-135-canh-bau-nau-tom",
+      "title": "Canh bầu nấu tôm",
+      "image": "/recipes/documents/doc-viet-135-canh-bau-nau-tom-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 129158
+    },
+    {
+      "id": "35e8b516-f002-46ab-be65-9bc9ed5f31cc",
+      "slug": "doc-viet-136-canh-khoai-so-nau-thit-bam",
+      "title": "Canh khoai sọ nấu thịt bằm",
+      "image": "/recipes/documents/doc-viet-136-canh-khoai-so-nau-thit-bam-1.webp",
+      "ok": true,
+      "width": 640,
+      "height": 400,
+      "bytes": 32398
+    },
+    {
+      "id": "d8f613d4-326c-4f5e-9d9e-1ac9752fec7d",
+      "slug": "doc-viet-137-canh-rau-cai-ngot-nau-tom-bam",
+      "title": "Canh rau cải ngọt nấu tôm băm",
+      "image": "/recipes/documents/doc-viet-137-canh-rau-cai-ngot-nau-tom-bam-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 57528
+    },
+    {
+      "id": "f3c42c33-c24c-40a2-8b55-dd11364f0ecc",
+      "slug": "doc-viet-138-canh-bi-xanh-nau-tom-kho",
+      "title": "Canh bí xanh nấu tôm khô",
+      "image": "/recipes/documents/doc-viet-138-canh-bi-xanh-nau-tom-kho-1.webp",
+      "ok": true,
+      "width": 1000,
+      "height": 1000,
+      "bytes": 151290
+    },
+    {
+      "id": "f844bed7-2789-4feb-aa4a-a9f5c9f646aa",
+      "slug": "doc-viet-139-canh-tan-o-nau-ca-vien",
+      "title": "Canh tần ô nấu cá viên",
+      "image": "/recipes/documents/doc-viet-139-canh-tan-o-nau-ca-vien-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 630,
+      "bytes": 140624
+    },
+    {
+      "id": "93375ffa-8f1c-4d37-8043-63b17d75600c",
+      "slug": "doc-viet-140-canh-rau-den-nau-tom-kho",
+      "title": "Canh rau dền nấu tôm khô",
+      "image": "/recipes/documents/doc-viet-140-canh-rau-den-nau-tom-kho-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 48056
+    },
+    {
+      "id": "e2996cda-e9a8-4fa9-a73b-2722b190d5f2",
+      "slug": "doc-viet-141-banh-trang-nuong-da-lat",
+      "title": "Bánh tráng nướng Đà Lạt",
+      "image": "/recipes/documents/doc-viet-141-banh-trang-nuong-da-lat-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 119082
+    },
+    {
+      "id": "51bdacf8-56c2-4da4-bdd1-8f137ce394a2",
+      "slug": "doc-viet-142-banh-trang-tron",
+      "title": "Bánh tráng trộn",
+      "image": "/recipes/documents/doc-viet-142-banh-trang-tron-1.webp",
+      "ok": true,
+      "width": 1280,
+      "height": 720,
+      "bytes": 185046
+    },
+    {
+      "id": "67f510ec-df7f-414d-8d3a-68b91e4028de",
+      "slug": "doc-viet-143-trung-nuong-chen",
+      "title": "Trứng nướng chén",
+      "image": "/recipes/documents/doc-viet-143-trung-nuong-chen-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 934,
+      "bytes": 179692
+    },
+    {
+      "id": "335635fb-7978-42cc-9afe-3d8498c54bc1",
+      "slug": "doc-viet-144-oc-hut-xao-sa-ot",
+      "title": "Ốc hút xào sả ớt",
+      "image": "/recipes/documents/doc-viet-144-oc-hut-xao-sa-ot-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 68176
+    },
+    {
+      "id": "5e56f416-47fe-47eb-bb8e-b492a8a01d70",
+      "slug": "doc-viet-145-bap-ngo-xao-bo-tom-kho",
+      "title": "Bắp (ngô) xào bơ tôm khô",
+      "image": "/recipes/documents/doc-viet-145-bap-ngo-xao-bo-tom-kho-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 172774
+    },
+    {
+      "id": "50125df5-d235-4a9d-b056-bcdcc9e1e9a8",
+      "slug": "doc-viet-146-banh-xeo-mien-tay-chien-chao-nho",
+      "title": "Bánh xèo miền Tây (chiên chảo nhỏ)",
+      "image": "/recipes/documents/doc-viet-146-banh-xeo-mien-tay-chien-chao-nho-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 50432
+    },
+    {
+      "id": "85736c68-6ad4-4dd5-a564-4e905a2709fb",
+      "slug": "doc-viet-147-banh-khot",
+      "title": "Bánh khọt",
+      "image": "/recipes/documents/doc-viet-147-banh-khot-1.webp",
+      "ok": true,
+      "width": 728,
+      "height": 421,
+      "bytes": 60546
+    },
+    {
+      "id": "ebbc2624-afcc-41ba-bdeb-61cef5606d71",
+      "slug": "doc-viet-148-che-troi-nuoc-ngu-sac-phan-nho",
+      "title": "Chè trôi nước ngũ sắc (Phần nhỏ)",
+      "image": "/recipes/documents/doc-viet-148-che-troi-nuoc-ngu-sac-phan-nho-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 59942
+    },
+    {
+      "id": "e784f977-0a3e-4c47-bc1a-40142bd8829f",
+      "slug": "doc-viet-149-che-dau-do-banh-troi",
+      "title": "Chè đậu đỏ bánh trôi",
+      "image": "/recipes/documents/doc-viet-149-che-dau-do-banh-troi-1.webp",
+      "ok": true,
+      "width": 700,
+      "height": 438,
+      "bytes": 25276
+    },
+    {
+      "id": "39ec1831-a3fe-4c6f-91c1-405d9972a70b",
+      "slug": "doc-viet-150-chuoi-nep-nuong",
+      "title": "Chuối nếp nướng",
+      "image": "/recipes/documents/doc-viet-150-chuoi-nep-nuong-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 367,
+      "bytes": 80848
+    },
+    {
+      "id": "f9d85ede-75ea-42b2-9fd4-f5cfd9a786a4",
+      "slug": "doc-viet-151-banh-chuoi-chien-gion",
+      "title": "Bánh chuối chiên giòn",
+      "image": "/recipes/documents/doc-viet-151-banh-chuoi-chien-gion-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 63042
+    },
+    {
+      "id": "61be05b0-9394-40d6-955c-0bfec74c65f4",
+      "slug": "doc-viet-152-khoai-lang-ken",
+      "title": "Khoai lang kén",
+      "image": "/recipes/documents/doc-viet-152-khoai-lang-ken-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 101596
+    },
+    {
+      "id": "ba7d7697-4381-4798-bda7-91f928c9a18d",
+      "slug": "doc-viet-153-banh-khoai-mi-nuong",
+      "title": "Bánh khoai mì nướng",
+      "image": "/recipes/documents/doc-viet-153-banh-khoai-mi-nuong-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 88722
+    },
+    {
+      "id": "848b6f22-81dd-449e-bb41-a41ca288ef6e",
+      "slug": "doc-viet-154-banh-bot-loc-tran",
+      "title": "Bánh bột lọc trần",
+      "image": "/recipes/documents/doc-viet-154-banh-bot-loc-tran-1.webp",
+      "ok": true,
+      "width": 900,
+      "height": 600,
+      "bytes": 95584
+    },
+    {
+      "id": "b75703f2-bb0a-4d03-9875-83a032a58ccd",
+      "slug": "doc-viet-155-banh-beo-chen",
+      "title": "Bánh bèo chén",
+      "image": "/recipes/documents/doc-viet-155-banh-beo-chen-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 108378
+    },
+    {
+      "id": "25897117-145d-4fe2-89e4-f9ba6b6bdb9b",
+      "slug": "doc-viet-156-banh-cuon",
+      "title": "Bánh cuốn",
+      "image": "/recipes/documents/doc-viet-156-banh-cuon-1.webp",
+      "ok": true,
+      "width": 1242,
+      "height": 600,
+      "bytes": 114548
+    },
+    {
+      "id": "5abc969a-29b3-4e4c-a009-517ae23f525f",
+      "slug": "doc-viet-157-nem-chua-ran",
+      "title": "Nem chua rán",
+      "image": "/recipes/documents/doc-viet-157-nem-chua-ran-1.webp",
+      "ok": true,
+      "width": 760,
+      "height": 442,
+      "bytes": 68174
+    },
+    {
+      "id": "33a585b0-0434-4c9b-ae84-2a36c36c639d",
+      "slug": "doc-viet-158-ca-vien-chien-nuoc-mam",
+      "title": "Cá viên chiên nước mắm",
+      "image": "/recipes/documents/doc-viet-158-ca-vien-chien-nuoc-mam-1.webp",
+      "ok": true,
+      "width": 600,
+      "height": 400,
+      "bytes": 52086
+    },
+    {
+      "id": "956e8004-bdd7-487b-b83b-4d68f9b1b3d9",
+      "slug": "doc-viet-159-ho-lo-nuong",
+      "title": "Hồ lô nướng",
+      "image": "/recipes/documents/doc-viet-159-ho-lo-nuong-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 124036
+    },
+    {
+      "id": "1bffc5df-f642-48ba-a007-8b84d29cb223",
+      "slug": "doc-viet-160-goi-cuon-tom-thit",
+      "title": "Gỏi cuốn tôm thịt",
+      "image": "/recipes/documents/doc-viet-160-goi-cuon-tom-thit-1.webp",
+      "ok": true,
+      "width": 678,
+      "height": 452,
+      "bytes": 59236
+    },
+    {
+      "id": "9ebf6b2e-8e7a-4715-be3d-74fa94c14014",
+      "slug": "doc-viet-161-bap-nuong-mo-hanh",
+      "title": "Bắp nướng mỡ hành",
+      "image": "/recipes/documents/doc-viet-161-bap-nuong-mo-hanh-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 675,
+      "bytes": 137196
+    },
+    {
+      "id": "ec65f22d-8c69-496b-8850-f2ef7947ee52",
+      "slug": "doc-viet-162-dau-phong-da-ca",
+      "title": "Đậu phộng da cá",
+      "image": "/recipes/documents/doc-viet-162-dau-phong-da-ca-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 150252
+    },
+    {
+      "id": "0a380a43-e2a6-4627-a5eb-2770a85166ee",
+      "slug": "doc-viet-163-banh-goi-chien",
+      "title": "Bánh gối chiên",
+      "image": "/recipes/documents/doc-viet-163-banh-goi-chien-1.webp",
+      "ok": true,
+      "width": 1400,
+      "height": 933,
+      "bytes": 112224
+    },
+    {
+      "id": "3cf798ad-6cc6-4801-b34e-38858b7afeda",
+      "slug": "doc-viet-164-che-bap-nuoc-cot-dua",
+      "title": "Chè bắp nước cốt dừa",
+      "image": "/recipes/documents/doc-viet-164-che-bap-nuoc-cot-dua-1.webp",
+      "ok": true,
+      "width": 640,
+      "height": 480,
+      "bytes": 35688
+    },
+    {
+      "id": "ad2ef7fe-0112-4638-8220-d21f67eb93ce",
+      "slug": "doc-viet-165-banh-sua-tuoi-chien",
+      "title": "Bánh sữa tươi chiên",
+      "image": "/recipes/documents/doc-viet-165-banh-sua-tuoi-chien-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 500,
+      "bytes": 59864
+    },
+    {
+      "id": "fc1ad5ba-f314-437e-b569-2cabab4356d9",
+      "slug": "doc-viet-166-banh-tai-yen",
+      "title": "Bánh tai yến",
+      "image": "/recipes/documents/doc-viet-166-banh-tai-yen-1.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 676,
+      "bytes": 70556
+    },
+    {
+      "id": "86c5e0df-8e4d-4c8b-b6a1-24d0f339fbd1",
+      "slug": "doc-viet-167-banh-san-chien-nuoc-cot-dua",
+      "title": "Bánh sắn chiên nước cốt dừa",
+      "image": "/recipes/documents/doc-viet-167-banh-san-chien-nuoc-cot-dua-1.webp",
+      "ok": true,
+      "width": 780,
+      "height": 438,
+      "bytes": 109950
+    },
+    {
+      "id": "b40ef9ca-b9b2-4df5-837d-5f9976424b31",
+      "slug": "doc-viet-168-banh-trung-cut-chien-bot",
+      "title": "Bánh trứng cút chiên bột",
+      "image": "/recipes/documents/doc-viet-168-banh-trung-cut-chien-bot-1.webp",
+      "ok": true,
+      "width": 800,
+      "height": 450,
+      "bytes": 82838
+    },
+    {
+      "id": "56d0914c-9618-422e-b6e5-4d3d897f7171",
+      "slug": "doc-viet-169-banh-duc-la-dua-nuoc-cot-dua",
+      "title": "Bánh đúc lá dứa nước cốt dừa",
+      "image": "/recipes/documents/doc-viet-169-banh-duc-la-dua-nuoc-cot-dua-1.webp",
+      "ok": true,
+      "width": 1024,
+      "height": 590,
+      "bytes": 116034
+    },
+    {
+      "id": "1e2edf63-a422-49d8-8d15-b7ddaf0b747c",
+      "slug": "ga-gai-yang-ap-chao",
+      "title": "Gà Gai Yang phiên bản áp chảo",
+      "image": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=1000&q=85",
+      "ok": true,
+      "width": 1000,
+      "height": 668,
+      "bytes": 173997
+    },
+    {
+      "id": "a0ba8058-2290-458a-943b-20ae88c36d6d",
+      "slug": "gaeng-jued-tao-hoo-moo-sab",
+      "title": "Gaeng Jued Tao Hoo Moo Sab (Canh đậu hũ thịt băm)",
+      "image": "/recipes/thai/019_gaeng_jued_tao_hoo_moo_sab_canh_dau_hu_thit_bam.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 271886
+    },
+    {
+      "id": "c7ffe69f-2315-434e-a78c-f8a62aeeeb8b",
+      "slug": "gaeng-kari-gai",
+      "title": "Gaeng Kari Gai (Cà ri vàng gà)",
+      "image": "/recipes/repaired/doc-thai-017-gaeng-kari-gai-ca-ri-vang-ga.webp",
+      "ok": true,
+      "width": 878,
+      "height": 1200,
+      "bytes": 62808
+    },
+    {
+      "id": "5632191d-48f9-4262-94e3-da1c6ad95d46",
+      "slug": "gaeng-keow-wan-gai",
+      "title": "Gaeng Keow Wan Gai (Cà ri xanh gà)",
+      "image": "/recipes/repaired/doc-thai-013-gaeng-keow-wan-gai-ca-ri-xanh-ga.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 803,
+      "bytes": 207444
+    },
+    {
+      "id": "7f3fe166-cb0d-4710-9011-9af42fcb79c3",
+      "slug": "gaeng-massaman-nuea",
+      "title": "Gaeng Massaman Nuea (Cà ri Massaman bò)",
+      "image": "/recipes/repaired/doc-thai-015-gaeng-massaman-nuea-ca-ri-massaman-bo.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 154742
+    },
+    {
+      "id": "57132382-f1e6-4489-893d-b125c368cee3",
+      "slug": "gaeng-phed-gai",
+      "title": "Gaeng Phed Gai (Cà ri đỏ gà)",
+      "image": "/recipes/repaired/doc-thai-014-gaeng-phed-gai-ca-ri-do-ga.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 803,
+      "bytes": 235742
+    },
+    {
+      "id": "a07c5908-9772-4321-a315-43895f26f511",
+      "slug": "gaeng-som-goong",
+      "title": "Gaeng Som Goong (Canh cà ri chua tôm)",
+      "image": "/recipes/repaired/doc-thai-018-gaeng-som-goong-canh-ca-ri-chua-tom.webp",
+      "ok": true,
+      "width": 1199,
+      "height": 1200,
+      "bytes": 281704
+    },
+    {
+      "id": "0f1a1239-60f3-4ccd-b96b-6e54be122fe6",
+      "slug": "gai-pad-med-mamuang",
+      "title": "Gai Pad Med Mamuang (Gà xào hạt điều)",
+      "image": "/recipes/thai/002_gai_pad_med_mamuang_ga_xao_hat_dieu.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 299751
+    },
+    {
+      "id": "a8df9109-1068-468f-8453-df235cfc6e48",
+      "slug": "gai-tod-hat-yai",
+      "title": "Gai Tod Hat Yai (Gà chiên kiểu Hat Yai)",
+      "image": "/recipes/thai/007_gai_tod_hat_yai_ga_chien_kieu_hat_yai.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 333692
+    },
+    {
+      "id": "3a4bcb38-309b-4825-97c5-3a3551b40515",
+      "slug": "gai-yang",
+      "title": "Gai Yang (Gà nướng kiểu Thái)",
+      "image": "/recipes/thai/003_gai_yang_ga_nuong_kieu_thai.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 283557
+    },
+    {
+      "id": "8b2a54c6-bca4-4544-b228-2b5365e55607",
+      "slug": "goong-ob-woon-sen",
+      "title": "Goong Ob Woon Sen (Tôm miến om nồi đất)",
+      "image": "/recipes/thai/010_goong_ob_woon_sen_tom_mien_om_noi_dat.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 313849
+    },
+    {
+      "id": "081f6c9b-f734-4189-94dd-b62f3ef12b84",
+      "slug": "jim-jum",
+      "title": "Jim Jum (Lẩu thảo mộc kiểu Isan)",
+      "image": "/recipes/repaired/doc-thai-020-jim-jum-lau-thao-moc-kieu-isan.webp",
+      "ok": true,
+      "width": 902,
+      "height": 1200,
+      "bytes": 201952
+    },
+    {
+      "id": "9d9a53aa-168f-4cd3-ad24-8763fa46b891",
+      "slug": "khai-jiao",
+      "title": "Khai Jiao (Trứng chiên phồng kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-040-khai-jiao-trung-chien-phong-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 138770
+    },
+    {
+      "id": "eb552d4b-fa5a-44a3-b63c-c79cdaeb7485",
+      "slug": "khanom-chan",
+      "title": "Khanom Chan (Bánh hấp nhiều lớp)",
+      "image": "/recipes/repaired/doc-thai-046-khanom-chan-banh-hap-nhieu-lop.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 176814
+    },
+    {
+      "id": "f6134055-7530-412b-9d4a-1974420bdab5",
+      "slug": "khanom-jeen-nam-ya",
+      "title": "Khanom Jeen Nam Ya (Bún cà ri cá)",
+      "image": "/recipes/repaired/doc-thai-030-khanom-jeen-nam-ya-bun-ca-ri-ca.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 227362
+    },
+    {
+      "id": "a2a1a74c-6157-4206-9c62-504a9e0a22e8",
+      "slug": "khanom-krok",
+      "title": "Khanom Krok (Bánh dừa khuôn lõm)",
+      "image": "/recipes/repaired/doc-thai-045-khanom-krok-banh-dua-khuon-lom.webp",
+      "ok": true,
+      "width": 900,
+      "height": 1200,
+      "bytes": 266718
+    },
+    {
+      "id": "fdcab42a-3a43-4cd1-8518-42c1cc7dd661",
+      "slug": "khao-man-gai",
+      "title": "Khao Man Gai (Cơm gà kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-026-khao-man-gai-com-ga-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 116750
+    },
+    {
+      "id": "b367a295-b1bc-4a81-9e03-db3e59f7d1fa",
+      "slug": "khao-niao-mamuang",
+      "title": "Khao Niao Mamuang (Xôi xoài)",
+      "image": "/recipes/repaired/doc-thai-041-khao-niao-mamuang-xoi-xoai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 89862
+    },
+    {
+      "id": "4f184cdb-227f-4a02-aa90-74fc5d818a08",
+      "slug": "khao-pad-pu",
+      "title": "Khao Pad Pu (Cơm chiên cua)",
+      "image": "/recipes/repaired/doc-thai-025-khao-pad-pu-com-chien-cua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 910,
+      "bytes": 163696
+    },
+    {
+      "id": "4af8951b-6eb7-4fee-9904-52c1592fa1e8",
+      "slug": "khao-pad-sapparot",
+      "title": "Khao Pad Sapparot (Cơm chiên dứa)",
+      "image": "/recipes/repaired/doc-thai-024-khao-pad-sapparot-com-chien-dua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 151044
+    },
+    {
+      "id": "1270c3be-404d-4529-905b-29ecc664fec4",
+      "slug": "khao-soi-gai",
+      "title": "Khao Soi Gai (Mì cà ri gà miền Bắc)",
+      "image": "/recipes/repaired/doc-thai-027-khao-soi-gai-mi-ca-ri-ga-mien-bac.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 960,
+      "bytes": 215790
+    },
+    {
+      "id": "b25c00df-0855-4488-a040-46c21f8be02f",
+      "slug": "khao-tom-mat",
+      "title": "Khao Tom Mat (Bánh nếp chuối gói lá)",
+      "image": "/recipes/repaired/doc-thai-050-khao-tom-mat-banh-nep-chuoi-goi-la.webp",
+      "ok": true,
+      "width": 952,
+      "height": 824,
+      "bytes": 71132
+    },
+    {
+      "id": "8163aab2-cd3e-4c9d-b74d-879ea057c656",
+      "slug": "kluay-buat-chi",
+      "title": "Kluay Buat Chi (Chuối nấu nước cốt dừa)",
+      "image": "/recipes/repaired/doc-thai-043-kluay-buat-chi-chuoi-nau-nuoc-cot-dua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1031,
+      "bytes": 162562
+    },
+    {
+      "id": "51afaab5-6f34-4ed3-a3ed-d2f3a6631f0a",
+      "slug": "kluay-tod",
+      "title": "Kluay Tod (Chuối chiên kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-049-kluay-tod-chuoi-chien-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 197902
+    },
+    {
+      "id": "0a6089ca-f0d1-428b-b0a5-ec53dabe057b",
+      "slug": "kor-moo-yang",
+      "title": "Kor Moo Yang (Nạc nọng heo nướng)",
+      "image": "/recipes/thai/005_kor_moo_yang_nac_nong_heo_nuong.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 326630
+    },
+    {
+      "id": "cab4b701-af47-46ce-9e0d-c59607d6108c",
+      "slug": "larb-gai",
+      "title": "Larb Gai (Gỏi gà băm thính gạo)",
+      "image": "/recipes/repaired/doc-thai-033-larb-gai-goi-ga-bam-thinh-gao.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 62602
+    },
+    {
+      "id": "53df1279-fc86-48e0-8c8f-35297db5f100",
+      "slug": "moo-ping",
+      "title": "Moo Ping (Thịt heo xiên nướng)",
+      "image": "/recipes/thai/004_moo_ping_thit_heo_xien_nuong.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 353220
+    },
+    {
+      "id": "be21b056-4115-45f1-9599-7b710d4a68ea",
+      "slug": "moo-satay",
+      "title": "Moo Satay (Thịt heo xiên sốt đậu phộng)",
+      "image": "/recipes/thai/006_moo_satay_thit_heo_xien_sot_dau_phong.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 322025
+    },
+    {
+      "id": "b8cd7a4f-52fd-4667-9e36-d123fbc2e13a",
+      "slug": "nam-tok-moo",
+      "title": "Nam Tok Moo (Gỏi thịt heo nướng)",
+      "image": "/recipes/repaired/doc-thai-034-nam-tok-moo-goi-thit-heo-nuong.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 803,
+      "bytes": 250360
+    },
+    {
+      "id": "473db87f-a841-4690-91b8-7d3ba5bd14ab",
+      "slug": "oyakodon-com-ga-trung",
+      "title": "Oyakodon · cơm gà trứng",
+      "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85",
+      "ok": true,
+      "width": 1000,
+      "height": 667,
+      "bytes": 186692
+    },
+    {
+      "id": "e44a0973-0712-47ae-9a0e-9200eb960ef1",
+      "slug": "pad-kee-mao",
+      "title": "Pad Kee Mao (Hủ tiếu xào cay húng quế)",
+      "image": "/recipes/repaired/doc-thai-023-pad-kee-mao-hu-tieu-xao-cay-hung-que.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 960,
+      "bytes": 232542
+    },
+    {
+      "id": "c07d1f99-2dab-475a-8eeb-568f20a9d273",
+      "slug": "pad-krapow-gai",
+      "title": "Pad Krapow Gai (Gà xào húng quế thánh)",
+      "image": "/recipes/thai/001_pad_krapow_gai_ga_xao_hung_que_thanh.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 269565
+    },
+    {
+      "id": "79129258-cfb6-4a5d-9488-7468041cc725",
+      "slug": "pad-see-ew",
+      "title": "Pad See Ew (Hủ tiếu xào nước tương)",
+      "image": "/recipes/repaired/doc-thai-022-pad-see-ew-hu-tieu-xao-nuoc-tuong.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 224684
+    },
+    {
+      "id": "d0c93d63-fd65-46b9-af72-dcd7c0fa9b46",
+      "slug": "pad-thai-goong",
+      "title": "Pad Thai Goong (Hủ tiếu xào tôm)",
+      "image": "/recipes/repaired/doc-thai-021-pad-thai-goong-hu-tieu-xao-tom.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 283182
+    },
+    {
+      "id": "daf574c3-ad42-4618-b43d-792d36a3d972",
+      "slug": "pad-woon-sen",
+      "title": "Pad Woon Sen (Miến xào kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-029-pad-woon-sen-mien-xao-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 222342
+    },
+    {
+      "id": "a0d68ec3-793c-4b7a-a0b7-a9620ab2dc61",
+      "slug": "pak-boong-fai-daeng",
+      "title": "Pak Boong Fai Daeng (Rau muống xào kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-039-pak-boong-fai-daeng-rau-muong-xao-kieu-thai.webp",
+      "ok": true,
+      "width": 900,
+      "height": 1200,
+      "bytes": 210386
+    },
+    {
+      "id": "40783fca-47e9-41ac-a0d0-a6647a733bcd",
+      "slug": "panang-moo",
+      "title": "Panang Moo (Cà ri Panang heo)",
+      "image": "/recipes/repaired/doc-thai-016-panang-moo-ca-ri-panang-heo.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 800,
+      "bytes": 99798
+    },
+    {
+      "id": "ed64a109-9593-4c30-955f-4aa02bfd75e4",
+      "slug": "pla-neung-manao",
+      "title": "Pla Neung Manao (Cá hấp chanh tỏi)",
+      "image": "/recipes/thai/008_pla_neung_manao_ca_hap_chanh_toi.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 309761
+    },
+    {
+      "id": "017e838a-a1b4-46d4-acda-25aed608b013",
+      "slug": "pla-rad-prik",
+      "title": "Pla Rad Prik (Cá chiên sốt ớt)",
+      "image": "/recipes/thai/009_pla_rad_prik_ca_chien_sot_ot.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 309831
+    },
+    {
+      "id": "e6b8ae6b-b0fb-4bb8-abcb-5a196eb8ceba",
+      "slug": "poh-pia-tod",
+      "title": "Poh Pia Tod (Chả giò kiểu Thái)",
+      "image": "/recipes/thai/038_poh_pia_tod_cha_gio_kieu_thai.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 284025
+    },
+    {
+      "id": "fd636fbe-187b-471e-93a9-7f2f9686fe51",
+      "slug": "rad-na",
+      "title": "Rad Na (Hủ tiếu sốt sánh)",
+      "image": "/recipes/repaired/doc-thai-028-rad-na-hu-tieu-sot-sanh.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 795,
+      "bytes": 126208
+    },
+    {
+      "id": "a1abaee4-fdf5-4b30-99dc-79cca2698f77",
+      "slug": "ratatouille-rau-ham",
+      "title": "Ratatouille · rau hầm sắc màu",
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=85",
+      "ok": true,
+      "width": 1000,
+      "height": 667,
+      "bytes": 183375
+    },
+    {
+      "id": "03853146-b88a-4b48-a69a-7fa1a33c6411",
+      "slug": "sangkaya-fak-thong",
+      "title": "Sangkaya Fak Thong (Bí đỏ hấp nhân trứng dừa)",
+      "image": "/recipes/repaired/doc-thai-047-sangkaya-fak-thong-bi-do-hap-nhan-trung-dua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1200,
+      "bytes": 135176
+    },
+    {
+      "id": "3d7ee630-6dc8-4fcc-b48a-f3b91854fb5e",
+      "slug": "som-tam-thai",
+      "title": "Som Tam Thai (Gỏi đu đủ kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-031-som-tam-thai-goi-du-du-kieu-thai.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 803,
+      "bytes": 120178
+    },
+    {
+      "id": "eb93655c-22c8-42db-9037-8e4095ecb10d",
+      "slug": "spaghetti-aglio-e-olio",
+      "title": "Spaghetti tỏi & dầu ô liu",
+      "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=1000&q=85",
+      "ok": true,
+      "width": 1000,
+      "height": 731,
+      "bytes": 158784
+    },
+    {
+      "id": "06e0f011-c160-4645-8d02-e68169b4825d",
+      "slug": "tod-man-pla",
+      "title": "Tod Man Pla (Chả cá cà ri đỏ)",
+      "image": "/recipes/repaired/doc-thai-037-tod-man-pla-cha-ca-ca-ri-do.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 108428
+    },
+    {
+      "id": "91e94ead-010e-4ca1-8818-3e1b1eef1e8b",
+      "slug": "tom-kha-gai",
+      "title": "Tom Kha Gai (Canh gà nước cốt dừa)",
+      "image": "/recipes/thai/012_tom_kha_gai_canh_ga_nuoc_cot_dua.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 236592
+    },
+    {
+      "id": "348154f0-3394-4606-a822-6aa9a6b06e44",
+      "slug": "tom-yum-goong",
+      "title": "Tom Yum Goong (Canh tôm chua cay)",
+      "image": "/recipes/thai/011_tom_yum_goong_canh_tom_chua_cay.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 272634
+    },
+    {
+      "id": "a4372366-c9e4-470a-9fb3-3382c6846147",
+      "slug": "trung-xao-ca-chua",
+      "title": "Trứng xào cà chua",
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1000&q=85",
+      "ok": true,
+      "width": 1000,
+      "height": 1000,
+      "bytes": 166708
+    },
+    {
+      "id": "1c8b9a26-e522-46e8-a2af-50f88c9b99cb",
+      "slug": "tub-tim-grob",
+      "title": "Tub Tim Grob (Chè củ năng hạt lựu)",
+      "image": "/recipes/repaired/doc-thai-042-tub-tim-grob-che-cu-nang-hat-luu.webp",
+      "ok": true,
+      "width": 640,
+      "height": 480,
+      "bytes": 45722
+    },
+    {
+      "id": "f92a85ea-f58d-43d5-86ae-6aaaec3903e6",
+      "slug": "woon-kati",
+      "title": "Woon Kati (Thạch rau câu dừa)",
+      "image": "/recipes/repaired/doc-thai-048-woon-kati-thach-rau-cau-dua.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 1028,
+      "bytes": 358668
+    },
+    {
+      "id": "be1f65b3-de19-4fe9-9a04-6f5c1b6e2e73",
+      "slug": "yam-mamuang",
+      "title": "Yam Mamuang (Gỏi xoài xanh)",
+      "image": "/recipes/repaired/doc-thai-036-yam-mamuang-goi-xoai-xanh.webp",
+      "ok": true,
+      "width": 1200,
+      "height": 875,
+      "bytes": 147316
+    },
+    {
+      "id": "117793c5-3f15-438f-a11b-5f10a42cb7ff",
+      "slug": "yam-nua",
+      "title": "Yam Nua (Gỏi bò kiểu Thái)",
+      "image": "/recipes/repaired/doc-thai-035-yam-nua-goi-bo-kieu-thai.webp",
+      "ok": true,
+      "width": 803,
+      "height": 1200,
+      "bytes": 251104
+    },
+    {
+      "id": "535ac71f-b124-43d5-8997-c671a16b7cec",
+      "slug": "yam-woon-sen",
+      "title": "Yam Woon Sen (Gỏi miến tôm thịt)",
+      "image": "/recipes/thai/032_yam_woon_sen_goi_mien_tom_thit.jpg",
+      "ok": true,
+      "width": 1200,
+      "height": 900,
+      "bytes": 290042
+    }
+  ]
+}

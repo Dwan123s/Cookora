@@ -9,6 +9,7 @@
   }
 
   .cookora-header,
+  .cookora-header-slot,
   .island-header-space {
     display: none;
   }
