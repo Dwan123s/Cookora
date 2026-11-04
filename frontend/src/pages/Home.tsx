@@ -4,19 +4,16 @@ import { loadRecipeCatalog } from '../recipe-catalog';
 import { RECIPE_PLACEHOLDER } from '../recipe-media';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  Apple,
   ArrowRight,
   Calendar,
   ChefHat,
   ChevronLeft,
   ChevronRight,
   Clock,
-  Coins,
   Dumbbell,
   Heart,
   Plus,
   Search,
-  Soup,
   Utensils,
   Wallet,
   X,
@@ -26,64 +23,11 @@ import {
   Check,
   CheckSquare,
   Leaf,
-  } from 'lucide-react';
+} from 'lucide-react';
 import { useNotice, cuisineFor, ErrorState } from '../shared';
 import { PageLoading } from '../components/LoadingStates';
 import { CurvedReelsCarousel } from '../components/CurvedReelsCarousel';
-
-// Quick access to available features
-const QUICK_NAV = [
-  {
-    title: 'Khám phá công thức',
-    to: '/cong-thuc',
-    icon: Soup,
-    color: 'text-[#47735B]',
-    bgColor: 'bg-[#E8F1E9]',
-  },
-  {
-    title: 'Có gì nấu nấy',
-    to: '/co-gi-nau-nay',
-    icon: ChefHat,
-    color: 'text-[#47735B]',
-    bgColor: 'bg-[#EFF6EE]',
-  },
-  {
-    title: 'Thực đơn tuần',
-    to: '/thuc-don',
-    icon: Calendar,
-    color: 'text-[#8C6D3B]',
-    bgColor: 'bg-[#F8F4EC]',
-  },
-  {
-    title: 'Eat Fit',
-    subtitle: '(Theo mục tiêu)',
-    to: '/eat-fit',
-    icon: Dumbbell,
-    color: 'text-[#6C5B7B]',
-    bgColor: 'bg-[#F3EFF5]',
-  },
-  {
-    title: 'Ước tính chi phí',
-    to: '/ngan-sach',
-    icon: Coins,
-    color: 'text-[#846A36]',
-    bgColor: 'bg-[#FBF6E9]',
-  },
-  {
-    title: 'Dinh dưỡng & Calories',
-    to: '/dinh-duong',
-    icon: Apple,
-    color: 'text-[#B25D65]',
-    bgColor: 'bg-[#FDF2F0]',
-  },
-  {
-    title: 'Công thức yêu thích',
-    to: '/yeu-thich',
-    icon: Heart,
-    color: 'text-[#B25D65]',
-    bgColor: 'bg-[#FCEEF0]',
-  },
-];
+import { OrbitQuickNav } from '../components/OrbitQuickNav';
 
 const CUISINE_OPTIONS = [
   { name: 'Việt Nam', code: 'VN', tag: '🇻🇳' },
@@ -430,33 +374,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* 2. EIGHT QUICK ACCESS BAR - UNIFIED FLOATING ROW CONTAINER MATCHING IMAGE 1 */}
-      <section className="home-container home-quick max-w-[1280px] mx-auto px-4 sm:px-6 -mt-4 sm:-mt-6 mb-20 relative z-20">
-        <div className="bg-white/95 backdrop-blur-sm rounded-[28px] p-3 sm:p-4 border border-[#DFE5DD] shadow-[0_12px_36px_rgba(39,61,50,0.06)] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-2.5">
-          {QUICK_NAV.map((tile) => {
-            const Icon = tile.icon;
-            return (
-              <Link
-                key={tile.title}
-                to={tile.to}
-                className="rounded-2xl p-3 hover:bg-[#FAF9F6] border border-transparent hover:border-[#DFE5DD] transition duration-200 flex flex-col items-center text-center group"
-              >
-                <div
-                  className={`w-11 h-11 rounded-2xl flex items-center justify-center mb-2 transition-transform duration-200 ${tile.bgColor} ${tile.color} group-hover:scale-110 shadow-2xs`}
-                >
-                  <Icon size={20} strokeWidth={1.8} />
-                </div>
-                <span className="text-[12.5px] font-semibold text-[#273D32] leading-tight group-hover:text-[#47735B] transition">
-                  {tile.title}
-                </span>
-                {tile.subtitle && (
-                  <span className="text-[10px] text-[#5C7065] mt-0.5 leading-none">{tile.subtitle}</span>
-                )}
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+      <OrbitQuickNav />
 
       {/* 3. SECTION: GỢI Ý MÓN NGON CHO BẠN (EDITORIAL CENTERED HEADING MATCHING IMAGE 1) */}
       <section className="home-container home-recommendations max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
