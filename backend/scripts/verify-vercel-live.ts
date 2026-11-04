@@ -2,7 +2,7 @@ import '../src/config';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { randomBytes, randomUUID, createHash } from 'node:crypto';
+import { randomBytes, randomUUID } from 'node:crypto';
 import { Database } from '../src/db';
 
 const origin = 'https://cookora-rose.vercel.app';
@@ -95,33 +95,41 @@ async function main() {
     assert.match(header, /Secure/);
     assert.match(header, /HttpOnly/);
     assert.equal((await a.call('/recipes/match', 'POST', { items: [] }, false)).status, 403);
-    assert.equal((await a.call('/auth/register', 'POST', {}, true)).status, 403);
+    assert.equal((await a.call('/auth/register', 'POST', {}, true)).status, 400);
     console.log(
       `PASS: Vercel HTTPS pages/assets, API routing, Neon readiness, secure CSRF and production content gate (${approvedCount} approved recipes).`,
     );
-    // Avoid altering real Google users or requiring a fake public registration flow.
-    // These opaque fixture sessions are persisted just like real sessions and removed below.
+    // Exercise the real public password flow; remove only these disposable accounts below.
     for (const c of [a, b]) {
-      const user = await db.user.create({
-        data: {
-          email: `vercel-acceptance-${randomUUID()}@example.invalid`,
-          displayName: 'Disposable Vercel verification',
-          passwordHash: null,
-        },
-      });
-      ids.push(user.id);
-      const token = randomBytes(32).toString('base64url');
-      await db.session.create({
-        data: {
-          userId: user.id,
-          tokenHash: createHash('sha256').update(token).digest('hex'),
-          expiresAt: new Date(Date.now() + 600000),
-        },
-      });
-      c.cookies.set('__Host-cookora_session', token);
-      assert.equal((await c.call('/auth/me')).status, 200);
       await c.call('/auth/csrf');
+      const credentials = {
+        email: `vercel-acceptance-${randomUUID()}@example.invalid`,
+        displayName: 'Disposable Vercel verification',
+        password: randomBytes(24).toString('base64url'),
+      };
+      const registered = await c.call('/auth/register', 'POST', credentials);
+      assert.equal(registered.status, 201);
+      const user = registered.json.data.user;
+      ids.push(user.id);
+      assert.equal(user.role, 'USER');
+      assert.equal(user.email, credentials.email);
+      assert.equal('passwordHash' in user, false);
+      assert.equal((await c.call('/auth/me')).json.data.id, user.id);
+      const duplicate = await c.call('/auth/register', 'POST', credentials);
+      assert.equal(duplicate.status, 409);
+      assert.equal(duplicate.json.error.code, 'EMAIL_UNAVAILABLE');
+      assert.equal((await c.call('/auth/logout', 'POST')).status, 201);
+      assert.equal((await c.call('/auth/me')).status, 401);
+      const loggedIn = await c.call('/auth/login', 'POST', {
+        email: credentials.email,
+        password: credentials.password,
+      });
+      assert.equal(loggedIn.status, 201);
+      assert.equal((await c.call('/auth/me')).json.data.id, user.id);
     }
+    console.log(
+      'PASS: public password registration, automatic sign-in, duplicate email rejection and password login.',
+    );
     const plan = await a.call('/meal-plans', 'POST', { weekStart: '2031-02-03' });
     assert.equal(plan.status, 201);
     assert.ok(plan.json.data.id);

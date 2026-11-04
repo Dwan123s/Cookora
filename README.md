@@ -33,7 +33,7 @@ Mở **http://localhost:5173**. API ở http://localhost:3000/api/v1, Swagger lo
 
 Nếu Nest báo khởi động thành công nhưng `/health/ready` hoặc danh mục món bị lỗi, hãy kiểm tra Docker Desktop đang chạy và `docker compose ps` có SQL ở trạng thái healthy. Chạy `npm run db:up` để khởi động lại SQL với volume hiện có. Nest khởi động được không có nghĩa SQL đã kết nối được; trợ lý AI cũng cần đọc danh mục từ SQL trước khi gọi Vertex AI. Lỗi kết nối trả `DATABASE_UNAVAILABLE` (503), thiếu bảng/cột trả `DATABASE_SCHEMA_OUTDATED` (chạy `npm run db:migrate`). Log ghi mã chẩn đoán như `ESOCKET` hoặc `P2021`, không ghi câu SQL hay thông tin xác thực.
 
-Đăng ký tài khoản bằng màn hình “Bếp của tôi” → “Đăng ký”. Không có mật khẩu/tài khoản mặc định. Bản local chưa xác minh email hoặc reset qua email; không dùng dữ liệu nhạy cảm. Đăng ký public bị tắt ở NODE_ENV=production cho đến khi flow email được hoàn thiện.
+Đăng ký tài khoản bằng màn hình “Bếp của tôi” → “Đăng ký”, hỗ trợ cả local và public. Đăng ký thành công sẽ đăng nhập tự động. Không có mật khẩu/tài khoản mặc định. Chưa hỗ trợ xác minh email hoặc reset qua email.
 
 ## Các luồng đã triển khai
 

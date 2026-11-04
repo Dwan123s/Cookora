@@ -51,11 +51,6 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response,
     @Body() body: unknown,
   ) {
-    if (production)
-      throw new ForbiddenException({
-        code: 'REGISTRATION_NOT_ENABLED',
-        message: 'Đăng ký public sẽ mở sau khi hoàn tất xác minh email.',
-      });
     const input = parse(credentials.extend({
       email: z.string().trim().toLowerCase().pipe(z.email().max(254)),
       displayName: z.string().trim().min(2).max(100),
