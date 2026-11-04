@@ -135,7 +135,7 @@ export function Planner() {
   const [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const [budget, setBudget] = useState(
-    Number.isFinite(incomingBudget) && incomingBudget > 0 && incomingBudget <= 700000000
+    Number.isFinite(incomingBudget) && incomingBudget > 0 && incomingBudget <= 100000000
       ? incomingBudget
       : 300000,
   );
