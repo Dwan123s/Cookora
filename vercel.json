@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "npm ci --include=dev",
+  "buildCommand": "npm run db:generate && npm run build && node scripts/build-vercel.mjs",
+  "outputDirectory": "frontend/dist",
+  "regions": ["sin1"],
+  "fluid": true,
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 180,
+      "includeFiles": "{backend/dist/**,backend/generated/postgres/**,docs/Cookora-Recipe-Backlog-300.json}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:__cookora_route*", "destination": "/api/index" },
+    { "source": "/((?!api(?:/|$)).*)", "destination": "/index.html" }
+  ]
+}

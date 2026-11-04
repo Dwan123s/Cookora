@@ -40,19 +40,44 @@ class HealthController {
   }
 }
 @Module({
-  controllers: [HealthController, AuthController, GoogleAuthController, CatalogController, PlannerController, EditorController, AiController, BudgetAiController],
-  providers: [Database, Catalog, Sessions, AuthGuard, EditorGuard, AiChefService, GoogleAuth, BudgetAiService],
+  controllers: [
+    HealthController,
+    AuthController,
+    GoogleAuthController,
+    CatalogController,
+    PlannerController,
+    EditorController,
+    AiController,
+    BudgetAiController,
+  ],
+  providers: [
+    Database,
+    Catalog,
+    Sessions,
+    AuthGuard,
+    EditorGuard,
+    AiChefService,
+    GoogleAuth,
+    BudgetAiService,
+  ],
 })
 class AppModule {}
-async function bootstrap() {
+export async function createApp() {
   if (required('CSRF_SECRET').length < 32) throw new Error('CSRF_SECRET too short');
-  if (production && databaseProvider === 'sqlserver' && (!sqlConfig().options.encrypt || sqlConfig().options.trustServerCertificate))
+  if (
+    production &&
+    databaseProvider === 'sqlserver' &&
+    (!sqlConfig().options.encrypt || sqlConfig().options.trustServerCertificate)
+  )
     throw new Error('Production requires encrypted SQL with a verified TLS certificate');
-  const app = await NestFactory.create<NestExpressApplication>(AppModule, { bodyParser: true, logger: ['error', 'warn', 'log'] });
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    bodyParser: true,
+    logger: ['error', 'warn', 'log'],
+  });
   const proxyHops = process.env.TRUST_PROXY_HOPS || '0';
   if (!/^[0-3]$/.test(proxyHops)) throw new Error('Invalid TRUST_PROXY_HOPS');
   app.set('trust proxy', Number(proxyHops));
-  app.enableShutdownHooks();
+  if (!process.env.VERCEL) app.enableShutdownHooks();
   app.setGlobalPrefix('api/v1');
   app.use(helmet());
   app.use(cookieParser());
@@ -102,12 +127,16 @@ async function bootstrap() {
     .addCookieAuth('cookora_session')
     .build();
   if (!production) SwaggerModule.setup('api/docs', app, SwaggerModule.createDocument(app, swagger));
-  if (process.env.SERVE_FRONTEND === 'true')
-    mountFrontend(app, resolve(__dirname, '../../frontend/dist'));
-  await app.listen(Number(process.env.PORT || 3000), process.env.BIND_HOST || '127.0.0.1');
-  console.log('Cookora API: http://localhost:3000/api/v1/health/ready');
+  if (process.env.SERVE_FRONTEND === 'true') mountFrontend(app, resolve(__dirname, '../../frontend/dist'));
+  return app;
 }
-bootstrap().catch(() => {
-  console.error('API startup failed; verify database/environment configuration.');
-  process.exitCode = 1;
-});
+async function bootstrap() {
+  const app = await createApp();
+  await app.listen(Number(process.env.PORT || 3000), process.env.BIND_HOST || '127.0.0.1');
+  console.log(`Cookora API ready on port ${Number(process.env.PORT || 3000)} (${databaseLabel})`);
+}
+if (require.main === module)
+  bootstrap().catch(() => {
+    console.error('API startup failed; verify database/environment configuration.');
+    process.exitCode = 1;
+  });

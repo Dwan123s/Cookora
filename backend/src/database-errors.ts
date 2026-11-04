@@ -25,12 +25,19 @@ const connectionCodes = new Set([
 
 // Only expose fixed diagnostic codes; Prisma messages can contain SQL and credentials.
 export function databaseErrorCode(error: unknown): string | undefined {
+  // PostgreSQL and SQL Server generate separate Prisma clients/classes. Match their
+  // documented error shape as well as instanceof, while exposing only fixed codes.
+  const named = error instanceof Error ? (error as Error & { code?: string; errorCode?: string }) : undefined;
   const code =
     error instanceof Prisma.PrismaClientKnownRequestError
       ? error.code
       : error instanceof Prisma.PrismaClientInitializationError
         ? error.errorCode
-        : undefined;
+        : named?.name === 'PrismaClientKnownRequestError'
+          ? named.code
+          : named?.name === 'PrismaClientInitializationError'
+            ? named.errorCode
+            : undefined;
   return code && (/^P\d{4}$/.test(code) || connectionCodes.has(code)) ? code : undefined;
 }
 

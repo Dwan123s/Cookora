@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { postgresPool, postgresUrl } from '../src/postgres-config';
+import { databaseFailure } from '../src/database-errors';
 
 test('cloud PostgreSQL rejects malformed, missing and unencrypted URLs without exposing credentials', () => {
   for (const value of [
@@ -44,4 +45,17 @@ test('PostgreSQL and existing SQL Server schemas retain identical application mo
       .replace(/\s+/g, ' ')
       .trim();
   assert.equal(clean('../prisma-postgres/schema.prisma'), clean('../prisma/schema.prisma'));
+});
+
+test('separately generated PostgreSQL Prisma errors retain sanitized outage/schema responses', () => {
+  const { Prisma } = require('../generated/postgres');
+  for (const code of ['P1001', 'P2021', 'P2022']) {
+    const error = new Prisma.PrismaClientKnownRequestError('private-query-and-password', {
+      code,
+      clientVersion: 'test',
+    });
+    const failure = databaseFailure(error);
+    assert.equal(failure?.code, code === 'P1001' ? 'DATABASE_UNAVAILABLE' : 'DATABASE_SCHEMA_OUTDATED');
+    assert.ok(!JSON.stringify(failure).includes('private-query-and-password'));
+  }
 });

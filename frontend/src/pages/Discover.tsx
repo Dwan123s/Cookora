@@ -65,6 +65,9 @@ export function Discover() {
   const [sortBy, setSortBy] = useState<'popular' | 'time' | 'servings'>('popular');
   const [favorites, setFavorites] = useState<Record<string, boolean>>({});
   const [visibleCount, setVisibleCount] = useState<number>(24);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const activeFilterCount =
+    Number(!!selectedTime) + Number(!!selectedDiff) + Number(!!selectedServing) + selectedCategories.length;
 
   // SQL/API is the only catalog source; never substitute a static list while loading or on errors.
   const recipesQuery = useQuery({
@@ -206,7 +209,7 @@ export function Discover() {
     );
 
   return (
-    <main className="min-h-screen bg-[#FAF9F6] text-[#273D32] pb-24 font-sans relative overflow-x-hidden">
+    <main className="discover-page min-h-screen bg-[#FAF9F6] text-[#273D32] pb-24 font-sans relative overflow-x-hidden">
       {/* Decorative Corner Foliage */}
       <div className="pointer-events-none absolute bottom-0 left-0 w-36 sm:w-48 z-0 opacity-85 select-none hidden sm:block">
         <img src="/images/discover-bottom-leaves.png" alt="" className="w-full h-auto object-contain" />
@@ -232,21 +235,22 @@ export function Discover() {
               {/* Rounded-full Pill Search Bar matching Image */}
               <form
                 onSubmit={handleSearchSubmit}
-                className="bg-white rounded-full border border-[#DFE5DD] p-1.5 pl-5 shadow-2xs hover:shadow-xs focus-within:border-[#47735B] transition flex items-center justify-between gap-3 max-w-xl"
+                className="bg-white rounded-2xl sm:rounded-full border border-[#DFE5DD] p-2 sm:p-1.5 sm:pl-5 shadow-2xs hover:shadow-xs focus-within:border-[#47735B] transition flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-3 max-w-xl"
               >
-                <div className="flex items-center gap-3 flex-1">
-                  <Search size={18} className="text-[#5C7065]" />
+                <div className="flex items-center gap-3 flex-1 min-w-0 px-2 sm:px-0">
+                  <Search size={18} className="text-[#5C7065] shrink-0" />
                   <input
                     type="text"
+                    aria-label="Tìm công thức theo món ăn hoặc nguyên liệu"
                     placeholder="Tìm tên món, nguyên liệu hoặc phong cách nấu..."
                     value={draft}
                     onChange={(e) => setDraft(e.target.value)}
-                    className="w-full text-xs sm:text-sm text-[#273D32] placeholder-[#5C7065] focus:outline-hidden bg-transparent"
+                    className="w-full min-w-0 min-h-11 text-base sm:text-sm text-[#273D32] placeholder-[#5C7065] focus:outline-hidden bg-transparent"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="bg-[#47735B] hover:bg-[#3B634F] text-white px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-xs hover:shadow-md transition flex items-center gap-2 shrink-0 cursor-pointer"
+                  className="bg-[#47735B] hover:bg-[#3B634F] text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-xs hover:shadow-md transition flex items-center justify-center gap-2 shrink-0 cursor-pointer"
                 >
                   Tìm công thức <ArrowRight size={14} />
                 </button>
@@ -301,9 +305,11 @@ export function Discover() {
                 <span className="flex items-center gap-1 font-medium">
                   <Users size={12} /> {recommendation?.servings || '—'} phần
                 </span>
-                <span className="bg-[#E8F1E9] text-[#47735B] px-2 py-0.5 rounded-md font-semibold text-[10px]">
-                  Bản thảo
-                </span>
+                {recommendation?.isDraft && (
+                  <span className="bg-[#E8F1E9] text-[#47735B] px-2 py-0.5 rounded-md font-semibold text-[10px]">
+                    Bản thảo
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -380,8 +386,24 @@ export function Discover() {
 
         {/* 4. MAIN TWO-COLUMN CONTENT: SIDEBAR FILTERS + 4-COLUMN RECIPE GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start pt-2">
+          <button
+            type="button"
+            className="lg:hidden flex min-h-11 items-center justify-between gap-3 rounded-2xl border border-[#DFE5DD] bg-white px-4 py-3 text-sm font-semibold text-[#273D32]"
+            aria-expanded={filtersOpen}
+            aria-controls="discovery-filters"
+            onClick={() => setFiltersOpen((open) => !open)}
+          >
+            <span className="flex items-center gap-2">
+              <SlidersHorizontal size={18} />
+              Bộ lọc{activeFilterCount > 0 ? ` (${activeFilterCount})` : ''}
+            </span>
+            <ChevronDown size={18} className={filtersOpen ? 'rotate-180' : ''} />
+          </button>
           {/* Left Column: Sidebar Filters */}
-          <aside className="lg:col-span-3 bg-white rounded-3xl border border-[#DFE5DD] p-5 sm:p-6 shadow-2xs space-y-6">
+          <aside
+            id="discovery-filters"
+            className={`${filtersOpen ? 'block' : 'hidden'} lg:block lg:col-span-3 bg-white rounded-3xl border border-[#DFE5DD] p-5 sm:p-6 shadow-2xs space-y-6`}
+          >
             {/* Header with Reset */}
             <div className="flex items-center justify-between border-b border-[#DFE5DD]/70 pb-3.5">
               <h3 className="font-bold text-[#273D32] text-sm sm:text-base flex items-center gap-2">

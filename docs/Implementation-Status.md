@@ -1,10 +1,26 @@
 # Trạng thái triển khai Cookora
 
-Cập nhật: 03/11/2026. Bản MVP local, theo phạm vi người dùng đã yêu cầu tiếp tục xây dựng hệ thống. Đây là trạng thái mã và kiểm tra thực tế, bổ sung cho Master Plan.
+Cập nhật: 03/11/2026. Bản MVP đã public trên Vercel + Neon, theo phạm vi người dùng đã yêu cầu tiếp tục xây dựng hệ thống. Đây là trạng thái mã và kiểm tra thực tế, bổ sung cho Master Plan.
+
+## Hiện tại: Vercel + Neon, 419 công thức đã xuất bản
+
+**04/11/2026 — bottom bar mobile:** dưới 768px thay header bằng Trang chủ/Khám phá/Chat AI/Thực đơn/Thêm. Chat AI mở popup, giữ hội thoại khi thu gọn; công cụ và tài khoản trong Thêm. Đã deploy và kiểm tra trực tiếp browser 320px/390px, phản hồi AI thật, đóng/mở popup, chuyển route và breakpoint 768px. [Bằng chứng](Mobile-Bottom-Bar.md).
+
+**Cập nhật mobile:** header thu gọn cho điện thoại/tablet, bộ lọc Khám phá mở/đóng, thực đơn chọn từng ngày dưới 680px, tab chi tiết cuộn trong vùng riêng, form và chat AI theo viewport nhỏ. TypeScript/build đạt; chưa kiểm tra trực quan vì quyền trình duyệt local đang tắt. [Phạm vi và bằng chứng](Mobile-Responsive-Update.md).
+
+**AI đã hoạt động trên public:** cấu hình Vertex key/model/location vào Vercel secrets theo xác nhận của người dùng, deploy mới READY. Hai endpoint gợi ý công thức và ngân sách đều HTTP 201 qua HTTPS public; kiểm tra hướng dẫn món mới, ID món thật, tổng tiền và danh sách đi chợ đạt. Key không nằm trong frontend bundle. [Chi tiết và log](AI-Vercel-Setup.md).
+
+**https://cookora-rose.vercel.app** đã READY. Frontend và NestJS API cùng chạy trên Vercel; database là Neon PostgreSQL production, dùng app role hạn chế. Không dùng Render trong deployment này. Theo yêu cầu mới nhất của người dùng, 419 công thức nguồn đã chuyển DRAFT → APPROVED trong transaction có sao lưu trạng thái; public hiển thị đủ 419 bài, không có nhãn bản nháp. Dữ kiện và trạng thái thời gian không bị sửa.
+
+`npm run check`: 91 kiểm thử đạt, 0 lỗi; `npm run build` thành công. Acceptance qua HTTPS public đã kiểm tra 419 ID duy nhất trên tất cả trang, chi tiết/tìm kiếm/ảnh mẫu, readiness Neon, CSRF/cookie, yêu thích, thực đơn, danh sách đi chợ/trạng thái đã mua, từ chối truy cập chéo tài khoản và logout. Fixture được dọn đúng phạm vi. Google OAuth start dùng đúng callback public và PKCE; chưa xác nhận consent/callback bằng tài khoản Google thật. [Bằng chứng và vận hành](Vercel-Deployment-Result.md).
+
+Các mục phía dưới ghi lại quá trình local/Neon trước lần public này; số lượng DRAFT và các dòng chưa có URL public trong các mốc cũ không mô tả trạng thái hiện tại.
 
 ## Phương án cloud mới: Neon PostgreSQL (03/11/2026)
 
-Người dùng chọn dịch vụ khác thay Azure vì yêu cầu thẻ. Phương án ưu tiên hiện là **Vercel Hobby + Render Free + Neon Free**, được chọn theo tiêu chí cá nhân, $0 và tận dụng NestJS/Prisma/Google OAuth đã có. [Hướng dẫn mới](Deploy-Free-Neon.md). Hướng dẫn và bằng chứng Azure/SQL Server phía dưới là lịch sử, không phải cấu hình Render mặc định hiện tại.
+**Cập nhật sau khi người dùng đăng nhập Neon:** project polished-bonus-47222343 / branch production đã deploy policy thật, pull env, migrate và nhập 419 DRAFT. API đang dùng app role PostgreSQL hạn chế. Kiểm tra nhánh Neon tách đạt 10/10; unit/HTTP tests đạt 89/89 và build thành công; kiểm tra frontend→API→Neon production gồm session, favorites, planner, shopping và cleanup fixture đã pass. [Kết quả và command output](Neon-Setup-Result.md). Các dòng “chưa có kết nối Neon” phía dưới là trạng thái lịch sử trước bước đăng nhập này.
+
+Người dùng chọn dịch vụ khác thay Azure vì yêu cầu thẻ. Phương án hướng dẫn ban đầu là **Vercel Hobby + Render Free + Neon Free**; triển khai thực tế sau đó dùng **Vercel + Neon**, giữ NestJS/Prisma/Google OAuth đã có. [Hướng dẫn cũ và liên kết kết quả mới](Deploy-Free-Neon.md). Hướng dẫn và bằng chứng Azure/SQL Server phía dưới là lịch sử.
 
 Đã thêm PostgreSQL client/schema/migration riêng, adapter-pg và chọn provider bằng DATABASE_PROVIDER. Không đổi schema/migration/volume SQL Server hiện có; không chuyển tài khoản hoặc session local sang cloud. Cloud dùng pooled URL của app role, owner direct URL chỉ dùng migration. Runtime PostgreSQL kiểm tra certificate TLS và giới hạn pool 3 connections.
 

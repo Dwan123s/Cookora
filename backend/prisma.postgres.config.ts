@@ -8,6 +8,7 @@ export default defineConfig({
     // DIRECT_URL is migration-only; runtime uses DATABASE_URL (pooled endpoint on Neon).
     url:
       process.env.DIRECT_URL ||
+      process.env.DATABASE_URL_UNPOOLED ||
       process.env.DATABASE_URL ||
       'postgresql://unused:unused@localhost:5432/unused',
   },

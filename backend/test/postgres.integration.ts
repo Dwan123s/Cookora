@@ -13,15 +13,18 @@ import { databaseFailure } from '../src/database-errors';
 
 const base = 'http://127.0.0.1:3001/api/v1';
 const url = new URL(process.env.DATABASE_URL || 'http://invalid');
+const isolatedNeonBranch =
+  process.env.NEON_BRANCH === 'cookora-setup-check-20261103' &&
+  process.env.NEON_SETUP_TEST_PROJECT === 'polished-bonus-47222343' &&
+  url.hostname.endsWith('.neon.tech');
 if (
   production ||
   databaseProvider !== 'postgresql' ||
-  url.hostname !== '127.0.0.1' ||
-  url.port !== '15432' ||
-  url.pathname !== '/cookora_check'
+  (!isolatedNeonBranch &&
+    (url.hostname !== '127.0.0.1' || url.port !== '15432' || url.pathname !== '/cookora_check'))
 )
   throw new Error(
-    'Postgres integration requires the disposable loopback cookora_check database on port 15432.',
+    'Postgres integration requires the disposable loopback database or the acknowledged Neon setup-check branch. Production branch is refused.',
   );
 
 class Client {

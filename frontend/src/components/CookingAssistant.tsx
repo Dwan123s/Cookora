@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, type RefObject } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { ArrowUpRight, ChefHat, LoaderCircle, MessageCircle, Minus, Send, Sparkles, X } from 'lucide-react';
@@ -11,8 +11,19 @@ import '../cooking-assistant.css';
 
 type ChatRequest = { id: number; prompt: string; servings: number; history: AiChatMessage[] };
 
-export function CookingAssistant({ hidden = false }: { hidden?: boolean }) {
-  const [open, setOpen] = useState(false);
+export function CookingAssistant({
+  hidden = false,
+  open,
+  onOpenChange,
+  panelId,
+  mobileTriggerRef,
+}: {
+  hidden?: boolean;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  panelId: string;
+  mobileTriggerRef: RefObject<HTMLButtonElement | null>;
+}) {
   const [draft, setDraft] = useState('');
   const [servings, setServings] = useState(2);
   const [exchanges, setExchanges] = useState<AssistantExchange[]>([]);
@@ -22,7 +33,7 @@ export function CookingAssistant({ hidden = false }: { hidden?: boolean }) {
   const launcher = useRef<HTMLButtonElement>(null);
   const input = useRef<HTMLTextAreaElement>(null);
   const log = useRef<HTMLDivElement>(null);
-  const panelId = useId();
+  const panel = useRef<HTMLElement>(null);
   const titleId = useId();
   const inputId = useId();
   const servingsId = useId();
@@ -54,14 +65,41 @@ export function CookingAssistant({ hidden = false }: { hidden?: boolean }) {
     },
   });
   useEffect(() => {
-    if (open && !hidden) input.current?.focus({ preventScroll: true });
+    if (open && !hidden) {
+      // Opening the popup on a phone should not immediately summon the keyboard.
+      if (window.matchMedia('(max-width: 767px)').matches) panel.current?.focus({ preventScroll: true });
+      else input.current?.focus({ preventScroll: true });
+    }
   }, [open, hidden]);
   useEffect(() => {
     if (open && log.current) log.current.scrollTop = log.current.scrollHeight;
   }, [open, exchanges, chat.isPending]);
+  useEffect(() => {
+    if (!open || hidden) return;
+    const viewport = window.visualViewport;
+    const element = panel.current;
+    if (!viewport || !element) return;
+    const update = () => {
+      element.style.setProperty('--chat-visible-height', `${viewport.height}px`);
+      element.style.setProperty(
+        '--chat-keyboard-offset',
+        `${Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop)}px`,
+      );
+    };
+    update();
+    viewport.addEventListener('resize', update);
+    viewport.addEventListener('scroll', update);
+    return () => {
+      viewport.removeEventListener('resize', update);
+      viewport.removeEventListener('scroll', update);
+      element.style.removeProperty('--chat-visible-height');
+      element.style.removeProperty('--chat-keyboard-offset');
+    };
+  }, [open, hidden]);
   const close = () => {
-    setOpen(false);
-    launcher.current?.focus({ preventScroll: true });
+    onOpenChange(false);
+    const trigger = window.matchMedia('(max-width: 767px)').matches ? mobileTriggerRef : launcher;
+    trigger.current?.focus({ preventScroll: true });
   };
   const submit = () => {
     const prompt = draft.trim();
@@ -89,9 +127,19 @@ export function CookingAssistant({ hidden = false }: { hidden?: boolean }) {
   return (
     <div className="cooking-assistant" hidden={hidden}>
       {open && (
+        <button
+          type="button"
+          className="mobile-chat-backdrop"
+          aria-label="Đóng popup trò chuyện"
+          onClick={close}
+        />
+      )}
+      {open && (
         <section
           className="cooking-chat-panel"
           id={panelId}
+          ref={panel}
+          tabIndex={-1}
           role="dialog"
           aria-modal="false"
           aria-labelledby={titleId}
@@ -261,7 +309,7 @@ export function CookingAssistant({ hidden = false }: { hidden?: boolean }) {
         ref={launcher}
         type="button"
         className={`cooking-chat-launcher${open ? ' is-open' : ''}`}
-        onClick={() => (open ? close() : setOpen(true))}
+        onClick={() => (open ? close() : onOpenChange(true))}
         aria-label={open ? 'Thu gọn trợ lý AI Cookora' : 'Mở trợ lý AI Cookora'}
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}

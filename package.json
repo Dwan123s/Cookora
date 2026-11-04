@@ -22,10 +22,15 @@
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
+    "esbuild": "^0.28.2",
     "prettier": "^3.6.2",
     "sharp": "^0.35.5"
   },
   "engines": {
     "node": ">=24 <25"
+  },
+  "dependencies": {
+    "@neon/config": "^1.10.0",
+    "@neon/env": "^1.6.8"
   }
 }

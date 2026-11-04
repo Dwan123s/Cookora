@@ -13,7 +13,9 @@ async function main() {
   if (!['migrate', 'seed', 'status'].includes(action || ''))
     throw new Error('Choose migrate, seed or status.');
   const connection = postgresUrl(
-    action === 'migrate' ? process.env.DIRECT_URL : process.env.DATABASE_URL,
+    action === 'migrate'
+      ? process.env.DIRECT_URL || process.env.DATABASE_URL_UNPOOLED
+      : process.env.DATABASE_URL,
     true,
   );
   const host = new URL(connection).hostname;

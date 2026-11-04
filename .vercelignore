@@ -1,0 +1,15 @@
+.git
+.env
+.env.*
+.neon
+.review
+node_modules
+**/node_modules
+**/dist
+backend/generated
+backend/test
+database
+docs/**
+!docs/Cookora-Recipe-Backlog-300.json
+*.log
+tmp

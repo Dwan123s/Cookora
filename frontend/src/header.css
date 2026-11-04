@@ -1,0 +1,425 @@
+/* One floating navigation surface shared by every application page. */
+.island-header-space {
+  height: calc(108px + env(safe-area-inset-top, 0px));
+}
+
+.island-header {
+  --island-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) 0 0;
+  pointer-events: none;
+  color: #273d32;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  transition: padding 500ms var(--island-ease);
+}
+
+.island-shell {
+  position: relative;
+  width: calc(100% - 48px);
+  max-width: 1280px;
+  margin-inline: auto;
+  pointer-events: auto;
+  transition:
+    width 500ms var(--island-ease),
+    max-width 500ms var(--island-ease);
+}
+
+.island-bar,
+.island-glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: #f5f7f1;
+  box-shadow:
+    0 10px 36px -16px rgba(30, 57, 42, 0.25),
+    0 2px 6px rgba(30, 57, 42, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(71, 115, 91, 0.08);
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .island-bar,
+  .island-glass-panel {
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.82),
+      rgba(247, 250, 243, 0.62) 55%,
+      rgba(237, 245, 235, 0.74)
+    );
+    -webkit-backdrop-filter: blur(24px) saturate(165%);
+    backdrop-filter: blur(24px) saturate(165%);
+  }
+}
+
+.island-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 76px;
+  padding-inline: 24px;
+  border-radius: 999px;
+  transition:
+    height 500ms var(--island-ease),
+    padding 500ms var(--island-ease),
+    box-shadow 500ms var(--island-ease);
+}
+
+/* Fine inner rim gives the glass a lit edge without blurring the content. */
+.island-bar::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  pointer-events: none;
+}
+
+.island-header[data-compact='true'] {
+  padding-top: calc(10px + env(safe-area-inset-top, 0px));
+}
+
+.island-header[data-compact='true'] .island-shell {
+  width: calc(100% - 80px);
+  max-width: 1184px;
+}
+
+.island-header[data-compact='true'] .island-bar {
+  height: 64px;
+  padding-inline: 20px;
+  box-shadow:
+    0 14px 40px -16px rgba(30, 57, 42, 0.3),
+    0 2px 8px rgba(30, 57, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(71, 115, 91, 0.08);
+}
+
+.island-brand,
+.island-actions,
+.island-account,
+.island-desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.island-brand {
+  flex-shrink: 0;
+  gap: 10px;
+  color: #273d32;
+  text-decoration: none;
+}
+
+.island-brand-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, #648d70, #3b634f);
+  box-shadow:
+    inset 0 1px 0 #ffffff55,
+    0 3px 7px #273d3214;
+  transition:
+    width 500ms var(--island-ease),
+    height 500ms var(--island-ease);
+}
+
+.island-wordmark {
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -1.1px;
+  line-height: 1.3;
+  transition: font-size 500ms var(--island-ease);
+}
+
+.island-header[data-compact='true'] .island-brand-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.island-header[data-compact='true'] .island-wordmark {
+  font-size: 21px;
+}
+
+.island-desktop-nav {
+  gap: 2px;
+}
+
+.island-nav-link,
+.island-icon-button,
+.island-login {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 44px;
+  border-radius: 999px;
+  color: #526759;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.island-nav-link {
+  padding: 0 12px;
+}
+
+.island-nav-link:hover,
+.island-icon-button:hover,
+.island-menu-link:hover {
+  color: #273d32;
+  background-color: rgba(225, 236, 221, 0.65);
+}
+
+.island-nav-link.active,
+.island-icon-button.active,
+.island-menu-link.active {
+  color: #273d32;
+  background-color: rgba(216, 231, 211, 0.75);
+  box-shadow:
+    inset 0 1px 2px #ffffffb3,
+    0 1px 3px #273d3208;
+}
+
+.island-header :is(a, button):focus-visible {
+  outline: 2px solid #47735b;
+  outline-offset: 3px;
+}
+
+.island-tools {
+  position: relative;
+}
+
+.island-tools-toggle {
+  gap: 4px;
+}
+
+.island-tools-toggle svg {
+  transition: transform 200ms ease;
+}
+
+.island-chevron-open {
+  transform: rotate(180deg);
+}
+
+.island-tools-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: 0;
+  width: 232px;
+  padding: 8px;
+  border-radius: 22px;
+  animation: island-menu-enter 220ms var(--island-ease);
+}
+
+.island-actions {
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.island-icon-button {
+  width: 44px;
+  height: 44px;
+}
+
+.island-login {
+  gap: 8px;
+  padding: 0 16px;
+  color: #fff;
+  background: #3f674f;
+  box-shadow:
+    inset 0 1px 0 #ffffff33,
+    0 3px 8px #273d3214;
+}
+
+.island-login:hover {
+  background: #30563e;
+}
+
+.island-account {
+  gap: 4px;
+  padding-left: 8px;
+  border-left: 1px solid #47735b24;
+}
+
+.island-avatar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  background: #47735b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.island-menu-toggle,
+.island-mobile-menu {
+  display: none;
+}
+
+.island-menu-link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  color: #425d4b;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+@keyframes island-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1279px) {
+  .island-desktop-nav,
+  .island-notifications {
+    display: none;
+  }
+
+  .island-menu-toggle {
+    display: inline-flex;
+  }
+
+  .island-mobile-menu {
+    display: grid;
+    position: absolute;
+    top: calc(100% + 10px);
+    inset-inline: 0;
+    gap: 4px;
+    max-height: calc(100dvh - 120px - env(safe-area-inset-top, 0px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 12px 12px max(12px, env(safe-area-inset-bottom, 0px));
+    border-radius: 28px;
+    animation: island-menu-enter 220ms var(--island-ease);
+  }
+
+  .island-menu-user {
+    padding: 8px 16px;
+    color: #526759;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .island-menu-tools {
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px solid #47735b24;
+  }
+
+  .island-menu-tools > p {
+    padding: 6px 16px;
+    color: #657a6b;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 639px) {
+  .island-header-space {
+    height: calc(92px + env(safe-area-inset-top, 0px));
+  }
+
+  .island-header {
+    padding-top: calc(12px + env(safe-area-inset-top, 0px));
+  }
+
+  .island-shell {
+    width: calc(100% - 24px);
+  }
+
+  .island-header[data-compact='true'] .island-shell {
+    width: calc(100% - 40px);
+  }
+
+  .island-bar {
+    height: 68px;
+    gap: 8px;
+    padding-inline: 14px 10px;
+  }
+
+  .island-header[data-compact='true'] .island-bar {
+    height: 60px;
+    padding-inline: 12px 8px;
+  }
+
+  .island-brand {
+    gap: 8px;
+  }
+
+  .island-wordmark {
+    font-size: 22px;
+  }
+
+  .island-header[data-compact='true'] .island-wordmark {
+    font-size: 20px;
+  }
+
+  .island-search,
+  .island-favorites,
+  .island-login > span {
+    display: none;
+  }
+
+  .island-actions {
+    gap: 2px;
+  }
+
+  .island-login {
+    width: 44px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 359px) {
+  .island-account {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .island-avatar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .island-header,
+  .island-header *,
+  .island-header *::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  .island-header,
+  .island-header-space {
+    display: none;
+  }
+}

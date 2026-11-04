@@ -1,10 +1,16 @@
 # Cookora – Bếp Nhà
 
-Ứng dụng local bằng **React 19 + TypeScript + Tailwind CSS + NestJS + Prisma 7 + Microsoft SQL Server 2022 + Docker**. Đây là bản triển khai đầu tiên của luồng MVP, chưa phải toàn bộ hệ thống trong Master Plan.
+Ứng dụng bằng **React 19 + TypeScript + Tailwind CSS + NestJS + Prisma 7**. Bản public chạy trên **Vercel + Neon PostgreSQL**; SQL Server 2022 + Docker vẫn được hỗ trợ cho local. Đây là bản MVP, chưa phải toàn bộ hệ thống trong Master Plan.
+
+**Web public: https://cookora-rose.vercel.app** — đã xuất bản đủ 419 công thức theo yêu cầu ngày 03/11/2026, không gắn nhãn bản nháp. Xem [kết quả triển khai và kiểm tra thực tế](docs/Vercel-Deployment-Result.md).
+
+AI trên public đã kết nối Vertex AI bằng key backend, kiểm tra thành công cả gợi ý món và thực đơn ngân sách. [Cấu hình và bằng chứng AI](docs/AI-Vercel-Setup.md).
 
 ## Chạy nhanh
 
-Muốn đưa dự án cá nhân lên mạng với ngân sách $0, không đăng ký thẻ Azure: dùng [hướng dẫn Vercel + Render Free + Neon Free](docs/Deploy-Free-Neon.md). Backend đã hỗ trợ PostgreSQL riêng cho cloud; SQL Server và Compose bên dưới vẫn dành cho local, giữ nguyên dữ liệu đang có. Hướng dẫn Azure cũ chỉ còn là phương án tham khảo; `render.yaml` hiện dùng Neon.
+Deployment hiện tại phục vụ cả frontend và NestJS API trên Vercel, kết nối Neon bằng app role hạn chế. Không cần Render trong cấu hình đang chạy. [Kết quả Vercel](docs/Vercel-Deployment-Result.md), [cấu hình Neon](docs/Neon-Setup-Result.md). Hướng dẫn Render/Azure cũ là phương án tham khảo.
+
+Các lệnh SQL Server bên dưới dành cho môi trường local chọn `DATABASE_PROVIDER=sqlserver`. Nếu `.env` đã cấu hình Neon (`DATABASE_PROVIDER=postgresql`), dùng `npm run dev` để chạy frontend/API với database đó; không chạy migration SQL Server lên Neon. Dữ liệu SQL Server cũ vẫn được giữ.
 
 Yêu cầu: Node.js 24, npm, Docker Desktop với Linux containers x86-64; SQL container cần khoảng 4GB RAM được cấp cho Docker.
 
@@ -52,7 +58,7 @@ Nguồn chuẩn là `database/seeds/document-recipes.json`, kèm SHA-256 của 6
 
 `npm run db:seed` chỉ bổ sung các công thức trong bộ tài liệu mới còn thiếu, không khởi tạo lại 7 món mẫu hoặc bộ 50 món Thái cũ. Trang chủ, Khám phá, Eat Fit và các công cụ đều đọc danh mục API/SQL. Yêu thích đọc dữ liệu đã lưu của tài khoản, không hiển thị danh sách mẫu. Kiểm tra toàn bộ API, công thức và ảnh đang phục vụ bằng `node scripts/verify-live-catalog.mjs http://127.0.0.1:8080`.
 
-Nội dung và định lượng giữ theo tài liệu; lượng dạng khoảng hoặc chưa rõ để null và giữ nguyên dòng nguồn. Khẩu phần không ghi được tạm tính 1 phần, có chú thích. Công thức vẫn là DRAFT, thời gian ESTIMATED, chưa tự duyệt thành công thức đã nấu thử. Production chỉ đọc APPROVED. Backlog biên tập vẫn là kế hoạch nội dung riêng, không nhập thành công thức. SQL có volume bền vững; không dùng `docker compose down -v` nếu muốn giữ dữ liệu.
+Nội dung và định lượng giữ theo tài liệu; lượng dạng khoảng hoặc chưa rõ để null và giữ nguyên dòng nguồn. Khẩu phần không ghi được tạm tính 1 phần, có chú thích. Theo yêu cầu người dùng ngày 03/11/2026, đủ 419 công thức trên Neon production đã chuyển sang APPROVED và hiển thị công khai, không có nhãn bản nháp. Trạng thái thời gian ESTIMATED và dữ kiện nguồn được giữ nguyên; xuất bản không thay thế việc nấu thử. File seed nguồn vẫn giữ trạng thái nhập ban đầu và không ghi đè bài đã tồn tại. Backlog biên tập vẫn là kế hoạch nội dung riêng, không nhập thành công thức. SQL có volume bền vững; không dùng `docker compose down -v` nếu muốn giữ dữ liệu.
 
 ## Quyền biên tập local
 

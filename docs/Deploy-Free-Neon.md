@@ -1,6 +1,8 @@
-# Cookora miễn phí, không cần thẻ: Vercel + Render + Neon
+# Cookora miễn phí: Vercel + Neon
 
-Cập nhật 03/11/2026. Đây là phương án ưu tiên mới thay Azure theo yêu cầu của người dùng. Chưa có cloud resource hoặc URL public mới được tạo. Các thông số free tier được kiểm tra trong ngày và có thể thay đổi.
+> **Đã deploy thật:** https://cookora-rose.vercel.app — cả frontend và NestJS API trên Vercel, database Neon production, 419 công thức đã xuất bản. Xem [kết quả, bằng chứng và cách deploy tiếp](Vercel-Deployment-Result.md). CLI pull DATABASE_URL và DATABASE_URL_UNPOOLED; ứng dụng local ưu tiên NEON_RUNTIME_DATABASE_URL của app role. Vercel nhận URL app role trong DATABASE_URL. Phần Render bên dưới là hướng dẫn phương án cũ; không cần tạo Render để vận hành deployment hiện tại.
+
+Cập nhật 03/11/2026. Các phần so sánh và hướng dẫn Render dưới đây được viết trước lần triển khai Vercel thực tế. Các thông số free tier được kiểm tra khi viết hướng dẫn và có thể thay đổi.
 
 ## Lựa chọn cho Cookora
 
