@@ -124,6 +124,7 @@ export function App() {
             <MobileBottomBar
               chatOpen={assistantOpen}
               onChatToggle={() => setAssistantOpen((open) => !open)}
+              onChatClose={() => setAssistantOpen(false)}
               chatPanelId={assistantPanelId}
               chatTriggerRef={mobileChatTrigger}
             />

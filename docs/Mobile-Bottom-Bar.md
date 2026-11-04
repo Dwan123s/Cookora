@@ -1,5 +1,13 @@
 # Điều hướng dưới và chatbot trên điện thoại — 04/11/2026
 
+## Cập nhật đồng bộ responsive
+
+Bottom bar dùng cùng token màu, font Be Vietnam Pro và liquid glass với header. Thanh nổi có chiều cao 72px, rộng tối đa 560px, căn giữa, giữ năm vùng bấm bằng nhau và chừa safe area. Nội dung, toast và popup chat dùng chung biến khoảng trống của thanh; viewport dưới 360px thu gutter và cỡ nhãn để giữ đủ mục.
+
+Chỉ một mục được đánh dấu khi mở Chat AI hoặc menu Thêm. Trang đi chợ thuộc mục Thực đơn; trang công thức chi tiết thuộc Khám phá. Bấm lại mục trang hiện tại vẫn đóng chat. Menu Thêm bổ sung Dinh dưỡng/Khẩu phần, đánh dấu trang hiện tại, khóa cuộn nền và trả focus về nút khi đóng. Chat dùng visual viewport để tính khoảng trống bàn phím và tạm ẩn thanh khi bàn phím mở.
+
+Build frontend đạt; kiểm tra render trạng thái trên bảy nhóm route với chat đóng/mở đều đạt (14 trường hợp). Kiểm tra trực quan của lần cập nhật này chưa thực hiện vì công cụ trình duyệt đang tắt; chưa xác minh bàn phím iOS/Android thật. Kết quả browser ở các phần sau là bằng chứng của phiên bản trước.
+
 Theo yêu cầu người dùng, giao diện dưới 768px dùng thanh cố định ở đáy màn hình thay cho header. Header trên tablet/desktop vẫn dùng component hiện có.
 
 Thanh có năm mục: Trang chủ, Khám phá, Chat AI, Thực đơn, Thêm. Chat AI mở cùng cuộc trò chuyện Cookora hiện có dưới dạng popup phía trên thanh. Nút Chat AI, nút thu gọn và vùng ngoài popup cho phép đóng; tin nhắn đang có được giữ khi thu gọn. Chuyển route đóng popup. Mục Thêm mở dialog gồm Có gì nấu nấy, Eat Fit, Ước tính chi phí, Món yêu thích và đăng nhập/đăng xuất theo trạng thái tài khoản.

@@ -91,11 +91,17 @@ export function CookingAssistant({
     const viewport = window.visualViewport;
     const element = panel.current;
     if (!viewport || !element) return;
+    let fullHeight = window.innerHeight;
     const update = () => {
+      const typing =
+        element.contains(document.activeElement) &&
+        document.activeElement?.matches('input, textarea, [contenteditable="true"]');
+      if (!typing) fullHeight = window.innerHeight;
+      const keyboardOffset = Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop);
       element.style.setProperty('--chat-visible-height', `${viewport.height}px`);
-      element.style.setProperty(
-        '--chat-keyboard-offset',
-        `${Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop)}px`,
+      element.style.setProperty('--chat-keyboard-offset', `${keyboardOffset}px`);
+      element.dataset.keyboardOpen = String(
+        !!typing && Math.max(keyboardOffset, fullHeight - viewport.height) > 120,
       );
     };
     update();
@@ -106,6 +112,7 @@ export function CookingAssistant({
       viewport.removeEventListener('scroll', update);
       element.style.removeProperty('--chat-visible-height');
       element.style.removeProperty('--chat-keyboard-offset');
+      delete element.dataset.keyboardOpen;
     };
   }, [open, hidden]);
   const close = () => {
