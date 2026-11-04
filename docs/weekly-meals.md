@@ -1,8 +1,8 @@
 # Nhiều món trong một bữa
 
-Mỗi ô ngày/bữa trong thực đơn tuần hiển thị tất cả các món đã lưu và luôn có nút **Thêm món**. Người dùng có thể chọn nhiều món trong một lần, tìm theo tên hoặc lọc canh/súp và rau củ. Mỗi món được đổi công thức, đổi khẩu phần hoặc xóa riêng.
+Thanh bảy ngày hiển thị ngày và số món để chọn nhanh. Bên dưới là ba bữa của ngày đang chọn, với tên món đầy đủ thay vì các ô lịch hẹp. Ngày đã chọn được giữ trong URL `?day=YYYY-MM-DD`, kể cả khi tải lại hoặc chuyển tuần. Nút **Về hôm nay** trở về ngày hiện tại.
 
-Lịch dùng các dòng món nhỏ với ảnh thu nhỏ, tên và khẩu phần. Mỗi ô hiển thị trước ba món; các món còn lại nằm trong phần mở rộng “món khác” để giữ lịch gọn.
+Mỗi bữa có nút **Thêm món**. Có thể chọn nhiều món trong một lần, tìm theo tên hoặc lọc canh/súp và rau củ. Mỗi dòng món có bộ chọn số người ăn để lưu trực tiếp, bấm tên để đổi món và nút xóa riêng. Thao tác xóa có **Hoàn tác** cho món vừa xóa. Các món đều hiển thị đầy đủ, không bị cắt tên hoặc giấu sau “món khác”.
 
 Khách tiếp tục dùng khóa lưu trữ `cookora.guest-week-plans.document-v2`, không cần chuyển dữ liệu và không cắt bớt các tuần có trên 100 món. Tài khoản dùng API MealEntry hiện có: thêm từng món với phiên bản thực đơn mới nhất và khóa gửi lại riêng, không thay cả bữa. Nếu một lần thêm nhiều món bị gián đoạn, các món đã lưu được giữ lại và chỉ thử lại các món còn thiếu.
 

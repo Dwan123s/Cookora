@@ -5,6 +5,15 @@ export type LocalEntry = Omit<MealEntry, 'recipe'> & { recipeId: string };
 export type LocalWeek = { entries: LocalEntry[]; checked: Record<string, boolean> };
 export const guestWeekStorageKey = 'cookora.guest-week-plans.document-v2';
 
+export function validPlanDate(value: string | null): value is string {
+  return (
+    !!value &&
+    /^\d{4}-\d{2}-\d{2}$/.test(value) &&
+    !Number.isNaN(Date.parse(value)) &&
+    new Date(value).toISOString().slice(0, 10) === value
+  );
+}
+
 export function mealSlotEntries<T extends { date: string; mealType: string }>(
   entries: readonly T[],
   date: string,

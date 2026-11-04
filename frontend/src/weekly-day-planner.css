@@ -1,0 +1,323 @@
+/* Select a day, then work with full-width meal rows instead of narrow calendar cells. */
+.weekly-day-strip {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  padding: 2px 0 12px;
+}
+.weekly-day-strip button {
+  position: relative;
+  display: grid;
+  gap: 3px;
+  justify-items: center;
+  min-width: 0;
+  padding: 11px 3px;
+  border: 1px solid #e3e8da;
+  border-radius: 13px;
+  background: #f8faf3;
+  color: #52674a;
+}
+.weekly-day-strip button > span {
+  font-size: 12px;
+}
+.weekly-day-strip button > strong {
+  font-size: 14px;
+  color: #233f2a;
+}
+.weekly-day-strip button > small {
+  font-size: 10px;
+}
+.weekly-day-strip button > i {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #d69a2d;
+}
+.weekly-day-strip button:hover:not(:disabled) {
+  border-color: #8eb777;
+}
+.weekly-day-strip button[aria-pressed='true'] {
+  background: #2e6c40;
+  color: #e7f1df;
+  border-color: #2e6c40;
+  box-shadow: 0 3px 8px #1b4b2520;
+}
+.weekly-day-strip button[aria-pressed='true'] > strong {
+  color: #fff;
+}
+.weekly-day-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 8px 0 15px;
+}
+.weekly-reference .weekly-day-heading h3 {
+  margin: 0;
+  color: #214c2f;
+  font-size: 19px;
+  font-weight: 800;
+}
+.weekly-day-heading p {
+  margin: 4px 0 0;
+  color: #72816b;
+  font-size: 12px;
+}
+.weekly-day-heading > button {
+  flex: none;
+  min-height: 40px;
+  padding: 7px 10px;
+  color: #446d37;
+  border: 1px solid #d6e3c8;
+  border-radius: 10px;
+  font-size: 12px;
+  background: #fffefa;
+}
+.weekly-day-meals {
+  display: grid;
+  gap: 12px;
+}
+.weekly-day-meal {
+  min-width: 0;
+  border: 1px solid #e2e8d9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fffefa;
+}
+.weekly-day-meal > header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  background: #f3f7eb;
+}
+.weekly-day-meal-icon {
+  color: #447643;
+  display: flex;
+}
+.weekly-day-meal-icon.breakfast {
+  color: #c28d19;
+}
+.weekly-day-meal h4 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+  color: #244a2e;
+  font-size: 15px;
+  font-weight: 800;
+}
+.weekly-day-meal h4 small {
+  font-size: 11px;
+  font-weight: 500;
+  color: #7a886d;
+}
+.weekly-day-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 40px;
+  padding: 7px 12px;
+  border: 1px solid #ccdcbc;
+  border-radius: 10px;
+  background: #fffefa;
+  color: #386a39;
+  font-size: 12px;
+  font-weight: 700;
+}
+.weekly-day-meal > header .weekly-day-add {
+  margin-left: auto;
+}
+.weekly-day-dishes {
+  list-style: none;
+  padding: 0 12px;
+  margin: 0;
+}
+.weekly-day-dishes > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 94px 40px;
+  align-items: center;
+  gap: 8px;
+  padding-block: 7px;
+}
+.weekly-day-dishes > li + li {
+  border-top: 1px solid #edf0e7;
+}
+.weekly-day-dish {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 48px;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: #2b422c;
+  text-align: left;
+}
+.weekly-day-dish:hover:not(:disabled) {
+  background: #f5f8ee;
+  border-color: #dde8d0;
+}
+.weekly-day-dish .weekly-meal-thumb {
+  width: 42px;
+  height: 42px;
+  border-radius: 9px;
+}
+.weekly-day-dish > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.weekly-day-dish > svg {
+  flex: none;
+  color: #79936b;
+}
+.weekly-day-dishes select {
+  width: 100%;
+  min-height: 40px;
+  padding: 5px 8px;
+  border: 1px solid #dfe6d5;
+  border-radius: 9px;
+  background: #fffefa;
+  color: #4e6543;
+  font-size: 12px;
+}
+.weekly-day-remove {
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: #8c897b;
+}
+.weekly-day-remove:hover:not(:disabled) {
+  background: #fff2e9;
+  border-color: #efd5c1;
+  color: #a65732;
+}
+.weekly-day-empty {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 15px 14px;
+  color: #87927e;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.weekly-undo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  background: #f2f6e9;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #526543;
+}
+.weekly-undo span {
+  flex: 1;
+}
+.weekly-undo button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 40px;
+  padding: 5px 8px;
+  border: 0;
+  background: transparent;
+  color: #2d6c39;
+  font-weight: 700;
+}
+.weekly-picker {
+  width: min(720px, calc(100vw - 28px));
+  max-width: 720px;
+}
+.weekly-picker .weekly-slot-actions {
+  position: sticky;
+  bottom: -1px;
+  padding-block: 12px;
+  background: #fffefa;
+  border-top: 1px solid #e7ebdf;
+}
+.weekly-picker .weekly-recipe-options button {
+  min-height: 64px;
+}
+.weekly-picker .weekly-recipe-options button > span:nth-child(2) {
+  font-size: 13px;
+  line-height: 1.5;
+}
+@media (max-width: 639px) {
+  .weekly-day-strip {
+    gap: 5px;
+    grid-template-columns: repeat(7, minmax(66px, 1fr));
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .weekly-day-strip button {
+    padding-block: 9px;
+  }
+  .weekly-day-strip button > span {
+    font-size: 11px;
+  }
+  .weekly-day-strip button > strong {
+    font-size: 13px;
+  }
+  .weekly-day-heading {
+    gap: 8px;
+  }
+  .weekly-reference .weekly-day-heading h3 {
+    font-size: 17px;
+  }
+  .weekly-day-heading p {
+    font-size: 11px;
+  }
+  .weekly-day-meal > header {
+    padding-inline: 10px;
+  }
+  .weekly-day-meal h4 {
+    font-size: 14px;
+  }
+  .weekly-day-dishes {
+    padding-inline: 8px;
+  }
+  .weekly-day-dishes > li {
+    grid-template-columns: minmax(0, 1fr) 79px 36px;
+    gap: 3px;
+  }
+  .weekly-day-dish {
+    gap: 7px;
+  }
+  .weekly-day-dish .weekly-meal-thumb {
+    width: 32px;
+    height: 36px;
+  }
+  .weekly-day-dish > span:nth-child(2) {
+    font-size: 12px;
+  }
+  .weekly-day-dish > svg {
+    display: none;
+  }
+  .weekly-day-dishes select {
+    padding-inline: 4px;
+    font-size: 11px;
+  }
+  .weekly-day-remove {
+    min-width: 36px;
+  }
+  .weekly-picker .weekly-slot-actions {
+    flex-wrap: wrap;
+  }
+}

@@ -9,11 +9,12 @@ import {
   mealSlotEntries,
   readGuestWeeks,
   saveLocalDishes,
+  validPlanDate,
   type LocalEntry,
 } from '../../frontend/src/meal-plan-slots';
 import { syncEatFitDayToMealPlan, weeklyGroceries } from '../../frontend/src/weekly-plan';
 import { setCsrf } from '../../frontend/src/api';
-const { WeeklyMealSlot } = require('../../frontend/src/components/WeeklyMealSlot');
+const { WeeklyDayPlanner } = require('../../frontend/src/components/WeeklyDayPlanner');
 
 const date = '2026-11-04',
   week = '2026-11-02';
@@ -81,32 +82,53 @@ test('auto planning only fills empty meals and preserves every dish in existing 
   assert.deepEqual(planned, [...existing, dinner]);
 });
 
-test('calendar renders every dish with its own edit button and an add action even in an occupied meal', () => {
-  const html = renderToStaticMarkup(
-    React.createElement(WeeklyMealSlot, {
-      meals: [entry(main), entry(soup), entry(veg)],
-      label: 'Bữa trưa, 04/11',
-      disabled: false,
-      loading: false,
-      onEdit: () => {},
-      onAdd: () => {},
-    }),
-  );
-  for (const r of [main, soup, veg]) assert.ok(html.includes(`Chỉnh ${r.title}`));
-  assert.ok(html.includes('Thêm món vào bữa'));
+test('day planner displays full dish names, direct serving controls and add/remove actions for the selected day only', () => {
+  const props = {
+    entries: [
+      entry(main),
+      entry(soup),
+      entry(veg),
+      {
+        ...entry(main),
+        id: 'tomorrow',
+        date: '2026-11-05',
+        recipe: { ...main, title: 'Món riêng ngày mai' },
+      },
+    ],
+    week,
+    selectedDate: date,
+    today: date,
+    disabled: false,
+    loading: false,
+    onSelectDate: () => {},
+    onEdit: () => {},
+    onAdd: () => {},
+    onRemove: () => {},
+    onServingsChange: () => {},
+  };
+  const html = renderToStaticMarkup(React.createElement(WeeklyDayPlanner, props));
+  for (const r of [main, soup, veg]) {
+    assert.ok(html.includes('Chỉnh ' + r.title));
+    assert.ok(html.includes('Số người ăn ' + r.title));
+    assert.ok(html.includes('Bỏ ' + r.title));
+  }
+  assert.ok(!html.includes('Món riêng ngày mai'));
+  assert.ok(html.includes('aria-pressed="true"'));
   assert.ok(html.includes('3 món'));
+  assert.ok(html.includes('Bữa sáng') && html.includes('Bữa trưa') && html.includes('Bữa tối'));
   const empty = renderToStaticMarkup(
-    React.createElement(WeeklyMealSlot, {
-      meals: [],
-      label: 'Bữa tối',
-      disabled: true,
-      loading: true,
-      onEdit: () => {},
-      onAdd: () => {},
-    }),
+    React.createElement(WeeklyDayPlanner, { ...props, entries: [], disabled: true, loading: true }),
   );
   assert.match(empty, /<button[^>]*disabled/);
   assert.ok(empty.includes('Thêm món'));
+  assert.ok(empty.includes('Đang tải'));
+});
+
+test('day links accept valid dates across week/year boundaries and reject invalid query dates', () => {
+  for (const value of ['2026-11-04', '2026-12-31', '2027-01-01', '2028-02-29'])
+    assert.ok(validPlanDate(value));
+  for (const value of [null, '', '2026-02-30', '2026-13-01', 'today', '2026-1-1'])
+    assert.ok(!validPlanDate(value));
 });
 
 test('groceries include all dishes in the same meal and scale each independent serving size', () => {

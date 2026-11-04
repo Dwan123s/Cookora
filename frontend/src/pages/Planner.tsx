@@ -18,25 +18,28 @@ import {
   Trash2,
   Users,
   Utensils,
+  Undo2,
 } from 'lucide-react';
 import type { Envelope, MealEntry, MealPlan, Recipe, ShoppingList } from '@cookora/contracts';
 import { request } from '../api';
 import { addDays, weekOf } from '../date';
 import { errorText, Modal, useNotice, useUser } from '../shared';
 import { resolveCategory } from '../recipe-catalog';
-import { MealImage, shortMealTitle as shortTitle, WeeklyMealSlot } from '../components/WeeklyMealSlot';
+import { MealImage, shortMealTitle as shortTitle, WeeklyDayPlanner } from '../components/WeeklyDayPlanner';
 import {
   fillEmptyMealSlots,
   guestWeekStorageKey as storageKey,
   mealSlotEntries,
   readGuestWeeks,
   saveLocalDishes,
+  validPlanDate,
   type LocalEntry,
 } from '../meal-plan-slots';
 import { loadEatFitDays } from '../eatfit-storage';
 import { groceryAmount, syncEatFitDayToMealPlan, weeklyGroceries, type GroceryRow } from '../weekly-plan';
 import { WeeklyBudgetCard } from '../components/WeeklyBudgetCard';
 import '../planner-reference.css';
+import '../weekly-day-planner.css';
 
 type MealType = MealEntry['mealType'];
 const dayLabel = (value: string) => `${value.slice(8, 10)}/${value.slice(5, 7)}`;
@@ -69,7 +72,7 @@ async function allRecipes() {
   return [...first.data, ...remaining.flatMap((page) => page.data)];
 }
 export function Planner() {
-  const [parameters] = useSearchParams();
+  const [parameters, setParameters] = useSearchParams();
   const incomingBudget = Number(parameters.get('budget'));
   const incomingServings = Number(parameters.get('servings'));
   const preferredServings =
@@ -81,13 +84,28 @@ export function Planner() {
     qc = useQueryClient();
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Ho_Chi_Minh' }).format(new Date());
   const currentWeek = weekOf(today);
-  const [week, setWeek] = useState(currentWeek);
+  const selectedDate = validPlanDate(parameters.get('day')) ? parameters.get('day')! : today;
+  const week = weekOf(selectedDate);
+  const selectDate = (date: string) => {
+    setParameters(
+      (previous) => {
+        const next = new URLSearchParams(previous);
+        next.set('day', date);
+        return next;
+      },
+      { replace: true },
+    );
+    setError('');
+  };
   const [localWeeks, setLocalWeeks] = useState(readLocalWeeks);
   const [slot, setSlot] = useState<{ date: string; type: MealType; entryId?: string } | null>(null);
   const [selectedRecipes, setSelectedRecipes] = useState<string[]>([]);
   const [selectedServings, setSelectedServings] = useState(preferredServings);
   const [recipeSearch, setRecipeSearch] = useState('');
   const [recipeFilter, setRecipeFilter] = useState('all');
+  const [removedDish, setRemovedDish] = useState<{ entry: MealEntry; week: string; key: string } | null>(
+    null,
+  );
   const pendingKeys = useRef(new Map<string, string>());
   const [busy, setBusy] = useState(false),
     [error, setError] = useState('');
@@ -273,26 +291,104 @@ export function Planner() {
       setSlot(null);
       notice('Đã cập nhật món trong thực đơn.');
     });
-  const removeSlot = () =>
+  const removeEntry = (entry: MealEntry) =>
     run(async () => {
-      if (!slot?.entryId) return;
       if (!user)
         setLocalWeeks((previous) => ({
           ...previous,
           [week]: {
             ...previous[week],
-            entries: previous[week].entries.filter((entry) => entry.id !== slot.entryId),
+            entries: previous[week].entries.filter((item) => item.id !== entry.id),
           },
         }));
-      else if (planData)
+      else {
+        const current = qc.getQueryData<Envelope<MealPlan>>(planKey)?.data ?? planData;
+        if (!current) return;
         setPlanCache(
-          await request<MealPlan>(`/meal-plans/${planData.id}/entries/${slot.entryId}`, {
+          await request<MealPlan>(`/meal-plans/${current.id}/entries/${entry.id}`, {
             method: 'DELETE',
-            body: { version: planData.version },
+            body: { version: current.version },
           }),
         );
+      }
+      setRemovedDish({ entry, week, key: crypto.randomUUID() });
       setSlot(null);
-      notice('Đã bỏ món khỏi bữa ăn.');
+    });
+  const removeSlot = () => {
+    const entry = entries.find((entry) => entry.id === slot?.entryId);
+    if (entry) void removeEntry(entry);
+  };
+  const undoRemove = () =>
+    run(async () => {
+      if (!removedDish || removedDish.week !== week) return;
+      const entry = removedDish.entry;
+      if (
+        !mealSlotEntries(entries, entry.date, entry.mealType).some(
+          (item) => item.recipe.id === entry.recipe.id,
+        )
+      ) {
+        if (!user)
+          setLocalWeeks((previous) => ({
+            ...previous,
+            [week]: {
+              ...previous[week],
+              entries: [
+                ...previous[week].entries,
+                {
+                  id: entry.id,
+                  date: entry.date,
+                  mealType: entry.mealType,
+                  servings: entry.servings,
+                  recipeId: entry.recipe.id,
+                },
+              ],
+            },
+          }));
+        else {
+          const current = qc.getQueryData<Envelope<MealPlan>>(planKey)?.data ?? planData;
+          if (!current) return;
+          setPlanCache(
+            await request<MealPlan>(`/meal-plans/${current.id}/entries`, {
+              method: 'POST',
+              body: {
+                date: entry.date,
+                mealType: entry.mealType,
+                recipeId: entry.recipe.id,
+                servings: entry.servings,
+                version: current.version,
+                clientKey: removedDish.key,
+              },
+            }),
+          );
+        }
+      }
+      setRemovedDish(null);
+      notice('Đã khôi phục món vào bữa ăn.');
+    });
+  const changeServings = (entry: MealEntry, servings: number) =>
+    run(async () => {
+      if (servings === entry.servings) return;
+      if (!user)
+        setLocalWeeks((previous) => ({
+          ...previous,
+          [week]: {
+            ...previous[week],
+            entries: previous[week].entries.map((item) =>
+              item.id === entry.id ? { ...item, servings } : item,
+            ),
+          },
+        }));
+      else {
+        const current = qc.getQueryData<Envelope<MealPlan>>(planKey)?.data ?? planData;
+        if (!current) return;
+        setPlanCache(
+          await request<MealPlan>(`/meal-plans/${current.id}/entries/${entry.id}`, {
+            method: 'PATCH',
+            body: { recipeId: entry.recipe.id, servings, version: current.version },
+          }),
+        );
+      }
+      notice('Đã cập nhật số người ăn cho món.');
     });
   const autoPlan = () =>
     run(async () => {
@@ -470,7 +566,7 @@ export function Planner() {
                 aria-label="Tuần trước"
                 disabled={busy}
                 onClick={() => {
-                  setWeek(addDays(week, -7));
+                  selectDate(addDays(selectedDate, -7));
                   setError('');
                 }}
               >
@@ -481,7 +577,7 @@ export function Planner() {
                 aria-label="Tuần sau"
                 disabled={busy}
                 onClick={() => {
-                  setWeek(addDays(week, 7));
+                  selectDate(addDays(selectedDate, 7));
                   setError('');
                 }}
               >
@@ -492,49 +588,28 @@ export function Planner() {
               </span>
             </nav>
           </header>
-          <div className="weekly-table-scroll">
-            <table className="weekly-table">
-              <thead>
-                <tr>
-                  <th aria-label="Bữa ăn" />
-                  {weekdays.map((day, index) => (
-                    <th scope="col" key={day}>
-                      <span>{day}</span>
-                      <small>{dayLabel(addDays(week, index))}</small>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map(({ type, label, Icon }) => (
-                  <tr key={type}>
-                    <th scope="row">
-                      <span className={`weekly-row-label weekly-row-${type.toLowerCase()}`}>
-                        <Icon strokeWidth={1.6} />
-                        <strong>{label}</strong>
-                      </span>
-                    </th>
-                    {weekdays.map((_, index) => {
-                      const date = addDays(week, index);
-                      const meals = mealSlotEntries(entries, date, type);
-                      return (
-                        <td key={date}>
-                          <WeeklyMealSlot
-                            meals={meals}
-                            label={label + ', ' + dayLabel(date)}
-                            disabled={busy || recipes.isPending || (!!user && plan.isPending)}
-                            loading={recipes.isPending || (!!user && plan.isPending)}
-                            onEdit={(meal) => openSlot(date, type, meal)}
-                            onAdd={() => openSlot(date, type)}
-                          />
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {removedDish?.week === week && (
+            <div className="weekly-undo" role="status">
+              <span>Đã bỏ {shortTitle(removedDish.entry.recipe.title)} khỏi bữa.</span>
+              <button type="button" onClick={undoRemove} disabled={busy}>
+                <Undo2 size={16} />
+                Hoàn tác
+              </button>
+            </div>
+          )}
+          <WeeklyDayPlanner
+            entries={entries}
+            week={week}
+            selectedDate={selectedDate}
+            today={today}
+            disabled={busy || recipes.isPending || (!!user && (plan.isPending || plan.isError))}
+            loading={recipes.isPending || (!!user && plan.isPending)}
+            onSelectDate={selectDate}
+            onAdd={openSlot}
+            onEdit={(entry) => openSlot(entry.date, entry.mealType, entry)}
+            onRemove={removeEntry}
+            onServingsChange={changeServings}
+          />
           <footer className="weekly-calendar-footer">
             <span className="weekly-footer-icon">
               <Utensils size={29} strokeWidth={1.7} />
@@ -543,7 +618,7 @@ export function Planner() {
               <strong>
                 {new Set(entries.map((entry) => `${entry.date}:${entry.mealType}`)).size} bữa ăn trong tuần
               </strong>
-              <p>{entries.length} món · Mỗi bữa có thể thêm món chính, canh và rau.</p>
+              <p>{entries.length} món · Chọn ngày để sắp xếp từng bữa.</p>
             </div>
             <button
               className="weekly-auto"
@@ -654,7 +729,8 @@ export function Planner() {
       <Leaf className="weekly-leaf weekly-leaf-right" aria-hidden="true" />
       {slot && (
         <Modal
-          title={`${rows.find((row) => row.type === slot.type)?.label} · ${dayLabel(slot.date)}`}
+          className="weekly-picker"
+          title={`${slot.entryId ? 'Chỉnh món' : 'Thêm món'} · ${rows.find((row) => row.type === slot.type)?.label} · ${dayLabel(slot.date)}`}
           onClose={() => {
             if (!busy) setSlot(null);
           }}
@@ -671,27 +747,16 @@ export function Planner() {
                 </div>
               </div>
             )}
-            <div className="weekly-slot-mode" aria-label="Các món trong bữa">
-              {slotMeals.map((entry) => (
-                <button
-                  type="button"
-                  key={entry.id}
-                  disabled={busy}
-                  aria-pressed={slot.entryId === entry.id}
-                  onClick={() => openSlot(slot.date, slot.type, entry)}
-                >
-                  {shortTitle(entry.recipe.title)}
-                </button>
-              ))}
+            {slot.entryId && (
               <button
                 type="button"
+                className="weekly-day-add"
                 disabled={busy}
-                aria-pressed={!slot.entryId}
                 onClick={() => openSlot(slot.date, slot.type)}
               >
-                + Thêm món
+                + Thêm món khác vào bữa
               </button>
-            </div>
+            )}
             <p className="weekly-slot-hint">
               {slot.entryId
                 ? 'Chỉnh riêng món này. Các món còn lại được giữ nguyên.'
