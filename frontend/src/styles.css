@@ -1,36 +1,4 @@
 @import 'tailwindcss';
-/* Hide browser scrollbar completely while maintaining scrollability */
-html,
-body {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-  overflow-y: scroll !important;
-}
-
-* {
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-
-::-webkit-scrollbar,
-html::-webkit-scrollbar,
-body::-webkit-scrollbar,
-*::-webkit-scrollbar {
-  display: none !important;
-  width: 0px !important;
-  height: 0px !important;
-  background: transparent !important;
-}
-
-::-webkit-scrollbar-button,
-::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-track,
-::-webkit-scrollbar-corner {
-  display: none !important;
-  background: transparent !important;
-  width: 0px !important;
-  height: 0px !important;
-}
 
 @theme {
   --color-page-bg: #FAF9F6;
@@ -281,9 +249,8 @@ p {
 }
 .container,
 .section {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 36px;
+  padding-block: 0;
 }
 .container {
   min-height: 55vh;
@@ -384,77 +351,8 @@ p {
     transform: rotate(360deg);
   }
 }
-.site-header {
-  height: 88px;
-  background: #fffdf9f5;
-  border-bottom: 1px solid #efeae2;
-  position: relative;
-  z-index: 20;
-}
-.header-inner {
-  max-width: 1280px;
-  margin: auto;
-  height: 100%;
-  padding: 0 46px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-.brand {
-  display: inline-flex;
-  align-items: center;
-  color: var(--brand);
-  font-size: 31px;
-  letter-spacing: -0.05em;
-  font-weight: 700;
-  line-height: 1;
-  flex-shrink: 0;
-}
-.brand-symbol {
-  height: 43px;
-  width: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-}
-.brand small {
-  display: block;
-  font-family: 'Plus Jakarta Sans Variable', sans-serif;
-  font-size: 6.5px;
-  color: #7c7067;
-  letter-spacing: 0.16em;
-  font-weight: 500;
-  padding-top: 8px;
-}
 .brand-dot {
   color: #e1a45c;
-}
-.desktop-nav {
-  display: flex;
-  gap: 26px;
-  align-items: center;
-  height: 100%;
-}
-.desktop-nav > a {
-  display: inline-flex;
-  gap: 5px;
-  align-items: center;
-  color: #625e57;
-  font-size: 11px;
-  height: 100%;
-  border-bottom: 2px solid transparent;
-  padding-top: 2px;
-}
-.desktop-nav > a.active {
-  color: var(--brand);
-  border-bottom-color: var(--brand);
-}
-.header-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
 }
 .user-pill {
   display: flex;
@@ -478,7 +376,6 @@ p {
   white-space: nowrap;
   max-width: 95px;
 }
-.menu-toggle,
 .bottom-nav {
   display: none;
 }
@@ -656,10 +553,6 @@ p {
   justify-content: space-between;
   align-items: center;
   gap: 25px;
-}
-.site-footer .brand {
-  font-size: 24px;
-  gap: 5px;
 }
 .site-footer p {
   font-size: 9px;
@@ -1723,16 +1616,6 @@ td strong {
   place-items: center;
 }
 @media (max-width: 1100px) {
-  .desktop-nav {
-    gap: 17px;
-  }
-  .header-inner {
-    padding: 0 25px;
-    gap: 15px;
-  }
-  .desktop-nav > a {
-    font-size: 10px;
-  }
   .detail-top {
     gap: 28px;
   }
@@ -1767,48 +1650,6 @@ td strong {
   }
 }
 @media (max-width: 800px) {
-  .site-header {
-    height: 75px;
-  }
-  .header-inner {
-    padding: 0 22px;
-  }
-  .brand {
-    font-size: 27px;
-  }
-  .desktop-nav {
-    display: none;
-    position: absolute;
-    top: 75px;
-    left: 0;
-    right: 0;
-    height: auto;
-    padding: 15px 22px;
-    background: #fffdf9;
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 10px 20px #33221110;
-  }
-  .desktop-nav.open {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-  .desktop-nav > a {
-    padding: 13px 0;
-    font-size: 12px;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-  .header-actions .small {
-    font-size: 10px;
-  }
-  .container,
-  .section {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
   .section {
     padding-top: 40px;
   }
@@ -1939,30 +1780,8 @@ td strong {
   }
 }
 @media (max-width: 550px) {
-  .header-inner {
-    padding: 0 17px;
-  }
-  .brand {
-    font-size: 25px;
-  }
-  .brand-symbol {
-    width: 34px;
-    margin-right: 5px;
-  }
-  .brand small {
-    font-size: 5.7px;
-  }
-  .header-actions {
-    gap: 0;
-  }
-  .user-pill b,
-  .logout {
+  .user-pill b {
     display: none;
-  }
-  .container,
-  .section {
-    padding-left: 20px;
-    padding-right: 20px;
   }
   .container {
     padding-top: 28px;
@@ -2528,7 +2347,6 @@ td strong {
   }
 }
 @media print {
-  .site-header,
   .site-footer,
   .bottom-nav,
   .shopping-page > .text-link,

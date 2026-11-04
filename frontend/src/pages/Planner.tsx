@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import {
@@ -27,7 +27,8 @@ import { request } from '../api';
 import { addDays, weekOf } from '../date';
 import { errorText, Modal, useNotice, useUser } from '../shared';
 import { matcherMedia } from '../matcher-media';
-import { groceryAmount, weeklyEstimate, weeklyGroceries, type GroceryRow } from '../weekly-plan';
+import { loadEatFitDays } from '../eatfit-storage';
+import { groceryAmount, syncEatFitDayToMealPlan, weeklyEstimate, weeklyGroceries, type GroceryRow } from '../weekly-plan';
 import '../planner-reference.css';
 
 type MealType = MealEntry['mealType'];
@@ -196,6 +197,49 @@ export function Planner() {
     qc.setQueryData(planKey, value);
     void qc.invalidateQueries({ queryKey: ['shopping', user?.id, value.data.id] });
   };
+  const syncedDaysRef = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (!recipeList.length) return;
+    if (user && (plan.isPending || plan.isError)) return;
+    const savedEatFitDays = loadEatFitDays();
+    const daysInWeek = savedEatFitDays.filter(
+      (d) => d.date >= week && d.date <= addDays(week, 6),
+    );
+    if (!daysInWeek.length) return;
+    const mealTypes: MealType[] = ['BREAKFAST', 'LUNCH', 'DINNER'];
+    const unsyncedDays = daysInWeek.filter((d) => {
+      const syncKey = `${d.date}:${d.meals.map((m) => m?.slug || '').join(',')}`;
+      if (syncedDaysRef.current.has(syncKey)) return false;
+      return [0, 1, 2].some((idx) => {
+        const meal = d.meals[idx];
+        if (!meal) return false;
+        return !entries.some(
+          (e) => e.date === d.date && e.mealType === mealTypes[idx],
+        );
+      });
+    });
+    if (!unsyncedDays.length) return;
+    let isCancelled = false;
+    void (async () => {
+      for (const d of unsyncedDays) {
+        if (isCancelled) break;
+        const syncKey = `${d.date}:${d.meals.map((m) => m?.slug || '').join(',')}`;
+        syncedDaysRef.current.add(syncKey);
+        const updated = await syncEatFitDayToMealPlan(d.date, d.meals, recipeList, user);
+        if (user && updated) {
+          setPlanCache({ data: updated, meta: {} });
+        } else if (!user) {
+          setLocalWeeks(readLocalWeeks());
+        }
+      }
+      if (!isCancelled) {
+        notice('Đã đồng bộ các món đã xếp lịch từ Eat Fit vào thực đơn tuần.');
+      }
+    })();
+    return () => {
+      isCancelled = true;
+    };
+  }, [recipeList.length, user, plan.isPending, plan.isError, week, entries]);
   const run = async (action: () => Promise<void>) => {
     setBusy(true);
     setError('');

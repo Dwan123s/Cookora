@@ -27,6 +27,7 @@ import type { MealPlan, Recipe, ScaledRecipe } from '@cookora/contracts';
 import { request } from '../api';
 import { dateKey, weekOf } from '../date';
 import { recipeMedia, recipeSummary } from '../recipe-media';
+import { estimateStandardQuantity } from '../weekly-plan';
 import {
   cuisineFor,
   useNotice,
@@ -237,6 +238,16 @@ export function Detail() {
               <Heart size={18} />
             </button>
           </div>
+          {recipe.image.startsWith('/recipes/repaired/') && (
+            <a
+              href={`/recipes/repaired/attribution.html#${recipe.slug}`}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 block text-xs text-stone-500 underline-offset-2 hover:underline"
+            >
+              {media.credit} · Nguồn ảnh
+            </a>
+          )}
         </div>
 
         {/* Right: Recipe Meta & CTA */}
@@ -391,7 +402,7 @@ export function Detail() {
                   <span className="text-xs font-semibold text-stone-600">
                     {line.exactQuantity
                       ? `${line.exactQuantity} ${line.unit === 'piece' ? 'đơn vị' : line.unit}`
-                      : 'Chưa rõ lượng'}
+                      : estimateStandardQuantity(line.name, line.role, servings, recipe.baseServings)}
                   </span>
                 </div>
               );

@@ -1,0 +1,996 @@
+[
+  {
+    "file": "styles.css",
+    "selector": ".container,\r\n.section",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "max-width",
+        "value": "1200px"
+      },
+      {
+        "property": "margin",
+        "value": "0 auto"
+      },
+      {
+        "property": "padding",
+        "value": "0 36px"
+      }
+    ]
+  },
+  {
+    "file": "styles.css",
+    "selector": ".container",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "min-height",
+        "value": "55vh"
+      },
+      {
+        "property": "padding-top",
+        "value": "42px"
+      },
+      {
+        "property": "padding-bottom",
+        "value": "70px"
+      }
+    ]
+  },
+  {
+    "file": "styles.css",
+    "selector": ".section",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "padding-top",
+        "value": "64px"
+      },
+      {
+        "property": "padding-bottom",
+        "value": "10px"
+      }
+    ]
+  },
+  {
+    "file": "styles.css",
+    "selector": ".container,\r\n  .section",
+    "scope": "(max-width: 800px)",
+    "declarations": [
+      {
+        "property": "padding-left",
+        "value": "25px"
+      },
+      {
+        "property": "padding-right",
+        "value": "25px"
+      }
+    ]
+  },
+  {
+    "file": "styles.css",
+    "selector": ".section",
+    "scope": "(max-width: 800px)",
+    "declarations": [
+      {
+        "property": "padding-top",
+        "value": "40px"
+      }
+    ]
+  },
+  {
+    "file": "styles.css",
+    "selector": ".container,\r\n  .section",
+    "scope": "(max-width: 550px)",
+    "declarations": [
+      {
+        "property": "padding-left",
+        "value": "20px"
+      },
+      {
+        "property": "padding-right",
+        "value": "20px"
+      }
+    ]
+  },
+  {
+    "file": "styles.css",
+    "selector": ".container",
+    "scope": "(max-width: 550px)",
+    "declarations": [
+      {
+        "property": "padding-top",
+        "value": "28px"
+      },
+      {
+        "property": "padding-bottom",
+        "value": "45px"
+      }
+    ]
+  },
+  {
+    "file": "styles.css",
+    "selector": ".section",
+    "scope": "(max-width: 550px)",
+    "declarations": [
+      {
+        "property": "padding-top",
+        "value": "35px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".wrap,\r\n.container,\r\n.section",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "100%"
+      },
+      {
+        "property": "max-width",
+        "value": "1320px"
+      },
+      {
+        "property": "margin-inline",
+        "value": "auto"
+      },
+      {
+        "property": "padding-inline",
+        "value": "48px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".container",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "min-height",
+        "value": "65vh"
+      },
+      {
+        "property": "padding-block",
+        "value": "54px 90px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".section",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "padding-top",
+        "value": "64px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".wrap,\r\n  .container,\r\n  .section",
+    "scope": "(max-width: 1100px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "32px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".wrap,\r\n  .container,\r\n  .section",
+    "scope": "(max-width: 800px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "24px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".container",
+    "scope": "(max-width: 800px)",
+    "declarations": [
+      {
+        "property": "padding-top",
+        "value": "34px"
+      },
+      {
+        "property": "padding-bottom",
+        "value": "65px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".wrap,\r\n  .container,\r\n  .section",
+    "scope": "(max-width: 600px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "20px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".container",
+    "scope": "(max-width: 600px)",
+    "declarations": [
+      {
+        "property": "padding-top",
+        "value": "28px"
+      }
+    ]
+  },
+  {
+    "file": "redesign.css",
+    "selector": ".wrap,\r\n  .container,\r\n  .section",
+    "scope": "(max-width: 360px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "16px"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-container",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "90%"
+      },
+      {
+        "property": "max-width",
+        "value": "1200px"
+      },
+      {
+        "property": "margin-inline",
+        "value": "auto"
+      },
+      {
+        "property": "padding-inline",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-hero-grid",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "gap",
+        "value": "56px"
+      },
+      {
+        "property": "padding-inline",
+        "value": "24px"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-hero-grid",
+    "scope": "(max-width: 1200px) and (min-width: 1024px)",
+    "declarations": [
+      {
+        "property": "gap",
+        "value": "30px"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-container",
+    "scope": "(max-width: 1023px)",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "calc(100% - 40px)"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-hero-grid",
+    "scope": "(max-width: 1023px)",
+    "declarations": [
+      {
+        "property": "gap",
+        "value": "32px"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-container",
+    "scope": "(max-width: 639px)",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "calc(100% - 32px)"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-hero-grid",
+    "scope": "(max-width: 639px)",
+    "declarations": [
+      {
+        "property": "gap",
+        "value": "25px"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-container",
+    "scope": "(min-width: 900px) and (max-width: 1199px)",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "90%"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-hero-grid",
+    "scope": "(min-width: 900px) and (max-width: 1199px)",
+    "declarations": [
+      {
+        "property": "grid-template-columns",
+        "value": "repeat(12, minmax(0, 1fr))"
+      },
+      {
+        "property": "gap",
+        "value": "40px"
+      },
+      {
+        "property": "padding-inline",
+        "value": "24px"
+      }
+    ]
+  },
+  {
+    "file": "home-alignment.css",
+    "selector": ".home-aligned .home-hero-grid",
+    "scope": "(max-width: 899px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "file": "discover-reference.css",
+    "selector": ".discover-container",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "90%"
+      },
+      {
+        "property": "max-width",
+        "value": "1380px"
+      },
+      {
+        "property": "margin-inline",
+        "value": "auto"
+      },
+      {
+        "property": "position",
+        "value": "relative"
+      },
+      {
+        "property": "z-index",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "file": "discover-reference.css",
+    "selector": ".discover-reference .discover-hero",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "position",
+        "value": "relative"
+      },
+      {
+        "property": "min-height",
+        "value": "230px"
+      },
+      {
+        "property": "padding",
+        "value": "22px 88px 30px"
+      }
+    ]
+  },
+  {
+    "file": "discover-reference.css",
+    "selector": ".discover-container",
+    "scope": "(max-width: 1390px)",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "94%"
+      }
+    ]
+  },
+  {
+    "file": "discover-reference.css",
+    "selector": ".discover-reference .discover-hero",
+    "scope": "(max-width: 1390px)",
+    "declarations": [
+      {
+        "property": "padding-left",
+        "value": "55px"
+      }
+    ]
+  },
+  {
+    "file": "discover-reference.css",
+    "selector": ".discover-reference .discover-hero",
+    "scope": "(max-width: 1100px)",
+    "declarations": [
+      {
+        "property": "padding-left",
+        "value": "30px"
+      }
+    ]
+  },
+  {
+    "file": "discover-reference.css",
+    "selector": ".discover-container",
+    "scope": "(max-width: 760px)",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "calc(100% - 32px)"
+      }
+    ]
+  },
+  {
+    "file": "discover-reference.css",
+    "selector": ".discover-reference .discover-hero",
+    "scope": "(max-width: 760px)",
+    "declarations": [
+      {
+        "property": "min-height",
+        "value": "270px"
+      },
+      {
+        "property": "padding",
+        "value": "25px 10px 24px"
+      }
+    ]
+  },
+  {
+    "file": "discover-reference.css",
+    "selector": ".discover-reference .discover-hero",
+    "scope": "(max-width: 680px)",
+    "declarations": [
+      {
+        "property": "min-height",
+        "value": "250px"
+      }
+    ]
+  },
+  {
+    "file": "matcher-reference.css",
+    "selector": ".pantry-reference",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "--pantry-ink",
+        "value": "#124531"
+      },
+      {
+        "property": "--pantry-green",
+        "value": "#407653"
+      },
+      {
+        "property": "--pantry-line",
+        "value": "#e9e6df"
+      },
+      {
+        "property": "max-width",
+        "value": "1680px"
+      },
+      {
+        "property": "margin",
+        "value": "0 auto"
+      },
+      {
+        "property": "padding",
+        "value": "0 40px 25px"
+      },
+      {
+        "property": "color",
+        "value": "#14231c"
+      },
+      {
+        "property": "font-family",
+        "value": "'Plus Jakarta Sans Variable', sans-serif"
+      },
+      {
+        "property": "line-height",
+        "value": "1.5"
+      },
+      {
+        "property": "position",
+        "value": "relative"
+      }
+    ]
+  },
+  {
+    "file": "matcher-reference.css",
+    "selector": ".pantry-reference",
+    "scope": "(max-width: 1350px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "25px"
+      }
+    ]
+  },
+  {
+    "file": "matcher-reference.css",
+    "selector": ".pantry-reference",
+    "scope": "(max-width: 750px)",
+    "declarations": [
+      {
+        "property": "padding",
+        "value": "0 17px 22px"
+      }
+    ]
+  },
+  {
+    "file": "matcher-reference.css",
+    "selector": ".pantry-reference",
+    "scope": "(min-width: 1081px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "25px"
+      }
+    ]
+  },
+  {
+    "file": "matcher-photo.css",
+    "selector": ".pantry-reference.pantry-photo-match",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "--pantry-ink",
+        "value": "#124822"
+      },
+      {
+        "property": "--pantry-green",
+        "value": "#285b30"
+      },
+      {
+        "property": "--pantry-line",
+        "value": "#ebe6de"
+      },
+      {
+        "property": "width",
+        "value": "87.6%"
+      },
+      {
+        "property": "max-width",
+        "value": "1464px"
+      },
+      {
+        "property": "min-height",
+        "value": "calc(100svh - 62px)"
+      },
+      {
+        "property": "padding",
+        "value": "0 0 80px"
+      },
+      {
+        "property": "font-family",
+        "value": "'Be Vietnam Pro', sans-serif"
+      },
+      {
+        "property": "color",
+        "value": "#171a15"
+      },
+      {
+        "property": "isolation",
+        "value": "isolate"
+      }
+    ]
+  },
+  {
+    "file": "matcher-photo.css",
+    "selector": ".pantry-reference.pantry-photo-match .pantry-hero",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "height",
+        "value": "188px"
+      },
+      {
+        "property": "min-height",
+        "value": "188px"
+      },
+      {
+        "property": "padding",
+        "value": "22px 9.1% 24px"
+      }
+    ]
+  },
+  {
+    "file": "matcher-photo.css",
+    "selector": ".pantry-reference.pantry-photo-match",
+    "scope": "(max-width: 1450px) and (min-width: 1001px)",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "92%"
+      }
+    ]
+  },
+  {
+    "file": "matcher-photo.css",
+    "selector": ".pantry-reference.pantry-photo-match",
+    "scope": "(max-width: 1000px)",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "calc(100% - 40px)"
+      },
+      {
+        "property": "padding-bottom",
+        "value": "40px"
+      }
+    ]
+  },
+  {
+    "file": "matcher-photo.css",
+    "selector": ".pantry-reference.pantry-photo-match .pantry-hero",
+    "scope": "(max-width: 1000px)",
+    "declarations": [
+      {
+        "property": "height",
+        "value": "200px"
+      },
+      {
+        "property": "min-height",
+        "value": "200px"
+      },
+      {
+        "property": "padding",
+        "value": "24px 40px"
+      }
+    ]
+  },
+  {
+    "file": "matcher-photo.css",
+    "selector": ".pantry-reference.pantry-photo-match",
+    "scope": "(max-width: 520px)",
+    "declarations": [
+      {
+        "property": "width",
+        "value": "calc(100% - 28px)"
+      }
+    ]
+  },
+  {
+    "file": "matcher-photo.css",
+    "selector": ".pantry-reference.pantry-photo-match .pantry-hero",
+    "scope": "(max-width: 520px)",
+    "declarations": [
+      {
+        "property": "height",
+        "value": "228px"
+      },
+      {
+        "property": "min-height",
+        "value": "228px"
+      },
+      {
+        "property": "padding",
+        "value": "28px 10px 18px 22px"
+      },
+      {
+        "property": "align-items",
+        "value": "flex-start"
+      }
+    ]
+  },
+  {
+    "file": "planner-reference.css",
+    "selector": ".weekly-reference",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "--weekly-green",
+        "value": "#276d42"
+      },
+      {
+        "property": "--weekly-ink",
+        "value": "#123f2a"
+      },
+      {
+        "property": "position",
+        "value": "relative"
+      },
+      {
+        "property": "isolation",
+        "value": "isolate"
+      },
+      {
+        "property": "max-width",
+        "value": "1680px"
+      },
+      {
+        "property": "margin",
+        "value": "0 auto"
+      },
+      {
+        "property": "padding",
+        "value": "0 40px 44px"
+      },
+      {
+        "property": "color",
+        "value": "#18261b"
+      },
+      {
+        "property": "font-family",
+        "value": "'Plus Jakarta Sans Variable', sans-serif"
+      },
+      {
+        "property": "line-height",
+        "value": "1.5"
+      }
+    ]
+  },
+  {
+    "file": "planner-reference.css",
+    "selector": ".weekly-hero",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "position",
+        "value": "relative"
+      },
+      {
+        "property": "min-height",
+        "value": "204px"
+      },
+      {
+        "property": "display",
+        "value": "flex"
+      },
+      {
+        "property": "align-items",
+        "value": "center"
+      },
+      {
+        "property": "padding",
+        "value": "25px 31px 29px"
+      },
+      {
+        "property": "isolation",
+        "value": "isolate"
+      }
+    ]
+  },
+  {
+    "file": "planner-reference.css",
+    "selector": ".weekly-reference",
+    "scope": "(max-width: 1350px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "25px"
+      }
+    ]
+  },
+  {
+    "file": "planner-reference.css",
+    "selector": ".weekly-hero",
+    "scope": "(max-width: 1350px)",
+    "declarations": [
+      {
+        "property": "padding-left",
+        "value": "20px"
+      }
+    ]
+  },
+  {
+    "file": "planner-reference.css",
+    "selector": ".weekly-reference",
+    "scope": "(max-width: 680px)",
+    "declarations": [
+      {
+        "property": "padding",
+        "value": "0 16px 30px"
+      }
+    ]
+  },
+  {
+    "file": "planner-reference.css",
+    "selector": ".weekly-hero",
+    "scope": "(max-width: 680px)",
+    "declarations": [
+      {
+        "property": "min-height",
+        "value": "230px"
+      },
+      {
+        "property": "align-items",
+        "value": "flex-start"
+      },
+      {
+        "property": "padding",
+        "value": "26px 6px 22px"
+      }
+    ]
+  },
+  {
+    "file": "eatfit-reference.css",
+    "selector": ".eatfit-reference",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "--ef-ink",
+        "value": "#16372b"
+      },
+      {
+        "property": "--ef-green",
+        "value": "#087347"
+      },
+      {
+        "property": "max-width",
+        "value": "1400px"
+      },
+      {
+        "property": "margin",
+        "value": "auto"
+      },
+      {
+        "property": "padding",
+        "value": "0 36px 24px"
+      },
+      {
+        "property": "color",
+        "value": "var(--ef-ink)"
+      },
+      {
+        "property": "font-family",
+        "value": "'Plus Jakarta Sans Variable', sans-serif"
+      },
+      {
+        "property": "isolation",
+        "value": "isolate"
+      },
+      {
+        "property": "position",
+        "value": "relative"
+      }
+    ]
+  },
+  {
+    "file": "eatfit-reference.css",
+    "selector": ".eatfit-reference",
+    "scope": "(max-width: 1200px)",
+    "declarations": [
+      {
+        "property": "padding-inline",
+        "value": "24px"
+      }
+    ]
+  },
+  {
+    "file": "eatfit-reference.css",
+    "selector": ".eatfit-reference",
+    "scope": "(max-width: 600px)",
+    "declarations": [
+      {
+        "property": "padding",
+        "value": "0 16px 20px"
+      }
+    ]
+  },
+  {
+    "file": "eatfit-reference.css",
+    "selector": ".eatfit-reference",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "line-height",
+        "value": "1.45"
+      }
+    ]
+  },
+  {
+    "file": "tools-reference.css",
+    "selector": ".tools-reference",
+    "scope": "base",
+    "declarations": [
+      {
+        "property": "--tool-green",
+        "value": "#47735b"
+      },
+      {
+        "property": "--tool-dark",
+        "value": "#234734"
+      },
+      {
+        "property": "--tool-line",
+        "value": "#e2e8e0"
+      },
+      {
+        "property": "--tool-soft",
+        "value": "#e8f1e9"
+      },
+      {
+        "property": "--tool-muted",
+        "value": "#66746b"
+      },
+      {
+        "property": "color",
+        "value": "#273d32"
+      },
+      {
+        "property": "font-family",
+        "value": "'Be Vietnam Pro', sans-serif"
+      },
+      {
+        "property": "font-size",
+        "value": "14px"
+      },
+      {
+        "property": "line-height",
+        "value": "1.6"
+      },
+      {
+        "property": "max-width",
+        "value": "1240px"
+      },
+      {
+        "property": "padding",
+        "value": "0 28px 30px"
+      },
+      {
+        "property": "margin",
+        "value": "auto"
+      },
+      {
+        "property": "isolation",
+        "value": "isolate"
+      }
+    ]
+  },
+  {
+    "file": "tools-reference.css",
+    "selector": ".tools-reference",
+    "scope": "(max-width: 600px)",
+    "declarations": [
+      {
+        "property": "padding",
+        "value": "0 16px 24px"
+      },
+      {
+        "property": "font-size",
+        "value": "13px"
+      }
+    ]
+  }
+]

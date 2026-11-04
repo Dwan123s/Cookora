@@ -1,0 +1,681 @@
+/* Layout and artwork follow the user's 1672 × 941 reference. */
+body:has(:is(.pantry-photo-match, .discover-reference, .home-aligned)) {
+  background: #fcf8f0;
+  background-image: radial-gradient(ellipse at 50% 45%, #fffdf9 0%, #fcf8f0 85%);
+}
+body:has(:is(.pantry-photo-match, .discover-reference, .home-aligned)) #root > footer {
+  margin-top: 0;
+}
+.pantry-reference.pantry-photo-match {
+  --pantry-ink: #124822;
+  --pantry-green: #285b30;
+  --pantry-line: #ebe6de;
+  min-height: calc(100svh - 62px);
+  padding-block: 0 80px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #171a15;
+  isolation: isolate;
+}
+.pantry-photo-match .pantry-page-decoration {
+  position: absolute;
+  inset: 0 calc((100% - 100vw) / 2);
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.pantry-page-decoration > * {
+  position: absolute;
+}
+.pantry-corner-cloth {
+  width: 132px;
+  height: 190px;
+  left: 0;
+  top: 0;
+}
+.pantry-corner-leaves {
+  width: 137px;
+  height: 125px;
+  right: 0;
+  top: 0;
+}
+.pantry-bottom-leaves {
+  width: 98px;
+  height: 160px;
+  left: 0;
+  top: 588px;
+}
+.pantry-bottom-cloth {
+  right: -55px;
+  bottom: -55px;
+  width: 170px;
+  height: 200px;
+  transform: rotate(40deg);
+  background-color: #fffef5;
+  background-image:
+    repeating-linear-gradient(0deg, #b9c88555 0 16px, transparent 16px 32px),
+    repeating-linear-gradient(90deg, #b9c88555 0 16px, transparent 16px 32px);
+}
+.pantry-reference.pantry-photo-match .pantry-hero {
+  height: 188px;
+  min-height: 188px;
+  padding-block: 22px 24px;
+  padding-inline: 0;
+}
+.pantry-photo-match .pantry-hero-copy {
+  max-width: 560px;
+}
+.pantry-photo-match .pantry-title-row {
+  position: relative;
+  gap: 18px;
+  margin-left: -25px;
+}
+.pantry-photo-match .pantry-title-hat {
+  position: absolute;
+  left: -32px;
+  top: -8px;
+  width: 56px;
+  height: 56px;
+  color: #49483d;
+  fill: #fffcf4;
+  transform: rotate(-18deg);
+}
+.pantry-photo-match h1 {
+  font-family: 'Be Vietnam Pro Display', 'Be Vietnam Pro', sans-serif;
+  font-size: clamp(38px, 3vw, 50px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.2;
+  color: #285c2e;
+}
+.pantry-reference.pantry-photo-match .pantry-hero-copy > p {
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  margin: 10px 0 0;
+  max-width: 100%;
+  color: #292c27;
+}
+.pantry-reference.pantry-photo-match .pantry-board {
+  left: 47%;
+  top: 0;
+  width: 27%;
+  height: 188px;
+  mix-blend-mode: multiply;
+}
+.pantry-photo-match .pantry-note {
+  top: 25px;
+  right: 6.8%;
+  width: 239px;
+  min-height: 128px;
+  padding: 22px 23px;
+  background: linear-gradient(120deg, #fff4d8, #fff6df);
+  border: 0;
+  border-radius: 7px 8px 20px 5px;
+  box-shadow: 0 4px 3px #b7772833;
+  transform: rotate(-7deg);
+}
+.pantry-photo-match .pantry-note::before {
+  width: 51px;
+  height: 17px;
+  left: 17px;
+  top: -9px;
+  background: #efbc77bb;
+}
+.pantry-photo-match .pantry-note p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #161910;
+  font-weight: 700;
+}
+.pantry-reference.pantry-photo-match .pantry-workspace {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+  min-height: 484px;
+}
+.pantry-photo-match .pantry-input-card,
+.pantry-photo-match .pantry-results {
+  background: #fffcf9c9;
+  border: 1px solid #eae5dd;
+  border-radius: 24px;
+  box-shadow: 0 2px 6px #4c392314;
+}
+.pantry-photo-match .pantry-input-card {
+  padding: 17px 21px 15px;
+  min-width: 0;
+}
+.pantry-photo-match h2 {
+  font-size: 25px;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+.pantry-photo-match .pantry-input-card > h2 {
+  position: relative;
+  gap: 16px;
+  min-height: 40px;
+  margin-bottom: 3px;
+  padding-right: 100px;
+}
+.pantry-photo-match .pantry-input-card > h2 > svg:first-child {
+  width: 38px;
+  height: 38px;
+  color: #398a1b;
+}
+.pantry-photo-match .pantry-input-garnish {
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  width: 120px;
+  height: 47px;
+}
+.pantry-reference.pantry-photo-match textarea {
+  min-height: 116px;
+  height: 116px;
+  margin-bottom: 17px;
+  padding: 12px 17px;
+  border-color: #deddda;
+  background: #f8f7f8;
+  border-radius: 17px;
+  font-size: 14px;
+}
+.pantry-photo-match textarea::placeholder {
+  color: #53544f;
+}
+.pantry-photo-match .pantry-how {
+  padding: 7px 12px 13px;
+  border-radius: 18px;
+  background: #f5f6e9;
+}
+.pantry-photo-match .pantry-how h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: -0.65px;
+}
+.pantry-photo-match .pantry-steps {
+  grid-template-columns: 1fr 17px 1fr 17px 1fr;
+  gap: 13px;
+}
+.pantry-photo-match .pantry-steps > div {
+  display: flex;
+  gap: 9px;
+}
+.pantry-photo-match .pantry-steps > div > svg {
+  width: 44px;
+  height: 44px;
+  padding: 7px;
+  border-radius: 50%;
+  background: #eaf1cb;
+  color: #39871c;
+  stroke-width: 1.7;
+}
+.pantry-photo-match .pantry-steps strong {
+  font-size: 12px;
+  color: #151c11;
+  letter-spacing: -0.5px;
+  padding-top: 3px;
+}
+.pantry-photo-match .pantry-steps small {
+  font-size: 10px;
+  line-height: 1.7;
+  color: #242b1f;
+}
+.pantry-photo-match .pantry-step-arrow {
+  margin-top: 14px;
+  width: 17px;
+}
+.pantry-photo-match .pantry-controls {
+  gap: 9px;
+  margin: 12px 0 14px;
+  font-size: 12px;
+  color: #151915;
+  font-weight: 600;
+}
+.pantry-photo-match .pantry-controls select {
+  border-radius: 20px;
+  padding: 3px 9px;
+  font-size: 12px;
+  color: #141914;
+  background: transparent;
+}
+.pantry-photo-match .pantry-primary {
+  background: var(--cookora-primary-background);
+  min-height: 40px;
+  padding: 6px 15px;
+  font-size: 18px;
+  border-radius: 30px;
+  font-weight: 700;
+}
+.pantry-photo-match .pantry-primary:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}
+.pantry-photo-match .pantry-primary:disabled > span {
+  opacity: 0.95;
+}
+.pantry-photo-match .pantry-input-hint {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #33382e;
+}
+.pantry-photo-match .pantry-save-status {
+  margin-top: 9px;
+  gap: 8px;
+  font-size: 11px;
+  color: #1d241b;
+}
+.pantry-photo-match .pantry-save-status > span > svg {
+  color: #215c30;
+}
+.pantry-photo-match .pantry-save-status button {
+  background: #edf3d8;
+  border: 0;
+  border-radius: 24px;
+  padding: 8px 13px;
+  color: #214e24;
+  font-size: 11px;
+  font-weight: 700;
+}
+.pantry-photo-match .pantry-results {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 21px 0;
+}
+.pantry-photo-match .pantry-results-heading {
+  padding: 0 0 11px;
+  border-bottom: 1px solid #e3e1db;
+  flex-wrap: nowrap;
+}
+.pantry-photo-match .pantry-results-heading h2 {
+  font-size: 25px;
+  gap: 13px;
+}
+.pantry-photo-match .pantry-results-heading h2 > svg {
+  width: 28px;
+  height: 34px;
+  color: #2b7320;
+}
+.pantry-photo-match .pantry-results-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  font-size: 11px;
+  background: #edf3d8;
+}
+.pantry-photo-match .pantry-empty-state {
+  flex: 1;
+  gap: 9px;
+  padding: 37px 12px 55px;
+  color: #151914;
+}
+.pantry-photo-match .pantry-empty-pot {
+  width: 330px;
+  max-width: 85%;
+  height: auto;
+  aspect-ratio: 330 / 177;
+  mix-blend-mode: multiply;
+}
+.pantry-photo-match .pantry-empty-pot,
+.pantry-photo-match .pantry-empty-arrow,
+.pantry-photo-match .pantry-board,
+.pantry-photo-match .pantry-input-garnish {
+  mask-image:
+    linear-gradient(to right, transparent, #000 4%, #000 96%, transparent),
+    linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
+  mask-composite: intersect;
+}
+.pantry-photo-match .pantry-empty-copy {
+  position: relative;
+}
+.pantry-photo-match .pantry-empty-copy h3 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 0 0 8px;
+  line-height: 1.4;
+  color: #080c08;
+}
+.pantry-photo-match .pantry-empty-copy p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #30332e;
+}
+.pantry-photo-match .pantry-empty-copy > .pantry-rays {
+  position: absolute;
+  right: 3px;
+  top: -28px;
+  width: 30px;
+  height: 37px;
+}
+.pantry-photo-match .pantry-empty-arrow {
+  position: absolute;
+  left: -83px;
+  bottom: 0;
+  width: 86px;
+  height: 36px;
+  mix-blend-mode: multiply;
+}
+.pantry-reference.pantry-photo-match .pantry-values {
+  margin: 17px 0 0;
+  min-height: 77px;
+  padding: 14px 30px;
+  border: 1px solid #fff;
+  border-radius: 44px;
+  background: #f9f9edc9;
+  box-shadow: 0 3px 5px #4c392310;
+  gap: 20px;
+}
+.pantry-photo-match .pantry-values > div {
+  gap: 24px;
+  padding-left: 0;
+  justify-content: center;
+  border-color: #dadccc;
+}
+.pantry-photo-match .pantry-values svg {
+  color: #37871b;
+  width: 43px;
+  height: 43px;
+}
+.pantry-photo-match .pantry-values strong {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+}
+.pantry-photo-match .pantry-values small {
+  font-size: 12px;
+  color: #393e33;
+  margin-top: 4px;
+}
+body:has(:is(.pantry-photo-match, .discover-reference, .home-aligned)) .cooking-chat-launcher {
+  width: 90px;
+  height: 90px;
+  border-width: 3px;
+}
+body:has(:is(.pantry-photo-match, .discover-reference, .home-aligned)) .cooking-chat-launcher > img {
+  width: 78px;
+  height: 78px;
+}
+body:has(:is(.pantry-photo-match, .discover-reference, .home-aligned)) .cooking-chat-launcher.is-open {
+  width: 64px;
+  height: 64px;
+}
+@media (max-width: 1450px) and (min-width: 1001px) {
+  .pantry-photo-match .pantry-hero-copy {
+    max-width: 47%;
+  }
+  .pantry-reference.pantry-photo-match .pantry-hero-copy > p {
+    font-size: 14px;
+  }
+  .pantry-photo-match .pantry-note {
+    width: 204px;
+    right: 4%;
+    padding: 18px;
+  }
+  .pantry-photo-match .pantry-note p {
+    font-size: 14px;
+  }
+  .pantry-photo-match .pantry-input-card > h2 {
+    padding-right: 65px;
+    font-size: 21px;
+    gap: 9px;
+  }
+  .pantry-photo-match .pantry-input-garnish {
+    width: 80px;
+  }
+  .pantry-photo-match .pantry-steps {
+    gap: 7px;
+  }
+  .pantry-photo-match .pantry-steps > div {
+    gap: 5px;
+  }
+  .pantry-photo-match .pantry-steps > div > svg {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+  }
+  .pantry-photo-match .pantry-steps strong {
+    font-size: 10px;
+  }
+  .pantry-photo-match .pantry-steps small {
+    font-size: 9px;
+  }
+  .pantry-photo-match .pantry-values > div {
+    gap: 14px;
+  }
+  .pantry-photo-match .pantry-values strong {
+    font-size: 12px;
+  }
+  .pantry-photo-match .pantry-values small {
+    font-size: 11px;
+  }
+}
+@media (max-width: 1000px) {
+  .pantry-reference.pantry-photo-match {
+    padding-bottom: 40px;
+  }
+  .pantry-reference.pantry-photo-match .pantry-hero {
+    height: 200px;
+    min-height: 200px;
+    padding-block: 24px;
+  }
+  .pantry-photo-match .pantry-hero-copy {
+    max-width: 64%;
+  }
+  .pantry-photo-match h1 {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+  }
+  .pantry-reference.pantry-photo-match .pantry-hero-copy > p {
+    font-size: 13px;
+  }
+  .pantry-photo-match .pantry-title-hat {
+    left: -35px;
+    width: 37px;
+    height: 37px;
+  }
+  .pantry-photo-match .pantry-title-row {
+    margin-left: 0;
+  }
+  .pantry-photo-match .pantry-note {
+    display: none;
+  }
+  .pantry-reference.pantry-photo-match .pantry-board {
+    left: auto;
+    right: 0;
+    width: 35%;
+    height: 175px;
+    top: 15px;
+  }
+  .pantry-photo-match .pantry-corner-cloth {
+    width: 65px;
+    height: auto;
+  }
+  .pantry-photo-match .pantry-corner-leaves {
+    width: 70px;
+    height: auto;
+  }
+  .pantry-reference.pantry-photo-match .pantry-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    min-height: 0;
+  }
+  .pantry-photo-match .pantry-input-card {
+    padding: 18px 21px;
+  }
+  .pantry-photo-match .pantry-results {
+    min-height: 430px;
+    padding: 17px 21px 0;
+  }
+  .pantry-photo-match .pantry-empty-state {
+    padding: 28px 15px 35px;
+  }
+  .pantry-photo-match .pantry-steps > div {
+    display: flex;
+  }
+  .pantry-reference.pantry-photo-match .pantry-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 25px;
+    gap: 24px 18px;
+    padding: 22px;
+  }
+  .pantry-photo-match .pantry-values > div {
+    justify-content: flex-start;
+    gap: 13px;
+    border: 0;
+  }
+  body:has(:is(.pantry-photo-match, .discover-reference, .home-aligned)) .cooking-chat-launcher {
+    width: 64px;
+    height: 64px;
+  }
+  body:has(:is(.pantry-photo-match, .discover-reference, .home-aligned)) .cooking-chat-launcher > img {
+    width: 55px;
+    height: 55px;
+  }
+}
+@media (max-width: 520px) {
+  .pantry-reference.pantry-photo-match .pantry-hero {
+    height: 228px;
+    min-height: 228px;
+    padding-block: 28px 18px;
+    align-items: flex-start;
+  }
+  .pantry-photo-match .pantry-hero-copy {
+    max-width: 100%;
+  }
+  .pantry-photo-match h1 {
+    font-size: 33px;
+    letter-spacing: -1.5px;
+  }
+  .pantry-photo-match .pantry-title-hat {
+    width: 32px;
+    height: 32px;
+    top: -15px;
+    left: -20px;
+  }
+  .pantry-photo-match .pantry-title-row {
+    gap: 7px;
+  }
+  .pantry-photo-match .pantry-rays {
+    transform: scale(0.8);
+  }
+  .pantry-reference.pantry-photo-match .pantry-hero-copy > p {
+    max-width: 64%;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 14px;
+  }
+  .pantry-photo-match .pantry-wide-break {
+    display: none;
+  }
+  .pantry-reference.pantry-photo-match .pantry-board {
+    width: 45%;
+    height: 125px;
+    top: 94px;
+    right: -5px;
+  }
+  .pantry-photo-match .pantry-input-card {
+    padding: 14px;
+  }
+  .pantry-photo-match .pantry-input-card > h2 {
+    gap: 7px;
+    font-size: 18px;
+    letter-spacing: -0.8px;
+    padding-right: 0;
+  }
+  .pantry-photo-match .pantry-input-card > h2 > svg:first-child {
+    width: 27px;
+    height: 27px;
+  }
+  .pantry-photo-match .pantry-input-garnish {
+    display: none;
+  }
+  .pantry-reference.pantry-photo-match textarea {
+    font-size: 12px;
+    padding: 12px;
+  }
+  .pantry-photo-match .pantry-how {
+    padding: 10px;
+  }
+  .pantry-photo-match .pantry-how h3 {
+    font-size: 14px;
+  }
+  .pantry-photo-match .pantry-steps {
+    gap: 5px;
+    grid-template-columns: 1fr 10px 1fr 10px 1fr;
+  }
+  .pantry-photo-match .pantry-steps > div {
+    display: block;
+  }
+  .pantry-photo-match .pantry-steps > div > svg {
+    width: 34px;
+    height: 34px;
+    padding: 5px;
+    margin-bottom: 4px;
+  }
+  .pantry-photo-match .pantry-steps strong {
+    font-size: 10px;
+    white-space: normal;
+  }
+  .pantry-photo-match .pantry-steps small {
+    font-size: 9px;
+  }
+  .pantry-photo-match .pantry-step-arrow {
+    width: 10px;
+    margin-top: 40px;
+  }
+  .pantry-photo-match .pantry-primary {
+    font-size: 15px;
+  }
+  .pantry-photo-match .pantry-input-hint {
+    font-size: 9px;
+  }
+  .pantry-photo-match .pantry-save-status {
+    font-size: 10px;
+  }
+  .pantry-photo-match .pantry-save-status button {
+    margin-left: auto;
+    font-size: 10px;
+  }
+  .pantry-photo-match .pantry-results {
+    padding-inline: 15px;
+    min-height: 390px;
+  }
+  .pantry-photo-match .pantry-results-heading h2 {
+    font-size: 20px;
+    gap: 7px;
+  }
+  .pantry-photo-match .pantry-results-heading > span {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+  .pantry-photo-match .pantry-empty-copy h3 {
+    font-size: 21px;
+  }
+  .pantry-photo-match .pantry-empty-copy p {
+    font-size: 12px;
+  }
+  .pantry-photo-match .pantry-empty-arrow {
+    display: none;
+  }
+  .pantry-reference.pantry-photo-match .pantry-values {
+    padding: 18px 13px;
+    gap: 20px 12px;
+  }
+  .pantry-photo-match .pantry-values > div {
+    gap: 8px;
+  }
+  .pantry-photo-match .pantry-values svg {
+    width: 28px;
+    height: 32px;
+  }
+  .pantry-photo-match .pantry-values strong {
+    font-size: 10px;
+  }
+  .pantry-photo-match .pantry-values small {
+    font-size: 9px;
+  }
+  .pantry-photo-match .pantry-bottom-leaves {
+    display: none;
+  }
+}

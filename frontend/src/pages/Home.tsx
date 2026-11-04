@@ -212,24 +212,24 @@ export function Home() {
   if (catalog.isError) return <ErrorState error={catalog.error} retry={() => void catalog.refetch()} />;
   if (!FEATURED_DISHES.length) return <p className="container">Chưa có công thức trong danh mục.</p>;
   return (
-    <div className="bg-[#FAF9F6] text-[#273D32] min-h-screen">
+    <div className="home-aligned bg-[#FAF9F6] text-[#273D32] min-h-screen">
       {/* 1. HERO SECTION (Sage Green & Warm Cream - Modern Food Editorial matching Image 1) */}
-      <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24">
+      <section className="home-hero relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24">
         {/* Decorative Botanical & Culinary Elements */}
-        <div className="pointer-events-none absolute -top-4 -left-4 w-44 sm:w-60 lg:w-72 z-0 opacity-80 select-none">
+        <div className="home-hero-decoration pointer-events-none absolute -top-4 -left-4 w-44 sm:w-60 lg:w-72 z-0 opacity-80 select-none">
           <img src="/images/hero/leaf-top-left.png" alt="" className="w-full h-auto object-contain" />
         </div>
-        <div className="pointer-events-none absolute -top-4 -right-4 w-44 sm:w-60 lg:w-72 z-0 opacity-80 select-none">
+        <div className="home-hero-decoration home-hero-leaf pointer-events-none absolute -top-4 -right-4 w-44 sm:w-60 lg:w-72 z-0 opacity-80 select-none">
           <img src="/images/hero/leaf-top-right.png" alt="" className="w-full h-auto object-contain" />
         </div>
-        <div className="pointer-events-none absolute left-3 sm:left-6 lg:left-12 top-[44%] -translate-y-1/2 w-16 sm:w-24 lg:w-28 z-10 hidden sm:block select-none drop-shadow-md">
+        <div className="home-hero-decoration pointer-events-none absolute left-3 sm:left-6 lg:left-12 top-[44%] -translate-y-1/2 w-16 sm:w-24 lg:w-28 z-10 hidden sm:block select-none drop-shadow-md">
           <img
             src="/images/hero/tomato-transparent.png"
             alt="Cà chua tươi"
             className="w-full h-auto object-contain"
           />
         </div>
-        <div className="pointer-events-none absolute right-3 sm:right-6 lg:right-12 bottom-6 sm:bottom-10 w-24 sm:w-32 lg:w-40 z-10 hidden sm:block select-none drop-shadow-md">
+        <div className="home-hero-decoration pointer-events-none absolute right-3 sm:right-6 lg:right-12 bottom-6 sm:bottom-10 w-24 sm:w-32 lg:w-40 z-10 hidden sm:block select-none drop-shadow-md">
           <img
             src="/images/hero/rosemary-transparent.png"
             alt="Hương thảo"
@@ -238,14 +238,14 @@ export function Home() {
         </div>
 
         {/* Ambient Warm Editorial Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#E8F1E9]/35 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="home-hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#E8F1E9]/35 rounded-full blur-3xl pointer-events-none -z-10" />
 
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
+        <div className="home-container max-w-[1280px] mx-auto px-4 sm:px-8 relative z-10">
+          <div className="home-hero-grid grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
             {/* Left Column: Eyebrow, Title, Description, Buttons, Meta */}
-            <div className="lg:col-span-6 space-y-6 lg:pr-2">
+            <div className="home-hero-copy lg:col-span-6 space-y-6 lg:pr-2">
               {/* Eyebrow */}
-              <div className="flex items-center gap-2.5">
+              <div className="home-eyebrow flex items-center gap-2.5">
                 <span className="w-6 h-[2px] bg-[#47735B]" />
                 <span className="text-xs uppercase font-bold tracking-[0.2em] text-[#47735B]">
                   Bếp nhà cùng Cookora
@@ -263,15 +263,20 @@ export function Home() {
                   />
                 </span>
               </h1>
+              <span className="home-title-rays" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
 
               {/* Description */}
-              <p className="text-[#5C7065] text-base sm:text-[16.5px] leading-[1.8] max-w-lg">
+              <p className="home-hero-description text-[#5C7065] text-base sm:text-[16.5px] leading-[1.8] max-w-lg">
                 Khám phá công thức dễ làm, lên thực đơn thông minh và chăm sóc từng bữa ăn – tất cả trong một
                 không gian bếp nhỏ thư thái của riêng bạn.
               </p>
 
               {/* CTAs matching Image 1 */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-1">
+              <div className="home-hero-actions flex flex-wrap items-center gap-3.5 pt-1">
                 <Link
                   to="/cong-thuc"
                   className="bg-[#3E6B52] hover:bg-[#325742] text-white px-7 py-3 rounded-full font-semibold text-[14.5px] shadow-sm hover:shadow-md hover:-translate-y-0.5 inline-flex items-center gap-2 transition duration-200"
@@ -288,7 +293,7 @@ export function Home() {
               </div>
 
               {/* 3 Value Pillars */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-5 border-t border-[#DFE5DD]/70 text-xs sm:text-[13px] text-[#5C7065]">
+              <div className="home-hero-values flex flex-wrap items-center gap-4 sm:gap-6 pt-5 border-t border-[#DFE5DD]/70 text-xs sm:text-[13px] text-[#5C7065]">
                 <span className="flex items-center gap-2 font-medium">
                   <Leaf size={15} className="text-[#47735B]" /> Dễ nấu mỗi ngày
                 </span>
@@ -305,13 +310,13 @@ export function Home() {
 
             {/* Right Column: Interactive Food Card Showcase with Carousel Arrows */}
             <div
-              className="lg:col-span-6 flex flex-col items-center lg:items-end relative"
+              className="home-hero-carousel lg:col-span-6 flex flex-col items-center lg:items-end relative"
               onMouseEnter={() => setIsHeroHovered(true)}
               onMouseLeave={() => setIsHeroHovered(false)}
             >
-              <div className="relative w-full max-w-[540px]">
+              <div className="home-carousel-frame relative w-full max-w-[540px]">
                 {/* Food photo container with overlay */}
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-[28px] sm:rounded-[36px] overflow-hidden bg-stone-100 border-2 border-white shadow-[0_20px_50px_-10px_rgba(39,61,50,0.12)]">
+                <div className="home-carousel-photo relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-[28px] sm:rounded-[36px] overflow-hidden bg-stone-100 border-2 border-white shadow-[0_20px_50px_-10px_rgba(39,61,50,0.12)]">
                   {HERO_SLIDES.map((slide, idx) => (
                     <img
                       key={slide.image}
@@ -349,10 +354,10 @@ export function Home() {
                   </button>
 
                   {/* Bottom gradient caption */}
-                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 via-black/35 to-transparent pointer-events-none" />
+                  <div className="home-carousel-shade absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/80 via-black/35 to-transparent pointer-events-none" />
 
                   {/* Inside Food Caption Bottom-Left */}
-                  <div className="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 text-white pointer-events-none z-10">
+                  <div className="home-carousel-caption absolute bottom-5 left-5 sm:bottom-6 sm:left-6 text-white pointer-events-none z-10">
                     <p className="text-[11px] font-bold uppercase tracking-wider text-[#E8F1E9] drop-shadow-xs mb-1">
                       {HERO_SLIDES[heroSlide].tag}
                     </p>
@@ -376,7 +381,7 @@ export function Home() {
                 </div>
 
                 {/* Overlapping Checklist Note: Hôm nay ăn gì? matching Image 1 */}
-                <div className="animate-note-float absolute -bottom-5 -right-2 sm:-right-5 z-30 bg-white/95 backdrop-blur-xs border border-[#E9D9C7] rounded-2xl p-4 sm:p-5 shadow-[0_14px_35px_rgba(39,61,50,0.12)] w-48 sm:w-56 text-xs">
+                <div className="home-carousel-note animate-note-float absolute -bottom-5 -right-2 sm:-right-5 z-30 bg-white/95 backdrop-blur-xs border border-[#E9D9C7] rounded-2xl p-4 sm:p-5 shadow-[0_14px_35px_rgba(39,61,50,0.12)] w-48 sm:w-56 text-xs">
                   <div className="flex items-center justify-between mb-2.5 pb-2 border-b border-[#E9D9C7]/80">
                     <span className="font-semibold text-[#273D32] text-xs sm:text-[13px]">
                       Hôm nay ăn gì?
@@ -407,7 +412,7 @@ export function Home() {
               </div>
 
               {/* Carousel Pagination Dots */}
-              <div className="flex items-center justify-center gap-2 mt-5 sm:mt-6">
+              <div className="home-carousel-dots flex items-center justify-center gap-2 mt-5 sm:mt-6">
                 {HERO_SLIDES.map((_, idx) => (
                   <button
                     key={idx}
@@ -426,7 +431,7 @@ export function Home() {
       </section>
 
       {/* 2. EIGHT QUICK ACCESS BAR - UNIFIED FLOATING ROW CONTAINER MATCHING IMAGE 1 */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 -mt-4 sm:-mt-6 mb-20 relative z-20">
+      <section className="home-container home-quick max-w-[1280px] mx-auto px-4 sm:px-6 -mt-4 sm:-mt-6 mb-20 relative z-20">
         <div className="bg-white/95 backdrop-blur-sm rounded-[28px] p-3 sm:p-4 border border-[#DFE5DD] shadow-[0_12px_36px_rgba(39,61,50,0.06)] grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 sm:gap-2.5">
           {QUICK_NAV.map((tile) => {
             const Icon = tile.icon;
@@ -454,7 +459,7 @@ export function Home() {
       </section>
 
       {/* 3. SECTION: GỢI Ý MÓN NGON CHO BẠN (EDITORIAL CENTERED HEADING MATCHING IMAGE 1) */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
+      <section className="home-container home-recommendations max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
           <div className="flex items-center justify-center gap-3 mb-2">
             <span className="w-8 h-[1px] bg-[#47735B]/40" />
@@ -469,7 +474,7 @@ export function Home() {
           <p className="text-xs sm:text-sm text-[#5C7065] mt-1.5 leading-relaxed">
             Khám phá món ngon và chọn công thức cho bữa ăn hôm nay.
           </p>
-          <div className="mt-3">
+          <div className="home-recommendations-link mt-3">
             <Link
               to="/cong-thuc"
               className="text-xs sm:text-sm font-semibold text-[#47735B] hover:text-[#3B634F] inline-flex items-center gap-1 transition"
@@ -484,9 +489,9 @@ export function Home() {
             <Link
               key={dish.id}
               to={`/cong-thuc/${dish.slug}`}
-              className="bg-white rounded-2xl overflow-hidden border border-[#DFE5DD] shadow-2xs hover:shadow-sm hover:-translate-y-1 transition duration-300 group flex flex-col"
+              className="discover-recipe-card home-recipe-card group flex flex-col"
             >
-              <div className="relative aspect-4/3 overflow-hidden bg-stone-100">
+              <div className="discover-recipe-photo relative overflow-hidden">
                 <img
                   src={dish.image}
                   alt={dish.title}
@@ -497,20 +502,20 @@ export function Home() {
                 />
                 <button
                   onClick={(e) => toggleFav(dish.id, e)}
-                  className="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-[#5C7065] hover:text-[#B25D65] shadow-xs transition"
+                  className="home-recipe-favorite absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-[#5C7065] hover:text-[#B25D65] shadow-xs transition"
                   title="Lưu món"
+                  aria-label={`Lưu ${dish.title}`}
+                  aria-pressed={!!favorites[dish.id]}
                 >
                   <Heart size={15} className={favorites[dish.id] ? 'fill-[#B25D65] text-[#B25D65]' : ''} />
                 </button>
-                <span className="absolute bottom-2.5 left-2.5 px-2.5 py-0.5 rounded-md bg-[#273D32]/80 backdrop-blur-xs text-[11px] font-medium text-white">
-                  {dish.cuisine}
-                </span>
+                <span className="discover-cuisine-badge">{dish.cuisine}</span>
               </div>
-              <div className="p-4 flex-1 flex flex-col justify-between">
+              <div className="discover-recipe-body flex-1 flex flex-col justify-between">
                 <h3 className="font-semibold text-[#273D32] text-base mb-2 group-hover:text-[#47735B] transition line-clamp-1">
                   {dish.title}
                 </h3>
-                <div className="flex items-center justify-between text-xs text-[#5C7065]">
+                <div className="discover-dish-meta flex items-center text-xs">
                   <span className="flex items-center gap-1">
                     <Clock size={12} className="text-[#5C7065]" /> {dish.time}
                   </span>
@@ -525,7 +530,7 @@ export function Home() {
       </section>
 
       {/* 4. PROMINENT 3D CURVED REELS CAROUSEL */}
-      <section className="max-w-[1360px] mx-auto px-4 sm:px-8 mb-24">
+      <section className="home-container home-reels max-w-[1360px] mx-auto px-4 sm:px-8 mb-24">
         <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
           <p className="text-xs uppercase font-bold tracking-[0.2em] text-[#47735B]">
             Thước phim bữa cơm nhà
@@ -541,7 +546,7 @@ export function Home() {
       </section>
 
       {/* 5. SECTION: KHÁM PHÁ ẨM THỰC THEO QUỐC GIA */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
+      <section className="home-container home-cuisines max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
         <div className="flex items-center justify-between gap-4 mb-6">
           <div>
             <div className="flex items-center gap-2.5 text-[#273D32] font-semibold text-2xl">
@@ -592,13 +597,15 @@ export function Home() {
       </section>
 
       {/* 5. TWO-COLUMN UTILITY SECTION: CÓ GÌ NẤU NẤY & LÊN THỰC ĐƠN TUẦN */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-16">
+      <section className="home-container home-utilities max-w-[1280px] mx-auto px-4 sm:px-6 mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left Card: Có gì nấu nấy (White card with clean border) */}
           <div className="lg:col-span-6 bg-white rounded-2xl p-6 sm:p-7 border border-[#DFE5DD] shadow-2xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-1 h-5 bg-[#47735B] rounded-full inline-block" />
+                <span className="home-utility-icon">
+                  <ChefHat size={25} strokeWidth={1.6} aria-hidden="true" />
+                </span>
                 <h3 className="text-xl font-semibold text-[#273D32]">Có gì nấu nấy</h3>
               </div>
               <p className="text-xs sm:text-sm text-[#5C7065] leading-relaxed mb-5">
@@ -610,6 +617,7 @@ export function Home() {
               <form onSubmit={addPantryItem} className="relative mb-3">
                 <input
                   type="text"
+                  aria-label="Nguyên liệu đang có"
                   placeholder="Nhập nguyên liệu (ví dụ: trứng, cà chua, hành lá...)"
                   value={pantryInput}
                   onChange={(e) => setPantryInput(e.target.value)}
@@ -629,6 +637,7 @@ export function Home() {
                     <button
                       type="button"
                       onClick={() => removePantryItem(item)}
+                      aria-label={`Bỏ ${item}`}
                       className="hover:text-red-500 transition ml-0.5"
                     >
                       <X size={12} />
@@ -659,7 +668,9 @@ export function Home() {
           <div className="lg:col-span-6 bg-white rounded-2xl p-6 sm:p-7 border border-[#DFE5DD] shadow-2xs flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-1 h-5 bg-[#47735B] rounded-full inline-block" />
+                <span className="home-utility-icon">
+                  <Calendar size={25} strokeWidth={1.6} aria-hidden="true" />
+                </span>
                 <h3 className="text-xl font-semibold text-[#273D32]">Lên thực đơn tuần</h3>
               </div>
               <p className="text-xs sm:text-sm text-[#5C7065] leading-relaxed mb-5">
@@ -699,7 +710,7 @@ export function Home() {
       </section>
 
       {/* 6. FEATURE CARDS (Eat Fit, Chi Phí) */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
+      <section className="home-container home-features max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Eat Fit */}
           <Link
@@ -746,7 +757,7 @@ export function Home() {
       </section>
 
       {/* 7. SECTION: MẸO VÀO BẾP */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
+      <section className="home-container home-tips max-w-[1280px] mx-auto px-4 sm:px-6 mb-20">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
           <div>
             <div className="flex items-center gap-2.5 text-[#273D32] font-semibold text-2xl">
@@ -797,7 +808,7 @@ export function Home() {
       </section>
 
       {/* 8. BOTTOM CALLOUT BANNER (High contrast, clearly visible) */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6">
+      <section className="home-container home-closing max-w-[1280px] mx-auto px-4 sm:px-6">
         <div className="bg-[#1C3225] rounded-3xl p-8 sm:p-10 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border border-[#274734]">
           <div className="space-y-2 text-center md:text-left">
             <h2

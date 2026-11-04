@@ -1,0 +1,1272 @@
+/* Visual alignment only: the nine existing sections, data and interactions stay in Home.tsx. */
+.home-aligned {
+  position: relative;
+  background: var(--cookora-cream);
+  color: var(--cookora-ink);
+  font-family: var(--cookora-font);
+  padding-bottom: 48px;
+  overflow: clip;
+}
+.home-aligned *,
+.home-aligned *::before,
+.home-aligned *::after {
+  box-sizing: border-box;
+}
+.home-aligned button,
+.home-aligned input {
+  font-family: inherit;
+}
+.home-aligned :focus-visible {
+  outline: 3px solid #7da65b;
+  outline-offset: 4px;
+}
+.home-aligned .home-container {
+  margin-inline: auto;
+}
+.home-aligned > .home-container {
+  margin-top: 0;
+  margin-bottom: 44px;
+}
+.home-aligned p {
+  color: var(--cookora-muted);
+}
+.home-aligned h2 {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.9px;
+  line-height: 1.3;
+  color: var(--cookora-forest);
+}
+.home-aligned h3 {
+  color: var(--cookora-forest);
+}
+.home-aligned .home-hero {
+  padding: 24px 0 32px;
+  background: var(--cookora-cream);
+}
+.home-aligned .home-hero-grid {
+  gap: 56px;
+  padding-inline: 0;
+}
+.home-aligned .home-hero-copy {
+  position: relative;
+  padding-right: 0;
+  min-width: 0;
+}
+.home-aligned .home-eyebrow {
+  color: var(--cookora-forest);
+}
+.home-aligned .home-eyebrow > span:first-child {
+  background: var(--cookora-forest);
+  width: 20px;
+}
+.home-aligned .home-eyebrow > span:last-child {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--cookora-forest);
+}
+.home-aligned .home-hero-heading {
+  margin-top: 11px;
+  font-family: var(--cookora-display);
+  font-size: clamp(34px, 3vw, 43px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.22;
+  color: var(--cookora-forest);
+}
+.home-aligned .home-hero-heading-accent {
+  color: var(--cookora-forest);
+}
+.home-aligned .home-hero-description {
+  max-width: 475px;
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--cookora-muted);
+}
+.home-title-rays {
+  position: absolute;
+  right: 3%;
+  top: 58px;
+  display: block;
+  width: 28px;
+  height: 39px;
+  margin: 0 !important;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+.home-title-rays i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 18px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--cookora-orange);
+}
+.home-title-rays i:nth-child(2) {
+  bottom: 14px;
+  transform: rotate(-33deg);
+}
+.home-title-rays i:nth-child(3) {
+  bottom: 28px;
+  right: 10px;
+  transform: rotate(-65deg);
+}
+.home-aligned .home-hero-decoration,
+.home-aligned .home-hero-glow {
+  display: none;
+}
+.home-aligned .home-hero-leaf {
+  display: none;
+  width: 90px;
+  right: -26px;
+  top: -26px;
+  opacity: 0.55;
+}
+.home-aligned .home-hero-actions {
+  gap: 12px;
+  padding-top: 0;
+  margin-top: 20px;
+}
+.home-aligned .home-hero-actions > a,
+.home-aligned .btn-cta-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 10px 22px;
+  border: 1px solid transparent;
+  border-radius: 28px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  box-shadow: 0 2px 4px #24482c12;
+}
+.home-aligned .home-hero-actions > a:first-child,
+.home-aligned .btn-cta-primary {
+  background: var(--cookora-primary-background) !important;
+  color: #fff !important;
+}
+.home-aligned .home-hero-actions > a:first-child:hover,
+.home-aligned .btn-cta-primary:hover {
+  background: var(--cookora-forest-hover) !important;
+  box-shadow: 0 4px 10px #254b2820 !important;
+  transform: translateY(-1px) !important;
+}
+.home-aligned .home-hero-actions > a:last-child {
+  border-color: var(--cookora-border);
+  background: var(--cookora-surface);
+  color: var(--cookora-forest);
+}
+.home-aligned .home-hero-actions > a:last-child:hover {
+  background: var(--cookora-sage);
+}
+.home-aligned .home-hero-values {
+  font-size: 11px;
+  gap: 12px;
+  margin-top: 19px;
+  padding-top: 13px;
+  border-color: var(--cookora-border);
+}
+.home-aligned .home-hero-values svg {
+  color: var(--cookora-forest);
+  stroke-width: 1.6;
+}
+.home-aligned .home-hero-carousel {
+  min-width: 0;
+}
+.home-aligned .home-carousel-frame {
+  max-width: 560px;
+}
+.home-aligned .home-carousel-photo {
+  aspect-ratio: 1.55;
+  border: 1px solid var(--cookora-border);
+  border-radius: 22px;
+  box-shadow: 0 4px 14px #45371e15;
+  background: #f0efe7;
+}
+.home-aligned .home-carousel-photo > button {
+  border: 1px solid #ffffffe0;
+  box-shadow: var(--cookora-shadow-card);
+  width: 37px;
+  height: 37px;
+  color: var(--cookora-forest);
+}
+.home-aligned .home-carousel-shade {
+  height: 145px;
+  background: linear-gradient(transparent, #101d14b3);
+}
+.home-aligned .home-carousel-caption {
+  right: 155px;
+  left: 19px;
+  bottom: 18px;
+}
+.home-aligned .home-carousel-caption > p {
+  color: #edf3df;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+.home-aligned .home-carousel-caption h3 {
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-shadow: 0 1px 3px #101d1433;
+}
+.home-aligned .home-carousel-caption > div {
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11px;
+}
+.home-aligned .home-carousel-caption > div > span:last-child {
+  background: #285a35;
+}
+.home-aligned .home-carousel-note {
+  animation: none;
+  transform: rotate(-3deg);
+  width: 169px;
+  padding: 14px 15px;
+  bottom: -13px;
+  right: -18px;
+  border-radius: 7px 7px 18px 7px;
+  border-color: #eddfc3;
+  background: #fff5df;
+  box-shadow: 0 3px 5px #6c4b241c;
+  backdrop-filter: none;
+}
+.home-aligned .home-carousel-note::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: -7px;
+  width: 43px;
+  height: 14px;
+  transform: rotate(-2deg);
+  background: #edc588b3;
+}
+.home-aligned .home-carousel-note > div:first-child {
+  border-color: #e6d7b7;
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+}
+.home-aligned .home-carousel-note p {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #384b35;
+}
+.home-aligned .home-carousel-note p > span {
+  background: #e6edcf;
+  color: #2a602e;
+}
+.home-aligned .home-carousel-dots {
+  margin-top: 19px;
+  align-self: center;
+}
+.home-aligned .home-carousel-dots button {
+  background: #d9dfce;
+}
+.home-aligned .home-carousel-dots button.w-6 {
+  background: var(--cookora-forest);
+}
+.home-aligned .home-quick {
+  margin-top: 0;
+  margin-bottom: 38px;
+}
+.home-aligned .home-quick > div {
+  padding: 12px 15px;
+  gap: 4px;
+  background: var(--cookora-surface);
+  border: 1px solid var(--cookora-border);
+  border-radius: 20px;
+  box-shadow: var(--cookora-shadow-card);
+  backdrop-filter: none;
+}
+.home-aligned .home-quick a {
+  padding: 8px;
+  border: 0;
+  border-radius: 16px;
+  gap: 0;
+}
+.home-aligned .home-quick a:hover {
+  background: #f0f4e4;
+}
+.home-aligned .home-quick a > div {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: var(--cookora-sage);
+  color: var(--cookora-forest);
+  box-shadow: none;
+}
+.home-aligned .home-quick a:hover > div {
+  transform: translateY(-2px);
+}
+.home-aligned .home-quick a > span:first-of-type {
+  font-size: 13px;
+  font-weight: 500;
+  color: #234c2c;
+  line-height: 1.35;
+  max-width: 108px;
+}
+.home-aligned .home-quick a > span:last-child:not(:first-of-type) {
+  color: var(--cookora-muted);
+}
+.home-aligned .home-recommendations > div:first-child,
+.home-aligned .home-reels > div:first-child {
+  margin-bottom: 24px;
+  max-width: 680px;
+}
+.home-aligned .home-recommendations > div:first-child > div:first-child > p,
+.home-aligned .home-reels > div:first-child > p:first-child {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #4c7041;
+}
+.home-aligned .home-recommendations h2 svg {
+  width: 23px;
+  stroke-width: 1.5;
+  color: #4b7b35;
+}
+.home-aligned .home-recommendations p,
+.home-aligned .home-reels p {
+  font-size: 13px;
+}
+.home-aligned .home-recommendations > div:first-child a {
+  font-size: 12px;
+  color: var(--cookora-forest);
+}
+.home-aligned .home-recommendations > div:last-child {
+  gap: 20px;
+}
+.home-aligned .home-recipe-card {
+  display: flex;
+  color: var(--cookora-ink);
+}
+.home-aligned .home-recipe-card .discover-recipe-photo {
+  aspect-ratio: 1.8;
+  flex: none;
+}
+.home-aligned .home-recipe-card .discover-recipe-body {
+  padding: 10px 16px 12px;
+  gap: 2px;
+}
+.home-aligned .home-recipe-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.45px;
+  line-height: 1.4;
+  color: #151b15;
+  margin: 0 0 6px;
+}
+.home-aligned .home-recipe-card .discover-dish-meta {
+  justify-content: flex-start;
+  gap: 20px;
+  color: #303830;
+  font-size: 12px;
+}
+.home-aligned .home-recipe-card .discover-dish-meta svg {
+  color: #303830;
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.6;
+}
+.home-aligned .home-recipe-favorite {
+  width: 33px;
+  height: 33px;
+  top: 6px;
+  right: 10px;
+  border: 1px solid #dddcd7;
+  box-shadow: 0 1px 3px #00000018;
+  color: #303a2d;
+}
+.home-aligned .home-recipe-favorite[aria-pressed='true'] {
+  color: #ad5055;
+}
+.home-aligned .home-reels {
+  padding: 24px 0;
+  border-top: 1px solid #e7e2d7;
+  border-bottom: 1px solid #e7e2d7;
+}
+.home-aligned .home-reels > div:last-child {
+  padding-block: 0;
+}
+.home-aligned .home-reels .reel-card-3d {
+  border-color: var(--cookora-border);
+  border-radius: var(--cookora-radius-card);
+  box-shadow: var(--cookora-shadow-card);
+  width: 190px;
+}
+.home-aligned .home-reels .reel-card-3d h4 {
+  font-family: var(--cookora-font);
+  font-weight: 600;
+}
+.home-aligned .home-reels .reel-card-3d > div:last-of-type > p {
+  color: #f2f1e8;
+  font-size: 10px;
+}
+.home-aligned .home-reels > div:last-child > div:last-child > div:last-child {
+  border-color: #b4c59a;
+}
+.home-aligned .home-reels > div:last-child > div:last-child > div:first-child {
+  color: var(--cookora-muted);
+  font-size: 11px;
+}
+.home-aligned .home-cuisines > div:first-child,
+.home-aligned .home-tips > div:first-child {
+  margin-bottom: 22px;
+}
+.home-aligned .home-cuisines h2,
+.home-aligned .home-tips h2 {
+  font-size: 25px;
+}
+.home-aligned .home-cuisines h2,
+.home-aligned .home-tips h2,
+.home-aligned .home-utilities h3 {
+  color: var(--cookora-forest);
+}
+.home-aligned .home-cuisines > div:first-child p,
+.home-aligned .home-tips > div:first-child p {
+  font-size: 13px;
+  margin-top: 6px;
+}
+.home-aligned .home-cuisines > div:last-child {
+  gap: 16px;
+}
+@media (min-width: 1200px) {
+  .home-aligned .home-cuisines > div:last-child {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+.home-aligned .home-cuisines > div:last-child > a {
+  border-color: var(--cookora-border);
+  border-radius: var(--cookora-radius-card);
+  box-shadow: var(--cookora-shadow-card);
+  background: var(--cookora-surface);
+}
+.home-aligned .home-cuisines > div:last-child > a > div {
+  aspect-ratio: 1.25;
+}
+.home-aligned .home-cuisines > div:last-child > a > div > div {
+  background: linear-gradient(transparent, #172819b8);
+  padding: 12px;
+}
+.home-aligned .home-cuisines > div:last-child > a > div > div > div {
+  font-size: 13px;
+}
+.home-aligned .home-cuisines > div:last-child > a > div > div > span {
+  font-size: 11px;
+  margin-top: 3px;
+}
+.home-aligned .home-utilities {
+  margin-bottom: 24px;
+}
+.home-aligned .home-utilities > div {
+  gap: 24px;
+}
+.home-aligned .home-utilities > div > div {
+  padding: 23px 24px;
+  border-color: var(--cookora-border);
+  border-radius: 20px;
+  background: #f1f4e5;
+  box-shadow: 0 2px 4px #45371e0a;
+}
+.home-aligned .home-utilities h3 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+}
+.home-aligned .home-utilities p {
+  max-width: 560px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.home-aligned .home-utilities input {
+  border-color: #d5dacf;
+  background: #f9f9f3;
+  border-radius: 24px;
+  min-height: 44px;
+  padding-block: 10px;
+  font-size: 12px;
+}
+.home-aligned .home-utilities form > svg {
+  top: 14px;
+  color: #487337;
+}
+.home-aligned .home-utilities form + div > span {
+  background: var(--cookora-sage);
+  border-radius: 20px;
+  padding: 6px 11px;
+  color: #285133;
+  font-size: 11px;
+}
+.home-aligned .home-utilities form + div > button {
+  border-radius: 20px;
+  border-color: #cdd6c2;
+  font-size: 11px;
+}
+.home-aligned .home-utilities .grid-cols-7 {
+  padding: 14px 0;
+  border-block: 1px solid #eee8dd;
+}
+.home-aligned .home-utilities .grid-cols-7 img {
+  aspect-ratio: 1;
+}
+.home-aligned .home-features > div {
+  gap: 24px;
+}
+.home-aligned .home-features a {
+  padding: 15px 18px 15px 68px;
+  border-color: var(--cookora-border);
+  border-radius: 18px;
+  background: #f1f4e5;
+  box-shadow: none;
+  position: relative;
+  min-height: 72px;
+}
+.home-aligned .home-features a h3 {
+  font-size: 14px;
+  color: var(--cookora-forest);
+  font-weight: 600;
+}
+.home-aligned .home-features a p {
+  font-size: 11px;
+  line-height: 1.7;
+}
+.home-aligned .home-features a svg {
+  color: var(--cookora-forest);
+  stroke-width: 1.7;
+}
+.home-aligned .home-features a > div:last-child {
+  background: #e4edcf;
+  color: var(--cookora-forest);
+}
+.home-aligned .home-tips > div:last-child {
+  gap: 22px;
+}
+.home-aligned .home-tips > div:last-child > div {
+  border-color: var(--cookora-border);
+  border-radius: var(--cookora-radius-card);
+  background: var(--cookora-surface);
+  box-shadow: var(--cookora-shadow-card);
+}
+.home-aligned .home-tips > div:last-child > div > div:first-child {
+  aspect-ratio: 2.7;
+}
+.home-aligned .home-tips h3 {
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: #213e28;
+}
+.home-aligned .home-tips > div:first-child button {
+  color: var(--cookora-forest);
+  font-size: 12px;
+}
+.home-aligned .home-tips > div:last-child > div > div:last-child {
+  padding: 12px 15px;
+}
+.home-aligned .home-tips > div:last-child > div > div:last-child > div {
+  font-size: 11px;
+  color: var(--cookora-muted);
+}
+.home-aligned .home-closing {
+  margin-bottom: 0;
+}
+.home-aligned .home-closing > div {
+  background: #214f2b;
+  padding: 30px 34px;
+  border: 1px solid #214f2b;
+  border-radius: var(--cookora-radius-panel);
+  box-shadow: none;
+}
+.home-aligned .home-closing h2 {
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+.home-aligned .home-closing p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.home-aligned .home-closing .btn-cta-primary {
+  background: #edf2d8 !important;
+  color: #214f2b !important;
+  border-color: #edf2d8;
+  white-space: nowrap;
+}
+.home-aligned .home-closing .btn-cta-primary * {
+  color: #214f2b !important;
+}
+.home-aligned .home-closing .btn-cta-primary:hover {
+  background: #fffdfb !important;
+}
+/* Keep the existing bear launcher size on Home. */
+body:has(.home-aligned) .cooking-chat-launcher,
+body:has(.home-aligned) .cooking-chat-launcher.is-open {
+  width: 64px;
+  height: 64px;
+  border-width: 2px;
+}
+body:has(.home-aligned) .cooking-chat-launcher > img {
+  width: 56px;
+  height: 56px;
+}
+@media (max-width: 1200px) and (min-width: 1024px) {
+  .home-aligned .home-hero-grid {
+    gap: 30px;
+  }
+  .home-aligned .home-hero-heading {
+    font-size: 37px;
+  }
+  .home-aligned .home-hero-description {
+    font-size: 14px;
+  }
+  .home-aligned .home-hero-actions {
+    gap: 9px;
+  }
+  .home-aligned .home-hero-actions > a {
+    padding-inline: 15px;
+    font-size: 11px;
+  }
+  .home-aligned .home-hero-values {
+    gap: 10px;
+    font-size: 10px;
+  }
+  .home-aligned .home-carousel-caption {
+    right: 145px;
+    left: 17px;
+  }
+  .home-aligned .home-carousel-caption h3 {
+    font-size: 20px;
+  }
+  .home-aligned .home-carousel-note {
+    width: 150px;
+    right: -7px;
+    padding: 13px;
+  }
+  .home-aligned .home-carousel-note p {
+    font-size: 10px;
+  }
+  .home-aligned .home-title-rays {
+    right: 0;
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 1023px) {
+  .home-aligned > .home-container {
+    margin-bottom: 42px;
+  }
+  .home-aligned .home-hero {
+    padding: 30px 0 38px;
+  }
+  .home-aligned .home-hero-grid {
+    gap: 32px;
+  }
+  .home-aligned .home-hero-copy {
+    max-width: 680px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .home-aligned .home-hero-heading {
+    font-size: 42px;
+  }
+  .home-aligned .home-hero-carousel {
+    width: 100%;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+  .home-aligned .home-carousel-frame {
+    max-width: 680px;
+  }
+  .home-aligned .home-carousel-photo {
+    aspect-ratio: 16/9;
+  }
+  .home-aligned .home-title-rays {
+    right: 9%;
+  }
+  .home-aligned .home-quick > div {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .home-aligned .home-quick {
+    margin-bottom: 38px;
+  }
+  .home-aligned .home-reels {
+    padding-top: 22px;
+    padding-bottom: 24px;
+  }
+  .home-aligned .home-utilities {
+    margin-bottom: 22px;
+  }
+  .home-aligned .home-utilities > div {
+    gap: 20px;
+  }
+  .home-aligned .home-features > div {
+    gap: 20px;
+  }
+  .home-aligned .home-closing > div {
+    padding: 25px;
+  }
+}
+@media (max-width: 639px) {
+  .home-aligned {
+    padding-bottom: 28px;
+  }
+  .home-aligned .home-hero {
+    padding: 26px 0 28px;
+  }
+  .home-aligned .home-hero-copy {
+    max-width: 100%;
+  }
+  .home-aligned .home-hero-heading {
+    font-size: clamp(28px, 7.8vw, 37px);
+    line-height: 1.28;
+    letter-spacing: -1.2px;
+  }
+  .home-aligned .home-hero-description {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 16px;
+  }
+  .home-aligned .home-title-rays {
+    right: 1%;
+    top: 49px;
+    transform: scale(0.7);
+  }
+  .home-aligned .home-hero-leaf {
+    display: none;
+  }
+  .home-aligned .home-hero-actions {
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .home-aligned .home-hero-actions > a {
+    min-height: 40px;
+    padding: 9px 13px;
+    font-size: 11px;
+    gap: 6px;
+  }
+  .home-aligned .home-hero-actions > a svg {
+    width: 14px;
+    height: 14px;
+  }
+  .home-aligned .home-hero-values {
+    gap: 10px 16px;
+    margin-top: 19px;
+    padding-top: 13px;
+    font-size: 10px;
+  }
+  .home-aligned .home-hero-values svg {
+    width: 13px;
+    height: 13px;
+  }
+  .home-aligned .home-hero-grid {
+    gap: 25px;
+  }
+  .home-aligned .home-carousel-photo {
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+  }
+  .home-aligned .home-carousel-photo > button {
+    top: 27%;
+  }
+  .home-aligned .home-carousel-caption {
+    left: 16px;
+    bottom: 18px;
+    right: 16px;
+  }
+  .home-aligned .home-carousel-caption h3 {
+    font-size: 18px;
+  }
+  .home-aligned .home-carousel-caption > div {
+    font-size: 10px;
+    gap: 6px;
+  }
+  .home-aligned .home-carousel-note {
+    position: relative;
+    width: 137px;
+    padding: 11px 12px;
+    right: auto;
+    bottom: auto;
+    margin: -9px 2px 0 auto;
+  }
+  .home-aligned .home-carousel-note > div:first-child > span:first-child {
+    font-size: 10px;
+  }
+  .home-aligned .home-carousel-note p {
+    font-size: 9px;
+    gap: 5px;
+  }
+  .home-aligned .home-carousel-note p > span {
+    width: 13px;
+    height: 13px;
+    font-size: 9px;
+  }
+  .home-aligned .home-carousel-dots {
+    margin-top: 22px;
+  }
+  .home-aligned .home-quick > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 7px;
+    gap: 3px;
+    border-radius: 20px;
+  }
+  .home-aligned .home-quick a {
+    flex-direction: row;
+    text-align: left;
+    justify-content: flex-start;
+    gap: 9px;
+    padding: 10px 8px;
+    flex-wrap: wrap;
+  }
+  .home-aligned .home-quick a > div {
+    width: 33px;
+    height: 33px;
+    margin: 0;
+    flex: none;
+  }
+  .home-aligned .home-quick a > div svg {
+    width: 17px;
+    height: 17px;
+  }
+  .home-aligned .home-quick a > span:first-of-type {
+    font-size: 10px;
+    max-width: calc(100% - 43px);
+  }
+  .home-aligned .home-quick a > span:last-child:not(:first-of-type) {
+    font-size: 9px;
+    margin-left: 42px;
+    margin-top: -11px;
+  }
+  .home-aligned .home-quick a:last-child {
+    grid-column: 1/-1;
+  }
+  .home-aligned h2,
+  .home-aligned .home-cuisines h2,
+  .home-aligned .home-tips h2 {
+    font-size: 22px;
+    letter-spacing: -0.65px;
+  }
+  .home-aligned .home-recommendations > div:first-child,
+  .home-aligned .home-reels > div:first-child {
+    margin-bottom: 20px;
+  }
+  .home-aligned .home-recommendations p,
+  .home-aligned .home-reels p {
+    font-size: 12px;
+  }
+  .home-aligned .home-recommendations > div:last-child {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+  .home-aligned .home-recipe-card .discover-recipe-photo {
+    aspect-ratio: 1.6;
+  }
+  .home-aligned .home-recipe-card .discover-recipe-body {
+    padding: 9px;
+  }
+  .home-aligned .home-recipe-card h3 {
+    font-size: 12px;
+  }
+  .home-aligned .home-recipe-card .discover-dish-meta {
+    flex-wrap: wrap;
+    gap: 5px 9px;
+    font-size: 10px;
+  }
+  .home-aligned .home-recipe-card .discover-dish-meta svg {
+    width: 12px;
+    height: 12px;
+  }
+  .home-aligned .home-recipe-favorite {
+    width: 28px;
+    height: 28px;
+    right: 6px;
+    top: 5px;
+  }
+  .home-aligned .home-recipe-card .discover-cuisine-badge {
+    top: 6px;
+    left: 6px;
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+  .home-aligned .home-reels .reel-card-3d {
+    width: 160px;
+  }
+  .home-aligned .home-cuisines > div:first-child > div:last-child {
+    display: none;
+  }
+  .home-aligned .home-cuisines > div:first-child p,
+  .home-aligned .home-tips > div:first-child p {
+    font-size: 12px;
+  }
+  .home-aligned .home-cuisines > div:last-child {
+    gap: 12px;
+  }
+  .home-aligned .home-cuisines > div:last-child > a > div {
+    aspect-ratio: 1.65;
+  }
+  .home-aligned .home-utilities > div > div {
+    padding: 21px 18px;
+    border-radius: 20px;
+  }
+  .home-aligned .home-utilities h3 {
+    font-size: 20px;
+  }
+  .home-aligned .home-utilities p {
+    font-size: 12px;
+  }
+  .home-aligned .home-utilities .grid-cols-7 {
+    gap: 4px;
+  }
+  .home-aligned .home-features a {
+    padding: 20px 18px;
+  }
+  .home-aligned .home-features a h3 {
+    font-size: 14px;
+  }
+  .home-aligned .home-features a p {
+    font-size: 11px;
+  }
+  .home-aligned .home-tips > div:last-child {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+  .home-aligned .home-tips > div:last-child > div > div:last-child {
+    padding: 11px;
+  }
+  .home-aligned .home-tips h3 {
+    font-size: 12px;
+  }
+  .home-aligned .home-tips > div:last-child > div > div:last-child > div {
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 10px;
+  }
+  .home-aligned .home-closing > div {
+    padding: 25px 20px;
+    border-radius: 20px;
+    gap: 18px;
+  }
+  .home-aligned .home-closing h2 {
+    font-size: 23px;
+  }
+  .home-aligned .home-closing p {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-aligned * {
+    transition: none !important;
+  }
+}
+@media (max-width: 360px) {
+  .home-aligned .home-hero-heading {
+    font-size: 27px;
+  }
+  .home-aligned .home-hero-heading-accent > svg {
+    display: none;
+  }
+}
+
+/* Refinements from the new homepage reference, retaining the original section order. */
+.home-aligned .home-recommendations {
+  position: relative;
+}
+.home-aligned .home-recommendations > div:first-child {
+  max-width: none;
+  padding-bottom: 13px;
+}
+.home-aligned .home-recommendations-link {
+  position: absolute;
+  top: 77px;
+  right: 0;
+  margin: 0;
+}
+.home-aligned .home-recommendations-link a {
+  min-height: 32px;
+  padding: 6px 15px;
+  border: 1px solid #e2e8d6;
+  border-radius: 9999px;
+  background: #f7f8ee;
+}
+.home-aligned .home-quick a:nth-child(1) > div,
+.home-aligned .home-quick a:nth-child(2) > div,
+.home-aligned .home-quick a:nth-child(6) > div {
+  background: #f3f8dc;
+}
+.home-aligned .home-quick a:nth-child(3) > div {
+  background: #fcf5e5;
+}
+.home-aligned .home-quick a:nth-child(4) > div {
+  background: #eaf1e4;
+}
+.home-aligned .home-quick a:nth-child(5) > div {
+  background: #fff4d8;
+}
+.home-aligned .home-quick a:nth-child(7) > div {
+  background: #fbece8;
+}
+.home-aligned .home-reels .cursor-grab {
+  padding-block: 24px;
+}
+.home-aligned .home-utility-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 50%;
+  background: #fafbe9;
+  color: #226130;
+}
+.home-aligned .home-utilities > div > div:last-child {
+  background: #fcf6eb;
+}
+.home-aligned .home-features a > div:first-child > div > svg {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  padding: 7px;
+  border-radius: 50%;
+  background: #fafce9;
+}
+@media (min-width: 900px) {
+  .home-aligned .home-recommendations > div:last-child {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .home-aligned .home-cuisines > div:last-child {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .home-aligned .home-quick > div {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+  .home-aligned .home-utilities > div {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .home-aligned .home-utilities > div > div {
+    grid-column: span 6;
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .home-aligned .home-hero-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 40px;
+  }
+  .home-aligned .home-hero-copy,
+  .home-aligned .home-hero-carousel {
+    grid-column: span 6;
+  }
+  .home-aligned .home-hero-heading {
+    font-size: 34px;
+    line-height: 1.2;
+    letter-spacing: -1.4px;
+  }
+  .home-aligned .home-hero-description {
+    font-size: 12px;
+    line-height: 1.75;
+  }
+  .home-aligned .home-hero-actions > a {
+    font-size: 11px;
+    padding-inline: 16px;
+    min-height: 39px;
+  }
+  .home-aligned .home-hero-actions {
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .home-aligned .home-hero-values {
+    font-size: 10px;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 12px;
+  }
+  .home-aligned .home-hero-values > span {
+    gap: 5px;
+  }
+  .home-aligned .home-hero-values svg {
+    width: 13px;
+    height: 13px;
+  }
+  .home-aligned .home-carousel-photo {
+    aspect-ratio: 1.55;
+  }
+  .home-aligned .home-carousel-caption {
+    left: 17px;
+    right: 125px;
+    bottom: 17px;
+  }
+  .home-aligned .home-carousel-caption h3 {
+    font-size: 19px;
+  }
+  .home-aligned .home-carousel-caption > div {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .home-aligned .home-carousel-caption > p {
+    font-size: 9px;
+  }
+  .home-aligned .home-carousel-note {
+    width: 144px;
+    right: -17px;
+    padding: 12px;
+  }
+  .home-aligned .home-carousel-note p {
+    font-size: 9px;
+  }
+  .home-aligned .home-quick a > span:first-of-type {
+    font-size: 12px;
+    max-width: 94px;
+  }
+  .home-aligned .home-quick a > span:last-child:not(:first-of-type) {
+    font-size: 10px;
+  }
+  .home-aligned h2,
+  .home-aligned .home-cuisines h2,
+  .home-aligned .home-tips h2 {
+    font-size: 24px;
+  }
+  .home-aligned .home-recipe-card .discover-recipe-body {
+    padding: 9px 13px 11px;
+  }
+  .home-aligned .home-recipe-card h3 {
+    font-size: 12px;
+  }
+  .home-aligned .home-recipe-card .discover-dish-meta {
+    font-size: 10px;
+    gap: 15px;
+  }
+  .home-aligned .home-recipe-card .discover-dish-meta svg {
+    width: 12px;
+    height: 12px;
+  }
+  .home-aligned .home-cuisines > div:last-child > a > div > div {
+    padding: 10px;
+  }
+  .home-aligned .home-cuisines > div:last-child > a > div > div > div {
+    font-size: 11px;
+  }
+  .home-aligned .home-cuisines > div:last-child > a > div > div > span {
+    font-size: 10px;
+  }
+  .home-aligned .home-tips h3 {
+    font-size: 12px;
+  }
+}
+@media (max-width: 899px) {
+  .home-aligned .home-hero-heading {
+    font-size: 38px;
+  }
+  .home-aligned .home-recommendations-link {
+    position: static;
+    margin-top: 14px;
+  }
+  .home-aligned .home-recommendations > div:first-child {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 640px) and (max-width: 899px) {
+  .home-aligned .home-cuisines > div:last-child {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 639px) {
+  .home-aligned .home-hero-heading {
+    font-size: clamp(28px, 7.8vw, 37px);
+  }
+  .home-aligned .home-recipe-card .discover-recipe-photo {
+    aspect-ratio: 1.6;
+  }
+  .home-aligned .home-recipe-card .discover-recipe-body {
+    padding: 9px;
+  }
+  .home-aligned .home-quick a {
+    gap: 9px;
+  }
+  .home-aligned .home-quick a > div {
+    width: 33px;
+    height: 33px;
+    margin: 0;
+  }
+  .home-aligned .home-quick a > span:first-of-type {
+    max-width: calc(100% - 43px);
+    font-size: 10px;
+  }
+  .home-aligned .home-cuisines > div:last-child > a > div {
+    aspect-ratio: 1.6;
+  }
+  .home-aligned .home-features a {
+    padding: 15px 16px 15px 61px;
+  }
+  .home-aligned .home-features a > div:first-child > div > svg {
+    left: 15px;
+    width: 33px;
+    height: 33px;
+  }
+  .home-aligned .home-utilities > div > div {
+    padding: 20px 18px;
+  }
+}
+@media (max-width: 360px) {
+  .home-aligned .home-hero-heading {
+    font-size: 27px;
+  }
+}
+
+/* Botanical accents from the existing Home assets, kept outside the content. */
+.home-aligned .home-hero > .home-hero-decoration:first-child,
+.home-aligned .home-hero > .home-hero-leaf {
+  display: block;
+  width: clamp(60px, 7vw, 108px);
+  top: 0;
+  opacity: 0.85;
+  z-index: 0;
+  pointer-events: none;
+}
+.home-aligned .home-hero > .home-hero-decoration:first-child {
+  left: -26px;
+}
+.home-aligned .home-hero > .home-hero-leaf {
+  right: -24px;
+  top: 17px;
+}
+.home-aligned::before {
+  content: '';
+  position: absolute;
+  top: 510px;
+  left: -32px;
+  width: 89px;
+  height: 155px;
+  background: url('/images/hero/leaf-top-left.png') center / contain no-repeat;
+  transform: rotate(15deg);
+  opacity: 0.8;
+  pointer-events: none;
+}
+@media (max-width: 639px) {
+  .home-aligned .home-hero > .home-hero-decoration:first-child {
+    width: 50px;
+    left: -36px;
+    opacity: 0.65;
+  }
+  .home-aligned .home-hero > .home-hero-leaf {
+    width: 50px;
+    right: -34px;
+    top: 8px;
+    opacity: 0.65;
+  }
+  .home-aligned::before {
+    left: -63px;
+    opacity: 0.6;
+  }
+}

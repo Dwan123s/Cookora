@@ -62,9 +62,9 @@ export function App() {
             <a href="#page-content" className="skip-link">
               Đến nội dung chính
             </a>
-            <Header />
           </>
         )}
+        <Header hidden={isAuthPage} />
         <m.div
           id="page-content"
           tabIndex={-1}

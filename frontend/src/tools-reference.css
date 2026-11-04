@@ -11,8 +11,7 @@ body:has(.tools-reference) {
   font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 14px;
   line-height: 1.6;
-  max-width: 1240px;
-  padding: 0 28px 30px;
+  padding-block: 0 30px;
   margin: auto;
   isolation: isolate;
 }
@@ -247,6 +246,9 @@ body:has(.tools-reference) {
   background: #e4f4e5;
   border-color: #69a47b;
   color: #27573a;
+}
+.tools-segment button > svg {
+  flex: none;
 }
 .budget-dashboard {
   display: grid;
@@ -848,7 +850,7 @@ body:has(.tools-reference) {
 }
 @media (max-width: 600px) {
   .tools-reference {
-    padding: 0 16px 24px;
+    padding-block: 0 24px;
     font-size: 13px;
   }
   .tools-hero {
@@ -1088,22 +1090,6 @@ body:has(.tools-reference) {
   }
   .tools-desktop-break {
     display: none;
-  }
-  body:has(.tools-reference) #root > header > div:first-child {
-    padding-inline: 16px;
-    gap: 10px;
-  }
-  body:has(.tools-reference) #root > header > div:first-child > a > span {
-    font-size: 23px;
-  }
-  body:has(.tools-reference) #root > header a[href='/yeu-thich'],
-  body:has(.tools-reference) #root > header button[aria-label='Thông báo'] {
-    display: none;
-  }
-  body:has(.tools-reference) #root > header a[href='/dang-nhap'] {
-    font-size: 11px;
-    padding-inline: 10px;
-    white-space: nowrap;
   }
 }
 @media (prefers-reduced-motion: reduce) {
