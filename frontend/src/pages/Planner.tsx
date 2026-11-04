@@ -227,7 +227,8 @@ export function Planner() {
         syncedDaysRef.current.add(syncKey);
         const updated = await syncEatFitDayToMealPlan(d.date, d.meals, recipeList, user);
         if (user && updated) {
-          setPlanCache({ data: updated, meta: {} });
+          if (plan.data) setPlanCache({ ...plan.data, data: updated });
+          else void qc.invalidateQueries({ queryKey: planKey });
         } else if (!user) {
           setLocalWeeks(readLocalWeeks());
         }

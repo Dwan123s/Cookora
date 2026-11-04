@@ -402,7 +402,7 @@ export function Detail() {
                   <span className="text-xs font-semibold text-stone-600">
                     {line.exactQuantity
                       ? `${line.exactQuantity} ${line.unit === 'piece' ? 'đơn vị' : line.unit}`
-                      : estimateStandardQuantity(line.name, line.role, servings, recipe.baseServings)}
+                      : estimateStandardQuantity(line.name, line.role, count, recipe.baseServings)}
                   </span>
                 </div>
               );
