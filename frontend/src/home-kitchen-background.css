@@ -1,0 +1,33 @@
+/* Background only; Home content, dimensions and interactions stay unchanged. */
+body:has(.home-aligned) {
+  background-color: var(--cookora-cream);
+  background-image:
+    linear-gradient(to bottom, transparent 72%, var(--cookora-cream) 100%),
+    url('/images/hero/kitchen-background-v1.webp');
+  background-position: center top;
+  background-size: 100% 62.587vw, 100% auto;
+  background-repeat: no-repeat;
+}
+
+.home-aligned,
+.home-aligned .home-hero {
+  background: transparent;
+}
+
+/* Replace the previous floating botanical backdrop with the kitchen scene. */
+.home-aligned .home-hero > .home-hero-decoration,
+.home-aligned .home-hero > .home-hero-decoration:first-child,
+.home-aligned .home-hero > .home-hero-leaf,
+.home-aligned .home-hero > .home-hero-glow {
+  display: none;
+}
+
+.home-aligned::before {
+  background: none;
+}
+
+@media (max-width: 767px) {
+  body:has(.home-aligned) {
+    background-size: 100% 860px, auto 860px;
+  }
+}
