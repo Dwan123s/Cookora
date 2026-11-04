@@ -4,8 +4,9 @@ import {
   Apple,
   CalendarDays,
   ChefHat,
+  ChevronLeft,
+  ChevronRight,
   Coins,
-  CookingPot,
   Dumbbell,
   Heart,
   Pause,
@@ -38,9 +39,10 @@ export function OrbitQuickNav() {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
     let ellipse: ReturnType<typeof createEllipse>;
-    let progress = 0,
+    let progress = -3 / items.length,
       lastTime = 0,
       frame = 0;
+    let destination: number | null = null;
     let visible = false,
       hovered = false,
       focused = false;
@@ -48,8 +50,12 @@ export function OrbitQuickNav() {
       if (!ellipse) return;
       links.current.forEach((link, index) => {
         if (!link) return;
-        const { x, y } = ellipse.at(progress + index / items.length);
-        link.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0)`;
+        const { x, y, scale, depth, rotateY, rotateZ, opacity } = ellipse.at(progress + index / items.length);
+        link.style.transform = `translate(-50%, -100%) translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) perspective(900px) rotateY(${rotateY.toFixed(2)}deg) rotateZ(${rotateZ.toFixed(2)}deg) scale(${scale.toFixed(4)})`;
+        link.style.zIndex = String(10 + Math.round(depth * 100));
+        link.style.opacity = opacity.toFixed(3);
+        link.style.setProperty('--orbit-depth', depth.toFixed(3));
+        link.style.setProperty('--orbit-glow', (depth ** 100).toFixed(3));
       });
     };
     const resize = () => {
@@ -62,25 +68,42 @@ export function OrbitQuickNav() {
     };
     const tick = (time: number) => {
       frame = 0;
-      if (lastTime) progress = (progress + Math.min(time - lastTime, 50) / 56000) % 1;
+      const elapsed = lastTime ? Math.min(time - lastTime, 50) : 0;
+      if (destination !== null) {
+        progress += (destination - progress) * (1 - Math.exp(-elapsed / 100));
+        if (Math.abs(destination - progress) < 0.0001) {
+          progress = destination;
+          destination = null;
+        }
+      } else if (canRotate()) progress += elapsed / 60000;
       lastTime = time;
       paint();
-      frame = requestAnimationFrame(tick);
+      if (destination !== null || canRotate()) frame = requestAnimationFrame(tick);
     };
+    const canRotate = () =>
+      visible && !document.hidden && !hovered && !focused && !manualPause.current && !reducedMotion.matches;
     const sync = () => {
       cancelAnimationFrame(frame);
       frame = 0;
       lastTime = 0;
-      if (
-        visible &&
-        !document.hidden &&
-        !hovered &&
-        !focused &&
-        !manualPause.current &&
-        !reducedMotion.matches
-      ) {
+      if (visible && !document.hidden && (destination !== null || canRotate())) {
         frame = requestAnimationFrame(tick);
       }
+    };
+    const moveTo = (next: number) => {
+      destination = next;
+      if (reducedMotion.matches) {
+        progress = next;
+        destination = null;
+        paint();
+      }
+      sync();
+    };
+    const step = (event: Event) => {
+      moveTo(
+        (Math.round((destination ?? progress) * items.length) + (event as CustomEvent<number>).detail) /
+          items.length,
+      );
     };
     const enter = () => {
       hovered = finePointer.matches;
@@ -90,9 +113,12 @@ export function OrbitQuickNav() {
       hovered = false;
       sync();
     };
-    const focus = () => {
+    const focus = (event: FocusEvent) => {
       focused = true;
-      sync();
+      const index = links.current.findIndex((link) => link === event.target);
+      if (index < 0) return sync();
+      const next = -index / items.length;
+      moveTo(next + Math.round(progress - next));
     };
     const blur = (event: FocusEvent) => {
       focused = element.contains(event.relatedTarget as Node | null);
@@ -110,6 +136,7 @@ export function OrbitQuickNav() {
     element.addEventListener('focusin', focus);
     element.addEventListener('focusout', blur);
     element.addEventListener('orbit-pause-change', sync);
+    element.addEventListener('orbit-step', step);
     document.addEventListener('visibilitychange', sync);
     reducedMotion.addEventListener('change', sync);
     resize();
@@ -122,6 +149,7 @@ export function OrbitQuickNav() {
       element.removeEventListener('focusin', focus);
       element.removeEventListener('focusout', blur);
       element.removeEventListener('orbit-pause-change', sync);
+      element.removeEventListener('orbit-step', step);
       document.removeEventListener('visibilitychange', sync);
       reducedMotion.removeEventListener('change', sync);
     };
@@ -134,14 +162,10 @@ export function OrbitQuickNav() {
   return (
     <section className="home-container orbit-quick-section" aria-label="Tiện ích Cookora">
       <nav className="orbit-stage" ref={stage} aria-label="Khám phá căn bếp">
-        <div className="orbit-ring" aria-hidden="true" />
-        <div className="orbit-core" aria-hidden="true">
-          <span className="orbit-core-icon">
-            <CookingPot strokeWidth={1.5} />
-          </span>
-          <span className="orbit-eyebrow">COOKORA</span>
-          <strong>Bếp của bạn</strong>
-          <span className="orbit-core-note">Một vòng, đủ đầy</span>
+        <div className="orbit-ambience" aria-hidden="true" />
+        <div className="orbit-ring" aria-hidden="true">
+          <i className="orbit-pearl orbit-pearl-one" />
+          <i className="orbit-pearl orbit-pearl-two" />
         </div>
         {items.map(({ title, subtitle, to, Icon, tone }, index) => (
           <Link
@@ -162,17 +186,35 @@ export function OrbitQuickNav() {
         ))}
       </nav>
       <div className="orbit-footer">
-        <span>Mọi điều cho bữa ăn của bạn</span>
-        <button
-          type="button"
-          className="orbit-pause"
-          aria-pressed={paused}
-          onClick={() => setPaused((value) => !value)}
-          aria-label={paused ? 'Tiếp tục chuyển động tiện ích' : 'Tạm dừng chuyển động tiện ích'}
-        >
-          {paused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
-          {paused ? 'Tiếp tục' : 'Tạm dừng'}
-        </button>
+        <span>Căn bếp của bạn, trong một vòng xoay</span>
+        <div className="orbit-controls">
+          <button
+            type="button"
+            className="orbit-arrow"
+            aria-label="Tiện ích trước"
+            onClick={() => stage.current?.dispatchEvent(new CustomEvent('orbit-step', { detail: 1 }))}
+          >
+            <ChevronLeft size={17} aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className="orbit-pause"
+            aria-pressed={paused}
+            onClick={() => setPaused((value) => !value)}
+            aria-label={paused ? 'Tiếp tục chuyển động tiện ích' : 'Tạm dừng chuyển động tiện ích'}
+          >
+            {paused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
+            {paused ? 'Tiếp tục' : 'Tạm dừng'}
+          </button>
+          <button
+            type="button"
+            className="orbit-arrow"
+            aria-label="Tiện ích tiếp theo"
+            onClick={() => stage.current?.dispatchEvent(new CustomEvent('orbit-step', { detail: -1 }))}
+          >
+            <ChevronRight size={17} aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </section>
   );

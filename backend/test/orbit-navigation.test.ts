@@ -2,48 +2,53 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createEllipse } from '../../frontend/src/components/orbit-geometry';
 
-test('seven orbit cards stay within the stage and never overlap throughout a full turn', () => {
+const near = (a: number, b: number) => assert.ok(Math.abs(a - b) < 1e-8, `${a} differs from ${b}`);
+
+test('cards grow toward the front and recede behind the elliptical shelf', () => {
+  const orbit = createEllipse(1200, 310, 150, 154);
+  const front = orbit.at(0),
+    back = orbit.at(0.5),
+    side = orbit.at(-0.43);
+  near(front.x, 0);
+  near(front.y, orbit.ry);
+  near(back.y, -orbit.ry);
+  assert.ok(front.scale > side.scale && side.scale > back.scale);
+  assert.ok(front.depth > back.depth);
+  assert.ok(back.opacity < 0.2 && front.opacity === 1);
+  near(side.x, -orbit.rx);
+});
+
+test('orbit wraps continuously and stays finite through every responsive layout', () => {
   const sizes = [
-    [1280, 390, 144, 100],
-    [805, 390, 144, 100],
-    [836, 460, 124, 96],
-    [577, 460, 124, 96],
-    [592, 480, 86, 82],
-    [343, 480, 86, 82],
-    [313, 480, 86, 82],
-    [273, 520, 80, 78],
+    [1280, 310, 150, 154],
+    [805, 310, 150, 154],
+    [836, 285, 128, 138],
+    [577, 285, 128, 138],
+    [592, 255, 104, 118],
+    [343, 255, 104, 118],
+    [273, 255, 104, 118],
   ];
   for (const [width, height, cardWidth, cardHeight] of sizes) {
     const orbit = createEllipse(width, height, cardWidth, cardHeight);
-    for (let frame = 0; frame < 360; frame++) {
-      const cards = Array.from({ length: 7 }, (_, index) => orbit.at(frame / 360 + index / 7));
-      for (const card of cards) {
-        assert.ok(Math.abs(card.x) + cardWidth / 2 <= width / 2);
-        assert.ok(Math.abs(card.y) + cardHeight / 2 <= height / 2);
-      }
-      for (let a = 0; a < cards.length; a++)
-        for (let b = a + 1; b < cards.length; b++) {
-          assert.ok(
-            Math.abs(cards[a].x - cards[b].x) >= cardWidth || Math.abs(cards[a].y - cards[b].y) >= cardHeight,
-            `overlap at ${width}px, frame ${frame}, items ${a}/${b}`,
-          );
-        }
+    for (let frame = 0; frame < 720; frame++) {
+      const position = orbit.at(frame / 720);
+      for (const value of Object.values(position)) assert.ok(Number.isFinite(value));
+      assert.ok(Math.abs(position.x) <= orbit.rx + 1e-8);
+      assert.ok(Math.abs(position.y) <= orbit.ry + 1e-8);
+      assert.ok(position.scale >= 0.68 && position.scale <= 1.08);
+      assert.ok(height * 0.67 + position.y - position.cardHeight >= 0);
+      assert.ok(height * 0.67 + position.y <= height);
+      const wrapped = orbit.at(frame / 720 + 1);
+      near(position.x, wrapped.x);
+      near(position.y, wrapped.y);
+      near(position.scale, wrapped.scale);
     }
   }
-});
-
-test('orbit loops continuously and uses equal travel distances around an ellipse', () => {
-  const orbit = createEllipse(1200, 390, 144, 100);
-  const first = orbit.at(0),
-    last = orbit.at(1);
-  assert.deepEqual(first, last);
-  const distances = Array.from({ length: 100 }, (_, index) => {
-    const a = orbit.at(index / 100),
-      b = orbit.at((index + 1) / 100);
-    return Math.hypot(a.x - b.x, a.y - b.y);
-  });
-  assert.ok(Math.max(...distances) / Math.min(...distances) < 1.06);
-  const wrapped = orbit.at(-0.25),
-    equivalent = orbit.at(0.75);
-  assert.deepEqual(wrapped, equivalent);
+  const orbit = createEllipse(1200, 310, 150, 154);
+  for (const boundary of [-0.43, 0.43]) {
+    const before = orbit.at(boundary - 1e-9),
+      after = orbit.at(boundary + 1e-9);
+    assert.ok(Math.hypot(before.x - after.x, before.y - after.y) < 0.02);
+    near(orbit.at(boundary).scale, 0.86);
+  }
 });
