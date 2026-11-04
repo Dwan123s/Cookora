@@ -79,6 +79,51 @@
 .home-aligned .home-hero-heading-accent {
   color: var(--cookora-forest);
 }
+
+/* Sweep the light through the lettering, with a quiet pause between passes. */
+.home-heading-shine {
+  color: var(--cookora-forest);
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .home-heading-shine {
+    background-image: linear-gradient(
+      110deg,
+      var(--cookora-forest) 38%,
+      #4a8550 46%,
+      #e7efbd 50%,
+      #4a8550 54%,
+      var(--cookora-forest) 62%
+    );
+    background-size: 260% 100%;
+    background-position: 160% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: home-heading-shine 6s ease-in-out infinite;
+  }
+}
+
+@keyframes home-heading-shine {
+  0%,
+  12% {
+    background-position: 160% 50%;
+  }
+  42%,
+  100% {
+    background-position: -60% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-heading-shine {
+    animation: none;
+    background: none;
+    color: var(--cookora-forest);
+    -webkit-text-fill-color: var(--cookora-forest);
+  }
+}
 .home-aligned .home-hero-description {
   max-width: 475px;
   margin-top: 16px;

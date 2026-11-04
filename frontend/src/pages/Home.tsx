@@ -254,9 +254,9 @@ export function Home() {
 
               {/* Both lines use the same Vietnamese typeface. */}
               <h1 className="home-hero-heading text-[#273D32]">
-                Nấu ngon hơn,
+                <span className="home-heading-shine">Nấu ngon hơn,</span>
                 <span className="home-hero-heading-accent">
-                  sống lành mạnh hơn.
+                  <span className="home-heading-shine">sống lành mạnh hơn.</span>
                   <Leaf
                     className="ml-2 inline-block h-[0.45em] w-[0.45em] align-baseline"
                     aria-hidden="true"
