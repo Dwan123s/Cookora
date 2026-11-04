@@ -127,7 +127,6 @@ export function Planner() {
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Ho_Chi_Minh' }).format(new Date());
   const currentWeek = weekOf(today);
   const [week, setWeek] = useState(currentWeek);
-  const [selectedDay, setSelectedDay] = useState((new Date().getDay() + 6) % 7);
   const [localWeeks, setLocalWeeks] = useState(readLocalWeeks);
   const [slot, setSlot] = useState<{ date: string; type: MealType; entryId?: string } | null>(null);
   const [selectedRecipe, setSelectedRecipe] = useState('');
@@ -518,26 +517,13 @@ export function Planner() {
               </span>
             </nav>
           </header>
-          <nav className="weekly-mobile-days" aria-label="Chọn ngày trong thực đơn">
-            {weekdays.map((day, index) => (
-              <button
-                type="button"
-                key={day}
-                aria-pressed={selectedDay === index}
-                onClick={() => setSelectedDay(index)}
-              >
-                <span>{day === 'CN' ? 'CN' : day.replace('THỨ ', 'T')}</span>
-                <small>{dayLabel(addDays(week, index))}</small>
-              </button>
-            ))}
-          </nav>
           <div className="weekly-table-scroll">
             <table className="weekly-table">
               <thead>
                 <tr>
                   <th aria-label="Bữa ăn" />
                   {weekdays.map((day, index) => (
-                    <th scope="col" key={day} className={selectedDay === index ? 'is-selected-day' : ''}>
+                    <th scope="col" key={day}>
                       <span>{day}</span>
                       <small>{dayLabel(addDays(week, index))}</small>
                     </th>
@@ -558,7 +544,7 @@ export function Planner() {
                       const meals = entries.filter((entry) => entry.date === date && entry.mealType === type);
                       const meal = meals[0];
                       return (
-                        <td key={date} className={selectedDay === index ? 'is-selected-day' : ''}>
+                        <td key={date}>
                           <button
                             type="button"
                             className={`weekly-meal${!meal ? ' is-empty' : ''}`}

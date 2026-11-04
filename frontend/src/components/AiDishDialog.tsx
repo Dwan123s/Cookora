@@ -1,6 +1,6 @@
 import { useId } from 'react';
 import type { AiSuggestedDish, AiSuggestedIngredient } from '@cookora/contracts';
-import { Check, ChefHat, Clock3, Info, Plus, ShoppingBasket, Signal, Sparkles, Users } from 'lucide-react';
+import { Check, ChefHat, Clock3, Info, Plus, ShoppingBasket, Signal, Users } from 'lucide-react';
 import { Modal } from '../shared';
 import '../ai-dish-dialog.css';
 
@@ -45,7 +45,7 @@ export function AiDishDialog({ dish, onClose }: { dish: AiSuggestedDish; onClose
       className="ai-recipe-dialog"
       eyebrow={
         <>
-          <Sparkles size={14} aria-hidden="true" />
+
           Gợi ý từ Cookora AI
         </>
       }

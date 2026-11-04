@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import type { Recipe } from '@cookora/contracts';
 import { RECIPE_PLACEHOLDER } from '../recipe-media';
-import { ChevronLeft, ChevronRight, Play, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 
 export function CurvedReelsCarousel({ recipes }: { recipes: Recipe[] }) {
   const REEL_RECIPES = recipes.map((recipe) => ({
@@ -283,7 +283,7 @@ export function CurvedReelsCarousel({ recipes }: { recipes: Recipe[] }) {
             to="/cong-thuc"
             className="btn-cta-primary inline-flex items-center gap-2 h-10 px-6 rounded-full text-xs sm:text-sm shadow-xs"
           >
-            <Sparkles size={14} /> Khám phá tất cả công thức
+             Khám phá tất cả công thức
           </Link>
         </div>
       </div>

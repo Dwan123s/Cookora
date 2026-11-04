@@ -16,7 +16,6 @@ import './matcher-photo.css';
 import './discover-reference.css';
 import './home-alignment.css';
 import './island-header.css';
-import './mobile.css';
 import './mobile-navigation.css';
 const loadMotion = () => import('./motion-features').then((module) => module.default);
 const client = new QueryClient({

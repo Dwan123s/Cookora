@@ -12,4 +12,5 @@ jobs:
       - run: npm ci
       - run: npm run db:generate
       - run: npm run check
+      - run: node scripts/build-vercel.mjs
       - run: npm audit --omit=dev --audit-level=high

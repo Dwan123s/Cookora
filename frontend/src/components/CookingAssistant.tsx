@@ -1,7 +1,19 @@
 import { useEffect, useId, useRef, useState, type RefObject } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { ArrowUpRight, Calendar, ChefHat, Dumbbell, Leaf, Lightbulb, LoaderCircle, MessageCircle, Minus, Send, Sparkles, X } from 'lucide-react';
+import {
+  ArrowUpRight,
+  Calendar,
+  ChefHat,
+  Dumbbell,
+  Leaf,
+  Lightbulb,
+  LoaderCircle,
+  MessageCircle,
+  Minus,
+  Send,
+  X,
+} from 'lucide-react';
 import type { AiChatMessage, AiChefSuggestionResponse, AiSuggestedDish } from '@cookora/contracts';
 import { ApiError, request } from '../api';
 import { errorText } from '../shared';
@@ -191,10 +203,16 @@ export function CookingAssistant({
               <button type="button" onClick={() => choosePrompt('Mình đang có các nguyên liệu: ')}>
                 <Leaf size={18} /> Gợi ý món từ nguyên liệu
               </button>
-              <button type="button" onClick={() => choosePrompt('Gợi ý thực đơn tuần cân bằng, dễ nấu cho mình.')}>
+              <button
+                type="button"
+                onClick={() => choosePrompt('Gợi ý thực đơn tuần cân bằng, dễ nấu cho mình.')}
+              >
                 <Calendar size={18} /> Lên thực đơn tuần
               </button>
-              <button type="button" onClick={() => choosePrompt('Gợi ý món Eat Fit lành mạnh và cân bằng dinh dưỡng.')}>
+              <button
+                type="button"
+                onClick={() => choosePrompt('Gợi ý món Eat Fit lành mạnh và cân bằng dinh dưỡng.')}
+              >
                 <Dumbbell size={18} /> Món Eat Fit
               </button>
               <button type="button" onClick={() => choosePrompt('Chia sẻ cho mình vài mẹo vào bếp hữu ích.')}>
@@ -209,10 +227,7 @@ export function CookingAssistant({
                 </div>
                 {exchange.response && (
                   <div className="cooking-chat-reply">
-                    <span className="cooking-chat-author">
-                      <Sparkles size={14} />
-                      Cookora
-                    </span>
+                    <span className="cooking-chat-author">Cookora</span>
                     <p>{exchange.response.menuOverview}</p>
                     {!!exchange.response.catalogDishes?.length && (
                       <div className="cooking-chat-recipes">
@@ -329,7 +344,6 @@ export function CookingAssistant({
         className={`cooking-chat-launcher${open ? ' is-open' : ''}`}
         tabIndex={open ? -1 : 0}
         onClick={() => (open ? close() : onOpenChange(true))}
-
         aria-label={open ? 'Thu gọn trợ lý AI Cookora' : 'Mở trợ lý AI Cookora'}
         aria-expanded={open}
         aria-controls={open ? panelId : undefined}

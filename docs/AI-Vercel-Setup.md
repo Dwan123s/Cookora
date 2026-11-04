@@ -19,12 +19,15 @@ Hai endpoint được cấu hình:
 - `POST /api/v1/ai/suggest-recipes`: gợi ý từ nguyên liệu/hội thoại, chọn món trong catalog và sinh món mới có hướng dẫn.
 - `POST /api/v1/ai/suggest-budget`: chọn món thật trong catalog, ước tính giá, tổng chi phí và danh sách đi chợ.
 
-Kiểm tra sau mỗi lần thay cấu hình:
+Các script cấu hình môi trường bên dưới thuộc lần thiết lập ban đầu. Các lần phát hành mã tiếp theo dùng [GitHub/Vercel Git Integration](Git-Deployment.md), không deploy từ CLI. Chỉ chạy lại cấu hình AI khi chủ động thay key hoặc model.
+
+Kiểm tra sau thay đổi đã review:
 
 ```powershell
-node scripts/configure-vercel-ai.mjs
-npm run build
-npx vercel@latest deploy --prod --yes --scope dwans-projects-53613816
+npm run check
+node scripts/build-vercel.mjs
+git push origin main
+# Sau khi deployment của commit này trên Vercel đạt READY:
 $env:VERCEL_AI_VERIFY='true'
 node scripts/verify-vercel-ai.mjs
 ```

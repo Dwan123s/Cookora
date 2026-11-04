@@ -16,7 +16,6 @@ import {
   Search,
   ShoppingBasket,
   SlidersHorizontal,
-  Sparkles,
   Users,
   Utensils,
   X,
@@ -253,7 +252,7 @@ export function PantryCatalog({
             onRetry();
           }}
         >
-          {loading ? <LoaderCircle className="spin" size={20} /> : <Sparkles size={20} />}Tìm món phù hợp
+          {loading ? <LoaderCircle className="spin" size={20} /> : null}Tìm món phù hợp
           <ArrowRight size={20} />
         </button>
         {message && (

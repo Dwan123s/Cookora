@@ -582,32 +582,38 @@
   margin-bottom: 0;
 }
 .home-aligned .home-closing > div {
-  background: #214f2b;
-  padding: 30px 34px;
-  border: 1px solid #214f2b;
+  width: 100%;
+  min-height: 166px;
+  background: #1c3225;
+  padding: 36px 40px;
+  border: 1px solid #274734;
   border-radius: var(--cookora-radius-panel);
-  box-shadow: none;
+  box-shadow: 0 8px 16px #26351d14;
 }
 .home-aligned .home-closing h2 {
-  font-size: 27px;
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1.25;
   font-weight: 700;
   letter-spacing: -0.8px;
 }
 .home-aligned .home-closing p {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.8;
 }
 .home-aligned .home-closing .btn-cta-primary {
-  background: #edf2d8 !important;
-  color: #214f2b !important;
-  border-color: #edf2d8;
+  min-width: 204px;
+  min-height: 48px;
+  justify-content: center;
+  background: #e96b31 !important;
+  color: #fff !important;
+  border-color: #e96b31;
   white-space: nowrap;
 }
 .home-aligned .home-closing .btn-cta-primary * {
-  color: #214f2b !important;
+  color: #fff !important;
 }
 .home-aligned .home-closing .btn-cta-primary:hover {
-  background: #fffdfb !important;
+  background: #d95d26 !important;
 }
 /* Keep the existing bear launcher size on Home. */
 body:has(.home-aligned) .cooking-chat-launcher,
@@ -713,7 +719,7 @@ body:has(.home-aligned) .cooking-chat-launcher > img {
     gap: 20px;
   }
   .home-aligned .home-closing > div {
-    padding: 25px;
+    padding: 32px;
   }
 }
 @media (max-width: 639px) {

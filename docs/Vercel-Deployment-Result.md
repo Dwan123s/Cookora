@@ -25,11 +25,14 @@ Có 365 ảnh nguồn và 54 món dùng ảnh giữ chỗ. Trạng thái xuất 
 - Secrets được cấu hình trong Vercel production environment. `.env`, `.neon`, `.review` và credentials không đưa vào deployment source.
 - `APP_ORIGIN=https://cookora-rose.vercel.app`; CSRF secret riêng cho cloud, cookie production Secure/HttpOnly, session lưu trong Neon. Đăng ký mật khẩu public vẫn tắt cho đến khi hoàn tất xác minh email.
 
-Deploy tiếp từ project root đã link đúng tài khoản:
+Tài liệu này ghi nhận lần triển khai ban đầu bằng CLI. Từ lần hợp nhất ngày 04/11/2026, phát hành tiếp theo dùng GitHub `main` và Vercel Git Integration, xem [quy trình Git](Git-Deployment.md). Không deploy source local bằng CLI.
+
+Kiểm tra và đẩy thay đổi đã review lên Git:
 
 ```powershell
 npm run check
-npx vercel@latest deploy --prod --scope dwans-projects-53613816
+node scripts/build-vercel.mjs
+git push origin main
 ```
 
 Migration database là bước riêng, không tự chạy khi mỗi Vercel function khởi động. Các thay đổi dữ liệu đã xuất bản được API đọc từ Neon; không cần redeploy frontend chỉ để đổi trạng thái bài.

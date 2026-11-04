@@ -26,8 +26,7 @@ import {
   Check,
   CheckSquare,
   Leaf,
-  Sparkles,
-} from 'lucide-react';
+  } from 'lucide-react';
 import { useNotice, cuisineFor, ErrorState, Loading } from '../shared';
 import { CurvedReelsCarousel } from '../components/CurvedReelsCarousel';
 

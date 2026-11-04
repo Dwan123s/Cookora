@@ -17,7 +17,6 @@ import {
   Lightbulb,
   Moon,
   Scale,
-  Sparkles,
   Sun,
   TrendingDown,
   Users,
@@ -217,7 +216,7 @@ export function EatFit() {
         <div className="ef-hero-copy">
           <p className="ef-eyebrow">EAT FIT · DINH DƯỠNG CÁ NHÂN HÓA</p>
           <h1>
-            Thực đơn theo mục tiêu thể trạng <span>✧</span>
+            Thực đơn theo mục tiêu thể trạng
           </h1>
           <p>
             Hiểu cơ thể, chọn món phù hợp. Bắt đầu hành trình ăn ngon và cân bằng
@@ -296,7 +295,7 @@ export function EatFit() {
             disabled={!result || catalog.isPending || catalog.isError || !collection.length}
             aria-describedby="ef-submit-note"
           >
-            <Sparkles size={18} />
+
             {catalog.isPending ? 'Đang tải danh sách món…' : proposal && !needsRefresh ? 'Đề xuất món khác' : 'Đề xuất món theo mục tiêu'}
             <ArrowRight size={18} />
           </button>
@@ -313,7 +312,7 @@ export function EatFit() {
           <div className="ef-result-top">
             <div className="ef-result-copy">
               <span className="ef-mini-label">
-                <Sparkles size={13} />
+
                 Mục tiêu dinh dưỡng mỗi ngày
               </span>
               <h2>

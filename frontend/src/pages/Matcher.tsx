@@ -10,7 +10,6 @@ import {
   Leaf,
   LoaderCircle,
   Salad,
-  Sparkles,
   Utensils,
   Users,
   Zap,
@@ -225,7 +224,7 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
               </select>
             </div>
             <button type="submit" className="pantry-primary" disabled={busy || promptText.length < 2}>
-              {busy ? <LoaderCircle className="spin" size={21} /> : <Sparkles size={22} />}
+              {busy ? <LoaderCircle className="spin" size={21} /> : null}
               <span>{busy ? 'AI đang chuẩn bị gợi ý…' : 'Đề xuất món với AI'}</span>
               <ArrowRight size={22} />
             </button>
@@ -307,7 +306,7 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
               Gợi ý món cho bạn
             </h2>
             <span>
-              <Sparkles size={15} aria-hidden="true" /> AI gợi ý
+               AI gợi ý
             </span>
           </div>
           {selected && (
@@ -386,7 +385,7 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
                         <h3>{dish.title}</h3>
                         <div className="pantry-badges">
                           <span>
-                            <Sparkles size={13} />
+
                             Ngoài kho · AI
                           </span>
                           <span className="pantry-missing">
@@ -439,7 +438,7 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
       {result && (
         <section className="pantry-ai-overview pantry-surface" aria-live="polite">
           <h2>
-            <Sparkles />Ý tưởng bữa ăn của bạn
+            Ý tưởng bữa ăn của bạn
           </h2>
           <p>{result.menuOverview}</p>
           <div className="pantry-ai-detail-list">

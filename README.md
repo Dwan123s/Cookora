@@ -6,6 +6,8 @@
 
 AI trên public đã kết nối Vertex AI bằng key backend, kiểm tra thành công cả gợi ý món và thực đơn ngân sách. [Cấu hình và bằng chứng AI](docs/AI-Vercel-Setup.md).
 
+**Quản lý phát hành bằng Git:** repo [Dwan123s/Cookora](https://github.com/Dwan123s/Cookora), nhánh production `main`. UI mới, runtime Vercel/Neon và thanh điều hướng dưới trên mobile đã được hợp nhất. Các lần phát hành dùng Vercel Git Integration sau khi kết nối repo; không dùng lệnh deploy Vercel CLI. [Quy trình và trạng thái kết nối Git](docs/Git-Deployment.md).
+
 ## Chạy nhanh
 
 Deployment hiện tại phục vụ cả frontend và NestJS API trên Vercel, kết nối Neon bằng app role hạn chế. Không cần Render trong cấu hình đang chạy. [Kết quả Vercel](docs/Vercel-Deployment-Result.md), [cấu hình Neon](docs/Neon-Setup-Result.md). Hướng dẫn Render/Azure cũ là phương án tham khảo.

@@ -18,7 +18,6 @@ import {
   Pause,
   Plus,
   Share2,
-  Sparkles,
   Users,
   Volume2,
   VolumeX,
@@ -205,7 +204,7 @@ export function Detail() {
   const ingredientLines = scaled.data?.data?.lines || [];
 
   return (
-    <main className="recipe-detail-page container max-w-6xl mx-auto px-4 py-8">
+    <main className="container max-w-6xl mx-auto px-4 py-8">
       {/* Breadcrumbs */}
       <nav className="flex items-center gap-2 text-xs md:text-sm text-stone-500 mb-6 font-medium">
         <Link to="/cong-thuc" className="hover:text-stone-900 transition">
@@ -310,10 +309,7 @@ export function Detail() {
       </div>
 
       {/* Tabs Row */}
-      <div
-        className="recipe-detail-tabs flex gap-4 sm:gap-8 border-b border-stone-200 mb-8 text-sm md:text-base font-semibold"
-        aria-label="Nội dung công thức"
-      >
+      <div className="flex gap-8 border-b border-stone-200 mb-8 text-sm md:text-base font-semibold">
         <button
           onClick={() => setActiveTab('steps')}
           className={`pb-3 border-b-2 transition ${
@@ -360,7 +356,7 @@ export function Detail() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Nguyên liệu Card */}
         <div className="lg:col-span-4 bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs">
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <div className="flex items-center justify-between mb-5">
             <h2 className="text-xl font-bold text-stone-900">Nguyên liệu</h2>
             <Link
               to={`/khau-phan/${recipe.slug}`}

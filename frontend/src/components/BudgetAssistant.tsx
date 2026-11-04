@@ -9,8 +9,7 @@ import {
   LoaderCircle,
   RefreshCw,
   ShoppingBasket,
-  Sparkles,
-} from 'lucide-react';
+  } from 'lucide-react';
 import type { BudgetSuggestionInput, BudgetSuggestionResponse } from '@cookora/contracts';
 import { request } from '../api';
 import { errorText } from '../shared';
@@ -43,9 +42,6 @@ export function BudgetAssistant({
     <section className="budget-ai" aria-labelledby="budget-ai-heading">
       <form className="budget-ai-form tools-card" onSubmit={submit}>
         <div className="budget-ai-heading">
-          <span className="tools-icon">
-            <Sparkles />
-          </span>
           <div>
             <p className="tools-eyebrow">COOKORA AI</p>
             <h2 id="budget-ai-heading">Để AI lên thực đơn vừa túi tiền</h2>
@@ -89,9 +85,7 @@ export function BudgetAssistant({
               <LoaderCircle className="spin" size={18} />
             ) : response ? (
               <RefreshCw size={17} />
-            ) : (
-              <Sparkles size={18} />
-            )}
+            ) : null}
             {ai.isPending ? 'AI đang sắp xếp bữa ăn…' : response ? 'AI đề xuất lại' : 'AI đề xuất thực đơn'}
           </button>
         </div>
@@ -137,7 +131,7 @@ export function BudgetPlanResult({
       <div className="budget-ai-overview tools-card">
         <div className="tools-section-head">
           <h2>
-            <Sparkles size={22} /> Thực đơn AI đề xuất
+             Thực đơn AI đề xuất
           </h2>
           <span>
             {response.input.days} ngày · {response.meals.length} bữa · {response.input.people} người
