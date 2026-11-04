@@ -1,23 +1,14 @@
 body:has(.eatfit-reference) {
   background: #fbf9f4;
 }
-body:has(.eatfit-reference) #root > header {
-  background: #fffefaed;
-  border-color: #eee9df;
-}
-body:has(.eatfit-reference) #root > header > div:first-child {
-  height: 62px;
-  max-width: 1370px;
-}
 body:has(.eatfit-reference) #root > footer {
   margin-top: 12px;
 }
 .eatfit-reference {
   --ef-ink: #16372b;
   --ef-green: #087347;
-  max-width: 1400px;
   margin: auto;
-  padding: 0 36px 24px;
+  padding-block: 0 24px;
   color: var(--ef-ink);
   font-family: 'Plus Jakarta Sans Variable', sans-serif;
   isolation: isolate;
@@ -154,6 +145,9 @@ body:has(.eatfit-reference) #root > footer {
   border-color: #3db97e;
   color: #075b39;
 }
+.ef-choice button > svg {
+  flex: none;
+}
 .ef-fields {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -190,6 +184,51 @@ body:has(.eatfit-reference) #root > footer {
   font-size: 9px;
   color: #7c897d;
   margin-top: 11px !important;
+}
+.ef-suggest-button {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 15px;
+  padding: 10px 14px;
+  border: 1px solid #075b39;
+  border-radius: 999px;
+  background: #087347;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 750;
+  transition: background-color .2s;
+}
+.ef-suggest-button > svg { flex: none; }
+.ef-suggest-button:hover:not(:disabled) { background: #075b39; }
+.ef-suggest-button:disabled { opacity: .55; cursor: not-allowed; }
+.ef-submit-note {
+  grid-column: 1 / -1;
+  min-height: 28px;
+  margin-top: 7px !important;
+  color: #62705e;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.ef-recipes { scroll-margin-top: 110px; }
+.ef-refresh-note {
+  margin-bottom: 12px !important;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #eff4e5;
+  color: #36513b;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.eatfit-reference .ef-recipe-reason {
+  padding: 0 9px 6px;
+  color: #62705e;
+  font-size: 9px;
+  line-height: 1.5;
 }
 .ef-nutrition {
   border-radius: 20px;
@@ -571,7 +610,14 @@ body:has(.eatfit-reference) #root > footer {
   border-radius: 17px;
   padding: 9px 13px;
   min-height: 72px;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
 }
+.ef-day-meal:disabled { cursor: default; opacity: 1; }
+.ef-day-meal > div { min-width: 0; }
+.ef-day-meal > img, .ef-day-meal > .ef-fruit { flex: none; }
 .ef-day-meal > img,
 .ef-fruit {
   width: 60px;
@@ -735,6 +781,12 @@ body:has(.eatfit-reference) #root > footer {
 .ef-instructions {
   white-space: pre-line;
 }
+.ef-cooking-steps { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 18px; }
+.ef-cooking-steps > li { padding: 0 0 18px; border-bottom: 1px solid #e6e9de; }
+.ef-cooking-steps > li:last-child { border-bottom: 0; padding-bottom: 0; }
+.ef-cooking-steps > li > strong { display: block; color: #087347; font-size: 12px; margin-bottom: 5px; }
+.ef-cooking-steps p { white-space: pre-line; }
+.eatfit-reference .ef-cooking-note { font-size: 11px; color: #68785f; line-height: 1.7; }
 .ef-modal small {
   display: block;
   color: #7e8a75;
@@ -770,9 +822,6 @@ body:has(.eatfit-reference) #root > footer {
   }
 }
 @media (max-width: 1200px) {
-  .eatfit-reference {
-    padding-inline: 24px;
-  }
   .ef-chart ul {
     display: none;
   }
@@ -889,24 +938,8 @@ body:has(.eatfit-reference) #root > footer {
   }
 }
 @media (max-width: 600px) {
-  body:has(.eatfit-reference) #root > header > div:first-child {
-    padding-inline: 16px;
-    gap: 10px;
-  }
-  body:has(.eatfit-reference) #root > header > div:first-child > a > span {
-    font-size: 23px;
-  }
-  body:has(.eatfit-reference) #root > header a[href='/yeu-thich'],
-  body:has(.eatfit-reference) #root > header button[aria-label='Thông báo'] {
-    display: none;
-  }
-  body:has(.eatfit-reference) #root > header a[href='/dang-nhap'] {
-    font-size: 11px;
-    padding-inline: 10px;
-    white-space: nowrap;
-  }
   .eatfit-reference {
-    padding: 0 16px 20px;
+    padding-block: 0 20px;
   }
   .ef-hero {
     min-height: 191px;
@@ -1136,6 +1169,94 @@ body:has(.eatfit-reference) #root > footer {
   }
 }
 /* Keep the reference's compact rhythm without fixed heights on content. */
+.ef-calendar-save {
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid #e3e8d9;
+  border-radius: 18px;
+  background: #f3f6eb;
+}
+.ef-calendar-intro { display: flex; gap: 12px; align-items: flex-start; }
+.ef-calendar-intro > svg { color: var(--ef-green); flex: none; margin-top: 2px; }
+.ef-calendar-intro h3, .ef-saved-heading h3 { font-size: 15px; font-weight: 800; }
+.ef-calendar-intro p { margin-top: 4px !important; font-size: 11px; line-height: 1.6; color: #62705e; }
+.ef-calendar-controls { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 12px 18px; margin-top: 15px; }
+.ef-calendar-controls > label { display: grid; gap: 5px; font-size: 11px; font-weight: 650; min-width: 0; }
+.ef-calendar-controls input[type='date'], .ef-calendar-controls select {
+  width: 100%; min-width: 150px; min-height: 40px; padding: 8px 11px;
+  border: 1px solid #d9dfd1; border-radius: 10px; background: #fffdfa;
+  color: #223b2b; font: inherit; color-scheme: light;
+}
+.ef-calendar-controls > .ef-training-choice {
+  display: flex; align-items: center; gap: 7px; min-height: 40px; font-weight: 600;
+}
+.ef-training-choice input { width: 16px; height: 16px; accent-color: #087347; }
+.ef-training-choice svg { flex: none; color: #087347; }
+.ef-calendar-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 40px; padding: 10px 18px; border: 1px solid #087347; border-radius: 999px;
+  background: #087347; color: #fff; font-size: 11px; font-weight: 750; line-height: 1.4;
+  transition: background-color .2s;
+}
+.ef-calendar-primary:hover:not(:disabled) { background: #075b39; }
+.ef-calendar-primary:disabled { opacity: .5; cursor: not-allowed; }
+.ef-calendar-primary svg { flex: none; }
+.eatfit-reference .ef-calendar-date-label { margin-top: 10px; font-size: 11px; line-height: 1.6; color: #365b3e; }
+.ef-week-strip { display: grid; grid-template-columns: repeat(7, minmax(70px, 1fr)); gap: 8px; margin-top: 14px; overflow-x: auto; padding: 4px; }
+.ef-week-strip button {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  min-height: 77px; padding: 8px 4px; border: 1px solid #dde4d5; border-radius: 12px;
+  background: #fffdfa; color: #314835; transition: background-color .2s, border-color .2s;
+}
+.ef-week-strip button[aria-pressed='true'] { border-color: #087347; background: #e1edce; color: #17452d; }
+.ef-week-strip span { font-size: 10px; }
+.ef-week-strip strong { font-size: 13px; font-weight: 750; }
+.ef-week-strip small { font-size: 9px; color: #62705e; }
+.eatfit-reference .ef-calendar-footnote { margin-top: 10px; color: #62705e; font-size: 10px; line-height: 1.7; }
+.eatfit-reference .ef-calendar-notice {
+  margin-top: 12px; padding: 10px 12px; border: 1px solid #d5e4c7; border-radius: 10px;
+  background: #fffdfa; color: #245532; font-size: 11px; line-height: 1.6;
+}
+.eatfit-reference .ef-calendar-notice[role='alert'] { border-color: #e9d0b6; color: #835127; }
+.ef-saved-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 22px 0 12px; }
+.ef-saved-heading > span { color: #71806b; font-size: 10px; }
+.ef-saved-days { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.ef-saved-day { min-width: 0; border: 1px solid #e4e4d9; border-radius: 17px; background: #fffdf8; padding: 16px; }
+.ef-saved-day[data-selected='true'] { border-color: #7d9f67; }
+.ef-saved-day-heading { display: flex; align-items: flex-start; gap: 12px; justify-content: space-between; margin-bottom: 13px; }
+.ef-saved-day-heading h4 { margin: 0; font-size: 13px; font-weight: 800; text-transform: capitalize; }
+.ef-saved-day-heading p { margin-top: 5px !important; color: #65765c; font-size: 10px; line-height: 1.6; }
+.ef-saved-day-heading > button { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border: 1px solid #e4e4d9; border-radius: 50%; background: #fffdfa; color: #62705e; }
+.ef-saved-meals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.ef-saved-meals > button { display: flex; flex-direction: column; min-width: 0; padding: 0; border: 0; background: transparent; text-align: left; color: #223b2b; }
+.ef-saved-meals > button:disabled { opacity: 1; cursor: default; }
+.ef-saved-meals img, .ef-saved-empty { width: 100%; aspect-ratio: 1.25; object-fit: cover; border-radius: 10px; }
+.ef-saved-empty { display: grid; place-items: center; background: #edf1e6; color: #8b9b80; }
+.ef-saved-meal-label { display: block; margin-top: 8px; color: #087347; font-size: 10px; font-weight: 700; }
+.ef-saved-meals strong { display: block; margin-top: 3px; font-size: 10px; line-height: 1.6; font-weight: 650; overflow-wrap: anywhere; }
+.ef-calendar-edit { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 0; border: 0; background: transparent; color: #087347; font-size: 10px; font-weight: 700; }
+.ef-calendar-empty { display: flex; align-items: center; gap: 14px; padding: 20px; border: 1px dashed #d5ddcc; border-radius: 15px; background: #f7f8ef; color: #65765c; }
+.ef-calendar-empty svg { flex: none; color: #7d9f67; }
+.ef-calendar-empty p { font-size: 11px; line-height: 1.8; }
+.eatfit-reference .ef-modal { margin: auto; }
+.ef-modal-schedule { margin-top: 18px; padding: 16px; border: 1px solid #dfe7d3; border-radius: 15px; background: #f3f6eb; }
+.ef-modal-schedule h3 { display: flex; align-items: center; gap: 7px; margin: 0; color: #245532; }
+.ef-modal-schedule .ef-calendar-controls { margin-top: 12px; }
+.ef-modal-schedule .ef-calendar-controls > label:not(.ef-training-choice) { flex: 1 1 140px; }
+.ef-modal-schedule .ef-calendar-primary { margin-top: 12px; width: 100%; }
+@media (max-width: 950px) { .ef-saved-days { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .ef-calendar-save { padding: 15px; }
+  .ef-calendar-intro h3, .ef-saved-heading h3 { font-size: 13px; }
+  .ef-calendar-controls > label:not(.ef-training-choice), .ef-calendar-controls > .ef-calendar-primary { width: 100%; }
+  .ef-calendar-controls input[type='date'], .ef-calendar-controls select { font-size: 16px; min-width: 0; }
+  .ef-calendar-controls { gap: 10px; }
+  .ef-saved-day { padding: 13px; }
+  .ef-saved-meals { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px; }
+  .ef-saved-meals img, .ef-saved-empty { aspect-ratio: 1.6; }
+  .ef-saved-heading { align-items: flex-start; }
+  .ef-calendar-empty { padding: 15px; }
+}
 .eatfit-reference {
   line-height: 1.45;
 }

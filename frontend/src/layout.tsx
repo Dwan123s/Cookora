@@ -1,33 +1,113 @@
-import { useState, useRef, useEffect } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect, useLayoutEffect, useId, type CSSProperties } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { m, useReducedMotion, useSpring, useTransform, type MotionStyle } from 'motion/react';
 import { CookingPot, Heart, Search, User, LogOut, ChevronDown, Menu, X, Bell } from 'lucide-react';
 import { useUser, useNotice } from './shared';
 import { request } from './api';
 
-export function Header() {
-  const user = useUser();
-  const notice = useNotice();
-  const location = useLocation();
-
+const navigationItems = [
+  { to: '/', label: 'Trang chủ', width: 88, end: true },
+  { to: '/cong-thuc', label: 'Khám phá', width: 88 },
+  { to: '/co-gi-nau-nay', label: 'Có gì nấu nấy', width: 128 },
+  { to: '/thuc-don', label: 'Thực đơn tuần', width: 128 },
+  { to: '/eat-fit', label: 'Eat Fit', width: 72 },
+];
+const islandSpring = { type: 'spring' as const, stiffness: 420, damping: 36, mass: 0.8 };
+const resizeSpring = { stiffness: 260, damping: 30, mass: 1 };
+const compactThreshold = 96;
+const expandedThreshold = 32;
+export function Header({ hidden = false }: { hidden?: boolean }) {
+  const user = useUser(),
+    notice = useNotice(),
+    location = useLocation();
+  const reducedMotion = useReducedMotion();
   const [toolsOpen, setToolsOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const toolsRef = useRef<HTMLDivElement>(null);
-
+  const [scrolled, setScrolled] = useState(() => window.scrollY >= compactThreshold);
+  const compactRef = useRef(scrolled);
+  const progress = useSpring(scrolled ? 1 : 0, resizeSpring);
+  const indicatorX = useSpring(0, islandSpring);
+  const indicatorWidth = useSpring(0, islandSpring);
+  const indicatorReady = useRef(false);
+  const [hasIndicator, setHasIndicator] = useState(false);
+  // Tab geometry uses the same ratio as CSS; resizing never chases a second spring.
+  const pillX = useTransform([indicatorX, progress], ([x, value]) => Number(x) * (1 - 0.06 * Number(value)));
+  const pillWidth = useTransform(
+    [indicatorWidth, progress],
+    ([width, value]) => Number(width) * (1 - 0.06 * Number(value)),
+  );
+  const headerRef = useRef<HTMLElement>(null),
+    navRef = useRef<HTMLElement>(null),
+    toolsRef = useRef<HTMLDivElement>(null);
+  const toolsId = useId(),
+    mobileId = useId();
+  const isToolActive = location.pathname === '/ngan-sach';
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (toolsRef.current && !toolsRef.current.contains(event.target as Node)) {
-        setToolsOpen(false);
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const y = Math.max(0, window.scrollY);
+      const next = compactRef.current ? y > expandedThreshold : y >= compactThreshold;
+      if (next !== compactRef.current) {
+        compactRef.current = next;
+        setScrolled(next);
       }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.cancelAnimationFrame(frame);
+    };
   }, []);
-
+  useLayoutEffect(() => {
+    if (reducedMotion) progress.jump(scrolled ? 1 : 0);
+    else progress.set(scrolled ? 1 : 0);
+  }, [scrolled, reducedMotion, progress]);
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (!toolsRef.current?.contains(target)) setToolsOpen(false);
+      if (!headerRef.current?.contains(target)) setMobileMenuOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setToolsOpen(false);
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
   useEffect(() => {
     setToolsOpen(false);
     setMobileMenuOpen(false);
-  }, [location.pathname]);
-
+  }, [location.pathname, hidden]);
+  useLayoutEffect(() => {
+    const nav = navRef.current;
+    if (!nav || hidden) return;
+    const active = nav.querySelector<HTMLElement>('[aria-current="page"], [data-active="true"]');
+    const index = active ? Number(active.dataset.islandIndex) : -1;
+    const width = index < 0 ? 0 : (navigationItems[index]?.width ?? 96);
+    const x = index < 0 ? 0 : navigationItems.slice(0, index).reduce((sum, item) => sum + item.width + 4, 0);
+    const immediate = reducedMotion || !indicatorReady.current;
+    if (immediate) {
+      indicatorX.jump(x);
+      indicatorWidth.jump(width);
+    } else {
+      indicatorX.set(x);
+      indicatorWidth.set(width);
+    }
+    indicatorReady.current = true;
+    setHasIndicator(width > 0);
+  }, [location.pathname, hidden, reducedMotion, indicatorX, indicatorWidth]);
   const handleLogout = async () => {
     try {
       await request('/auth/logout', { method: 'POST' });
@@ -37,213 +117,168 @@ export function Header() {
       window.location.reload();
     }
   };
-
-  const isToolActive = location.pathname === '/ngan-sach';
-
   return (
-    <header className="sticky top-0 z-50 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#DFE5DD] transition-colors">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 h-18 flex items-center justify-between gap-6">
-        {/* 1. Left: Brand Logo */}
-        <Link to="/" className="flex items-center gap-2.5 group shrink-0" aria-label="Cookora Bếp Nhà">
-          <div className="w-9 h-9 rounded-xl bg-[#47735B] text-white flex items-center justify-center shadow-xs transition group-hover:bg-[#3B634F]">
-            <CookingPot size={20} strokeWidth={2.2} />
-          </div>
-          <span className="font-semibold text-2xl text-[#273D32] tracking-tight">cookora</span>
-        </Link>
-
-        {/* 2. Center: Harmonious Desktop Navigation */}
-        <nav
-          className="hidden md:flex items-center gap-1.5 lg:gap-2.5 text-[14px] font-medium text-[#5C7065] h-full"
-          aria-label="Điều hướng chính"
+    <div className="cookora-header-slot" hidden={hidden}>
+      <div className="cookora-header-anchor">
+        <m.header
+          ref={headerRef}
+          className="cookora-header"
+          data-scrolled={scrolled}
+          data-island-state={scrolled ? 'compact' : 'expanded'}
+          initial={false}
+          style={{ '--cookora-island-progress': progress } as MotionStyle}
         >
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) =>
-              isActive
-                ? 'bg-[#E8F1E9] text-[#273D32] font-semibold px-3.5 py-1.5 rounded-full transition shadow-2xs'
-                : 'hover:text-[#273D32] hover:bg-[#E8F1E9]/50 px-3 py-1.5 rounded-full transition'
-            }
-          >
-            Trang chủ
-          </NavLink>
-          <NavLink
-            to="/cong-thuc"
-            className={({ isActive }) =>
-              isActive
-                ? 'bg-[#E8F1E9] text-[#273D32] font-semibold px-3.5 py-1.5 rounded-full transition shadow-2xs'
-                : 'hover:text-[#273D32] hover:bg-[#E8F1E9]/50 px-3 py-1.5 rounded-full transition'
-            }
-          >
-            Khám phá
-          </NavLink>
-          <NavLink
-            to="/co-gi-nau-nay"
-            className={({ isActive }) =>
-              isActive
-                ? 'bg-[#E8F1E9] text-[#273D32] font-semibold px-3.5 py-1.5 rounded-full transition shadow-2xs'
-                : 'hover:text-[#273D32] hover:bg-[#E8F1E9]/50 px-3 py-1.5 rounded-full transition'
-            }
-          >
-            Có gì nấu nấy
-          </NavLink>
-          <NavLink
-            to="/thuc-don"
-            className={({ isActive }) =>
-              isActive
-                ? 'bg-[#E8F1E9] text-[#273D32] font-semibold px-3.5 py-1.5 rounded-full transition shadow-2xs'
-                : 'hover:text-[#273D32] hover:bg-[#E8F1E9]/50 px-3 py-1.5 rounded-full transition'
-            }
-          >
-            Thực đơn tuần
-          </NavLink>
-          <NavLink
-            to="/eat-fit"
-            className={({ isActive }) =>
-              isActive
-                ? 'bg-[#E8F1E9] text-[#273D32] font-semibold px-3.5 py-1.5 rounded-full transition shadow-2xs'
-                : 'hover:text-[#273D32] hover:bg-[#E8F1E9]/50 px-3 py-1.5 rounded-full transition'
-            }
-          >
-            Eat Fit
-          </NavLink>
-
-          {/* Công cụ dropdown */}
-          <div className="relative h-full flex items-center" ref={toolsRef}>
+          <div className="cookora-header-glass" aria-hidden="true" />
+          <Link to="/" className="cookora-logo" aria-label="Cookora Bếp Nhà">
+            <CookingPot className="cookora-logo-icon" strokeWidth={1.8} aria-hidden="true" />
+            <span>Cookora</span>
+          </Link>
+          <nav ref={navRef} className="cookora-island-nav" aria-label="Điều hướng chính">
+            <m.span
+              className="cookora-active-indicator"
+              aria-hidden="true"
+              initial={false}
+              style={{ x: pillX, width: pillWidth }}
+              animate={{ opacity: hasIndicator ? 1 : 0 }}
+              transition={reducedMotion ? { duration: 0 } : islandSpring}
+            />
+            {navigationItems.map((item, index) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                className="cookora-nav-item"
+                data-island-index={index}
+                style={{ '--cookora-tab-width': `${item.width}px` } as CSSProperties}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+            <div className="cookora-tools" ref={toolsRef}>
+              <button
+                type="button"
+                className="cookora-nav-item cookora-tools-trigger"
+                data-island-index={navigationItems.length}
+                data-active={isToolActive}
+                aria-expanded={toolsOpen}
+                aria-controls={toolsId}
+                onClick={() => setToolsOpen((value) => !value)}
+              >
+                Công cụ <ChevronDown size={14} aria-hidden="true" />
+              </button>
+              {toolsOpen && (
+                <m.div
+                  className="cookora-header-popover cookora-tools-menu"
+                  id={toolsId}
+                  initial={{ opacity: 0, y: reducedMotion ? 0 : -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: reducedMotion ? 0 : 0.16 }}
+                >
+                  <Link to="/ngan-sach">Ước tính chi phí</Link>
+                </m.div>
+              )}
+            </div>
+          </nav>
+          <div className="cookora-header-actions">
+            <Link
+              to="/cong-thuc"
+              className="cookora-header-icon cookora-header-search"
+              aria-label="Tìm kiếm"
+              title="Tìm kiếm công thức"
+            >
+              <Search aria-hidden="true" />
+            </Link>
+            <Link
+              to="/yeu-thich"
+              className="cookora-header-icon cookora-header-favorites"
+              aria-label="Món yêu thích"
+              title="Món đã lưu"
+            >
+              <Heart aria-hidden="true" />
+            </Link>
             <button
               type="button"
-              onClick={() => setToolsOpen(!toolsOpen)}
-              className={`flex items-center gap-1.5 font-medium px-3 py-1.5 rounded-full transition ${
-                isToolActive
-                  ? 'bg-[#E8F1E9] text-[#273D32] font-semibold'
-                  : 'hover:text-[#273D32] hover:bg-[#E8F1E9]/50'
-              }`}
+              className="cookora-header-icon cookora-header-notifications"
+              aria-label="Thông báo"
+              title="Thông báo"
+              onClick={() => notice('Bạn chưa có thông báo mới.')}
             >
-              Công cụ{' '}
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-200 ${toolsOpen ? 'rotate-180' : ''}`}
-              />
+              <Bell aria-hidden="true" />
+              <span className="cookora-notification-dot" />
             </button>
-
-            {toolsOpen && (
-              <div className="absolute top-[calc(100%-6px)] left-0 w-56 bg-white rounded-2xl shadow-md border border-[#DFE5DD] p-2 text-sm z-50 space-y-0.5 animate-in fade-in slide-in-from-top-1">
-                <Link
-                  to="/ngan-sach"
-                  className="block px-3.5 py-2.5 rounded-xl hover:bg-[#E8F1E9] text-[#273D32] transition"
-                >
-                  Ước tính chi phí
+            <div className="cookora-account-slot">
+              {user ? (
+                <div className="cookora-signed-in" title={user.displayName}>
+                  <span className="cookora-avatar" aria-hidden="true">
+                    {user.displayName.charAt(0).toUpperCase()}
+                  </span>
+                  <span className="cookora-account-name">{user.displayName}</span>
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="cookora-logout"
+                    aria-label="Đăng xuất"
+                    title="Đăng xuất"
+                  >
+                    <LogOut aria-hidden="true" />
+                  </button>
+                </div>
+              ) : (
+                <Link to="/dang-nhap" className="cookora-login">
+                  <User aria-hidden="true" />
+                  <span>Đăng nhập</span>
                 </Link>
-              </div>
-            )}
-          </div>
-        </nav>
-
-        {/* 3. Right: Clean Symmetrical Actions */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
-          {/* Subtle Search Icon Button */}
-          <Link
-            to="/cong-thuc"
-            className="w-9 h-9 rounded-full flex items-center justify-center text-[#5C7065] hover:text-[#273D32] hover:bg-[#E8F1E9] transition"
-            title="Tìm kiếm công thức"
-            aria-label="Tìm kiếm"
-          >
-            <Search size={19} strokeWidth={1.8} />
-          </Link>
-
-          {/* Favorites Heart */}
-          <Link
-            to="/yeu-thich"
-            className="w-9 h-9 rounded-full flex items-center justify-center text-[#5C7065] hover:text-[#273D32] hover:bg-[#E8F1E9] transition"
-            title="Món đã lưu"
-            aria-label="Món yêu thích"
-          >
-            <Heart size={19} strokeWidth={1.8} />
-          </Link>
-
-          {/* Notification Bell */}
-          <button
-            onClick={() => notice('Bạn chưa có thông báo mới.')}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-[#5C7065] hover:text-[#273D32] hover:bg-[#E8F1E9] transition relative"
-            title="Thông báo"
-            aria-label="Thông báo"
-          >
-            <Bell size={19} strokeWidth={1.8} />
-            <span className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-[#47735B]" />
-          </button>
-
-          {/* User profile / Login */}
-          {user ? (
-            <div className="flex items-center gap-2 pl-2 border-l border-[#DFE5DD]">
-              <div
-                className="w-8 h-8 rounded-full bg-[#47735B] text-white flex items-center justify-center font-medium text-xs tracking-wider shadow-2xs"
-                title={user.displayName}
-              >
-                {user.displayName.charAt(0).toUpperCase()}
-              </div>
-              <button
-                onClick={handleLogout}
-                className="w-8 h-8 rounded-full flex items-center justify-center text-[#5C7065] hover:text-[#273D32] hover:bg-[#E8F1E9] transition"
-                title="Đăng xuất"
-                aria-label="Đăng xuất"
-              >
-                <LogOut size={16} />
-              </button>
+              )}
             </div>
-          ) : (
-            <Link
-              to="/dang-nhap"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#DFE5DD] bg-white text-[#273D32] font-medium text-xs sm:text-sm hover:bg-[#E8F1E9] transition shadow-2xs"
+            <button
+              type="button"
+              className="cookora-header-icon cookora-menu-toggle"
+              aria-label={mobileMenuOpen ? 'Đóng menu' : 'Mở menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls={mobileId}
+              onClick={() => setMobileMenuOpen((value) => !value)}
             >
-              <User size={14} /> Đăng nhập
-            </Link>
-          )}
-
-          {/* Mobile menu hamburger button */}
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-9 h-9 rounded-full flex items-center justify-center text-[#5C7065] hover:text-[#273D32] hover:bg-[#E8F1E9] transition"
-            aria-label="Mở menu"
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#DFE5DD] bg-[#FAF9F6] px-4 py-4 space-y-1 text-sm font-medium animate-in fade-in">
-          <Link to="/" className="block px-3 py-2.5 rounded-xl hover:bg-[#E8F1E9] text-[#273D32]">
-            Trang chủ
-          </Link>
-          <Link to="/cong-thuc" className="block px-3 py-2.5 rounded-xl hover:bg-[#E8F1E9] text-[#273D32]">
-            Khám phá công thức
-          </Link>
-          <Link
-            to="/co-gi-nau-nay"
-            className="block px-3 py-2.5 rounded-xl hover:bg-[#E8F1E9] text-[#273D32]"
-          >
-            Có gì nấu nấy
-          </Link>
-          <Link to="/thuc-don" className="block px-3 py-2.5 rounded-xl hover:bg-[#E8F1E9] text-[#273D32]">
-            Thực đơn tuần
-          </Link>
-          <Link to="/eat-fit" className="block px-3 py-2.5 rounded-xl hover:bg-[#E8F1E9] text-[#273D32]">
-            Eat Fit
-          </Link>
-          <div className="pt-2 border-t border-[#DFE5DD]">
-            <p className="px-3 py-1 text-xs font-semibold text-[#5C7065] uppercase tracking-wider">Công cụ</p>
-            <Link to="/ngan-sach" className="block px-3 py-2 rounded-xl hover:bg-[#E8F1E9] text-[#273D32]">
-              Ước tính chi phí
-            </Link>
+              {mobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+            </button>
           </div>
-        </div>
-      )}
-    </header>
+          {mobileMenuOpen && (
+            <m.div
+              id={mobileId}
+              className="cookora-header-popover cookora-mobile-menu"
+              initial={{ opacity: 0, y: reducedMotion ? 0 : -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: reducedMotion ? 0 : 0.16 }}
+            >
+              <nav aria-label="Điều hướng di động">
+                {navigationItems.map((item) => (
+                  <NavLink key={item.to} to={item.to} end={item.end}>
+                    {item.label}
+                  </NavLink>
+                ))}
+                <NavLink to="/ngan-sach">Ước tính chi phí</NavLink>
+                <NavLink to="/yeu-thich">Món yêu thích</NavLink>
+                <Link to="/cong-thuc">
+                  <Search size={18} aria-hidden="true" />
+                  Tìm kiếm công thức
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    notice('Bạn chưa có thông báo mới.');
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  <Bell size={18} aria-hidden="true" />
+                  Thông báo
+                </button>
+              </nav>
+            </m.div>
+          )}
+        </m.header>
+      </div>
+    </div>
   );
 }
-
 // Warm Minimal Footer matching uploaded image
 export function Footer() {
   return (

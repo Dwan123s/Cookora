@@ -30,12 +30,29 @@ const cuisineNames: Record<string, string> = {
   WE: 'Âu & Mỹ',
   FR: 'Pháp',
 };
+export function resolveCategory(title: string, category: string): string {
+  if (category === 'Thịt & hải sản' || category === 'Gỏi & món ăn nhẹ') {
+    const isVeg =
+      /rau|su su|đọt bí|đậu bắp|cà tím|nấm|khổ qua|đậu que|đậu cô ve|đậu cove|bắp cải|măng|súp lơ|bông cải|rau muống|cải ngọt|cải thìa|cải xanh|cải thảo|mồng tơi|rau dền|rau ngót|bầu|mướp|bí đao|bí đỏ|su hào|củ cải|khoai tây|khoai lang|khoai môn|dưa leo|dưa chuột|bắp nướng|ngô|đậu phụ|đậu hũ|tàu hũ|cà chua|kimchi|kim chi|giá đỗ|rong biển/i.test(
+        title.replace(/nấm đùi gà/gi, 'nấm'),
+      );
+    const hasMeat =
+      /thịt|sườn|bò|heo|lợn|gà|vịt|cá|tôm|mực|bạch tuộc|nghêu|sò|ốc|hến|cua|ghẹ|chả|chân giò|giò heo|giò lụa|giò thủ|chả giò|giò sống|nem|lạp xưởng|xúc xích|chim|ếch|lươn|ba chỉ|ba rọi|pate|bì lợn|hàu|sủi cảo|tiểu long bao|hồ lô/i.test(
+        title.replace(/nấm đùi gà/gi, 'nấm'),
+      );
+    if (isVeg && !hasMeat) {
+      return 'Rau củ';
+    }
+  }
+  return category;
+}
+
 export function discoveryRecipe(recipe: Recipe) {
   return {
     id: recipe.id,
     slug: recipe.slug,
     title: recipe.title,
-    category: recipe.category,
+    category: resolveCategory(recipe.title, recipe.category),
     cuisine: recipe.cuisine,
     cuisineName: cuisineNames[recipe.cuisine] || recipe.cuisine,
     image: recipe.image,
