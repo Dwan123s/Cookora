@@ -7,7 +7,6 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
-  Coins,
   CookingPot,
   Leaf,
   LoaderCircle,
@@ -28,7 +27,7 @@ import { addDays, weekOf } from '../date';
 import { errorText, Modal, useNotice, useUser } from '../shared';
 import { matcherMedia } from '../matcher-media';
 import { loadEatFitDays } from '../eatfit-storage';
-import { groceryAmount, syncEatFitDayToMealPlan, weeklyEstimate, weeklyGroceries, type GroceryRow } from '../weekly-plan';
+import { groceryAmount, syncEatFitDayToMealPlan, weeklyGroceries, type GroceryRow } from '../weekly-plan';
 import '../planner-reference.css';
 
 type MealType = MealEntry['mealType'];
@@ -115,7 +114,6 @@ function MealImage({ recipe }: { recipe: Recipe }) {
 }
 export function Planner() {
   const [parameters] = useSearchParams();
-  const incomingBudget = Number(parameters.get('budget'));
   const incomingServings = Number(parameters.get('servings'));
   const preferredServings =
     Number.isInteger(incomingServings) && incomingServings >= 1 && incomingServings <= 20
@@ -134,11 +132,6 @@ export function Planner() {
   const [recipeSearch, setRecipeSearch] = useState('');
   const [busy, setBusy] = useState(false),
     [error, setError] = useState('');
-  const [budget, setBudget] = useState(
-    Number.isFinite(incomingBudget) && incomingBudget > 0 && incomingBudget <= 700000000
-      ? incomingBudget
-      : 300000,
-  );
   const recipes = useQuery({ queryKey: ['recipes', 'weekly-reference'], queryFn: allRecipes });
   const recipeList = recipes.data || [];
   const recipeMap = useMemo(() => new Map(recipeList.map((recipe) => [recipe.id, recipe])), [recipeList]);
@@ -191,8 +184,6 @@ export function Planner() {
           purchased: !!localWeek.checked[`${row.id}:${row.quantity}`],
         }));
   const checkedCount = groceries.filter((row) => row.purchased).length;
-  const estimate = weeklyEstimate(derivedGroceries);
-  const money = (amount: number) => new Intl.NumberFormat('vi-VN').format(amount) + ' đ';
   const setPlanCache = (value: Envelope<MealPlan>) => {
     qc.setQueryData(planKey, value);
     void qc.invalidateQueries({ queryKey: ['shopping', user?.id, value.data.id] });
@@ -672,33 +663,6 @@ export function Planner() {
               </div>
             )}
           </div>
-          <section className="weekly-budget" aria-label="Ngân sách dự kiến">
-            <div>
-              <Coins size={25} />
-              <strong>Ngân sách dự kiến</strong>
-              <b>{estimate.known ? '~ ' + money(estimate.total) : 'Chưa có giá'}</b>
-            </div>
-            <div className="weekly-budget-track">
-              <span style={{ width: `${budget ? Math.min(100, (estimate.total / budget) * 100) : 0}%` }} />
-            </div>
-            <label>
-              Ngân sách tuần
-              <input
-                type="number"
-                aria-label="Ngân sách tuần"
-                min={0}
-                max={100000000}
-                step={50000}
-                value={budget}
-                onChange={(event) => setBudget(Math.max(0, Number(event.target.value)))}
-              />
-              <span>đ</span>
-            </label>
-            <p>
-              Giá minh họa cho {estimate.known}/{derivedGroceries.length} nguyên liệu.{' '}
-              {estimate.missing ? 'Một số nguyên liệu chưa có giá.' : 'Có thể cập nhật theo nơi mua.'}
-            </p>
-          </section>
           <button
             className="weekly-export"
             type="button"

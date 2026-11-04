@@ -416,6 +416,7 @@ body:has(.weekly-reference) {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
 }
 .weekly-shopping-head {
   display: flex;
@@ -462,10 +463,9 @@ body:has(.weekly-reference) {
   line-height: 1.5;
 }
 .weekly-grocery-list {
-  max-height: 320px;
+  flex: 1 1 0;
   overflow-y: auto;
   min-height: 270px;
-  margin-bottom: 20px;
 }
 .weekly-grocery-row {
   display: flex;
@@ -529,6 +529,8 @@ body:has(.weekly-reference) {
 }
 .weekly-shopping-empty {
   display: flex;
+  height: 100%;
+  grid-column: 1 / -1;
   min-height: 245px;
   align-items: center;
   justify-content: center;
@@ -539,66 +541,8 @@ body:has(.weekly-reference) {
   font-size: 14px;
   padding: 20px;
 }
-.weekly-budget {
-  margin-top: auto;
-  background: linear-gradient(130deg, #f0f6e6, #f3f7eb);
-  padding: 17px 17px 15px;
-  border-radius: 20px;
-}
-.weekly-budget > div:first-child {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #276638;
-}
-.weekly-budget > div:first-child strong {
-  font-size: 15px;
-  font-weight: 800;
-  color: #213b23;
-}
-.weekly-budget > div:first-child b {
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin-left: auto;
-  white-space: nowrap;
-}
-.weekly-budget-track {
-  height: 9px;
-  border-radius: 20px;
-  background: #dde5d4;
-  overflow: hidden;
-  margin: 13px 0 10px;
-}
-.weekly-budget-track > span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #276d42, #a1bd8b);
-  transition: width 0.25s;
-}
-.weekly-budget > label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10px;
-  color: #70845b;
-}
-.weekly-budget input {
-  border: 0;
-  border-bottom: 1px dashed #becdae;
-  max-width: 89px;
-  margin-left: auto;
-  font-size: 11px;
-  background: transparent;
-  color: #4a6e3c;
-  text-align: right;
-}
-.weekly-budget > p {
-  font-size: 11px;
-  color: #7f896f;
-  margin: 7px 0 0;
-  line-height: 1.6;
+.weekly-groceries > .weekly-export {
+  flex-shrink: 0;
 }
 .weekly-export {
   display: flex;
@@ -896,12 +840,6 @@ body:has(.weekly-reference) {
   .weekly-grocery-row > span:last-child {
     font-size: 13px;
   }
-  .weekly-budget > div:first-child strong {
-    font-size: 12px;
-  }
-  .weekly-budget > div:first-child b {
-    font-size: 17px;
-  }
   .weekly-export {
     font-size: 14px;
   }
@@ -921,6 +859,7 @@ body:has(.weekly-reference) {
     top: 13px;
   }
   .weekly-grocery-list {
+    flex: 0 1 auto;
     max-height: 350px;
     min-height: 0;
     display: grid;
@@ -939,15 +878,6 @@ body:has(.weekly-reference) {
   .weekly-grocery-row > strong,
   .weekly-grocery-row > span:last-child {
     font-size: 14px;
-  }
-  .weekly-budget {
-    max-width: 100%;
-  }
-  .weekly-budget > div:first-child strong {
-    font-size: 16px;
-  }
-  .weekly-budget > div:first-child b {
-    font-size: 22px;
   }
   .weekly-table {
     min-width: 780px;
@@ -1142,21 +1072,6 @@ body:has(.weekly-reference) {
   .weekly-grocery-row {
     gap: 12px;
     padding-block: 11px;
-  }
-  .weekly-budget {
-    padding: 15px;
-  }
-  .weekly-budget > div:first-child {
-    gap: 7px;
-  }
-  .weekly-budget > div:first-child strong {
-    font-size: 13px;
-  }
-  .weekly-budget > div:first-child b {
-    font-size: 17px;
-  }
-  .weekly-budget > p {
-    font-size: 10px;
   }
   .weekly-export {
     font-size: 14px;
