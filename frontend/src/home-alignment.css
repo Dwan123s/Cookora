@@ -1275,6 +1275,18 @@ body:has(.home-aligned) .cooking-chat-launcher > img {
   }
 }
 
+/* Inset the hero copy into the clear center of the kitchen background. */
+@media (min-width: 1200px) {
+  .home-aligned .home-hero-copy {
+    padding-left: clamp(48px, 4.5vw, 72px);
+  }
+}
+@media (min-width: 900px) and (max-width: 1199px) {
+  .home-aligned .home-hero-copy {
+    padding-left: 24px;
+  }
+}
+
 /* Botanical accents from the existing Home assets, kept outside the content. */
 .home-aligned .home-hero > .home-hero-decoration:first-child,
 .home-aligned .home-hero > .home-hero-leaf {
