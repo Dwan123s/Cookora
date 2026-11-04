@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Apple,
   CalendarDays,
+  Carrot,
   ChefHat,
   ChevronLeft,
   ChevronRight,
@@ -11,19 +12,18 @@ import {
   Heart,
   Pause,
   Play,
-  Soup,
 } from 'lucide-react';
 import { createEllipse } from './orbit-geometry';
 import '../orbit-quick-nav.css';
 
 const items = [
-  { title: 'Khám phá công thức', to: '/cong-thuc', Icon: Soup, tone: 'sage' },
-  { title: 'Có gì nấu nấy', to: '/co-gi-nau-nay', Icon: ChefHat, tone: 'mint' },
-  { title: 'Thực đơn tuần', to: '/thuc-don', Icon: CalendarDays, tone: 'cream' },
-  { title: 'Eat Fit', subtitle: 'Theo mục tiêu', to: '/eat-fit', Icon: Dumbbell, tone: 'sage' },
-  { title: 'Ước tính chi phí', to: '/ngan-sach', Icon: Coins, tone: 'cream' },
-  { title: 'Dinh dưỡng & Calories', to: '/dinh-duong', Icon: Apple, tone: 'mint' },
-  { title: 'Công thức yêu thích', to: '/yeu-thich', Icon: Heart, tone: 'rose' },
+  { title: 'Công thức', label: 'Khám phá công thức', to: '/cong-thuc', Icon: ChefHat },
+  { title: 'Có gì nấu nấy', label: 'Có gì nấu nấy', to: '/co-gi-nau-nay', Icon: Carrot },
+  { title: 'Thực đơn tuần', label: 'Thực đơn tuần', to: '/thuc-don', Icon: CalendarDays },
+  { title: 'Eat Fit', label: 'Eat Fit theo mục tiêu', to: '/eat-fit', Icon: Dumbbell },
+  { title: 'Ngân sách', label: 'Ước tính chi phí', to: '/ngan-sach', Icon: Coins },
+  { title: 'Dinh dưỡng', label: 'Dinh dưỡng và Calories', to: '/dinh-duong', Icon: Apple },
+  { title: 'Yêu thích', label: 'Công thức yêu thích', to: '/yeu-thich', Icon: Heart },
 ];
 
 export function OrbitQuickNav() {
@@ -163,30 +163,25 @@ export function OrbitQuickNav() {
     <section className="home-container orbit-quick-section" aria-label="Tiện ích Cookora">
       <nav className="orbit-stage" ref={stage} aria-label="Khám phá căn bếp">
         <div className="orbit-ambience" aria-hidden="true" />
-        <div className="orbit-ring" aria-hidden="true">
-          <i className="orbit-pearl orbit-pearl-one" />
-          <i className="orbit-pearl orbit-pearl-two" />
-        </div>
-        {items.map(({ title, subtitle, to, Icon, tone }, index) => (
+        <div className="orbit-ring" aria-hidden="true" />
+        {items.map(({ title, label, to, Icon }, index) => (
           <Link
             key={to}
             to={to}
             className="orbit-item"
-            data-tone={tone}
+            aria-label={label}
             ref={(link) => {
               links.current[index] = link;
             }}
           >
             <span className="orbit-item-icon">
-              <Icon size={22} strokeWidth={1.7} aria-hidden="true" />
+              <Icon size={32} strokeWidth={1.5} aria-hidden="true" />
             </span>
             <span className="orbit-item-title">{title}</span>
-            {subtitle && <small>{subtitle}</small>}
           </Link>
         ))}
       </nav>
       <div className="orbit-footer">
-        <span>Căn bếp của bạn, trong một vòng xoay</span>
         <div className="orbit-controls">
           <button
             type="button"
@@ -204,7 +199,6 @@ export function OrbitQuickNav() {
             aria-label={paused ? 'Tiếp tục chuyển động tiện ích' : 'Tạm dừng chuyển động tiện ích'}
           >
             {paused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
-            {paused ? 'Tiếp tục' : 'Tạm dừng'}
           </button>
           <button
             type="button"

@@ -5,7 +5,7 @@ import { createEllipse } from '../../frontend/src/components/orbit-geometry';
 const near = (a: number, b: number) => assert.ok(Math.abs(a - b) < 1e-8, `${a} differs from ${b}`);
 
 test('cards grow toward the front and recede behind the elliptical shelf', () => {
-  const orbit = createEllipse(1200, 310, 150, 154);
+  const orbit = createEllipse(1056, 200, 116, 112);
   const front = orbit.at(0),
     back = orbit.at(0.5),
     side = orbit.at(-0.43);
@@ -20,13 +20,13 @@ test('cards grow toward the front and recede behind the elliptical shelf', () =>
 
 test('orbit wraps continuously and stays finite through every responsive layout', () => {
   const sizes = [
-    [1280, 310, 150, 154],
-    [805, 310, 150, 154],
-    [836, 285, 128, 138],
-    [577, 285, 128, 138],
-    [592, 255, 104, 118],
-    [343, 255, 104, 118],
-    [273, 255, 104, 118],
+    [1056, 200, 116, 112],
+    [852, 200, 116, 112],
+    [836, 190, 104, 104],
+    [577, 190, 104, 104],
+    [592, 180, 96, 96],
+    [343, 180, 96, 96],
+    [273, 180, 96, 96],
   ];
   for (const [width, height, cardWidth, cardHeight] of sizes) {
     const orbit = createEllipse(width, height, cardWidth, cardHeight);
@@ -44,7 +44,7 @@ test('orbit wraps continuously and stays finite through every responsive layout'
       near(position.scale, wrapped.scale);
     }
   }
-  const orbit = createEllipse(1200, 310, 150, 154);
+  const orbit = createEllipse(1056, 200, 116, 112);
   for (const boundary of [-0.43, 0.43]) {
     const before = orbit.at(boundary - 1e-9),
       after = orbit.at(boundary + 1e-9);

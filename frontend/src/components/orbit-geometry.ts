@@ -1,7 +1,7 @@
 // Cards stand on a shallow elliptical track, growing as they approach the front.
 export function createEllipse(width: number, height: number, cardWidth: number, cardHeight: number) {
   const rx = Math.max(width < 640 ? 290 : 0, (width - cardWidth * 1.08) / 2 - 22);
-  const ry = Math.min(58, Math.max(28, height * 0.17));
+  const ry = Math.min(26, Math.max(16, height * 0.105));
   return {
     rx,
     ry,
@@ -19,8 +19,8 @@ export function createEllipse(width: number, height: number, cardWidth: number, 
         y: ry * curve * (front ? 1 : -1),
         scale,
         depth,
-        rotateY: -lateral * 22,
-        rotateZ: lateral * 5,
+        rotateY: -lateral * 12,
+        rotateZ: lateral * 2.5,
         opacity: front ? 1 : 0.12 + (1 - curve) * 0.88,
         cardHeight: cardHeight * scale,
       };
