@@ -22,8 +22,41 @@
     overflow: hidden;
   }
 
-  .cookora-header,
   .cookora-header-slot {
+    height: 64px;
+  }
+
+  .cookora-header-anchor {
+    position: static;
+    padding-inline: 16px;
+    pointer-events: auto;
+  }
+
+  .cookora-header {
+    --cookora-content-ratio: 1;
+    --cookora-logo-icon-size: 32px;
+    --cookora-logo-gap: 10px;
+    --cookora-word-size: 25px;
+    --cookora-word-width: 100px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    height: 64px;
+    padding: 0;
+    transform: none;
+  }
+
+  .cookora-header .cookora-logo {
+    width: auto;
+    height: 44px;
+    justify-content: center;
+  }
+
+  .cookora-header-glass,
+  .cookora-island-nav,
+  .cookora-header-actions,
+  .cookora-header-popover {
     display: none;
   }
 

@@ -2,6 +2,8 @@
 
 ## Cập nhật đồng bộ responsive
 
+Header mobile ở đầu trang nay hiển thị logo Cookora căn giữa trong hàng cao 64px. Tái sử dụng logo và liên kết về trang chủ của header chung, ẩn các nút/menu trên mobile vì đã có bottom bar. Header nằm trong luồng trang, không che nội dung khi cuộn; trang đăng nhập giữ header riêng. Safe area phía trên được xử lý bởi app shell.
+
 Bottom bar dùng cùng token màu, font Be Vietnam Pro và liquid glass với header. Thanh nổi có chiều cao 72px, rộng tối đa 560px, căn giữa, giữ năm vùng bấm bằng nhau và chừa safe area. Nội dung, toast và popup chat dùng chung biến khoảng trống của thanh; viewport dưới 360px thu gutter và cỡ nhãn để giữ đủ mục.
 
 Chỉ một mục được đánh dấu khi mở Chat AI hoặc menu Thêm. Trang đi chợ thuộc mục Thực đơn; trang công thức chi tiết thuộc Khám phá. Bấm lại mục trang hiện tại vẫn đóng chat. Menu Thêm bổ sung Dinh dưỡng/Khẩu phần, đánh dấu trang hiện tại, khóa cuộn nền và trả focus về nút khi đóng. Chat dùng visual viewport để tính khoảng trống bàn phím và tạm ẩn thanh khi bàn phím mở.
