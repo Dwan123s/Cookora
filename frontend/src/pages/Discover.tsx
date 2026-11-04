@@ -14,7 +14,7 @@ import {
   RotateCcw,
   LayoutGrid,
 } from 'lucide-react';
-import { discoveryRecipe, loadRecipeCatalog } from '../recipe-catalog';
+import { cuisineCategoryCounts, discoveryRecipe, loadRecipeCatalog } from '../recipe-catalog';
 import { ErrorState, Loading, FavoriteButton } from '../shared';
 import { RECIPE_PLACEHOLDER } from '../recipe-media';
 import { paginationSlots } from '../pagination';
@@ -131,6 +131,7 @@ export function Discover() {
   const selectedServing = params.get('servings') || '',
     categories = params.getAll('category');
   const sortBy = params.get('sort') || 'popular';
+  const eatFitOnly = params.get('collection') === 'eat-fit';
   const [draft, setDraft] = useState(currentSearch);
   useEffect(() => setDraft(currentSearch), [currentSearch]);
   const recipesQuery = useQuery({
@@ -142,29 +143,19 @@ export function Discover() {
   const allRecipes = useMemo(() => {
     const ranked = new Map(FEATURED_TITLES.map((title, index) => [title, index]));
     return (recipesQuery.data || [])
+      .filter((recipe) => !eatFitOnly || recipe.sourceName === 'Menu món.docx')
       .map(discoveryRecipe)
       .sort((a, b) => (ranked.get(a.title) ?? 100) - (ranked.get(b.title) ?? 100));
-  }, [recipesQuery.data]);
+  }, [recipesQuery.data, eatFitOnly]);
   const sourceRecipes = useMemo(
     () => new Map((recipesQuery.data || []).map((recipe) => [recipe.id, recipe])),
     [recipesQuery.data],
   );
-  const availableCategories = useMemo(() => {
-    const dishesInCuisine = allRecipes.filter((dish) => {
-      if (!cuisine) return true;
-      return cuisine === 'WE' ? ['WE', 'IT', 'FR'].includes(dish.cuisine) : dish.cuisine === cuisine;
-    });
-
-    const categoryCounts = new Map<string, number>();
-    for (const dish of dishesInCuisine) {
-      categoryCounts.set(dish.category, (categoryCounts.get(dish.category) || 0) + 1);
-    }
-
-    return CATEGORIES.filter((cat) => (categoryCounts.get(cat.label) || 0) > 0);
-  }, [allRecipes, cuisine]);
+  const categoryCounts = useMemo(() => cuisineCategoryCounts(allRecipes, cuisine), [allRecipes, cuisine]);
+  const availableCategories = CATEGORIES.filter((category) => (categoryCounts.get(category.label) || 0) > 0);
 
   useEffect(() => {
-    if (categories.length > 0 && availableCategories.length > 0) {
+    if (recipesQuery.isSuccess && categories.length > 0) {
       const validCategories = categories.filter((cat) =>
         availableCategories.some((available) => available.label === cat),
       );
@@ -176,17 +167,19 @@ export function Discover() {
         setParams(next, { replace: true });
       }
     }
-  }, [cuisine, availableCategories, categories, params, setParams]);
-  const recommendations = ['Trứng đúc thịt bằm', 'Canh chua cá lóc', 'Rau muống xào tỏi']
-    .map((title) => allRecipes.find((dish) => dish.title === title))
-    .filter((dish): dish is Dish => !!dish);
+  }, [cuisine, categoryCounts, recipesQuery.isSuccess, params, setParams]);
+  const recommendations = allRecipes.filter((dish) =>
+    !cuisine || (cuisine === 'WE' ? ['WE', 'IT', 'FR'].includes(dish.cuisine) : dish.cuisine === cuisine),
+  ).slice(0, 3);
   const setFilter = (key: string, value: string) => {
     const next = new URLSearchParams(params);
     value ? next.set(key, value) : next.delete(key);
+    if (key === 'cuisine') next.delete('category');
     next.delete('page');
     setParams(next);
   };
   const toggleCategory = (category: string) => {
+    if (!categoryCounts.get(category)) return;
     const next = new URLSearchParams(params);
     next.delete('category');
     (categories.includes(category)
@@ -354,12 +347,14 @@ export function Discover() {
             </select>
           </div>
           <div className="discover-categories" aria-label="Nhóm món ăn">
-            {availableCategories.map((category) => (
+            {CATEGORIES.map((category) => (
               <button
                 key={category.label}
                 type="button"
                 className={categories.includes(category.label) ? 'is-active' : ''}
                 aria-pressed={categories.includes(category.label)}
+                disabled={!categoryCounts.get(category.label)}
+                title={!categoryCounts.get(category.label) ? 'Chưa có món trong nhóm này với ẩm thực đã chọn' : `${categoryCounts.get(category.label)} công thức`}
                 onClick={() => toggleCategory(category.label)}
               >
                 <span aria-hidden="true">{category.icon}</span>

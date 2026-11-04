@@ -1106,6 +1106,14 @@ body:has(:is(.discover-reference, .home-aligned)) {
     opacity: 0.6;
   }
 }
+.discover-reference .discover-categories button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+  background: #f2f1ec;
+  color: #657063;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .discover-reference * {
     transition: none !important;

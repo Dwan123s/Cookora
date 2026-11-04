@@ -33,18 +33,16 @@ export const recipeInclude = {
   steps: { orderBy: { order: 'asc' as const } },
 };
 export function resolveCategory(title: string, category: string): string {
-  if (category === 'Thịt & hải sản' || category === 'Gỏi & món ăn nhẹ') {
-    const isVeg =
-      /rau|su su|đọt bí|đậu bắp|cà tím|nấm|khổ qua|đậu que|đậu cô ve|đậu cove|bắp cải|măng|súp lơ|bông cải|rau muống|cải ngọt|cải thìa|cải xanh|cải thảo|mồng tơi|rau dền|rau ngót|bầu|mướp|bí đao|bí đỏ|su hào|củ cải|khoai tây|khoai lang|khoai môn|dưa leo|dưa chuột|bắp nướng|ngô|đậu phụ|đậu hũ|tàu hũ|cà chua|kimchi|kim chi|giá đỗ|rong biển/i.test(
-        title.replace(/nấm đùi gà/gi, 'nấm'),
-      );
-    const hasMeat =
-      /thịt|sườn|bò|heo|lợn|gà|vịt|cá|tôm|mực|bạch tuộc|nghêu|sò|ốc|hến|cua|ghẹ|chả|chân giò|giò heo|giò lụa|giò thủ|chả giò|giò sống|nem|lạp xưởng|xúc xích|chim|ếch|lươn|ba chỉ|ba rọi|pate|bì lợn|hàu|sủi cảo|tiểu long bao|hồ lô/i.test(
-        title.replace(/nấm đùi gà/gi, 'nấm'),
-      );
-    if (isVeg && !hasMeat) {
-      return 'Rau củ';
-    }
+  const normalized = title.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/đ/g, 'd');
+  // "Da cá" names the crispy peanut coating, not a seafood ingredient.
+  if (/\b(dau phong|lac) da ca\b/.test(normalized)) return 'Gỏi & món ăn nhẹ';
+  const name = normalized.replace(/\b(nam dui ga|dau ga|bo xoi|ca chua|ca rot|ca tim)\b/g, 'rau');
+  const vegetables = /\b(rau|dot bi|su su|dau bap|nam|kho qua|dau que|dau co ve|dau cove|bap cai|mang|sup lo|bong cai|cai ngot|cai thia|cai xanh|cai thao|mong toi|rau den|rau ngot|bau|muop|bi dao|bi do|su hao|cu cai|khoai tay|khoai lang|khoai mon|dua leo|dua chuot|ngo|dau phu|dau hu|tau hu|kimchi|kim chi|gia do|rong bien)\b/.test(name);
+  const meat = /\b(thit|suon|bo|heo|lon|ga|vit|ca|tom|muc|bach tuoc|ngheu|so|oc|hen|cua|ghe|cha|chan gio|gio heo|gio lua|gio thu|gio song|nem|lap xuong|xuc xich|chim|ech|luon|ba chi|ba roi|pate|hau|sui cao|tieu long bao)\b/.test(name);
+  const salad = /\b(salad|goi|nom)\b/.test(name);
+  if (vegetables && !meat && !salad &&
+      (category === 'Thịt & hải sản' || category === 'Gỏi & món ăn nhẹ' || /\b(xao|luoc|hap|kho)\b/.test(name))) {
+    return 'Rau củ';
   }
   return category;
 }

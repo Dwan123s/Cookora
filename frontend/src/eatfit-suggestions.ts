@@ -14,6 +14,7 @@ type SuggestionOptions = {
   round?: number;
   seenSlugs?: string[];
   previousSlugs?: string[];
+  profileKey?: string;
 };
 
 const dishTypes = [
@@ -36,15 +37,16 @@ const proteinTypes = [
   ['Trứng', /\b(trung)\b/],
 ] as const;
 
-function tieBreaker(slug: string, round: number) {
-  let hash = round + 1;
-  for (const character of slug) hash = (Math.imul(hash, 31) + character.charCodeAt(0)) | 0;
+function tieBreaker(slug: string, seed: string) {
+  let hash = 2166136261;
+  for (const character of `${seed}:${slug}`) hash = Math.imul(hash ^ character.charCodeAt(0), 16777619);
+  hash = Math.imul(hash ^ (hash >>> 16), 0x45d9f3b);
   return hash >>> 0;
 }
 
 // Ingredient signals rank inspiration only; they do not estimate recipe calories.
 export function suggestEatFitRecipes<T extends Candidate>(recipes: T[], goal: Goal, options: SuggestionOptions = {}) {
-  const { round = 0, seenSlugs = [], previousSlugs = [] } = options;
+  const { round = 0, seenSlugs = [], previousSlugs = [], profileKey = '' } = options;
   const weights = {
     lose: { protein: 3, vegetables: 4, starch: 0, fried: -4, sweet: -4 },
     maintain: { protein: 3, vegetables: 3, starch: 2, fried: -2, sweet: -3 },
@@ -78,7 +80,7 @@ export function suggestEatFitRecipes<T extends Candidate>(recipes: T[], goal: Go
     return {
       recipe, score, group, source, method,
       reason: [group, ...reasons].join(' · '),
-      tie: tieBreaker(recipe.slug, round),
+      tie: tieBreaker(recipe.slug, `${goal}:${round}:${profileKey}`),
     };
   });
 
@@ -92,10 +94,12 @@ export function suggestEatFitRecipes<T extends Candidate>(recipes: T[], goal: Go
   const count = (counts: Map<string, number>, key: string) => counts.get(key) || 0;
 
   while (selected.length < 6 && remaining.length) {
+    const unseen = remaining.filter((item) => !seen.has(item.recipe.slug));
+    const pool = unseen.length ? unseen : remaining;
     // Prefer at most two dishes of a type/source. Relax only if the remaining data cannot fill the batch.
-    const eligible = remaining.filter((item) => count(groups, item.group) < 2 && (!item.source || count(sources, item.source) < 2));
-    const diverse = remaining.filter((item) => count(groups, item.group) < 2);
-    const candidates = eligible.length ? eligible : diverse.length ? diverse : remaining;
+    const eligible = pool.filter((item) => count(groups, item.group) < 2 && (!item.source || count(sources, item.source) < 2));
+    const diverse = pool.filter((item) => count(groups, item.group) < 2);
+    const candidates = eligible.length ? eligible : diverse.length ? diverse : pool;
     const utility = (item: (typeof ranked)[number]) => item.score
       + (seen.has(item.recipe.slug) ? 0 : 24)
       - (previous.has(item.recipe.slug) ? 48 : 0)

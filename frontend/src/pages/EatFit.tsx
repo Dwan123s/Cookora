@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Activity,
@@ -30,7 +30,7 @@ import { RECIPE_PLACEHOLDER } from '../recipe-media';
 import { ErrorState, Loading, useUser } from '../shared';
 import { syncEatFitDayToMealPlan } from '../weekly-plan';
 import { calculateNutrition, mealBudgets, type Goal } from '../eatfit-calculations';
-import { suggestEatFitRecipes } from '../eatfit-suggestions';
+import { createEatFitProposal, eatFitMeal as toMeal } from '../eatfit-proposal';
 import { eatFitCookingGuide } from '../eatfit-cooking-guide';
 import {
   loadEatFitDraft, loadEatFitDays, saveEatFitDraft, saveEatFitDays,
@@ -55,18 +55,9 @@ export function EatFit() {
     queryFn: () => loadRecipeCatalog(),
     staleTime: 30000,
   });
-  const collection = (catalog.data || [])
+  const collection = useMemo(() => (catalog.data || [])
     .filter((r) => r.sourceName === 'Menu món.docx')
-    .sort((a, b) => a.slug.localeCompare(b.slug));
-  const toMeal = (recipe: (typeof collection)[number], reason = '') => ({
-      number: Number(recipe.slug.match(/^doc-menu-(\d+)/)?.[1]),
-      slug: recipe.slug,
-      title: recipe.title,
-      image: recipe.image || RECIPE_PLACEHOLDER,
-      ingredients: recipe.ingredients.map((item) => item.note || item.name).join('; '),
-      recipeContext: recipe.steps.map((step) => 'Bước ' + step.order + '. ' + step.instruction).join('\n\n'),
-      reason,
-    });
+    .sort((a, b) => a.slug.localeCompare(b.slug)), [catalog.data]);
   const [gender, setGender] = useState<'female' | 'male'>(initial?.profile.gender || 'female');
   const [age, setAge] = useState(initial?.profile.age ?? '22'),
     [height, setHeight] = useState(initial?.profile.height ?? '160'),
@@ -104,6 +95,7 @@ export function EatFit() {
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     if (selected) dialog.current?.showModal();
+    else dialog.current?.close();
   }, [selected]);
   function save(id: number) {
     const next = favorites.includes(id) ? favorites.filter((n) => n !== id) : [...favorites, id];
@@ -127,7 +119,10 @@ export function EatFit() {
   const grams = result ? [result.protein, result.carbs, result.fat] : [];
   const signature = JSON.stringify([gender, age, height, weight, activity, goal]);
   const needsRefresh = Boolean(proposal && proposal.signature !== signature);
-  const meals = proposal?.meals || collection.slice(0, 6).map((recipe) => toMeal(recipe));
+  const meals = needsRefresh ? [] : (proposal?.meals || []).flatMap((meal) => {
+    const recipe = collection.find((item) => item.slug === meal.slug);
+    return recipe ? [toMeal(recipe, meal.reason)] : [];
+  });
   const planBudgets = proposal ? mealBudgets(proposal.target) : [];
   const goalTitle = goals.find((item) => item.value === (proposal?.goal || goal))!.title;
   const currentRecipe = selected ? collection.find((recipe) => recipe.slug === selected.slug) : undefined;
@@ -182,25 +177,19 @@ export function EatFit() {
   }
   function proposeMeals() {
     if (!result || catalog.isPending || catalog.isError || !collection.length) return;
-    const previous = proposal?.goal === goal ? proposal : null;
-    const round = previous ? previous.round + 1 : 0;
-    const history = previous?.seenSlugs || [];
-    const seenSlugs = collection.every((recipe) => history.includes(recipe.slug)) ? [] : history;
-    const suggestions = suggestEatFitRecipes(collection, goal, {
-      round,
-      seenSlugs,
-      previousSlugs: previous?.meals.map((meal) => meal.slug) || [],
-    });
     scrollToSuggestions.current = true;
-    setProposal({
-      meals: suggestions.map(({ recipe, reason }) => toMeal(recipe, reason)),
-      target: result.target,
-      goal,
-      signature,
-      round,
-      seenSlugs: [...new Set([...seenSlugs, ...suggestions.map(({ recipe }) => recipe.slug)])],
-    });
+    setSelected(null);
+    setProposal((previous) => createEatFitProposal(collection, goal, result.target, signature, previous));
   }
+  const target = result?.target;
+  useEffect(() => {
+    if (!needsRefresh || !target || !catalog.isSuccess || !collection.length) return;
+    const timer = window.setTimeout(() => {
+      setSelected(null);
+      setProposal((previous) => createEatFitProposal(collection, goal, target, signature, previous));
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [needsRefresh, target, catalog.isSuccess, collection, goal, signature]);
   useEffect(() => {
     if (!proposal || !scrollToSuggestions.current) return;
     scrollToSuggestions.current = false;
@@ -304,7 +293,7 @@ export function EatFit() {
               : !result ? 'Nhập đủ thông số hợp lệ để đề xuất món.'
               : catalog.isPending ? 'Đang lấy công thức từ dữ liệu Cookora.'
               : !collection.length ? 'Chưa có công thức Eat Fit để đề xuất.'
-              : needsRefresh ? 'Thông tin đã thay đổi. Bấm nút để cập nhật gợi ý.'
+              : needsRefresh ? 'Đang cập nhật món theo thông tin mới…'
               : 'Bấm nút để chọn món và tạo gợi ý cho các bữa trong ngày.'}
           </p>
         </form>
@@ -420,16 +409,16 @@ export function EatFit() {
                 : 'Bộ sưu tập Eat Fit · Nhập thông tin và bấm “Đề xuất món theo mục tiêu” để chọn món.'}
             </p>
           </div>
-          <Link to="/cong-thuc">
+          <Link to="/cong-thuc?collection=eat-fit">
             Xem tất cả công thức <ArrowRight size={15} />
           </Link>
         </div>
-        {needsRefresh && <p className="ef-refresh-note" role="status">Bạn đã đổi thông số. Các món và khung bữa ăn bên dưới vẫn theo lần đề xuất trước; bấm nút để cập nhật.</p>}
+        {needsRefresh && <p className="ef-refresh-note" role="status">{result ? 'Đang chọn lại món theo mục tiêu mới…' : 'Nhập thông số hợp lệ để cập nhật thực đơn.'}</p>}
         <div className="ef-recipe-grid">
           {catalog.isPending && <Loading />}
           {catalog.isError && <ErrorState error={catalog.error} retry={() => void catalog.refetch()} />}
           {meals.map((m, i) => (
-            <article className="ef-recipe" key={m.number}>
+            <article className="ef-recipe" key={m.slug}>
               <div className="ef-recipe-photo">
                 <button
                   className="ef-photo-button"
@@ -466,6 +455,7 @@ export function EatFit() {
           ))}
         </div>
         {!catalog.isPending && !catalog.isError && !collection.length && <p className="ef-refresh-note">Bộ sưu tập Eat Fit chưa có món. Bạn có thể xem các công thức khác qua liên kết phía trên.</p>}
+        {!proposal && collection.length > 0 && <p className="ef-refresh-note" role="status">Nhập thông tin rồi bấm “Đề xuất món theo mục tiêu” để tạo thực đơn riêng cho bạn.</p>}
         <p className="ef-catalog-note">
           Chọn từ bộ sưu tập Eat Fit theo nguyên liệu và mục tiêu, phối hợp nhiều loại món và nguồn đạm; ưu tiên món chưa xem trong phiên này.
           Chưa đối chiếu kcal hoặc macro thực tế của từng công thức.
@@ -490,7 +480,7 @@ export function EatFit() {
           {names.map((title, i) => {
             const Icon = icons[i];
             return (
-              <button className="ef-day-meal" key={title} type="button" disabled={!proposal || i === 3 || !meals[i]} onClick={() => meals[i] && setSelected(meals[i])}>
+              <button className="ef-day-meal" key={title} type="button" disabled={!proposal || needsRefresh || i === 3 || !meals[i]} onClick={() => meals[i] && setSelected(meals[i])}>
                 {i < 3 ? (
                   <img src={proposal ? meals[i]?.image || RECIPE_PLACEHOLDER : RECIPE_PLACEHOLDER} alt="" />
                 ) : (
@@ -620,6 +610,7 @@ export function EatFit() {
             <div>
               <span className="ef-eyebrow">BỘ SƯU TẬP EAT FIT</span>
               <h2>{selected.title}</h2>
+              <Link to={`/cong-thuc/${selected.slug}`} className="ef-calendar-edit">Mở trang công thức này <ArrowRight size={14} /></Link>
               {selected.reason && <p>{selected.reason}. Gợi ý theo nguyên liệu; chưa xác thực dinh dưỡng theo khẩu phần.</p>}
               <h3>Nguyên liệu</h3>
               <p>{openedMeal?.ingredients}</p>
