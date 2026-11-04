@@ -15,7 +15,7 @@ const root = resolve(__dirname, '../..');
 const raw = JSON.parse(readFileSync(resolve(root, 'database/seeds/document-recipes.json'), 'utf8'));
 const source = DocumentCatalogSchema.parse(raw);
 
-test('six documents retain all 419 real recipes and 365 correctly associated embedded photos', () => {
+test('419 document recipes retain 365 original images and 50 supplementary Thai photos', () => {
   assert.deepEqual(
     source.sources.map((s) => [s.key, s.recipeCount, s.missingImages.length]),
     [
@@ -23,19 +23,26 @@ test('six documents retain all 419 real recipes and 365 correctly associated emb
       ['han', 50, 2],
       ['nhat', 37, 1],
       ['trung', 63, 0],
-      ['thai', 50, 50],
+      ['thai', 50, 0],
       ['menu', 50, 1],
     ],
   );
   assert.equal(source.recipes.length, 419);
-  assert.equal(source.recipes.filter((r) => r.image).length, 365);
+  assert.equal(source.recipes.filter((r) => r.image).length, 415);
+  assert.equal(source.recipes.flatMap((r) => r.images).filter((image) => !image.sourceDocument).length, 365);
   for (const recipe of source.recipes) {
     const original = raw.recipes.find((r: any) => r.slug === recipe.slug);
     for (const image of recipe.images) {
-      assert.ok(
-        original.sourceParagraphs.some((p: any) => p.images.length),
-        recipe.slug,
-      );
+      if (image.sourceDocument) {
+        assert.equal(recipe.sourceKey, 'thai');
+        assert.equal(image.sourceSlide, recipe.sourceOrdinal);
+        assert.ok(image.sourceAsset.startsWith('ppt/media/'));
+        assert.ok(source.imageSupplements?.some((item) => item.name === image.sourceDocument));
+      } else
+        assert.ok(
+          original.sourceParagraphs.some((p: any) => p.images.length),
+          recipe.slug,
+        );
       const file = readFileSync(resolve(root, 'frontend/public', `.${image.path}`));
       assert.equal(createHash('sha256').update(file).digest('hex'), image.sha256, recipe.slug);
     }
@@ -55,7 +62,7 @@ test('six documents retain all 419 real recipes and 365 correctly associated emb
   assert.equal(curry.baseServings, 2);
   assert.ok(curry.image.includes('doc-nhat-004-'));
   assert.ok(
-    source.recipes.filter((r) => r.sourceKey === 'thai').every((r) => !r.image && r.totalMinutes === null),
+    source.recipes.filter((r) => r.sourceKey === 'thai').every((r) => r.image && r.totalMinutes === null),
   );
 });
 

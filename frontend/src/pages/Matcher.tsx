@@ -26,6 +26,8 @@ import { AiDishDialog } from '../components/AiDishDialog';
 import { matcherMedia } from '../matcher-media';
 import { addMatcherResult, newMatcherDraft, restoreMatcherEntry } from '../matcher-history';
 import { useMatcherHistory } from '../use-matcher-history';
+import { AiSuggestionLoading } from '../components/LoadingStates';
+import { RecipeImage } from '../components/RecipeImage';
 import '../matcher-reference.css';
 
 type SuggestionInput = { prompt: string; servings: number };
@@ -50,13 +52,10 @@ function DishPhoto({ recipe }: { recipe?: Recipe }) {
     <div className="pantry-dish-photo">
       <CookingPot size={34} aria-hidden="true" />
       {recipe && (
-        <img
+        <RecipeImage
           src={matcherMedia(recipe).src}
           alt={recipe.title}
           title={matcherMedia(recipe).credit}
-          onError={(event) => {
-            event.currentTarget.style.display = 'none';
-          }}
         />
       )}
     </div>
@@ -319,10 +318,7 @@ function MatcherWorkspace({ accountId }: { accountId: string | null }) {
             </p>
           )}
           {busy ? (
-            <div className="pantry-result-status" role="status">
-              <LoaderCircle className="spin" />
-              <p>AI đang chọn món trong kho và đề xuất thêm món mới…</p>
-            </div>
+            <AiSuggestionLoading />
           ) : ai.isError && !result ? (
             <div className="pantry-result-status" role="alert">
               <p>Chưa lấy được gợi ý. Hãy thử lại ở phần nhập nguyên liệu.</p>

@@ -9,6 +9,16 @@ const imagePath = z.string().regex(/^\/recipes\/documents\/doc-[a-z0-9-]+\.webp$
 export const DocumentCatalogSchema = z
   .object({
     version: z.literal(1),
+    imageSupplements: z
+      .array(
+        z.object({
+          name: z.string().min(1).max(200),
+          sha256,
+          sourceKey,
+          recipeCount: z.number().int().positive(),
+        }),
+      )
+      .optional(),
     sources: z
       .array(
         z.object({
@@ -42,7 +52,14 @@ export const DocumentCatalogSchema = z
           image: z.union([z.literal(''), imagePath]),
           imageCredit: z.string().max(200),
           images: z.array(
-            z.object({ path: imagePath, sourceAsset: z.string(), sourceSha256: sha256, sha256 }),
+            z.object({
+              path: imagePath,
+              sourceAsset: z.string(),
+              sourceSha256: sha256,
+              sha256,
+              sourceDocument: z.string().max(200).optional(),
+              sourceSlide: z.number().int().positive().optional(),
+            }),
           ),
           rawIngredients: z.string().min(1),
           ingredients: z
@@ -98,6 +115,25 @@ export const DocumentCatalogSchema = z
       if (recipe.steps.some((step, index) => step.order !== index + 1))
         issue(`Invalid step order: ${recipe.slug}`);
       if ((recipe.images[0]?.path || '') !== recipe.image) issue(`Invalid cover image: ${recipe.slug}`);
+      for (const image of recipe.images.filter((image) => image.sourceDocument)) {
+        if (
+          !image.sourceSlide ||
+          !catalog.imageSupplements?.some(
+            (supplement) =>
+              supplement.name === image.sourceDocument && supplement.sourceKey === recipe.sourceKey,
+          )
+        )
+          issue(`Unknown supplementary image source: ${recipe.slug}`);
+      }
+    }
+    for (const supplement of catalog.imageSupplements || []) {
+      const recipes = catalog.recipes.filter(
+        (recipe) =>
+          recipe.sourceKey === supplement.sourceKey &&
+          recipe.images.some((image) => image.sourceDocument === supplement.name),
+      );
+      if (recipes.length !== supplement.recipeCount)
+        issue(`Supplement coverage mismatch: ${supplement.name}`);
     }
   });
 

@@ -240,6 +240,33 @@ def main():
         manifest['recipes'].extend(recipes)
         print(json.dumps({'source': filename, 'recipes': len(recipes), 'withImages': sum(bool(r['image']) for r in recipes)}, ensure_ascii=False), flush=True)
     output = ROOT / 'database/seeds/document-recipes.json'
+    # Preserve verified supplementary photos when re-extracting the original Word files.
+    if output.exists():
+        previous = json.loads(output.read_text(encoding='utf8'))
+        by_slug = {r['slug']: r for r in previous.get('recipes', [])}
+        for recipe in manifest['recipes']:
+            old = by_slug.get(recipe['slug'])
+            if recipe['image'] or not old or old['title'] != recipe['title']:
+                continue
+            images = [image for image in old.get('images', []) if image.get('sourceDocument')]
+            if not images:
+                continue
+            for image in images:
+                image_file = ROOT / 'frontend/public' / image['path'].lstrip('/')
+                if hashlib.sha256(image_file.read_bytes()).hexdigest() != image['sha256']:
+                    raise ValueError(f'Supplementary image checksum mismatch: {recipe["slug"]}')
+            recipe.update(image=images[0]['path'], images=images, imageCredit=old['imageCredit'])
+        supplements = []
+        for supplement in previous.get('imageSupplements', []):
+            count = sum(any(im.get('sourceDocument') == supplement['name'] for im in r['images'])
+                        for r in manifest['recipes'] if r['sourceKey'] == supplement['sourceKey'])
+            if count:
+                supplements.append({**supplement, 'recipeCount': count})
+        if supplements:
+            manifest['imageSupplements'] = supplements
+        for source in manifest['sources']:
+            source['missingImages'] = [r['slug'] for r in manifest['recipes']
+                                       if r['sourceKey'] == source['key'] and not r['image']]
     output.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
     print(json.dumps({'total': len(manifest['recipes']), 'cuisines': dict(collections.Counter(r['cuisine'] for r in manifest['recipes'])),
                       'withImages': sum(bool(r['image']) for r in manifest['recipes']),

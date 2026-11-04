@@ -1,15 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
-import {
-  ArrowRight,
-  Check,
-  ChevronDown,
-  Coins,
-  LoaderCircle,
-  RefreshCw,
-  ShoppingBasket,
-  } from 'lucide-react';
+import { ArrowRight, Check, ChevronDown, Coins, LoaderCircle, RefreshCw, ShoppingBasket } from 'lucide-react';
 import type { BudgetSuggestionInput, BudgetSuggestionResponse } from '@cookora/contracts';
 import { request } from '../api';
 import { errorText } from '../shared';
@@ -20,9 +12,11 @@ import '../budget-assistant.css';
 export function BudgetAssistant({
   input,
   valid,
+  renderSettings,
 }: {
   input: Omit<BudgetSuggestionInput, 'preferences' | 'region'>;
   valid: boolean;
+  renderSettings: (pending: boolean) => ReactNode;
 }) {
   const [region, setRegion] = useState('Việt Nam');
   const [preferences, setPreferences] = useState('');
@@ -33,51 +27,60 @@ export function BudgetAssistant({
       request<BudgetSuggestionResponse>('/ai/suggest-budget', { method: 'POST', body }),
   });
   const response = ai.data?.data;
+  const resultsRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!response) return;
+    resultsRef.current?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      block: 'start',
+    });
+  }, [response]);
   const stale = !!response && JSON.stringify(response.input) !== signature;
   function submit(event: React.FormEvent) {
     event.preventDefault();
     if (valid && !ai.isPending) ai.mutate(current);
   }
   return (
-    <section className="budget-ai" aria-labelledby="budget-ai-heading">
-      <form className="budget-ai-form tools-card" onSubmit={submit}>
-        <div className="budget-ai-heading">
-          <div>
-            <p className="tools-eyebrow">COOKORA AI</p>
-            <h2 id="budget-ai-heading">Để AI lên thực đơn vừa túi tiền</h2>
-            <p>
-              Chọn ngân sách ở trên, thêm sở thích nếu muốn. AI sẽ chọn món, ước tính chi phí và gộp danh sách
-              đi chợ.
-            </p>
+    <section className="budget-ai budget-ai-workflow" aria-label="Gợi ý món theo ngân sách">
+      <form className="budget-ai-form" onSubmit={submit} aria-busy={ai.isPending}>
+        {renderSettings(ai.isPending)}
+        <details className="budget-ai-preferences tools-card">
+          <summary>Thêm sở thích và nơi mua thực phẩm (tùy chọn)</summary>
+          <div className="budget-ai-heading">
+            <div>
+              <p className="tools-eyebrow">COOKORA AI</p>
+              <h2 id="budget-ai-heading">Điều chỉnh món AI gợi ý</h2>
+              <p>Ngân sách ở trên là căn cứ chọn món. Thêm sở thích hoặc nơi mua để AI gợi ý phù hợp hơn.</p>
+            </div>
           </div>
-        </div>
-        <div className="budget-ai-inputs">
-          <label htmlFor="budget-region">
-            Bạn thường mua thực phẩm ở đâu?
-            <input
-              id="budget-region"
-              value={region}
-              maxLength={120}
-              placeholder="Ví dụ: TP.HCM, chợ dân sinh"
-              onChange={(e) => setRegion(e.target.value)}
-            />
-          </label>
-          <label htmlFor="budget-preferences">
-            Sở thích hoặc nguyên liệu đang có <span>(tùy chọn)</span>
-            <textarea
-              id="budget-preferences"
-              rows={2}
-              maxLength={1200}
-              value={preferences}
-              placeholder="Ví dụ: thích món Việt, ít cay, đã có gạo và trứng, tránh thịt bò…"
-              onChange={(e) => setPreferences(e.target.value)}
-            />
-          </label>
-        </div>
+          <div className="budget-ai-inputs">
+            <label htmlFor="budget-region">
+              Bạn thường mua thực phẩm ở đâu?
+              <input
+                id="budget-region"
+                value={region}
+                maxLength={120}
+                placeholder="Ví dụ: TP.HCM, chợ dân sinh"
+                onChange={(e) => setRegion(e.target.value)}
+              />
+            </label>
+            <label htmlFor="budget-preferences">
+              Sở thích hoặc nguyên liệu đang có <span>(tùy chọn)</span>
+              <textarea
+                id="budget-preferences"
+                rows={2}
+                maxLength={1200}
+                value={preferences}
+                placeholder="Ví dụ: thích món Việt, ít cay, đã có gạo và trứng, tránh thịt bò…"
+                onChange={(e) => setPreferences(e.target.value)}
+              />
+            </label>
+          </div>
+        </details>
         <div className="budget-ai-actions">
           <p>
             {valid
-              ? `${input.people} người · ${input.days} ngày · ${input.mealsPerDay} bữa/ngày`
+              ? `${money(input.mode === 'day' ? input.amount * input.days : input.amount)} · ${input.people} người · ${input.days} ngày · ${input.mealsPerDay} bữa/ngày`
               : 'Nhập ngân sách hợp lệ từ 1.000 đ để tạo đề xuất.'}
           </p>
           <button className="tools-primary" type="submit" disabled={!valid || ai.isPending}>
@@ -86,7 +89,11 @@ export function BudgetAssistant({
             ) : response ? (
               <RefreshCw size={17} />
             ) : null}
-            {ai.isPending ? 'AI đang sắp xếp bữa ăn…' : response ? 'AI đề xuất lại' : 'AI đề xuất thực đơn'}
+            {ai.isPending
+              ? 'AI đang chọn món…'
+              : response
+                ? 'Gợi ý lại theo ngân sách'
+                : 'Gợi ý món theo ngân sách'}
           </button>
         </div>
         {ai.isPending && (
@@ -101,9 +108,16 @@ export function BudgetAssistant({
         )}
       </form>
 
-      {response && (
-        <BudgetPlanResult key={response.generatedAt} response={response} stale={stale} busy={ai.isPending} />
-      )}
+      <div ref={resultsRef} className="budget-ai-result-anchor">
+        {response && (
+          <BudgetPlanResult
+            key={response.generatedAt}
+            response={response}
+            stale={stale}
+            busy={ai.isPending}
+          />
+        )}
+      </div>
     </section>
   );
 }
@@ -124,15 +138,13 @@ export function BudgetPlanResult({
       {stale && (
         <p className="budget-ai-stale" role="status">
           Bạn đã đổi thiết lập. Kết quả bên dưới dành cho {response.input.people} người, {response.input.days}{' '}
-          ngày, {response.input.mealsPerDay} bữa/ngày với ngân sách {money(response.budget)}. Bấm “AI đề xuất
-          lại” để cập nhật.
+          ngày, {response.input.mealsPerDay} bữa/ngày với ngân sách {money(response.budget)}. Bấm “Gợi ý lại
+          theo ngân sách” để cập nhật.
         </p>
       )}
       <div className="budget-ai-overview tools-card">
         <div className="tools-section-head">
-          <h2>
-             Thực đơn AI đề xuất
-          </h2>
+          <h2>Thực đơn AI đề xuất</h2>
           <span>
             {response.input.days} ngày · {response.meals.length} bữa · {response.input.people} người
           </span>

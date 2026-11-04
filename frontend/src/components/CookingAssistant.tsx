@@ -286,6 +286,7 @@ export function CookingAssistant({
               <p className="cooking-chat-pending" role="status">
                 <LoaderCircle size={16} className="spin" />
                 Cookora đang chuẩn bị câu trả lời…
+                <span className="cookora-loading-dots" aria-hidden="true"><i /><i /><i /></span>
               </p>
             )}
           </div>

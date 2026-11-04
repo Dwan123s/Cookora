@@ -27,7 +27,8 @@ import {
   CheckSquare,
   Leaf,
   } from 'lucide-react';
-import { useNotice, cuisineFor, ErrorState, Loading } from '../shared';
+import { useNotice, cuisineFor, ErrorState } from '../shared';
+import { PageLoading } from '../components/LoadingStates';
 import { CurvedReelsCarousel } from '../components/CurvedReelsCarousel';
 
 // Quick access to available features
@@ -207,7 +208,7 @@ export function Home() {
     setPantryItems(pantryItems.filter((i) => i !== item));
   };
 
-  if (catalog.isPending) return <Loading />;
+  if (catalog.isPending) return <PageLoading path="/" />;
   if (catalog.isError) return <ErrorState error={catalog.error} retry={() => void catalog.refetch()} />;
   if (!FEATURED_DISHES.length) return <p className="container">Chưa có công thức trong danh mục.</p>;
   return (
@@ -494,6 +495,8 @@ export function Home() {
                 <img
                   src={dish.image}
                   alt={dish.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
                   onError={(e) => {
                     e.currentTarget.src = RECIPE_PLACEHOLDER;
@@ -786,6 +789,8 @@ export function Home() {
                 <img
                   src={art.image}
                   alt={art.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
                   onError={(e) => {
                     e.currentTarget.src = RECIPE_PLACEHOLDER;

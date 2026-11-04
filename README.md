@@ -52,7 +52,7 @@ Nếu Nest báo khởi động thành công nhưng `/health/ready` hoặc danh m
 
 ## Dữ liệu nội dung
 
-Danh mục hiện tại lấy hoàn toàn từ 6 tài liệu người dùng cung cấp: **419 công thức, 365 ảnh nhúng trong tài liệu**. Cụ thể: viet.docx 169 món, han.docx 50, nhat.docx 37, Trung.docx 63, Thai.docx 50, Menu món.docx 50. Có 54 món chưa có ảnh nguồn (toàn bộ 50 món Thái, 2 món Hàn, 1 món Nhật và 1 món Menu); UI hiển thị ảnh giữ chỗ, không gán ảnh cũ của món khác.
+Danh mục hiện tại lấy công thức từ 6 tài liệu người dùng cung cấp: **419 công thức, 415 món có ảnh**. Cụ thể: viet.docx 169 món, han.docx 50, nhat.docx 37, Trung.docx 63, Thai.docx 50, Menu món.docx 50. Gồm 365 ảnh nhúng trong Word và 50 ảnh món Thái bổ sung từ PowerPoint ngày 04/11/2026; xem [nguồn và cách áp dụng ảnh](docs/Thai-Recipe-Images.md). Còn 4 món chưa có ảnh nguồn (2 món Hàn, 1 món Nhật và 1 món Menu); UI hiển thị ảnh giữ chỗ, không gán ảnh cũ của món khác.
 
 Nguồn chuẩn là `database/seeds/document-recipes.json`, kèm SHA-256 của 6 tài liệu, vị trí ảnh nhúng, hash ảnh, nguyên liệu gốc và các đoạn văn nguồn. Ảnh được trích xuất và tối ưu WebP tại `frontend/public/recipes/documents/`. Script `scripts/prepare-document-catalog.py` đọc lại các tài liệu từ thư mục Downloads (hoặc `--source-dir`) và tạo bộ dữ liệu. Chạy bằng Python có Pillow.
 

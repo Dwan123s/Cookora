@@ -4,6 +4,8 @@ Cập nhật: 03/11/2026. Bản MVP đã public trên Vercel + Neon, theo phạm
 
 ## Hiện tại: Vercel + Neon, 419 công thức đã xuất bản
 
+**04/11/2026 — AI chọn món theo số tiền:** nút gợi ý ngay trong thiết lập ngân sách, cùng form với sở thích tùy chọn. Mô hình nhận rõ tổng tiền và tiền mỗi bữa/nhóm/người. Public test 200.000đ/2 ngày/2 người/4 bữa trả đủ món, ước tính 183.000đ, còn 17.000đ; 91 tests và build đạt. [Chi tiết](Budget-AI-Workflow.md).
+
 **04/11/2026 — bottom bar mobile:** dưới 768px thay header bằng Trang chủ/Khám phá/Chat AI/Thực đơn/Thêm. Chat AI mở popup, giữ hội thoại khi thu gọn; công cụ và tài khoản trong Thêm. Đã deploy và kiểm tra trực tiếp browser 320px/390px, phản hồi AI thật, đóng/mở popup, chuyển route và breakpoint 768px. [Bằng chứng](Mobile-Bottom-Bar.md).
 
 **Cập nhật mobile:** header thu gọn cho điện thoại/tablet, bộ lọc Khám phá mở/đóng, thực đơn chọn từng ngày dưới 680px, tab chi tiết cuộn trong vùng riêng, form và chat AI theo viewport nhỏ. TypeScript/build đạt; chưa kiểm tra trực quan vì quyền trình duyệt local đang tắt. [Phạm vi và bằng chứng](Mobile-Responsive-Update.md).
@@ -34,7 +36,7 @@ Kiểm tra cuối: `npm run check` pass 88/88 và build backend/frontend thành 
 
 ## Đã chạy được
 
-Danh mục hiện tại (thay thế theo yêu cầu ngày 03/11/2026): 419 công thức từ 6 tài liệu Word, 365 ảnh trích xuất đúng vị trí trong tài liệu; 54 món thiếu ảnh hiển thị ảnh giữ chỗ. 107 món cũ, 21 mục thực đơn tham chiếu món cũ và 1 danh sách đi chợ đã được dọn sau khi sao lưu đầy đủ trong `.review/catalog-backups/`; giữ tài khoản đăng nhập. Seed mới chạy lại báo 0 tạo mới, 419 giữ nguyên. Trang chủ, Khám phá, Eat Fit, Yêu thích và công cụ không dùng danh sách món mẫu cũ. Thông tin 107 món và ảnh AI trong các mốc kiểm tra bên dưới là lịch sử trước lần thay thế này. Chi tiết nguồn và vận hành ở README.
+Danh mục hiện tại: 419 công thức từ 6 tài liệu Word. Ngày 04/11/2026 bổ sung 50 ảnh món Thái từ PowerPoint người dùng cung cấp, nâng tổng số món có ảnh từ 365 lên 415; còn 4 món thiếu ảnh hiển thị ảnh giữ chỗ. Việc bổ sung chỉ cập nhật ảnh và nguồn ảnh, giữ nguyên ID công thức, nguyên liệu, cách nấu, yêu thích và thực đơn. Xem `docs/Thai-Recipe-Images.md`. Lần thay thế danh mục ngày 03/11/2026 đã dọn 107 món cũ, 21 mục thực đơn tham chiếu món cũ và 1 danh sách đi chợ sau khi sao lưu đầy đủ trong `.review/catalog-backups/`; giữ tài khoản đăng nhập. Seed mới chạy lại báo 0 tạo mới, 419 giữ nguyên. Trang chủ, Khám phá, Eat Fit, Yêu thích và công cụ không dùng danh sách món mẫu cũ. Thông tin 107 món và ảnh AI trong các mốc kiểm tra bên dưới là lịch sử trước lần thay thế này. Chi tiết nguồn và vận hành ở README.
 
 React 19, TypeScript, Tailwind CSS; NestJS 12; Prisma 7 với SQL Server 2022. Có thể chạy API/frontend bằng Node hoặc toàn bộ stack bằng Docker Compose. SQL dùng volume bền vững; migration chạy bằng tài khoản riêng, runtime dùng app login đọc/ghi.
 

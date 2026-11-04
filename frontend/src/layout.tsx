@@ -325,7 +325,7 @@ export function Footer() {
         </div>
 
         <div className="pt-6 text-center text-xs text-[#5C7065]/80">
-          © {new Date().getFullYear()} Cookora. Thiết kế theo phong cách Sage Green & Warm Cream.
+          © {new Date().getFullYear()} Cookora.
         </div>
       </div>
     </footer>

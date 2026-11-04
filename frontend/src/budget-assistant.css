@@ -1,6 +1,52 @@
 .budget-ai {
   margin: 28px 0;
 }
+.budget-ai-workflow > .budget-ai-form {
+  padding: 0;
+}
+.budget-ai-workflow .budget-dashboard {
+  margin-bottom: 20px;
+}
+.budget-generate-action {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+.budget-generate-action .tools-primary {
+  width: 100%;
+  min-height: 50px;
+  justify-content: center;
+  white-space: normal;
+}
+.budget-generate-action p {
+  margin: 0;
+  color: #66746b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.budget-ai-preferences {
+  padding: 20px 24px;
+}
+.budget-ai-preferences > summary {
+  cursor: pointer;
+  color: #47735b;
+  font-size: 14px;
+  font-weight: 600;
+}
+.budget-ai-preferences[open] > summary {
+  margin-bottom: 20px;
+}
+.budget-ai-result-anchor {
+  scroll-margin-top: 120px;
+}
+@media (max-width: 767px) {
+  .budget-ai-result-anchor {
+    scroll-margin-top: 16px;
+  }
+  .budget-ai-preferences {
+    padding: 18px;
+  }
+}
 .budget-ai-form,
 .budget-ai-overview,
 .budget-ai-shopping,

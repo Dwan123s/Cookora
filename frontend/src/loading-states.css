@@ -1,0 +1,277 @@
+.cookora-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 42px 18px;
+  color: #4c6c55;
+  font-size: 13px;
+  text-align: center;
+}
+.cookora-loading-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 24px;
+  background: #edf3e8;
+  color: #416e4c;
+}
+.cookora-steam {
+  position: absolute;
+  top: 6px;
+  left: 24px;
+  display: flex;
+  gap: 4px;
+}
+.cookora-steam i {
+  width: 3px;
+  height: 9px;
+  border-radius: 8px;
+  background: #739669;
+  animation: cookora-steam 1.8s ease-in-out infinite;
+}
+.cookora-steam i:nth-child(2) {
+  animation-delay: 0.25s;
+}
+.cookora-steam i:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.cookora-loading-dots {
+  display: flex;
+  gap: 5px;
+}
+.cookora-loading-dots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #749269;
+  animation: cookora-dot 1.4s ease-in-out infinite;
+}
+.cookora-loading-dots i:nth-child(2) {
+  animation-delay: 0.16s;
+}
+.cookora-loading-dots i:nth-child(3) {
+  animation-delay: 0.32s;
+}
+.cookora-loading-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.cookora-page-skeleton {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 32px 24px 56px;
+  min-height: 60vh;
+}
+.cookora-skeleton {
+  background: #e9ede5;
+  background-image: linear-gradient(105deg, transparent 25%, #fafbf7aa 45%, transparent 65%);
+  background-size: 250% 100%;
+  animation: cookora-shimmer 2s ease-in-out infinite;
+  border-radius: 7px;
+}
+.cookora-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.cookora-skeleton-card {
+  border: 1px solid #e5e9df;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fffefa;
+}
+.cookora-skeleton-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+}
+.cookora-skeleton-copy {
+  display: grid;
+  align-content: start;
+  gap: 13px;
+  padding: 18px;
+  min-width: 0;
+}
+.cookora-skeleton-line {
+  height: 12px;
+  width: 88%;
+}
+.cookora-skeleton-line.is-title {
+  height: 18px;
+  width: 72%;
+}
+.cookora-skeleton-line.is-short {
+  width: 45%;
+}
+.cookora-skeleton-heading {
+  height: 52px;
+  width: 90%;
+  margin: 6px 0 18px;
+}
+.cookora-skeleton-button {
+  height: 44px;
+  width: 180px;
+  margin-top: 22px;
+  border-radius: 12px;
+}
+.cookora-detail-skeleton {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 34px;
+}
+.cookora-skeleton-detail-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+}
+.cookora-ai-loading {
+  padding: 8px 0 20px;
+}
+.cookora-ai-loading .cookora-loading {
+  padding: 22px 16px;
+}
+.cookora-ai-skeletons {
+  display: grid;
+  gap: 12px;
+  padding: 0 14px;
+}
+.cookora-ai-skeleton {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  align-items: center;
+  border: 1px solid #e5e9df;
+  padding: 12px;
+  border-radius: 15px;
+  background: #fffefa;
+}
+.cookora-ai-skeleton-photo {
+  height: 74px;
+  border-radius: 12px;
+}
+.cookora-ai-loading-note {
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+  color: #66715f;
+  margin: 16px 20px 0;
+}
+.cookora-image {
+  transition: opacity 0.25s ease;
+}
+.cookora-image[data-loading='true'] {
+  background: #e9ede5;
+  background-image: linear-gradient(105deg, transparent 25%, #fafbf7aa 45%, transparent 65%);
+  background-size: 250% 100%;
+  animation: cookora-shimmer 2s ease-in-out infinite;
+}
+.cookora-image[data-loading='false'] {
+  animation: cookora-image-in 0.3s ease both;
+}
+.cookora-chunk-error {
+  min-height: 45vh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 30px;
+  color: #34583f;
+}
+.cookora-chunk-error h2,
+.cookora-chunk-error p {
+  margin: 0;
+}
+.cookora-auth-skeleton {
+  width: min(100%, 440px);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 24px;
+  border: 1px solid #e5e9df;
+}
+.cookora-skeleton-field {
+  height: 48px;
+  width: 100%;
+  border-radius: 12px;
+}
+@keyframes cookora-steam {
+  0%,
+  100% {
+    transform: translateY(2px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-4px);
+    opacity: 0.9;
+  }
+}
+@keyframes cookora-dot {
+  0%,
+  70%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+@keyframes cookora-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+@keyframes cookora-image-in {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 1050px) {
+  .cookora-skeleton-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .cookora-page-skeleton {
+    padding: 24px 16px 40px;
+  }
+  .cookora-skeleton-grid {
+    gap: 12px;
+  }
+  .cookora-skeleton-copy {
+    padding: 12px;
+    gap: 10px;
+  }
+  .cookora-detail-skeleton {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .cookora-ai-skeletons {
+    padding: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookora-steam i,
+  .cookora-loading-dots i,
+  .cookora-skeleton,
+  .cookora-image {
+    animation: none !important;
+    transition: none !important;
+  }
+}

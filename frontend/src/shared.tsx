@@ -6,7 +6,6 @@ import {
   Clock3,
   CookingPot,
   Heart,
-  LoaderCircle,
   Minus,
   Plus,
   Users,
@@ -17,6 +16,8 @@ import type { Cuisine, Recipe, User } from '@cookora/contracts';
 import { request } from './api';
 import { m } from 'motion/react';
 import { recipeMedia, recipeSummary } from './recipe-media';
+import { RecipeImage } from './components/RecipeImage';
+export { Loading } from './components/LoadingStates';
 
 export const cuisines: Cuisine[] = [
   { code: 'VN', name: 'Việt Nam', flag: '🇻🇳' },
@@ -40,15 +41,6 @@ export const useUser = () => useContext(authContext);
 
 export const errorText = (e: unknown) =>
   e instanceof Error ? e.message : 'Có lỗi xảy ra. Vui lòng thử lại.';
-
-export function Loading() {
-  return (
-    <div className="loading" role="status">
-      <LoaderCircle className="spin" size={25} />
-      <span>Đang chuẩn bị căn bếp…</span>
-    </div>
-  );
-}
 
 export function ErrorState({ error, retry }: { error: unknown; retry?: () => void }) {
   return (
@@ -205,7 +197,7 @@ export function RecipeCard({ recipe }: { recipe: Recipe }) {
     <article className="recipe-card">
       <div className="recipe-image">
         <Link to={`/cong-thuc/${recipe.slug}`} tabIndex={-1} viewTransition>
-          <img
+          <RecipeImage
             src={media.src}
             alt={`${media.label}: ${recipe.title}`}
             loading="lazy"

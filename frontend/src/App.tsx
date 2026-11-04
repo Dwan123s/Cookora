@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useId, useRef, useState } from 'react';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import { m } from 'motion/react';
 import { useQuery } from '@tanstack/react-query';
@@ -7,22 +7,28 @@ import type { User } from '@cookora/contracts';
 import { request } from './api';
 import { noticeContext, authContext, Loading, Empty } from './shared';
 import { Header, Footer, ScrollTop } from './layout';
-import { Home } from './pages/Home';
-import { Discover } from './pages/Discover';
-import { Detail, Cooking } from './pages/Recipe';
-import { Matcher } from './pages/Matcher';
-import { Planner } from './pages/Planner';
-import { Shopping } from './pages/Shopping';
-import { Favorites } from './pages/Favorites';
-import { AuthPage } from './pages/Auth';
-import { Editor } from './pages/Editor';
-import { Roadmap } from './pages/Roadmap';
-import { EatFit } from './pages/EatFit';
-import { MealCost } from './pages/MealCost';
-import { Nutrition } from './pages/Nutrition';
-import { PortionAdjust } from './pages/PortionAdjust';
+import { PageLoading } from './components/LoadingStates';
+import { PageLoadBoundary } from './components/PageLoadBoundary';
 import { CookingAssistant } from './components/CookingAssistant';
 import { MobileBottomBar } from './components/MobileBottomBar';
+
+const Home = lazy(() => import('./pages/Home').then((module) => ({ default: module.Home })));
+const Discover = lazy(() => import('./pages/Discover').then((module) => ({ default: module.Discover })));
+const Detail = lazy(() => import('./pages/Recipe').then((module) => ({ default: module.Detail })));
+const Cooking = lazy(() => import('./pages/Recipe').then((module) => ({ default: module.Cooking })));
+const Matcher = lazy(() => import('./pages/Matcher').then((module) => ({ default: module.Matcher })));
+const Planner = lazy(() => import('./pages/Planner').then((module) => ({ default: module.Planner })));
+const Shopping = lazy(() => import('./pages/Shopping').then((module) => ({ default: module.Shopping })));
+const Favorites = lazy(() => import('./pages/Favorites').then((module) => ({ default: module.Favorites })));
+const AuthPage = lazy(() => import('./pages/Auth').then((module) => ({ default: module.AuthPage })));
+const Editor = lazy(() => import('./pages/Editor').then((module) => ({ default: module.Editor })));
+const Roadmap = lazy(() => import('./pages/Roadmap').then((module) => ({ default: module.Roadmap })));
+const EatFit = lazy(() => import('./pages/EatFit').then((module) => ({ default: module.EatFit })));
+const MealCost = lazy(() => import('./pages/MealCost').then((module) => ({ default: module.MealCost })));
+const Nutrition = lazy(() => import('./pages/Nutrition').then((module) => ({ default: module.Nutrition })));
+const PortionAdjust = lazy(() =>
+  import('./pages/PortionAdjust').then((module) => ({ default: module.PortionAdjust })),
+);
 
 export function App() {
   const location = useLocation();
@@ -81,36 +87,40 @@ export function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.16 }}
           >
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/cong-thuc" element={<Discover />} />
-              <Route path="/cong-thuc/:slug" element={<Detail />} />
-              <Route path="/cong-thuc/:slug/nau" element={<Cooking />} />
-              <Route path="/khau-phan" element={<PortionAdjust />} />
-              <Route path="/khau-phan/:slug" element={<PortionAdjust />} />
-              <Route path="/co-gi-nau-nay" element={<Matcher />} />
-              <Route path="/thuc-don" element={auth.isPending ? <Loading /> : <Planner />} />
-              <Route path="/eat-fit" element={<EatFit />} />
-              <Route path="/ngan-sach" element={<MealCost />} />
-              <Route path="/dinh-duong" element={<Nutrition />} />
-              <Route path="/di-cho/:planId" element={auth.isPending ? <Loading /> : <Shopping />} />
-              <Route path="/yeu-thich" element={auth.isPending ? <Loading /> : <Favorites />} />
-              <Route path="/dang-nhap" element={auth.isPending ? <Loading /> : <AuthPage />} />
-              <Route path="/bien-tap" element={auth.isPending ? <Loading /> : <Editor />} />
-              <Route path="/lo-trinh" element={<Roadmap />} />
-              <Route
-                path="*"
-                element={
-                  <main className="container">
-                    <Empty icon={<Search size={32} />} title="Không tìm thấy trang">
-                      <Link className="btn" to="/">
-                        Về trang chủ
-                      </Link>
-                    </Empty>
-                  </main>
-                }
-              />
-            </Routes>
+            <PageLoadBoundary key={location.pathname}>
+              <Suspense fallback={<PageLoading path={location.pathname} />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/cong-thuc" element={<Discover />} />
+                  <Route path="/cong-thuc/:slug" element={<Detail />} />
+                  <Route path="/cong-thuc/:slug/nau" element={<Cooking />} />
+                  <Route path="/khau-phan" element={<PortionAdjust />} />
+                  <Route path="/khau-phan/:slug" element={<PortionAdjust />} />
+                  <Route path="/co-gi-nau-nay" element={<Matcher />} />
+                  <Route path="/thuc-don" element={auth.isPending ? <Loading /> : <Planner />} />
+                  <Route path="/eat-fit" element={<EatFit />} />
+                  <Route path="/ngan-sach" element={<MealCost />} />
+                  <Route path="/dinh-duong" element={<Nutrition />} />
+                  <Route path="/di-cho/:planId" element={auth.isPending ? <Loading /> : <Shopping />} />
+                  <Route path="/yeu-thich" element={auth.isPending ? <Loading /> : <Favorites />} />
+                  <Route path="/dang-nhap" element={auth.isPending ? <Loading /> : <AuthPage />} />
+                  <Route path="/bien-tap" element={auth.isPending ? <Loading /> : <Editor />} />
+                  <Route path="/lo-trinh" element={<Roadmap />} />
+                  <Route
+                    path="*"
+                    element={
+                      <main className="container">
+                        <Empty icon={<Search size={32} />} title="Không tìm thấy trang">
+                          <Link className="btn" to="/">
+                            Về trang chủ
+                          </Link>
+                        </Empty>
+                      </main>
+                    }
+                  />
+                </Routes>
+              </Suspense>
+            </PageLoadBoundary>
           </m.div>
           {!isAuthPage && <Footer />}
           <CookingAssistant

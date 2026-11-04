@@ -27,6 +27,8 @@ import { request } from '../api';
 import { dateKey, weekOf } from '../date';
 import { recipeMedia, recipeSummary } from '../recipe-media';
 import { estimateStandardQuantity } from '../weekly-plan';
+import { RecipeDetailSkeleton } from '../components/LoadingStates';
+import { RecipeImage } from '../components/RecipeImage';
 import {
   cuisineFor,
   useNotice,
@@ -194,7 +196,7 @@ export function Detail() {
     }
   };
 
-  if (q.isPending) return <Loading />;
+  if (q.isPending) return <RecipeDetailSkeleton />;
   if (q.isError || !recipe) return <ErrorState error={q.error} />;
 
   const c = cuisineFor(recipe.cuisine);
@@ -223,9 +225,11 @@ export function Detail() {
         {/* Left: Recipe Hero Photo */}
         <div className="md:col-span-5 relative group">
           <div className="relative aspect-4/3 rounded-3xl overflow-hidden shadow-sm border border-stone-200/80 bg-stone-100">
-            <img
+            <RecipeImage
               src={media.src}
               alt={recipe.title}
+              loading="eager"
+              fetchPriority="high"
               className="w-full h-full object-cover group-hover:scale-102 transition duration-500"
             />
             {/* Heart button */}

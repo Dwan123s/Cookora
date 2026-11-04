@@ -227,6 +227,8 @@ export function CurvedReelsCarousel({ recipes }: { recipes: Recipe[] }) {
             <img
               src={recipe.image}
               alt={recipe.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
               onError={(e) => {
                 e.currentTarget.src = RECIPE_PLACEHOLDER;

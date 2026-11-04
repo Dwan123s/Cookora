@@ -4,7 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { ArrowRight, FolderHeart } from 'lucide-react';
 import type { Recipe } from '@cookora/contracts';
 import { request } from '../api';
-import { useUser, Loading, ErrorState, RecipeCard } from '../shared';
+import { useUser, ErrorState, RecipeCard } from '../shared';
+import { RecipeGridSkeleton } from '../components/LoadingStates';
 
 export function Favorites() {
   const user = useUser();
@@ -32,7 +33,7 @@ export function Favorites() {
           </Link>
         </div>
       ) : query.isPending ? (
-        <Loading />
+        <RecipeGridSkeleton />
       ) : query.isError ? (
         <ErrorState error={query.error} retry={() => void query.refetch()} />
       ) : (

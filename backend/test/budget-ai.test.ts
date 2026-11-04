@@ -190,7 +190,7 @@ test('budget service uses real catalog candidates, key header and safe provider 
   process.env.VERTEX_API_KEY = secret;
   process.env.VERTEX_MODEL = 'gemini-3.7-flash';
   const service = new BudgetAiService({ all: async () => recipes } as Catalog);
-    await ctx.test('sends the complete AI request through a mocked provider', async (t) => {
+  await ctx.test('sends the complete AI request through a mocked provider', async (t) => {
     t.mock.method(globalThis, 'fetch', async (url: string | URL | globalThis.Request, init?: RequestInit) => {
       assert.ok(String(url).includes('aiplatform.googleapis.com'));
       assert.ok(!String(url).includes(secret));
@@ -199,6 +199,8 @@ test('budget service uses real catalog candidates, key header and safe provider 
       assert.ok(!String(init?.body).includes(secret));
       const prompt = JSON.parse(body.contents[0].parts[0].text);
       assert.equal(prompt.totalBudget, 100000);
+      assert.equal(prompt.budgetPerMealForHousehold, 50000);
+      assert.equal(prompt.budgetPerMealPerPerson, 25000);
       assert.equal(prompt.people, 2);
       assert.equal(prompt.mealsPerDay, 1);
       assert.deepEqual(

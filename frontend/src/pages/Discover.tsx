@@ -15,7 +15,9 @@ import {
   LayoutGrid,
 } from 'lucide-react';
 import { cuisineCategoryCounts, discoveryRecipe, loadRecipeCatalog } from '../recipe-catalog';
-import { ErrorState, Loading, FavoriteButton } from '../shared';
+import { ErrorState, FavoriteButton } from '../shared';
+import { RecipeGridSkeleton } from '../components/LoadingStates';
+import { RecipeImage } from '../components/RecipeImage';
 import { RECIPE_PLACEHOLDER } from '../recipe-media';
 import { paginationSlots } from '../pagination';
 
@@ -300,7 +302,7 @@ export function Discover() {
           <div className="discover-today-dishes">
             {recommendations.map((dish) => (
               <Link key={dish.id} to={`/cong-thuc/${dish.slug}`} className="discover-today-dish">
-                <img src={dish.image || RECIPE_PLACEHOLDER} alt="" />
+                <RecipeImage src={dish.image || RECIPE_PLACEHOLDER} alt="" />
                 <div>
                   <h3>{dish.title}</h3>
                   <div className="discover-dish-meta">
@@ -454,7 +456,7 @@ export function Discover() {
               {recipesQuery.isPending ? 'Đang tìm công thức…' : `${filteredRecipes.length} công thức`}
             </h2>
             {recipesQuery.isPending ? (
-              <Loading />
+              <RecipeGridSkeleton />
             ) : recipesQuery.isError ? (
               <ErrorState error={recipesQuery.error} retry={() => void recipesQuery.refetch()} />
             ) : (
@@ -468,13 +470,10 @@ export function Discover() {
                             <CookingPot size={32} />
                             <span>Chưa có ảnh món ăn</span>
                           </div>
-                          <img
+                          <RecipeImage
                             src={dish.image || RECIPE_PLACEHOLDER}
                             alt={dish.title}
                             loading="lazy"
-                            onError={(event) => {
-                              event.currentTarget.style.display = 'none';
-                            }}
                           />
                         </Link>
                         <span className="discover-cuisine-badge">{dish.cuisineName}</span>
