@@ -29,6 +29,7 @@ import { recipeMedia, recipeSummary } from '../recipe-media';
 import { estimateStandardQuantity } from '../weekly-plan';
 import { RecipeDetailSkeleton } from '../components/LoadingStates';
 import { RecipeImage } from '../components/RecipeImage';
+import { GUIDE_LANGUAGE, loadVietnameseVoice } from '../vietnamese-speech';
 import {
   cuisineFor,
   useNotice,
@@ -135,6 +136,8 @@ export function Detail() {
   const [checkedIngredients, setCheckedIngredients] = useState<Record<string, boolean>>({});
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const speechRun = useRef<AbortController | null>(null);
+  const spokenUtterance = useRef<SpeechSynthesisUtterance | null>(null);
 
   const notice = useNotice();
 
@@ -155,34 +158,76 @@ export function Detail() {
     enabled: !!recipe,
   });
 
-  // TTS voice guide
-  const toggleSpeech = () => {
+  useEffect(() => {
+    setCurrentStepIndex(0);
+    setIsSpeaking(false);
+    if ('speechSynthesis' in window) window.speechSynthesis.getVoices();
+    return () => {
+      const run = speechRun.current;
+      speechRun.current = null;
+      run?.abort();
+      if (run && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+      spokenUtterance.current = null;
+    };
+  }, [slug]);
+
+  // Select an actual Vietnamese voice instead of using the device's default voice.
+  const toggleSpeech = async () => {
     if (!('speechSynthesis' in window)) {
       notice('Trình duyệt không hỗ trợ đọc giọng nói.');
       return;
     }
-    if (isSpeaking) {
+    if (speechRun.current) {
+      speechRun.current.abort();
+      speechRun.current = null;
       window.speechSynthesis.cancel();
+      spokenUtterance.current = null;
       setIsSpeaking(false);
       return;
     }
 
     if (!recipe?.steps?.length) return;
+    const run = new AbortController();
+    speechRun.current = run;
+    setIsSpeaking(true);
+    const voice = await loadVietnameseVoice(window.speechSynthesis, run.signal);
+    if (run.signal.aborted || speechRun.current !== run) return;
+    if (!voice) {
+      speechRun.current = null;
+      setIsSpeaking(false);
+      notice(
+        'Thiết bị chưa có giọng đọc tiếng Việt. Hãy bật hoặc cài giọng tiếng Việt trong cài đặt giọng nói, rồi tải lại trang.',
+      );
+      return;
+    }
     const step = recipe.steps[currentStepIndex] || recipe.steps[0];
     const text = `Bước ${currentStepIndex + 1}: ${step.title}. ${step.instruction}`;
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'vi-VN';
+    utterance.voice = voice;
+    utterance.lang = GUIDE_LANGUAGE;
     utterance.rate = 1.0;
+    spokenUtterance.current = utterance;
+    const finish = () => {
+      if (run.signal.aborted || speechRun.current !== run) return false;
+      speechRun.current = null;
+      spokenUtterance.current = null;
+      setIsSpeaking(false);
+      return true;
+    };
     utterance.onend = () => {
+      if (!finish()) return;
       if (currentStepIndex < recipe.steps.length - 1) {
         setCurrentStepIndex((prev) => prev + 1);
-      } else {
-        setIsSpeaking(false);
       }
     };
-    utterance.onerror = () => setIsSpeaking(false);
-    window.speechSynthesis.speak(utterance);
-    setIsSpeaking(true);
+    utterance.onerror = () => {
+      if (finish()) notice('Không phát được giọng tiếng Việt. Hãy kiểm tra cài đặt giọng nói và thử lại.');
+    };
+    try {
+      window.speechSynthesis.speak(utterance);
+    } catch {
+      if (finish()) notice('Không phát được giọng tiếng Việt. Hãy thử lại.');
+    }
   };
 
   const toggleCheck = (name: string) => {
@@ -454,7 +499,7 @@ export function Detail() {
               </button>
               <div>
                 <p className="text-sm font-bold text-stone-900">
-                  Giọng hướng dẫn • Bước {currentStepIndex + 1}
+                  Giọng tiếng Việt • Bước {currentStepIndex + 1}
                 </p>
                 <p className="text-xs text-stone-500">
                   {isSpeaking ? 'Đang đọc hướng dẫn' : 'Sẵn sàng đọc hướng dẫn'} • Tốc độ 1x
