@@ -25,7 +25,13 @@ async function main() {
       async (tx) => {
         const all = await tx.recipe.findMany({ orderBy: { slug: 'asc' } });
         const removed = all.filter((recipe) => adjustments.removedRecipeSlugs.includes(recipe.slug));
-        assert.ok(removed.every((recipe) => recipe.title === 'Jumeokbap (Cơm nắm Hàn Quốc)'));
+        assert.ok(
+          removed.every((recipe) =>
+            source.recipes.some(
+              (original) => original.slug === recipe.slug && original.title === recipe.title,
+            ),
+          ),
+        );
         const missing = all.filter((recipe) => recipe.totalMinutes === null || recipe.totalMinutes <= 0);
         for (const recipe of missing)
           assert.ok(desired.get(recipe.slug)?.totalMinutes, `Missing timing: ${recipe.slug}`);

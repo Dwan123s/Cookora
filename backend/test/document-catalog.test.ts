@@ -74,7 +74,7 @@ test('document ingredient rows preserve exact decimals, ranges as unknown, and s
   const thai = source.recipes.find((r) => r.sourceKey === 'thai')!;
   assert.equal(thai.ingredients.find((i) => i.name === 'ớt')?.quantity, null);
   assert.equal(thai.ingredients.find((i) => i.name === 'dầu hào')?.quantity, '7.5');
-  assert.equal(rows.recipes.length, 418);
+  assert.equal(rows.recipes.length, 417);
   assert.ok(rows.recipes.every((r) => r.contentStatus === 'DRAFT' && r.timingStatus === 'ESTIMATED'));
   assert.ok(rows.lines.every((line) => line.quantity === null || Number(line.quantity) > 0));
   const ids = new Set(rows.recipes.map((recipe) => recipe.id));
@@ -85,12 +85,13 @@ test('document ingredient rows preserve exact decimals, ranges as unknown, and s
   );
 });
 
-test('active catalog excludes rice balls and fills missing timings without altering document evidence', () => {
+test('active catalog excludes removed rice dishes and fills timings without altering document evidence', () => {
   const before = JSON.stringify(source);
   const active = activeDocumentRecipes(source);
-  assert.equal(active.length, 418);
+  assert.equal(active.length, 417);
   assert.ok(!active.some((r) => r.slug === 'doc-han-036-jumeokbap-com-nam-han-quoc'));
-  assert.ok(active.some((r) => r.slug === 'doc-nhat-013-com-nam-nhat-ban-kinoko-gohan'));
+  assert.ok(!active.some((r) => r.slug === 'doc-nhat-013-com-nam-nhat-ban-kinoko-gohan'));
+  assert.ok(source.recipes.some((r) => r.slug === 'doc-nhat-013-com-nam-nhat-ban-kinoko-gohan'));
   assert.ok(active.every((r) => Number.isInteger(r.totalMinutes) && r.totalMinutes! > 0));
   assert.equal(
     active.filter((r) => source.recipes.find((s) => s.slug === r.slug)!.totalMinutes === null).length,
@@ -172,7 +173,7 @@ test('replacement clears old recipe links in FK order and repeated seeds never r
     calls.push('backup');
   });
   assert.equal(result.removed, 1);
-  assert.equal(result.created, 418);
+  assert.equal(result.created, 417);
   assert.deepEqual(calls.slice(0, 9), [
     'backup',
     'delete:shoppingItem',
@@ -187,6 +188,6 @@ test('replacement clears old recipe links in FK order and repeated seeds never r
   assert.ok(calls.includes('update:mealPlan'));
   assert.ok(records.recipe.every((recipe) => recipe.slug.startsWith('doc-')));
   const count = calls.length;
-  assert.deepEqual(await seedDocumentCatalog(db, source), { created: 0, preserved: 418 });
+  assert.deepEqual(await seedDocumentCatalog(db, source), { created: 0, preserved: 417 });
   assert.equal(calls.length, count);
 });
