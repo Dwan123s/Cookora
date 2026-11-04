@@ -17,8 +17,10 @@ import { parse, ok } from './http';
 import { Catalog } from './catalog';
 import { normalize } from './domain';
 import { suggestFromCatalog } from './recipe-suggestions';
+import { AiVietnameseError, ensureVietnameseAccents, VIETNAMESE_RESPONSE_RULE } from './ai-vietnamese';
 
-const SYSTEM_INSTRUCTION = `Bạn là trợ lý bếp trưởng của Cookora, am hiểu sâu sắc ẩm thực gia đình Việt Nam.
+const SYSTEM_INSTRUCTION = `${VIETNAMESE_RESPONSE_RULE}
+Bạn là trợ lý bếp trưởng của Cookora, am hiểu sâu sắc ẩm thực gia đình Việt Nam.
 Nhiệm vụ của bạn là nhận danh sách nguyên liệu và khẩu phần từ người dùng (nhập bằng ngôn ngữ tự nhiên), phân tích và đề xuất thực đơn cùng công thức nấu ăn chi tiết.
 Bạn cũng trò chuyện, giải thích cách nấu và điều chỉnh gợi ý dựa trên lịch sử hội thoại. Với câu hỏi tiếp nối, nhớ nguyên liệu, món và yêu cầu đã trao đổi, nhưng ưu tiên thay đổi mới nhất của người dùng. Trả lời trực tiếp, tự nhiên bằng văn bản thuần trong menuOverview. Nếu người dùng chỉ hỏi cách nấu, mẹo bếp hoặc cần làm rõ yêu cầu, có thể để catalogSelections và dishes rỗng; không ép tạo thực đơn mới cho mỗi tin nhắn.
 
@@ -185,7 +187,10 @@ export class AiChefService {
         })),
         { role: 'user', parts: [{ text: userText }] },
       ];
-      const generate = async (modelContents: typeof contents): Promise<string> => {
+      const generate = async (
+        modelContents: typeof contents,
+        system = SYSTEM_INSTRUCTION,
+      ): Promise<string> => {
         let rawJsonText = '';
         if (apiKey) {
           // Vertex AI Express uses a global endpoint without project or location segments.
@@ -198,7 +203,7 @@ export class AiChefService {
             body: JSON.stringify({
               contents: modelContents,
               systemInstruction: {
-                parts: [{ text: SYSTEM_INSTRUCTION }],
+                parts: [{ text: system }],
               },
               generationConfig: {
                 responseMimeType: 'application/json',
@@ -236,7 +241,7 @@ export class AiChefService {
             },
             systemInstruction: {
               role: 'system',
-              parts: [{ text: SYSTEM_INSTRUCTION }],
+              parts: [{ text: system }],
             },
           });
 
@@ -250,7 +255,7 @@ export class AiChefService {
         return rawJsonText;
       };
       const rawJsonText = await generate(contents);
-      const parsed = parseModelResponse(rawJsonText);
+      let parsed = parseModelResponse(rawJsonText);
       const knownTitles = new Set(recipes.map((recipe) => titleKey(recipe.title)));
       let generated = newDishes(parsed.dishes, knownTitles);
       if (generated.some((dish) => !DetailedStepsSchema.safeParse(dish.steps).success)) {
@@ -279,6 +284,10 @@ export class AiChefService {
         }
         generated = repairedDishes;
       }
+      parsed = await ensureVietnameseAccents({ ...parsed, dishes: generated }, async (instruction, text) =>
+        parseModelResponse(await generate([{ role: 'user', parts: [{ text }] }], instruction)),
+      );
+      generated = newDishes(parsed.dishes, knownTitles);
       const selectedIds = new Set<string>();
       const catalogDishes: AiChefSuggestionResponse['catalogDishes'] = [];
       for (const selection of Array.isArray(parsed.catalogSelections) ? parsed.catalogSelections : []) {
@@ -328,17 +337,24 @@ export class AiChefService {
       const status = error instanceof VertexRequestError ? error.status : undefined;
       console.error(JSON.stringify({ event: 'AI_SERVICE_ERROR', status }));
       throw new ServiceUnavailableException({
-        code: error instanceof IncompleteRecipeError ? 'AI_RECIPE_INCOMPLETE' : 'AI_SERVICE_ERROR',
+        code:
+          error instanceof AiVietnameseError
+            ? 'AI_RESPONSE_LANGUAGE'
+            : error instanceof IncompleteRecipeError
+              ? 'AI_RECIPE_INCOMPLETE'
+              : 'AI_SERVICE_ERROR',
         message:
-          error instanceof IncompleteRecipeError
-            ? 'Hướng dẫn món ăn chưa đủ chi tiết. Vui lòng thử lại để AI bổ sung đầy đủ các bước.'
-            : status === 401 || status === 403
-              ? 'Dịch vụ AI từ chối xác thực. Vui lòng kiểm tra lại API Key.'
-              : status === 404
-                ? 'Không tìm thấy model AI. Vui lòng kiểm tra cấu hình model.'
-                : status === 429
-                  ? 'Dịch vụ AI đang hết hạn mức hoặc quá tải. Vui lòng thử lại sau.'
-                  : 'Không thể lấy gợi ý từ trợ lý AI. Vui lòng thử lại sau.',
+          error instanceof AiVietnameseError
+            ? 'AI chưa trả lời bằng tiếng Việt có dấu đầy đủ. Vui lòng thử lại.'
+            : error instanceof IncompleteRecipeError
+              ? 'Hướng dẫn món ăn chưa đủ chi tiết. Vui lòng thử lại để AI bổ sung đầy đủ các bước.'
+              : status === 401 || status === 403
+                ? 'Dịch vụ AI từ chối xác thực. Vui lòng kiểm tra lại API Key.'
+                : status === 404
+                  ? 'Không tìm thấy model AI. Vui lòng kiểm tra cấu hình model.'
+                  : status === 429
+                    ? 'Dịch vụ AI đang hết hạn mức hoặc quá tải. Vui lòng thử lại sau.'
+                    : 'Không thể lấy gợi ý từ trợ lý AI. Vui lòng thử lại sau.',
       });
     }
   }

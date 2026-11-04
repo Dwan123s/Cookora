@@ -1,5 +1,6 @@
 import { BadRequestException } from '@nestjs/common';
 import { VertexAI } from '@google-cloud/vertexai';
+import { ensureVietnameseAccents, VIETNAMESE_RESPONSE_RULE } from './ai-vietnamese';
 
 export class BudgetProviderError extends Error {
   constructor(readonly status: number) {
@@ -19,6 +20,17 @@ export async function generateBudgetJson(
   system: string,
   userText: string,
   maxOutputTokens = 12000,
+): Promise<unknown> {
+  const result = await requestBudgetJson(`${VIETNAMESE_RESPONSE_RULE}\n${system}`, userText, maxOutputTokens);
+  return ensureVietnameseAccents(result, (instruction, text) =>
+    requestBudgetJson(instruction, text, maxOutputTokens),
+  );
+}
+
+async function requestBudgetJson(
+  system: string,
+  userText: string,
+  maxOutputTokens: number,
 ): Promise<unknown> {
   const { project, apiKey, model } = budgetProviderConfig();
   let text = '';
