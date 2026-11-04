@@ -1255,33 +1255,97 @@ body:has(.weekly-reference) {
 /* Each calendar cell holds a complete meal, with individually editable dishes. */
 .weekly-table tbody td {
   vertical-align: top;
+  height: auto;
+  padding-block: 10px;
+}
+.weekly-table tbody th {
+  vertical-align: top;
+  padding-block: 10px;
+}
+.weekly-row-label {
+  min-height: 76px;
+  gap: 5px;
+  padding-block: 10px;
+}
+.weekly-row-label svg {
+  width: 23px;
+  height: 23px;
 }
 .weekly-slot-dishes {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 8px;
+  gap: 4px;
 }
 .weekly-meal-slot {
   display: grid;
-  gap: 8px;
+  gap: 5px;
   min-width: 0;
 }
-.weekly-meal-slot.has-many .weekly-meal {
-  min-height: 0;
-  padding-block: 6px;
-  gap: 4px;
-  border-radius: 12px;
+.weekly-meal-slot.is-compact .weekly-meal {
+  flex-direction: row;
+  align-items: center;
+  min-height: 44px;
+  padding: 5px 4px;
+  gap: 5px;
+  border-radius: 9px;
   background: #f6f8f0;
 }
-.weekly-meal-slot.has-many .weekly-meal-thumb {
-  width: 48px;
-  height: 38px;
-  border-radius: 9px;
+.weekly-meal-slot.is-compact .weekly-meal-thumb {
+  width: 26px;
+  height: 28px;
+  border-radius: 6px;
 }
-.weekly-meal-slot .weekly-meal > small {
+.weekly-meal-slot.is-compact .weekly-meal-thumb > svg {
+  width: 18px;
+  height: 18px;
+}
+.weekly-dish-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  text-align: left;
+}
+.weekly-meal-slot.is-compact .weekly-meal-title {
+  text-align: left;
   font-size: 10px;
+  line-height: 1.3;
+}
+.weekly-dish-copy small {
+  color: #7c8b69;
+  font-size: 9px;
+  line-height: 1.2;
+}
+.weekly-table .weekly-meal.is-empty {
+  flex-direction: row;
+  justify-content: center;
+  min-height: 44px;
+  gap: 4px;
+  padding: 6px 3px;
+  border: 1px dashed #c7d7b5;
+  border-radius: 9px;
+  background: #f6f9f1;
+}
+.weekly-table .weekly-empty-thumb {
+  width: 17px;
+  height: 17px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.weekly-table .weekly-empty-thumb > svg {
+  width: 16px;
+  height: 16px;
+}
+.weekly-extra-dishes summary {
+  padding: 5px 2px;
+  color: #537747;
+  font-size: 10px;
+  cursor: pointer;
+}
+.weekly-extra-dishes[open] summary {
+  margin-bottom: 4px;
 }
 .weekly-add-dish {
   display: flex;
@@ -1289,13 +1353,13 @@ body:has(.weekly-reference) {
   justify-content: center;
   gap: 3px;
   width: 100%;
-  min-height: 34px;
-  padding: 5px 2px;
+  min-height: 28px;
+  padding: 3px 2px;
   border: 1px dashed #b9d0a6;
   border-radius: 10px;
   background: #f5f9ed;
   color: #426d34;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
 }
 .weekly-add-dish:hover:not(:disabled) {
