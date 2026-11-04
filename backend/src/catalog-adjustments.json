@@ -1,5 +1,8 @@
 {
-  "removedRecipeSlugs": ["doc-han-036-jumeokbap-com-nam-han-quoc"],
+  "removedRecipeSlugs": [
+    "doc-han-036-jumeokbap-com-nam-han-quoc",
+    "doc-nhat-013-com-nam-nhat-ban-kinoko-gohan"
+  ],
   "timings": {
     "doc-thai-001-pad-krapow-gai-ga-xao-hung-que-thanh": {
       "totalMinutes": 20,
